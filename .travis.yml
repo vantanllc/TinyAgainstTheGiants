@@ -1,0 +1,14 @@
+nguage: objective-c
+cache: cocoapods
+osx_image: xcode8.2
+
+notifications:
+  email: false
+  on_success: never
+  on_failure: never
+
+before_install:
+  - gem install xcov --no-ri --no-rdoc --no-document
+  - gem update fastlane --no-ri --no-rdoc --no-document
+
+script: travis/script.sh
