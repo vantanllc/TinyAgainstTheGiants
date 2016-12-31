@@ -26,6 +26,7 @@ platform :ios do
       skip_slack: true,
       sdk: "iphonesimulator10.2"
     )
+  end
 
   desc "Calculate test code coverage score. Need to run test beforehand."
   lane :report_test_coverage do
