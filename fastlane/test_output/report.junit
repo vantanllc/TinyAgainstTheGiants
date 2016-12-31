@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='TinyAgainstTheGiantsUITests.xctest' tests='6' failures='0'>
+  <testsuite name='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' tests='6' failures='0'>
+    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testExample' time='0.001'/>
+    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testPerformanceExample' time='0.345'/>
+    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testExample' time='0.002'/>
+    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testPerformanceExample' time='0.416'/>
+    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testExample' time='0.001'/>
+    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testPerformanceExample' time='0.377'/>
+  </testsuite>
+</testsuites>

@@ -24,7 +24,8 @@ platform :ios do
       clean: true,
       code_coverage: true,
       skip_slack: true,
-      sdk: "iphonesimulator10.2"
+      sdk: "iphonesimulator10.2",
+      devices: ["iPhone 5s", "iPhone 6s", "iPad Air 2"]
     )
   end
 
