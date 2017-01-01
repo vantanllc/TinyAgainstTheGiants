@@ -11,4 +11,9 @@ before_install:
   - gem install xcov --no-ri --no-rdoc --no-document
   - gem update fastlane --no-ri --no-rdoc --no-document
 
-script: travis/script.sh
+install:
+  - travis/install_swiftlint.sh
+
+script:
+  - swiftlint
+  - travis/script.sh
