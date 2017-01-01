@@ -12,6 +12,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
   
+  // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -21,6 +22,7 @@ class GameViewController: UIViewController {
     presentGameSceneInDevMode(gameScene: gameScene, intoSKView: skView)
   }
   
+  // MARK: Config
   override var shouldAutorotate: Bool {
     return true
   }
@@ -34,6 +36,7 @@ class GameViewController: UIViewController {
   }
 }
 
+// MARK: GameScene
 extension GameViewController {
   func createGameScene(size: CGSize, scaleMode: SKSceneScaleMode = .resizeFill) -> GameScene {
     let gameScene = GameScene(size: size)

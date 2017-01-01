@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		47F84A9372BCFC455AF48D66 /* Pods_TinyAgainstTheGiantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09750893068B31FFDA233E29 /* Pods_TinyAgainstTheGiantsTests.framework */; };
 		8B013D701E18B15100AC7D74 /* GameSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D6F1E18B15100AC7D74 /* GameSceneTests.swift */; };
+		8B013D721E18B5F900AC7D74 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D711E18B5F900AC7D74 /* PlayerEntity.swift */; };
+		8B013D741E18B72E00AC7D74 /* PlayerEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D731E18B72E00AC7D74 /* PlayerEntityTests.swift */; };
+		8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D751E18B85000AC7D74 /* RenderComponent.swift */; };
+		8B013D781E18B89C00AC7D74 /* RenderComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D771E18B89C00AC7D74 /* RenderComponentTests.swift */; };
+		8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D791E18BED200AC7D74 /* SpriteComponent.swift */; };
+		8B013D7C1E18BEE700AC7D74 /* SpriteComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */; };
 		8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */; };
 		8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */; };
 		8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4061E177A1C0087C7E2 /* GameScene.swift */; };
@@ -44,6 +50,12 @@
 		2BB815FE8D9A209C0DF243D5 /* Pods-TinyAgainstTheGiantsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiantsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests.release.xcconfig"; sourceTree = "<group>"; };
 		34CC81EC61ED0769CEEA02F9 /* Pods_TinyAgainstTheGiants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinyAgainstTheGiants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B013D6F1E18B15100AC7D74 /* GameSceneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneTests.swift; sourceTree = "<group>"; };
+		8B013D711E18B5F900AC7D74 /* PlayerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
+		8B013D731E18B72E00AC7D74 /* PlayerEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEntityTests.swift; sourceTree = "<group>"; };
+		8B013D751E18B85000AC7D74 /* RenderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
+		8B013D771E18B89C00AC7D74 /* RenderComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponentTests.swift; sourceTree = "<group>"; };
+		8B013D791E18BED200AC7D74 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponentTests.swift; sourceTree = "<group>"; };
 		8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
 		8BC0E3FD1E177A1B0087C7E2 /* TinyAgainstTheGiants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAgainstTheGiants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +130,24 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		8B013D7D1E18BF9900AC7D74 /* ComponentTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B013D771E18B89C00AC7D74 /* RenderComponentTests.swift */,
+				8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */,
+			);
+			name = ComponentTests;
+			sourceTree = "<group>";
+		};
+		8B013D7E1E18BFAA00AC7D74 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8B013D751E18B85000AC7D74 /* RenderComponent.swift */,
+				8B013D791E18BED200AC7D74 /* SpriteComponent.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		8BC0E3F41E177A1B0087C7E2 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +178,8 @@
 				8BC0E4081E177A1C0087C7E2 /* GameViewController.swift */,
 				8B013D6E1E18B07000AC7D74 /* Support */,
 				8BC0E40D1E177A1C0087C7E2 /* Assets.xcassets */,
+				8B013D711E18B5F900AC7D74 /* PlayerEntity.swift */,
+				8B013D7E1E18BFAA00AC7D74 /* Components */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -158,6 +190,8 @@
 				8BC0E41D1E177A1C0087C7E2 /* Info.plist */,
 				8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */,
 				8B013D6F1E18B15100AC7D74 /* GameSceneTests.swift */,
+				8B013D731E18B72E00AC7D74 /* PlayerEntityTests.swift */,
+				8B013D7D1E18BF9900AC7D74 /* ComponentTests */,
 			);
 			path = TinyAgainstTheGiantsTests;
 			sourceTree = "<group>";
@@ -408,8 +442,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */,
+				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
 				8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
+				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,
+				8B013D721E18B5F900AC7D74 /* PlayerEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,8 +454,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B013D741E18B72E00AC7D74 /* PlayerEntityTests.swift in Sources */,
 				8B013D701E18B15100AC7D74 /* GameSceneTests.swift in Sources */,
+				8B013D7C1E18BEE700AC7D74 /* SpriteComponentTests.swift in Sources */,
 				8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */,
+				8B013D781E18B89C00AC7D74 /* RenderComponentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
