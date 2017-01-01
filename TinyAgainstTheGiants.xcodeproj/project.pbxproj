@@ -15,6 +15,8 @@
 		8B013D781E18B89C00AC7D74 /* RenderComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D771E18B89C00AC7D74 /* RenderComponentTests.swift */; };
 		8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D791E18BED200AC7D74 /* SpriteComponent.swift */; };
 		8B013D7C1E18BEE700AC7D74 /* SpriteComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */; };
+		8B013D811E18CEFB00AC7D74 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D801E18CEFB00AC7D74 /* EntityManager.swift */; };
+		8B013D831E18CF5600AC7D74 /* EntityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */; };
 		8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */; };
 		8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */; };
 		8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4061E177A1C0087C7E2 /* GameScene.swift */; };
@@ -55,6 +57,8 @@
 		8B013D771E18B89C00AC7D74 /* RenderComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderComponentTests.swift; sourceTree = "<group>"; };
 		8B013D791E18BED200AC7D74 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
 		8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponentTests.swift; sourceTree = "<group>"; };
+		8B013D801E18CEFB00AC7D74 /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManagerTests.swift; sourceTree = "<group>"; };
 		8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
 		8BC0E3FD1E177A1B0087C7E2 /* TinyAgainstTheGiants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAgainstTheGiants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				8BC0E40D1E177A1C0087C7E2 /* Assets.xcassets */,
 				8B013D711E18B5F900AC7D74 /* PlayerEntity.swift */,
 				8B013D7E1E18BFAA00AC7D74 /* Components */,
+				8B013D801E18CEFB00AC7D74 /* EntityManager.swift */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				8B013D6F1E18B15100AC7D74 /* GameSceneTests.swift */,
 				8B013D731E18B72E00AC7D74 /* PlayerEntityTests.swift */,
 				8B013D7D1E18BF9900AC7D74 /* ComponentTests */,
+				8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */,
 			);
 			path = TinyAgainstTheGiantsTests;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */,
+				8B013D811E18CEFB00AC7D74 /* EntityManager.swift in Sources */,
 				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
 				8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
@@ -467,6 +474,7 @@
 			files = (
 				8B013D741E18B72E00AC7D74 /* PlayerEntityTests.swift in Sources */,
 				8B013D701E18B15100AC7D74 /* GameSceneTests.swift in Sources */,
+				8B013D831E18CF5600AC7D74 /* EntityManagerTests.swift in Sources */,
 				8B013D7C1E18BEE700AC7D74 /* SpriteComponentTests.swift in Sources */,
 				8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */,
 				8B013D781E18B89C00AC7D74 /* RenderComponentTests.swift in Sources */,
