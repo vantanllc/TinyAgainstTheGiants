@@ -19,9 +19,9 @@ disabled_rules: # rule identifiers to exclude from running
 #  - trailing_semicolon
   - trailing_whitespace
 #  - type_body_length
-  - type_name
-  - variable_name_max_length
-  - variable_name_min_length
+#  - type_name
+#  - variable_name_max_length
+#  - variable_name_min_length
   - variable_name
 
 excluded: # paths to ignore during linting. overridden by `included`.
