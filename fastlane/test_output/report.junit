@@ -1,11 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='TinyAgainstTheGiantsUITests.xctest' tests='6' failures='0'>
-  <testsuite name='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' tests='6' failures='0'>
-    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testExample' time='0.001'/>
-    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testPerformanceExample' time='0.345'/>
-    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testExample' time='0.002'/>
-    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testPerformanceExample' time='0.416'/>
-    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testExample' time='0.001'/>
-    <testcase classname='TinyAgainstTheGiantsTests.TinyAgainstTheGiantsTests' name='testPerformanceExample' time='0.377'/>
+<testsuites name='TinyAgainstTheGiantsTests.xctest' tests='27' failures='0'>
+  <testsuite name='TinyAgainstTheGiantsTests.GameViewControllerSpec' tests='27' failures='0'>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_present_GameScene_in_view' time='0.018'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_allow_autorotate' time='0.015'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_only_support__allButUpsideDown_orientation' time='0.021'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_hide_status_bar' time='0.031'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_return_GameScene_with_expected_size' time='0.030'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_default_to__resizeFill_scaleMode' time='0.013'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_return_GameScene_with_expected_scaleMode' time='0.015'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__presentGameSceneInDevMode__should_turn_on_SKView_visual_debug_flags' time='0.036'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__presentGameSceneInDevMode__should_present_GameScene_in_SkView' time='0.034'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_present_GameScene_in_view' time='0.027'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_allow_autorotate' time='0.021'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_only_support__allButUpsideDown_orientation' time='0.025'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_hide_status_bar' time='0.024'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_return_GameScene_with_expected_size' time='0.034'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_default_to__resizeFill_scaleMode' time='0.021'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_return_GameScene_with_expected_scaleMode' time='0.022'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__presentGameSceneInDevMode__should_turn_on_SKView_visual_debug_flags' time='0.055'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__presentGameSceneInDevMode__should_present_GameScene_in_SkView' time='0.053'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_present_GameScene_in_view' time='0.029'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_allow_autorotate' time='0.025'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_only_support__allButUpsideDown_orientation' time='0.066'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__should_hide_status_bar' time='0.024'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_return_GameScene_with_expected_size' time='0.033'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_default_to__resizeFill_scaleMode' time='0.020'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__createGameScene__should_return_GameScene_with_expected_scaleMode' time='0.027'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__presentGameSceneInDevMode__should_turn_on_SKView_visual_debug_flags' time='0.036'/>
+    <testcase classname='TinyAgainstTheGiantsTests.GameViewControllerSpec' name='GameViewController__presentGameSceneInDevMode__should_present_GameScene_in_SkView' time='0.042'/>
   </testsuite>
 </testsuites>
