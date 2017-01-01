@@ -27,8 +27,9 @@ class GameViewControllerSpec: QuickSpec {
       
       it("should present GameScene in view") {
         gameVC.viewDidLoad()
-        let view = gameVC.view as! SKView
-        expect(view.scene).toNot(beNil())
+        if let view = gameVC.view as? SKView {
+          expect(view.scene).toNot(beNil())
+        }
       }
       
       it("should allow autorotate") {
@@ -36,7 +37,8 @@ class GameViewControllerSpec: QuickSpec {
       }
       
       it("should only support .allButUpsideDown orientation") {
-        expect(gameVC.supportedInterfaceOrientations).to(equal(UIInterfaceOrientationMask.allButUpsideDown))
+        let allButUpsideDown = UIInterfaceOrientationMask.allButUpsideDown
+        expect(gameVC.supportedInterfaceOrientations).to(equal(allButUpsideDown))
       }
       
       it("should hide status bar") {

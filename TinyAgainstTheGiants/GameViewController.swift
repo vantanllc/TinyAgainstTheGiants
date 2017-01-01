@@ -18,8 +18,9 @@ class GameViewController: UIViewController {
     
     let size = CGSize(width: 1366, height: 1024)
     let gameScene = createGameScene(size: size)
-    let skView = view as! SKView
-    presentGameSceneInDevMode(gameScene: gameScene, intoSKView: skView)
+    if let skView = view as? SKView {
+      presentGameSceneInDevMode(gameScene: gameScene, intoSKView: skView)
+    }
   }
   
   // MARK: Config
@@ -51,6 +52,3 @@ extension GameViewController {
     skView.showsPhysics = true
   }
 }
-
-
-
