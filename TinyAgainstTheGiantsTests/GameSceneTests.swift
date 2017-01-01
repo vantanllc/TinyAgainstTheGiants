@@ -6,6 +6,8 @@
 //  Copyright © 2016 Vantan LLC. All rights reserved.
 //
 
+import GameplayKit
+
 import Quick
 import Nimble
 @testable import TinyAgainstTheGiants
