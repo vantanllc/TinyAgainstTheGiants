@@ -1,2 +1,4 @@
 TinyAgainstTheGiants.xcworkspace/xcuserdata/*
 fastlane/test_output/*
+fastlane/report.xml
+

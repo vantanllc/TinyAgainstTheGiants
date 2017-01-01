@@ -29,6 +29,8 @@ class GameViewControllerSpec: QuickSpec {
         gameVC.viewDidLoad()
         if let view = gameVC.view as? SKView {
           expect(view.scene).toNot(beNil())
+        } else {
+          fail("Unexpectedly got nil.")
         }
       }
       

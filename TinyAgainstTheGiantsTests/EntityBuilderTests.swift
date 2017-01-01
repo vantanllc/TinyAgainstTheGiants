@@ -28,11 +28,8 @@ class EntityBuilderSpec: QuickSpec {
           let position = CGPoint.zero
           EntityBuilder.addPlayer(position: position, toEntityManager: entityManager)
           
-          let playerEntity = entityManager.entities.filter { entity in
-            return entity.isKind(of: PlayerEntity.self)
-          }
-          
-          expect(playerEntity.first).toNot(beNil())
+          let playerEntity = entityManager.getPlayerEntity()
+          expect(playerEntity).toNot(beNil())
         }
       }
     }

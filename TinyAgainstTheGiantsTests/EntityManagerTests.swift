@@ -15,10 +15,9 @@ import Nimble
 class EntityManagerSpec: QuickSpec {
   override func spec() {
     var entityManager: EntityManager!
-    
+    var gameScene: GameScene!
+
     describe("EntityManager") {
-      var gameScene: GameScene!
-      
       beforeEach {
         gameScene = GameScene()
         entityManager = EntityManager(scene: gameScene)
@@ -28,7 +27,38 @@ class EntityManagerSpec: QuickSpec {
         expect(entityManager.scene).to(be(gameScene))
       }
       
-      describe("basic functions") {
+      describe("Player function") {
+        var expectedNode: SKSpriteNode!
+        var expectedPlayerEntity: PlayerEntity!
+        
+        beforeEach {
+          expectedNode = SKSpriteNode()
+          expectedPlayerEntity = PlayerEntity(node: expectedNode)
+          entityManager.entities.insert(expectedPlayerEntity)
+        }
+        describe("getPlayerEntity") {
+          it("should return player's entity") {
+            let entity = entityManager.getPlayerEntity()
+            expect(entity).to(be(expectedPlayerEntity))
+          }
+        }
+        
+        describe("getPlayerSpriteNode") {
+          it("should return player's skspritenode") {
+            let node = entityManager.getPlayerSpriteNode()
+            expect(node).to(be(expectedNode))
+          }
+        }
+        
+        describe("getPlayerRenderNode") {
+          it("should return player's sknode") {
+            let node = entityManager.getPlayerRenderNode()
+            expect(node).toNot(beNil())
+          }
+        }
+      }
+      
+      describe("collection functions") {
         var expectedEntity: GKEntity!
         
         beforeEach {

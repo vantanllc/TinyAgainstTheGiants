@@ -25,6 +25,24 @@ class EntityManager {
   var entitiesToRemove = Set<GKEntity>()
 }
 
+// MARK: Player Functions
+extension EntityManager {
+  func getPlayerSpriteNode() -> SKSpriteNode? {
+    let playerEntity = getPlayerEntity()
+    return playerEntity?.component(ofType: SpriteComponent.self)?.node
+  }
+  
+  func getPlayerEntity() -> GKEntity? {
+    return entities.filter { entity in return entity.isKind(of: PlayerEntity.self)}.first
+  }
+  
+  func getPlayerRenderNode() -> SKNode? {
+    let playerEntity = getPlayerEntity()
+    return playerEntity?.component(ofType: RenderComponent.self)?.node
+  }
+}
+
+// MARK: Collection Functions
 extension EntityManager {
   func add(entity: GKEntity) {
     entities.insert(entity)
