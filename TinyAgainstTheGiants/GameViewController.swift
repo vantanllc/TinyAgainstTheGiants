@@ -17,9 +17,15 @@ class GameViewController: UIViewController {
     super.viewDidLoad()
     
     let size = CGSize(width: 1366, height: 1024)
-    let gameScene = createGameScene(size: size)
+    gameScene = createGameScene(size: size)
     if let skView = view as? SKView {
       presentGameSceneInDevMode(gameScene: gameScene, intoSKView: skView)
+    }
+  }
+  
+  override func viewDidLayoutSubviews() {
+    if gameScene.size != view.bounds.size {
+      gameScene.size = view.bounds.size
     }
   }
   
@@ -35,6 +41,9 @@ class GameViewController: UIViewController {
   override var prefersStatusBarHidden: Bool {
     return true
   }
+  
+  // MARK: Properties
+  var gameScene: GameScene!
 }
 
 // MARK: GameScene

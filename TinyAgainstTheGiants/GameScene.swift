@@ -21,7 +21,6 @@ class GameScene: SKScene {
   var entityManager: EntityManager!
 }
 
-
 // MARK: Game Setup Function
 extension GameScene {
   func startNewGame() {
