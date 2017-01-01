@@ -21,6 +21,23 @@ class GameSceneSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      describe("constraintCameraToPlayer") {
+        it("should update camera constraint") {
+          let camera = SKCameraNode()
+          gameScene.camera = camera
+          gameScene.entityManager.entities.insert(PlayerEntity(node: SKSpriteNode()))
+          gameScene.constraintCameraToPlayer()
+          expect(camera.constraints).to(haveCount(1))
+        }
+      }
+      
+      describe("startCamera") {
+        it("should set gameScene.camera") {
+          gameScene.startCamera()
+          expect(gameScene.camera).toNot(beNil())
+        }
+      }
+      
       describe("sceneDidLoad") {
         it("should initialize entityManager") {
           gameScene.sceneDidLoad()

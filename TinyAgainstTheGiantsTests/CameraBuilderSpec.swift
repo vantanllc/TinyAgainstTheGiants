@@ -20,11 +20,27 @@ class CameraBuilderSpec: QuickSpec {
       camera = SKCameraNode()
     }
     
+    describe("createCameraConstraintToCenterOnSpriteNode") {
+      it("should return expected constraint") {
+        let node = SKSpriteNode()
+        let constraint = CameraBuilder.createCameraConstraintToCenterOnSpriteNode(node)
+        expect(constraint).toNot(beNil())
+      }
+    }
+    
     describe("addCamera") {
-      it("should add camera node to scene") {
-        let scene = SKScene()
+      var scene: SKScene!
+      beforeEach {
+        scene = SKScene()
+      }
+      it("should add camera node to scene.camera") {
         CameraBuilder.addCamera(camera, toScene: scene)
         expect(scene.camera).to(be(camera))
+      }
+      
+      it("should add camera node to scene as child") {
+        CameraBuilder.addCamera(camera, toScene: scene)
+        expect(scene.children).to(contain(camera))
       }
     }
     
