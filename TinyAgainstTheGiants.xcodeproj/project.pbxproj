@@ -28,7 +28,7 @@
 		8BC0E4111E177A1C0087C7E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC0E40F1E177A1C0087C7E2 /* LaunchScreen.storyboard */; };
 		8BEAD7F51E19B1EC007F68C5 /* CameraBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */; };
 		8BEAD7F71E19B288007F68C5 /* CameraBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7F61E19B288007F68C5 /* CameraBuilderSpec.swift */; };
-		8BEAD7FB1E19C9CB007F68C5 /* NoiseMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FA1E19C9CB007F68C5 /* NoiseMap.swift */; };
+		8BEAD7FB1E19C9CB007F68C5 /* NoiseMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FA1E19C9CB007F68C5 /* NoiseMapBuilder.swift */; };
 		8BEAD7FE1E19CAE2007F68C5 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */; };
 		8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */; };
 		8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */; };
@@ -84,7 +84,7 @@
 		8BC0E4281E177A1C0087C7E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBuilder.swift; sourceTree = "<group>"; };
 		8BEAD7F61E19B288007F68C5 /* CameraBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBuilderSpec.swift; sourceTree = "<group>"; };
-		8BEAD7FA1E19C9CB007F68C5 /* NoiseMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseMap.swift; sourceTree = "<group>"; };
+		8BEAD7FA1E19C9CB007F68C5 /* NoiseMapBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseMapBuilder.swift; sourceTree = "<group>"; };
 		8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilder.swift; sourceTree = "<group>"; };
 		8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilderSpec.swift; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 				8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */,
 				8B013D6F1E18B15100AC7D74 /* GameSceneTests.swift */,
 				8B013D731E18B72E00AC7D74 /* PlayerEntityTests.swift */,
-				8B013D7D1E18BF9900AC7D74 /* ComponentTests */,
 				8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */,
+				8B013D7D1E18BF9900AC7D74 /* ComponentTests */,
 				8BEAD7F91E19C724007F68C5 /* BuilderTests */,
 			);
 			path = TinyAgainstTheGiantsTests;
@@ -251,7 +251,7 @@
 		8BEAD7FC1E19C9DF007F68C5 /* NoiseMaps */ = {
 			isa = PBXGroup;
 			children = (
-				8BEAD7FA1E19C9CB007F68C5 /* NoiseMap.swift */,
+				8BEAD7FA1E19C9CB007F68C5 /* NoiseMapBuilder.swift */,
 			);
 			name = NoiseMaps;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BEAD7F51E19B1EC007F68C5 /* CameraBuilder.swift in Sources */,
-				8BEAD7FB1E19C9CB007F68C5 /* NoiseMap.swift in Sources */,
+				8BEAD7FB1E19C9CB007F68C5 /* NoiseMapBuilder.swift in Sources */,
 				8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */,
 				8B013D811E18CEFB00AC7D74 /* EntityManager.swift in Sources */,
 				8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */,

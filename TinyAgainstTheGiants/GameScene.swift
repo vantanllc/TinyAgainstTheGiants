@@ -16,12 +16,16 @@ class GameScene: SKScene {
     
     entityManager = EntityManager(scene: self)
     startCamera()
+    addBackgroundTileMap()
+    addObstacleTileMap()
     startNewGame()
     constraintCameraToPlayer()
   }
   
   // MARK: Properties
   var entityManager: EntityManager!
+  var currentBackgroundTileMap: SKTileMapNode!
+  var currentObstacleTileMap: SKTileMapNode!
 }
 
 // MARK: Game Setup Function
@@ -42,5 +46,23 @@ extension GameScene {
     
     let constraint = CameraBuilder.createCameraConstraintToCenterOnSpriteNode(player)
     CameraBuilder.addContraints([constraint], toCamera: camera)
+  }
+  
+  func addBackgroundTileMap() {
+    guard let tileSet = SKTileSet(named: "Sand") else {
+      return
+    }
+    currentBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: 42, rows: 32)
+    addChild(currentBackgroundTileMap)
+  }
+  
+  func addObstacleTileMap() {
+    guard let tileSet = SKTileSet(named: "Grass") else {
+      return
+    }
+    
+    let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
+    currentObstacleTileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: 42, rows: 32)
+    addChild(currentObstacleTileMap)
   }
 }

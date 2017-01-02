@@ -21,6 +21,20 @@ class GameSceneSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      describe("addBackgroundTileMap") {
+        it("should add currentBackgroundTileMap to scene as child") {
+          gameScene.addBackgroundTileMap()
+          expect(gameScene.currentBackgroundTileMap.scene).to(be(gameScene))
+        }
+      }
+      
+      describe("addObstacleTileMap") {
+        it("should add currentObstacleTileMap to scene as child") {
+          gameScene.addObstacleTileMap()
+          expect(gameScene.currentObstacleTileMap.scene).to(be(gameScene))
+        }
+      }
+      
       describe("constraintCameraToPlayer") {
         it("should update camera constraint") {
           let camera = SKCameraNode()
