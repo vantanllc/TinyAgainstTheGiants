@@ -32,7 +32,11 @@ class GameScene: SKScene {
   // MARK: Properties
   var entityManager: EntityManager!
   var currentBackgroundTileMap: SKTileMapNode!
+  var nextBackgroundTileMap: SKTileMapNode!
   var currentObstacleTileMap: SKTileMapNode!
+  var nextObstacleTileMap: SKTileMapNode!
+  let tileMapColumns = 42
+  let tileMapRows = 32
   
   // MARK: Nodes
   var worldNode: SKNode!
@@ -70,8 +74,19 @@ extension GameScene {
     guard let tileSet = SKTileSet(named: "Sand") else {
       return
     }
-    currentBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: 42, rows: 32)
+    currentBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
     worldNode.addChild(currentBackgroundTileMap)
+    addNextBackgroundTileMap()
+  }
+  
+  func addNextBackgroundTileMap() {
+    guard let tileSet = SKTileSet(named: "Sand") else {
+      return
+    }
+    nextBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
+    nextBackgroundTileMap.position.x = currentBackgroundTileMap.frame.minX
+    nextBackgroundTileMap.position.y = currentBackgroundTileMap.frame.minY
+    worldNode.addChild(nextBackgroundTileMap)
   }
   
   func addObstacleTileMap() {
@@ -80,7 +95,19 @@ extension GameScene {
     }
     
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
-    currentObstacleTileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: 42, rows: 32)
+    currentObstacleTileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
     worldNode.addChild(currentObstacleTileMap)
+    addNextObstacleTileMap()
+  }
+  
+  func addNextObstacleTileMap() {
+    guard let tileSet = SKTileSet(named: "Grass") else {
+      return
+    }
+    let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
+    nextObstacleTileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
+    nextObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
+    nextObstacleTileMap.position.y = currentObstacleTileMap.frame.minY
+    worldNode.addChild(nextObstacleTileMap)
   }
 }

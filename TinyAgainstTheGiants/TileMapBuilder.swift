@@ -69,6 +69,21 @@ class TileMapBuilder {
       return nil
     }
     
+    let tileMap = createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: columns, rows: rows, threshold: threshold)
+    
+    let topRow = rows - 1
+    for column in 0..<columns {
+      tileMap?.setTileGroup(tileGroup, forColumn: column, row: topRow)
+    }
+    
+    return tileMap
+  }
+  
+  static func createEdgedTileMapWithNoiseMap(_ noiseMap: GKNoiseMap, withTileSet tileSet: SKTileSet, columns: Int, rows: Int, threshold: Float = 0.50) -> SKTileMapNode? {
+    guard let tileGroup = tileSet.tileGroups.first else {
+      return nil
+    }
+    
     let tileMap = createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: columns, rows: rows, threshold: threshold)
     
     for column in [0, columns - 1] {
@@ -76,12 +91,7 @@ class TileMapBuilder {
         tileMap?.setTileGroup(tileGroup, forColumn: column, row: row)
       }
     }
-    
-    let topRow = rows - 1
-    for column in 0..<columns {
-      tileMap?.setTileGroup(tileGroup, forColumn: column, row: topRow)
-    }
-    
+
     return tileMap
   }
   

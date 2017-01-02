@@ -32,6 +32,31 @@ class TileMapBuilderSpec: QuickSpec {
         tileGroup = SKTileGroup(tileDefinition: tileDefinition)
       }
       
+      describe("createEdgedTileMapWithNoiseMap") {
+        context("tileSet with TileGroup") {
+          beforeEach {
+            tileSet = SKTileSet(tileGroups: [tileGroup])
+            tileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: expectedColumns, rows: expectedRows)
+          }
+          
+          it("should return tilemap with tilegroup along the side edges") {
+            for column in [0, expectedColumns - 1] {
+              for row in 0..<expectedRows {
+                expect(tileMap.tileGroup(atColumn: column, row: row)).to(equal(tileGroup))
+              }
+            }
+          }
+        }
+        
+        context("tileSet without TileGroup") {
+          it("should return nil") {
+            tileSet = SKTileSet()
+            tileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: expectedColumns, rows: expectedRows)
+            expect(tileMap).to(beNil())
+          }
+        }
+      }
+      
       describe("createCappedTileMapWithNoiseMap") {
         context("tileSet with TileGroup") {
           beforeEach {
