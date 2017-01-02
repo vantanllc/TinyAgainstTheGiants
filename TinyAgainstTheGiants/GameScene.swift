@@ -19,7 +19,11 @@ class GameScene: SKScene {
     addBackgroundTileMap()
     addObstacleTileMap()
     startNewGame()
-    constraintCameraToPlayer()
+    CameraBuilder.constraintCamera(camera!, toSpriteNode: entityManager.getPlayerSpriteNode()!)
+  }
+  
+  override func didMove(to view: SKView) {
+    CameraBuilder.constraintCamera(camera!, toTileMapEdges: currentBackgroundTileMap, inScene: self)
   }
   
   // MARK: Properties
@@ -56,33 +60,12 @@ extension GameScene {
     CameraBuilder.addCamera(camera, toScene: self)
   }
   
-  func constraintCameraToPlayer() {
-    guard let camera = camera, let player = entityManager.getPlayerSpriteNode() else {
-      return
-    }
-    
-    let constraint = CameraBuilder.createCameraConstraintToCenterOnSpriteNode(player)
-    CameraBuilder.addContraints([constraint], toCamera: camera)
-  }
-  
-  func constraintCamera(_ camera: SKCameraNode, toTileMapEdges tileMap: SKTileMapNode, inScene scene: SKScene, withInset inset: CGFloat = 100) {
-    let scaledSize = CGSize(width: scene.size.width * camera.xScale, height: scene.size.height * camera.yScale)
-    let xLowerLimit = scaledSize.width / 2 - inset
-    let xUpperLimit = tileMap.mapSize.width - scaledSize.width / 2 + inset
-    let xRange = SKRange(lowerLimit: xLowerLimit, upperLimit: xUpperLimit)
-    
-    let yUpperLimit = -scaledSize.height / 2 + inset
-    let yRange = SKRange(upperLimit: yUpperLimit)
-    let edgeContraint = SKConstraint.positionX(xRange, y: yRange)
-    
-    CameraBuilder.addContraints([edgeContraint], toCamera: camera)
-  }
-  
   func addBackgroundTileMap() {
     guard let tileSet = SKTileSet(named: "Sand") else {
       return
     }
     currentBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: 42, rows: 32)
+    currentBackgroundTileMap.anchorPoint = CGPoint(x: 0, y: 1)
     addChild(currentBackgroundTileMap)
   }
   
@@ -93,6 +76,7 @@ extension GameScene {
     
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
     currentObstacleTileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: 42, rows: 32)
+    currentObstacleTileMap.anchorPoint = CGPoint(x: 0, y: 1)
     addChild(currentObstacleTileMap)
   }
 }

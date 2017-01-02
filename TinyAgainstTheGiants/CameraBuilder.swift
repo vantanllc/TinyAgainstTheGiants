@@ -9,6 +9,24 @@
 import GameplayKit
 
 class CameraBuilder {
+  static func constraintCamera(_ camera: SKCameraNode, toSpriteNode node: SKSpriteNode) {
+    let constraint = createCameraConstraintToCenterOnSpriteNode(node)
+    addContraints([constraint], toCamera: camera)
+  }
+  
+  static func constraintCamera(_ camera: SKCameraNode, toTileMapEdges tileMap: SKTileMapNode, inScene scene: SKScene, withInset inset: CGFloat = 100) {
+    let scaledSize = CGSize(width: scene.size.width * camera.xScale, height: scene.size.height * camera.yScale)
+    let xLowerLimit = scaledSize.width / 2 - inset
+    let xUpperLimit = tileMap.mapSize.width - scaledSize.width / 2 + inset
+    let xRange = SKRange(lowerLimit: xLowerLimit, upperLimit: xUpperLimit)
+    
+    let yUpperLimit = -scaledSize.height / 2 + inset
+    let yRange = SKRange(upperLimit: yUpperLimit)
+    let edgeContraint = SKConstraint.positionX(xRange, y: yRange)
+    
+    addContraints([edgeContraint], toCamera: camera)
+  }
+  
   static func createCameraConstraintToCenterOnSpriteNode(_ node: SKSpriteNode) -> SKConstraint {
     let rangeOfZero = SKRange(constantValue: 0)
     let constraint = SKConstraint.distance(rangeOfZero, to: node)

@@ -20,6 +20,24 @@ class CameraBuilderSpec: QuickSpec {
       camera = SKCameraNode()
     }
     
+    
+    describe("constraintCamera(_:toSpriteNode)") {
+      it("should update camera constraint") {
+        CameraBuilder.constraintCamera(camera, toSpriteNode: SKSpriteNode())
+        expect(camera.constraints).to(haveCount(1))
+      }
+    }
+    
+    describe("constraintCamera(_:ToTileMapEdges)") {
+      it("should update camera constraint") {
+        let tileMap = SKTileMapNode()
+        let scene = SKScene()
+        
+        CameraBuilder.constraintCamera(camera, toTileMapEdges: tileMap, inScene: scene)
+        expect(camera.constraints).to(haveCount(1))
+      }
+    }
+    
     describe("createCameraConstraintToCenterOnSpriteNode") {
       it("should return expected constraint") {
         let node = SKSpriteNode()

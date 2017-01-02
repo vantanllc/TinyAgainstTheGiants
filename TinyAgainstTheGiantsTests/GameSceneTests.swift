@@ -21,38 +21,31 @@ class GameSceneSpec: QuickSpec {
         gameScene = GameScene()
       }
       
-      describe("addBackgroundTileMap") {
-        it("should add currentBackgroundTileMap to scene as child") {
-          gameScene.addBackgroundTileMap()
-          expect(gameScene.currentBackgroundTileMap.scene).to(be(gameScene))
-        }
-      }
-      
-      describe("addObstacleTileMap") {
-        it("should add currentObstacleTileMap to scene as child") {
-          gameScene.addObstacleTileMap()
-          expect(gameScene.currentObstacleTileMap.scene).to(be(gameScene))
-        }
-      }
-      
-      describe("constraintCameraToPlayer") {
-        it("should update camera constraint") {
-          let camera = SKCameraNode()
-          gameScene.camera = camera
-          gameScene.entityManager.entities.insert(PlayerEntity(node: SKSpriteNode()))
-          gameScene.constraintCameraToPlayer()
-          expect(camera.constraints).to(haveCount(1))
-        }
-      }
-      
-      describe("constraintCameraToTileMapEdges") {
-        it("should update camera constraint") {
-          let camera = SKCameraNode()
-          gameScene.camera = camera
-          let tileMap = SKTileMapNode()
+      describe("tilemap functions") {
+        let expectedAnchorPoint = CGPoint(x: 0, y: 1)
 
-          gameScene.constraintCamera(camera, toTileMapEdges: tileMap, inScene: gameScene)
-          expect(camera.constraints).to(haveCount(1))
+        describe("addBackgroundTileMap") {
+          it("should add currentBackgroundTileMap to scene as child") {
+            gameScene.addBackgroundTileMap()
+            expect(gameScene.currentBackgroundTileMap.scene).to(be(gameScene))
+          }
+          
+          it("should update currentBackgroundTileMap anchorPoint") {
+            gameScene.addBackgroundTileMap()
+            expect(gameScene.currentBackgroundTileMap.anchorPoint).to(equal(expectedAnchorPoint))
+          }
+        }
+        
+        describe("addObstacleTileMap") {
+          it("should add currentObstacleTileMap to scene as child") {
+            gameScene.addObstacleTileMap()
+            expect(gameScene.currentObstacleTileMap.scene).to(be(gameScene))
+          }
+          
+          it("should update currentObstacleTileMap anchorPoint") {
+            gameScene.addObstacleTileMap()
+            expect(gameScene.currentObstacleTileMap.anchorPoint).to(equal(expectedAnchorPoint))
+          }
         }
       }
       

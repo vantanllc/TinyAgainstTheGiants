@@ -15,7 +15,7 @@ import Nimble
 class TileMapBuilderSpec: QuickSpec {
   override func spec() {
     describe("TileMapBuilder") {
-      let trialCount = stride(from: 1, to: 100, by: 1)
+      let trialCount = stride(from: 1, to: 10, by: 1)
       let threshold: Float = 0.5
       let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
       let expectedColumns = 300
