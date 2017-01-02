@@ -64,6 +64,27 @@ class TileMapBuilder {
     return tileMap
   }
   
+  static func createCappedTileMapWithNoiseMap(_ noiseMap: GKNoiseMap, withTileSet tileSet: SKTileSet, columns: Int, rows: Int, threshold: Float = 0.50) -> SKTileMapNode? {
+    guard let tileGroup = tileSet.tileGroups.first else {
+      return nil
+    }
+    
+    let tileMap = createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: columns, rows: rows, threshold: threshold)
+    
+    for column in [0, columns - 1] {
+      for row in 0..<rows {
+        tileMap?.setTileGroup(tileGroup, forColumn: column, row: row)
+      }
+    }
+    
+    let topRow = rows - 1
+    for column in 0..<columns {
+      tileMap?.setTileGroup(tileGroup, forColumn: column, row: topRow)
+    }
+    
+    return tileMap
+  }
+  
   // MARK: Properties
   static let anchorPoint = CGPoint(x: 0, y: 1)
 }

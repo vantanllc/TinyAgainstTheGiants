@@ -80,7 +80,7 @@ extension GameScene {
     }
     
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
-    currentObstacleTileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: 42, rows: 32)
+    currentObstacleTileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: 42, rows: 32)
     worldNode.addChild(currentObstacleTileMap)
   }
 }
