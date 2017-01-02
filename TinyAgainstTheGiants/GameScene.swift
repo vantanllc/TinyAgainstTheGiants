@@ -28,6 +28,23 @@ class GameScene: SKScene {
   var currentObstacleTileMap: SKTileMapNode!
 }
 
+// MARK: Touches
+extension GameScene {
+  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if let touch = touches.first {
+      let touchLocation = touch.location(in: self.view)
+      let previousTouchLocation = touch.previousLocation(in: self.view)
+      
+      if let playerNode = entityManager.getPlayerRenderNode() {
+        let change = touchLocation - previousTouchLocation
+        let changeNormalized = change.normalized()
+        let vector = CGVector(dx: 30 * changeNormalized.x, dy: -30 * changeNormalized.y)
+        playerNode.physicsBody?.applyForce(vector)
+      }
+    }
+  }
+}
+
 // MARK: Game Setup Function
 extension GameScene {
   func startNewGame() {
