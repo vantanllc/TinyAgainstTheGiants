@@ -15,8 +15,10 @@ import Nimble
 class TileMapBuilderSpec: QuickSpec {
   override func spec() {
     describe("TileMapBuilder") {
-      let expectedColumns = 9
-      let expectedRows = 10
+      let threshold: Float = 0.5
+      let noiseMap = getPerlinNoiseMap(frequency: 10)
+      let expectedColumns = 300
+      let expectedRows = 200
       let expectedSize = CGSize(width: 100, height: 100)
       var tileSet: SKTileSet!
       var tileGroup: SKTileGroup!
@@ -28,12 +30,94 @@ class TileMapBuilderSpec: QuickSpec {
         tileGroup = SKTileGroup(tileDefinition: tileDefinition)
       }
       
-      describe("createTileMapWithNoiseMap") {
+      describe("getRandomPositionNotOnTileGroupInTileMap") {
+        beforeEach {
+          tileSet = SKTileSet(tileGroups: [tileGroup])
+        }
         
+        context("given a tileMap with only one missing tilegroup") {
+          it("should return random points") {
+            tileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: expectedColumns, rows: expectedRows)
+            tileMap.setTileGroup(nil, forColumn: 5, row: 9)
+            
+            var previousPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
+            
+            for _ in 1...100 {
+              let nextPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
+              expect(nextPoint).to(equal(previousPoint))
+              
+              previousPoint = nextPoint
+            }
+          }
+        }
+        
+        context("given a tileMap with many missing tilegroups") {
+          it("should return random points") {
+            tileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: expectedColumns, rows: expectedRows)
+            
+            var previousPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
+
+            for _ in 1...100 {
+              let nextPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
+              expect(nextPoint).toNot(equal(previousPoint))
+              
+              previousPoint = nextPoint
+            }
+          }
+        }
+      }
+      
+      describe("getRandomPositionInTileMap") {
+        context("when given a tilemap with many tilegroup") {
+          it("should return random points") {
+            tileSet = SKTileSet(tileGroups: [tileGroup])
+            tileMap = SKTileMapNode(tileSet: tileSet, columns: expectedColumns, rows: expectedRows, tileSize: tileSet.defaultTileSize)
+            
+            var previousPoint = TileMapBuilder.getRandomPositionInTileMap(tileMap)
+            
+            for _ in 1...100 {
+              let nextPoint = TileMapBuilder.getRandomPositionInTileMap(tileMap)
+              expect(nextPoint).toNot(equal(previousPoint))
+              
+              previousPoint = nextPoint
+            }
+          }
+        }
+        
+        context("when given a tilemap with one tilegroup") {
+          it("should return the same point") {
+            tileMap = SKTileMapNode(tileSet: tileSet, columns: 1, rows: 1, tileSize: tileSet.defaultTileSize)
+            
+            var previousPoint = TileMapBuilder.getRandomPositionInTileMap(tileMap)
+
+            for _ in 1...100 {
+              let nextPoint = TileMapBuilder.getRandomPositionInTileMap(tileMap)
+              expect(nextPoint).to(equal(previousPoint))
+              
+              previousPoint = nextPoint
+            }
+          }
+        }
+      }
+      
+      describe("createTileMapWithNoiseMap") {
         context("tileSet with tileGroup") {
           beforeEach {
             tileSet = SKTileSet(tileGroups: [tileGroup])
-            tileMap = TileMapBuilder.createTileMapWithNoiseMap(GKNoiseMap(), withTileSet: tileSet, columns: expectedColumns, rows: expectedRows)
+            tileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: expectedColumns, rows: expectedRows, threshold: threshold)
+          }
+          
+          it("should return tilemap with tilegroup matching noisemap") {
+            for column in 0..<expectedColumns {
+              for row in 0..<expectedRows {
+                let vector = vector_int2(Int32(column), Int32(row))
+                if noiseMap.value(at: vector) >= threshold {
+                  expect(tileMap.tileGroup(atColumn: column, row: row)).to(equal(tileGroup))
+                } else {
+                  expect(tileMap.tileGroup(atColumn: column, row: row)).to(beNil())
+                }
+              }
+            }
           }
           
           it("should return tilemap with automapping enabled") {
@@ -56,7 +140,7 @@ class TileMapBuilderSpec: QuickSpec {
         context("tileSet without tileGroup") {
           it("should return nil") {
             tileSet = SKTileSet()
-            tileMap = TileMapBuilder.createTileMapWithNoiseMap(GKNoiseMap(), withTileSet: tileSet, columns: expectedColumns, rows: expectedRows)
+            tileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: expectedColumns, rows: expectedRows)
             expect(tileMap).to(beNil())
           }
         }

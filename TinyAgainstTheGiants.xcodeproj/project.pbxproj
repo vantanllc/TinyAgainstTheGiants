@@ -202,7 +202,6 @@
 				8BEAD7F81E19C715007F68C5 /* Builders */,
 				8BEAD7FC1E19C9DF007F68C5 /* NoiseMaps */,
 				8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */,
-				8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -217,7 +216,6 @@
 				8B013D7D1E18BF9900AC7D74 /* ComponentTests */,
 				8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */,
 				8BEAD7F91E19C724007F68C5 /* BuilderTests */,
-				8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */,
 			);
 			path = TinyAgainstTheGiantsTests;
 			sourceTree = "<group>";
@@ -233,6 +231,7 @@
 		8BEAD7F81E19C715007F68C5 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
+				8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */,
 				8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */,
 				8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */,
 			);
@@ -242,6 +241,7 @@
 		8BEAD7F91E19C724007F68C5 /* BuilderTests */ = {
 			isa = PBXGroup;
 			children = (
+				8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */,
 				8B0EB1CA1E194AAE00128B41 /* EntityBuilderTests.swift */,
 				8BEAD7F61E19B288007F68C5 /* CameraBuilderSpec.swift */,
 			);
