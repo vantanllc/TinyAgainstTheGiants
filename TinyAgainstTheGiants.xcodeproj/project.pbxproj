@@ -30,11 +30,11 @@
 		8BC0E40E1E177A1C0087C7E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC0E40D1E177A1C0087C7E2 /* Assets.xcassets */; };
 		8BC0E4111E177A1C0087C7E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC0E40F1E177A1C0087C7E2 /* LaunchScreen.storyboard */; };
 		8BEAD7F51E19B1EC007F68C5 /* CameraBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */; };
-		8BEAD7F71E19B288007F68C5 /* CameraBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7F61E19B288007F68C5 /* CameraBuilderSpec.swift */; };
+		8BEAD7F71E19B288007F68C5 /* CameraBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7F61E19B288007F68C5 /* CameraBuilderTests.swift */; };
 		8BEAD7FB1E19C9CB007F68C5 /* NoiseMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FA1E19C9CB007F68C5 /* NoiseMapBuilder.swift */; };
 		8BEAD7FE1E19CAE2007F68C5 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */; };
 		8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */; };
-		8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */; };
+		8BEAD8021E19D044007F68C5 /* TileMapBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD8011E19D044007F68C5 /* TileMapBuilderTests.swift */; };
 		C905AE553631015C9015B74C /* Pods_TinyAgainstTheGiants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CC81EC61ED0769CEEA02F9 /* Pods_TinyAgainstTheGiants.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,11 +89,11 @@
 		8BC0E4221E177A1C0087C7E2 /* TinyAgainstTheGiantsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyAgainstTheGiantsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC0E4281E177A1C0087C7E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBuilder.swift; sourceTree = "<group>"; };
-		8BEAD7F61E19B288007F68C5 /* CameraBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBuilderSpec.swift; sourceTree = "<group>"; };
+		8BEAD7F61E19B288007F68C5 /* CameraBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBuilderTests.swift; sourceTree = "<group>"; };
 		8BEAD7FA1E19C9CB007F68C5 /* NoiseMapBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseMapBuilder.swift; sourceTree = "<group>"; };
 		8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilder.swift; sourceTree = "<group>"; };
-		8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilderSpec.swift; sourceTree = "<group>"; };
+		8BEAD8011E19D044007F68C5 /* TileMapBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilderTests.swift; sourceTree = "<group>"; };
 		C899D8E53AB62DBECDADCEE0 /* Pods-TinyAgainstTheGiants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiants.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,9 +250,9 @@
 		8BEAD7F91E19C724007F68C5 /* BuilderTests */ = {
 			isa = PBXGroup;
 			children = (
-				8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */,
+				8BEAD8011E19D044007F68C5 /* TileMapBuilderTests.swift */,
 				8B0EB1CA1E194AAE00128B41 /* EntityBuilderTests.swift */,
-				8BEAD7F61E19B288007F68C5 /* CameraBuilderSpec.swift */,
+				8BEAD7F61E19B288007F68C5 /* CameraBuilderTests.swift */,
 			);
 			name = BuilderTests;
 			sourceTree = "<group>";
@@ -541,9 +541,9 @@
 				8B0EB1CB1E194AAE00128B41 /* EntityBuilderTests.swift in Sources */,
 				8B013D831E18CF5600AC7D74 /* EntityManagerTests.swift in Sources */,
 				8B013D7C1E18BEE700AC7D74 /* SpriteComponentTests.swift in Sources */,
-				8BEAD7F71E19B288007F68C5 /* CameraBuilderSpec.swift in Sources */,
+				8BEAD7F71E19B288007F68C5 /* CameraBuilderTests.swift in Sources */,
 				8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */,
-				8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */,
+				8BEAD8021E19D044007F68C5 /* TileMapBuilderTests.swift in Sources */,
 				8B013D781E18B89C00AC7D74 /* RenderComponentTests.swift in Sources */,
 				8B0708951E1A2C6B00A7310D /* PhysicsComponentTests.swift in Sources */,
 			);
