@@ -15,6 +15,7 @@ import Nimble
 class TileMapBuilderSpec: QuickSpec {
   override func spec() {
     describe("TileMapBuilder") {
+      let trialCount = stride(from: 1, to: 100, by: 1)
       let threshold: Float = 0.5
       let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
       let expectedColumns = 300
@@ -36,32 +37,50 @@ class TileMapBuilderSpec: QuickSpec {
         }
         
         context("given a tileMap with only one missing tilegroup") {
-          it("should return random points") {
+          beforeEach {
             tileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: expectedColumns, rows: expectedRows)
             tileMap.setTileGroup(nil, forColumn: 5, row: 9)
-            
+          }
+          it("should return the same random points") {
             var previousPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
-            
-            for _ in 1...100 {
+            for _ in trialCount {
               let nextPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
               expect(nextPoint).to(equal(previousPoint))
               
               previousPoint = nextPoint
             }
           }
+          
+          it("should return random points not on a tilegroup") {
+            for _ in trialCount {
+              let nextPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
+              let column = tileMap.tileColumnIndex(fromPosition: nextPoint)
+              let row = tileMap.tileRowIndex(fromPosition: nextPoint)
+              expect(tileMap.tileGroup(atColumn: column, row: row)).to(beNil())
+            }
+          }
         }
         
         context("given a tileMap with many missing tilegroups") {
-          it("should return random points") {
+          beforeEach {
             tileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: expectedColumns, rows: expectedRows)
-            
-            var previousPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
 
-            for _ in 1...100 {
+          }
+          it("should return random points") {
+            var previousPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
+            for _ in trialCount {
               let nextPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
               expect(nextPoint).toNot(equal(previousPoint))
               
               previousPoint = nextPoint
+            }
+          }
+          it("should return random points not on a tilegroup") {
+            for _ in trialCount {
+              let nextPoint = TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(tileMap)
+              let column = tileMap.tileColumnIndex(fromPosition: nextPoint)
+              let row = tileMap.tileRowIndex(fromPosition: nextPoint)
+              expect(tileMap.tileGroup(atColumn: column, row: row)).to(beNil())
             }
           }
         }
@@ -75,7 +94,7 @@ class TileMapBuilderSpec: QuickSpec {
             
             var previousPoint = TileMapBuilder.getRandomPositionInTileMap(tileMap)
             
-            for _ in 1...100 {
+            for _ in trialCount {
               let nextPoint = TileMapBuilder.getRandomPositionInTileMap(tileMap)
               expect(nextPoint).toNot(equal(previousPoint))
               
@@ -90,7 +109,7 @@ class TileMapBuilderSpec: QuickSpec {
             
             var previousPoint = TileMapBuilder.getRandomPositionInTileMap(tileMap)
 
-            for _ in 1...100 {
+            for _ in trialCount {
               let nextPoint = TileMapBuilder.getRandomPositionInTileMap(tileMap)
               expect(nextPoint).to(equal(previousPoint))
               

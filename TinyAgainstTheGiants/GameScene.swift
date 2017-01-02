@@ -48,7 +48,7 @@ extension GameScene {
 // MARK: Game Setup Function
 extension GameScene {
   func startNewGame() {
-    EntityBuilder.addPlayer(position: CGPoint.zero, toEntityManager: entityManager)
+    EntityBuilder.addPlayer(position: TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(currentObstacleTileMap), toEntityManager: entityManager)
   }
   
   func startCamera() {
