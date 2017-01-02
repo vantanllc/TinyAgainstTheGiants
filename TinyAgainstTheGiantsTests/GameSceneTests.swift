@@ -45,6 +45,17 @@ class GameSceneSpec: QuickSpec {
         }
       }
       
+      describe("constraintCameraToTileMapEdges") {
+        it("should update camera constraint") {
+          let camera = SKCameraNode()
+          gameScene.camera = camera
+          let tileMap = SKTileMapNode()
+
+          gameScene.constraintCamera(camera, toTileMapEdges: tileMap, inScene: gameScene)
+          expect(camera.constraints).to(haveCount(1))
+        }
+      }
+      
       describe("startCamera") {
         it("should set gameScene.camera") {
           gameScene.startCamera()
