@@ -17,6 +17,8 @@
 		8B013D7C1E18BEE700AC7D74 /* SpriteComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */; };
 		8B013D811E18CEFB00AC7D74 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D801E18CEFB00AC7D74 /* EntityManager.swift */; };
 		8B013D831E18CF5600AC7D74 /* EntityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */; };
+		8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0708921E1A29F700A7310D /* PhysicsComponent.swift */; };
+		8B0708951E1A2C6B00A7310D /* PhysicsComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0708941E1A2C6B00A7310D /* PhysicsComponentTests.swift */; };
 		8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */; };
 		8B0EB1CB1E194AAE00128B41 /* EntityBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1CA1E194AAE00128B41 /* EntityBuilderTests.swift */; };
 		8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */; };
@@ -67,6 +69,8 @@
 		8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponentTests.swift; sourceTree = "<group>"; };
 		8B013D801E18CEFB00AC7D74 /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManagerTests.swift; sourceTree = "<group>"; };
+		8B0708921E1A29F700A7310D /* PhysicsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
+		8B0708941E1A2C6B00A7310D /* PhysicsComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponentTests.swift; sourceTree = "<group>"; };
 		8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilder.swift; sourceTree = "<group>"; };
 		8B0EB1CA1E194AAE00128B41 /* EntityBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilderTests.swift; sourceTree = "<group>"; };
 		8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			children = (
 				8B013D771E18B89C00AC7D74 /* RenderComponentTests.swift */,
 				8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */,
+				8B0708941E1A2C6B00A7310D /* PhysicsComponentTests.swift */,
 			);
 			name = ComponentTests;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 			children = (
 				8B013D751E18B85000AC7D74 /* RenderComponent.swift */,
 				8B013D791E18BED200AC7D74 /* SpriteComponent.swift */,
+				8B0708921E1A29F700A7310D /* PhysicsComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -514,6 +520,7 @@
 				8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */,
 				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
 				8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */,
+				8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */,
 				8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
 				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,
@@ -534,6 +541,7 @@
 				8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */,
 				8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */,
 				8B013D781E18B89C00AC7D74 /* RenderComponentTests.swift in Sources */,
+				8B0708951E1A2C6B00A7310D /* PhysicsComponentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
