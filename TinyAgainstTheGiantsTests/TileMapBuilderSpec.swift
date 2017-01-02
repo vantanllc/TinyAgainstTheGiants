@@ -15,6 +15,7 @@ import Nimble
 class TileMapBuilderSpec: QuickSpec {
   override func spec() {
     describe("TileMapBuilder") {
+      let expectedAnchorPoint = CGPoint(x: 0, y: 1)
       let trialCount = stride(from: 1, to: 10, by: 1)
       let threshold: Float = 0.5
       let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
@@ -139,6 +140,10 @@ class TileMapBuilderSpec: QuickSpec {
             }
           }
           
+          it("should return tilemap with expected anchorPoint") {
+            expect(tileMap.anchorPoint).to(equal(expectedAnchorPoint))
+          }
+          
           it("should return tilemap with automapping enabled") {
             expect(tileMap.enableAutomapping).to(beTrue())
           }
@@ -178,6 +183,10 @@ class TileMapBuilderSpec: QuickSpec {
           beforeEach {
             tileSet = SKTileSet(tileGroups: [tileGroup])
             tileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: expectedColumns, rows: expectedRows)
+          }
+          
+          it("should return tilemap with expected anchorPoint") {
+            expect(tileMap.anchorPoint).to(equal(expectedAnchorPoint))
           }
           
           it("should return tilemap with automapping disable") {

@@ -22,17 +22,11 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("tilemap functions") {
-        let expectedAnchorPoint = CGPoint(x: 0, y: 1)
 
         describe("addBackgroundTileMap") {
           it("should add currentBackgroundTileMap to scene as child") {
             gameScene.addBackgroundTileMap()
             expect(gameScene.currentBackgroundTileMap.scene).to(be(gameScene))
-          }
-          
-          it("should update currentBackgroundTileMap anchorPoint") {
-            gameScene.addBackgroundTileMap()
-            expect(gameScene.currentBackgroundTileMap.anchorPoint).to(equal(expectedAnchorPoint))
           }
         }
         
@@ -40,11 +34,6 @@ class GameSceneSpec: QuickSpec {
           it("should add currentObstacleTileMap to scene as child") {
             gameScene.addObstacleTileMap()
             expect(gameScene.currentObstacleTileMap.scene).to(be(gameScene))
-          }
-          
-          it("should update currentObstacleTileMap anchorPoint") {
-            gameScene.addObstacleTileMap()
-            expect(gameScene.currentObstacleTileMap.anchorPoint).to(equal(expectedAnchorPoint))
           }
         }
       }

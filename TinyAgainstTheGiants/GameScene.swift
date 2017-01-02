@@ -65,7 +65,6 @@ extension GameScene {
       return
     }
     currentBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: 42, rows: 32)
-    currentBackgroundTileMap.anchorPoint = CGPoint(x: 0, y: 1)
     addChild(currentBackgroundTileMap)
   }
   
@@ -76,7 +75,6 @@ extension GameScene {
     
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
     currentObstacleTileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: 42, rows: 32)
-    currentObstacleTileMap.anchorPoint = CGPoint(x: 0, y: 1)
     addChild(currentObstacleTileMap)
   }
 }

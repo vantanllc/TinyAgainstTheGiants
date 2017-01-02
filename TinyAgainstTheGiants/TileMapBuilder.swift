@@ -9,6 +9,7 @@
 import GameplayKit
 
 class TileMapBuilder {
+  // MARK: Static Functions
   static func getRandomPositionNotOnTileGroupInTileMap(_ tileMap: SKTileMapNode) -> CGPoint {
     var column: Int
     var row: Int
@@ -39,6 +40,7 @@ class TileMapBuilder {
     
     let tileMap = SKTileMapNode(tileSet: tileSet, columns: columns, rows: rows, tileSize: tileSet.defaultTileSize, fillWith: tileGroup)
     tileMap.enableAutomapping = false
+    tileMap.anchorPoint = anchorPoint
     return tileMap
   }
   
@@ -49,6 +51,7 @@ class TileMapBuilder {
     
     let tileMap = SKTileMapNode(tileSet: tileSet, columns: columns, rows: rows, tileSize: tileSet.defaultTileSize)
     tileMap.enableAutomapping = true
+    tileMap.anchorPoint = anchorPoint
     
     for column in 0..<columns {
       for row in 0..<rows {
@@ -58,7 +61,9 @@ class TileMapBuilder {
         }
       }
     }
-    
     return tileMap
   }
+  
+  // MARK: Properties
+  static let anchorPoint = CGPoint(x: 0, y: 1)
 }
