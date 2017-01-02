@@ -15,12 +15,12 @@ class EntityManager {
   }
   
   // MARK: Lifecycle
-  init(scene: SKScene) {
+  init(scene: GameScene) {
     self.scene = scene
   }
   
   // MARK: Properties
-  let scene: SKScene
+  let scene: GameScene
   var entities = Set<GKEntity>()
   var entitiesToRemove = Set<GKEntity>()
 }
@@ -48,7 +48,7 @@ extension EntityManager {
     entities.insert(entity)
     
     if let node = entity.component(ofType: RenderComponent.self)?.node {
-      scene.addChild(node)
+      scene.worldNode.addChild(node)
     }
   }
   

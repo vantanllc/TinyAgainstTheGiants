@@ -15,21 +15,35 @@ import Nimble
 class EntityBuilderSpec: QuickSpec {
   override func spec() {
     var entityManager: EntityManager!
-    var scene: SKScene!
+    var scene: GameScene!
     
     describe("EntityBuilder") {
       beforeEach {
-        scene = SKScene()
+        scene = GameScene()
         entityManager = EntityManager(scene: scene)
       }
       
       describe("addPlayer") {
-        it("should add PlayerEntity to entityManager") {
-          let position = CGPoint.zero
+        let position = CGPoint(x: 200, y: -20)
+
+        beforeEach {
           EntityBuilder.addPlayer(position: position, toEntityManager: entityManager)
-          
-          let playerEntity = entityManager.getPlayerEntity()
-          expect(playerEntity).toNot(beNil())
+        }
+        
+        it("should add PlayerEntity to entityManager") {
+          if let entity = entityManager.getPlayerEntity() {
+            expect(entity).toNot(beNil())
+          } else {
+            fail("Unexpectedly found nil")
+          }
+        }
+        
+        it("should set PlayerEntity RenderComponent position") {
+          if let node = entityManager.getPlayerRenderNode() {
+            expect(node.position).to(equal(position))
+          } else {
+            fail("Unexpectedly found nil")
+          }
         }
       }
     }

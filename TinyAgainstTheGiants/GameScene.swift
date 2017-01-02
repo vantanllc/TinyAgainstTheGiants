@@ -14,6 +14,9 @@ class GameScene: SKScene {
   override func sceneDidLoad() {
     super.sceneDidLoad()
     
+    worldNode = SKNode()
+    addChild(worldNode)
+    
     entityManager = EntityManager(scene: self)
     startCamera()
     addBackgroundTileMap()
@@ -30,6 +33,9 @@ class GameScene: SKScene {
   var entityManager: EntityManager!
   var currentBackgroundTileMap: SKTileMapNode!
   var currentObstacleTileMap: SKTileMapNode!
+  
+  // MARK: Nodes
+  var worldNode: SKNode!
 }
 
 // MARK: Touches
@@ -65,7 +71,7 @@ extension GameScene {
       return
     }
     currentBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: 42, rows: 32)
-    addChild(currentBackgroundTileMap)
+    worldNode.addChild(currentBackgroundTileMap)
   }
   
   func addObstacleTileMap() {
@@ -75,6 +81,6 @@ extension GameScene {
     
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
     currentObstacleTileMap = TileMapBuilder.createTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: 42, rows: 32)
-    addChild(currentObstacleTileMap)
+    worldNode.addChild(currentObstacleTileMap)
   }
 }

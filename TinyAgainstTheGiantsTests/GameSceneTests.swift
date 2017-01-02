@@ -22,7 +22,6 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("tilemap functions") {
-
         describe("addBackgroundTileMap") {
           it("should add currentBackgroundTileMap to scene as child") {
             gameScene.addBackgroundTileMap()
@@ -50,13 +49,23 @@ class GameSceneSpec: QuickSpec {
           gameScene.sceneDidLoad()
           expect(gameScene.entityManager).toNot(beNil())
         }
+        
+        it("should initialize worldNode") {
+          gameScene.sceneDidLoad()
+          expect(gameScene.worldNode).toNot(beNil())
+        }
+        
+        it("should add worldNode to scene") {
+          gameScene.sceneDidLoad()
+          expect(gameScene.children).to(contain(gameScene.worldNode))
+        }
       }
       
       describe("startNewGame") {
-        it("should add player's RenderComponent node to scene") {
+        it("should add player's RenderComponent node to worldNode") {
           gameScene.startNewGame()
           if let expectedPlayerRenderNode = gameScene.entityManager.getPlayerRenderNode() {
-            expect(gameScene.children).to(contain(expectedPlayerRenderNode))
+            expect(gameScene.worldNode.children).to(contain(expectedPlayerRenderNode))
           } else {
             fail("Unexpectedly got nil.")
           }

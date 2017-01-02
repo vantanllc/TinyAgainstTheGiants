@@ -79,7 +79,7 @@ class EntityManagerSpec: QuickSpec {
               expectedEntity.addComponent(renderComponent)
               entityManager.add(entity: expectedEntity)
               
-              expect(entityManager.scene.children).to(contain(renderComponent.node))
+              expect(entityManager.scene.worldNode.children).to(contain(renderComponent.node))
             }
           }
         }
