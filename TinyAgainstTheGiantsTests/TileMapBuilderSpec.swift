@@ -16,7 +16,7 @@ class TileMapBuilderSpec: QuickSpec {
   override func spec() {
     describe("TileMapBuilder") {
       let threshold: Float = 0.5
-      let noiseMap = getPerlinNoiseMap(frequency: 10)
+      let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
       let expectedColumns = 300
       let expectedRows = 200
       let expectedSize = CGSize(width: 100, height: 100)
