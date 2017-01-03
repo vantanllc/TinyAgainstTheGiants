@@ -91,7 +91,7 @@ class GameViewControllerSpec: QuickSpec {
         
         it("should turn on SKView visual debug flags") {
           gameVC.presentGameSceneInDevMode(gameScene: gameScene, intoSKView: skView)
-          let debugFlags = [skView.showsFPS, skView.showsNodeCount, skView.showsPhysics]
+          let debugFlags = [skView.ignoresSiblingOrder, skView.showsFPS, skView.showsNodeCount, skView.showsPhysics]
           expect(debugFlags).to(allPass(beTrue()))
         }
         

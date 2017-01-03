@@ -31,15 +31,31 @@ class GameScene: SKScene {
   
   // MARK: Properties
   var entityManager: EntityManager!
+  var previousBackgroundTileMap: SKTileMapNode!
   var currentBackgroundTileMap: SKTileMapNode!
   var nextBackgroundTileMap: SKTileMapNode!
+  
+  var previousObstacleTileMap: SKTileMapNode!
   var currentObstacleTileMap: SKTileMapNode!
   var nextObstacleTileMap: SKTileMapNode!
+  
   let tileMapColumns = 42
   let tileMapRows = 32
   
   // MARK: Nodes
   var worldNode: SKNode!
+}
+
+// MARK: Update
+extension GameScene {
+  override func update(_ currentTime: TimeInterval) {
+    super.update(currentTime)
+    
+    if let camera = camera, !camera.contains(currentBackgroundTileMap), camera.position.y < currentBackgroundTileMap.frame.maxY {
+      updateBackgroundTileMaps()
+      updateObstacleTileMaps()
+    }
+  }
 }
 
 // MARK: Touches
@@ -109,5 +125,25 @@ extension GameScene {
     nextObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
     nextObstacleTileMap.position.y = currentObstacleTileMap.frame.minY
     worldNode.addChild(nextObstacleTileMap)
+  }
+  
+  func updateBackgroundTileMaps() {
+    if let tileMap = previousBackgroundTileMap, tileMap.parent != nil {
+      tileMap.removeFromParent()
+    }
+    
+    previousBackgroundTileMap = currentBackgroundTileMap
+    currentBackgroundTileMap = nextBackgroundTileMap
+    addNextBackgroundTileMap()
+  }
+  
+  func updateObstacleTileMaps() {
+    if let tileMap = previousObstacleTileMap, tileMap.parent != nil {
+      tileMap.removeFromParent()
+    }
+    
+    previousObstacleTileMap = currentObstacleTileMap
+    currentObstacleTileMap = nextObstacleTileMap
+    addNextObstacleTileMap()
   }
 }
