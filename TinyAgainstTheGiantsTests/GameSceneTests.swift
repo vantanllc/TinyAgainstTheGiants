@@ -52,8 +52,8 @@ class GameSceneSpec: QuickSpec {
         }
         
         it("should generate a new tile map for nextObstacleTileMap") {
-          let oldCurrentTileMap = gameScene.currentObstacleTileMap.copy()
-          let oldNextTileMap = gameScene.nextObstacleTileMap.copy()
+          let oldCurrentTileMap = gameScene.currentObstacleTileMap
+          let oldNextTileMap = gameScene.nextObstacleTileMap
           gameScene.updateObstacleTileMaps()
           expect(gameScene.nextObstacleTileMap).toNot((be(oldCurrentTileMap)))
           expect(gameScene.nextObstacleTileMap).toNot((be(oldNextTileMap)))
@@ -86,8 +86,8 @@ class GameSceneSpec: QuickSpec {
         }
         
         it("should generate a new tile map for nextBackgroundTileMap") {
-          let oldCurrentTileMap = gameScene.currentBackgroundTileMap.copy()
-          let oldNextTileMap = gameScene.nextBackgroundTileMap.copy()
+          let oldCurrentTileMap = gameScene.currentBackgroundTileMap
+          let oldNextTileMap = gameScene.nextBackgroundTileMap
           gameScene.updateBackgroundTileMaps()
           expect(gameScene.nextBackgroundTileMap).toNot((be(oldCurrentTileMap)))
           expect(gameScene.nextBackgroundTileMap).toNot((be(oldNextTileMap)))
@@ -129,6 +129,13 @@ class GameSceneSpec: QuickSpec {
           let expectedPosition = CGPoint(x: gameScene.currentBackgroundTileMap.frame.minX, y: gameScene.currentBackgroundTileMap.frame.minY)
           expect(gameScene.nextBackgroundTileMap.position).to(equal(expectedPosition))
         }
+        
+        context("NodeLayerPosition") {
+          it("should be .background") {
+            let zPositions = [gameScene.previousBackgroundTileMap.zPosition, gameScene.currentBackgroundTileMap.zPosition, gameScene.nextBackgroundTileMap.zPosition]
+            expect(zPositions).to(allPass(equal(NodeLayerPosition.background)))
+          }
+        }
       }
 
       context("ObstacleTileMap") {
@@ -163,18 +170,27 @@ class GameSceneSpec: QuickSpec {
             }
           }
         }
+        
+        context("NodeLayerPosition") {
+          it("should be .obstacle") {
+            let zPositions = [gameScene.previousObstacleTileMap.zPosition, gameScene.currentObstacleTileMap.zPosition, gameScene.nextObstacleTileMap.zPosition]
+            expect(zPositions).to(allPass(equal(NodeLayerPosition.obstacle)))
+          }
+        }
+      }
+      
+      context("Player") {        
+        it("should add player's RenderComponent node to worldNode") {
+          if let expectedPlayerRenderNode = gameScene.entityManager.getPlayerRenderNode() {
+            expect(gameScene.worldNode.children).to(contain(expectedPlayerRenderNode))
+          } else {
+            fail("Unexpectedly got nil.")
+          }
+        }
       }
       
       it("should add camera to scene") {
         expect(gameScene.camera?.scene).to(be(gameScene))
-      }
-      
-      it("should add player's RenderComponent node to worldNode") {
-        if let expectedPlayerRenderNode = gameScene.entityManager.getPlayerRenderNode() {
-          expect(gameScene.worldNode.children).to(contain(expectedPlayerRenderNode))
-        } else {
-          fail("Unexpectedly got nil.")
-        }
       }
     }
   }

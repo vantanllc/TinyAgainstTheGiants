@@ -28,9 +28,19 @@ class PlayerEntitySpec: QuickSpec {
         expect(physicsComponent).toNot(beNil())
       }
       
-      it("should have a RenderComponent") {
-        let renderComponent = player.component(ofType: RenderComponent.self)
-        expect(renderComponent).toNot(beNil())
+      describe("RenderComponent") {
+        var renderComponent: RenderComponent!
+        beforeEach {
+          renderComponent = player.component(ofType: RenderComponent.self)
+        }
+        
+        it("should have a RenderComponent") {
+          expect(renderComponent).toNot(beNil())
+        }
+        
+        it("should set node zPosition to NodeLayerPosition.entity") {
+          expect(renderComponent.node.zPosition).to(equal(NodeLayerPosition.entity))
+        }
       }
       
       it("should have SpriteComponent") {

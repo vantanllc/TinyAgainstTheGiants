@@ -117,10 +117,13 @@ extension GameScene {
     
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
     currentObstacleTileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
+    currentObstacleTileMap.zPosition = NodeLayerPosition.obstacle
     worldNode.addChild(currentObstacleTileMap)
+    
     previousObstacleTileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
     previousObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
     previousObstacleTileMap.position.y = previousObstacleTileMap.mapSize.height + currentObstacleTileMap.frame.maxY
+    previousObstacleTileMap.zPosition = NodeLayerPosition.obstacle
     worldNode.addChild(previousObstacleTileMap)
     addNextObstacleTileMap()
   }
@@ -133,6 +136,7 @@ extension GameScene {
     nextObstacleTileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
     nextObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
     nextObstacleTileMap.position.y = currentObstacleTileMap.frame.minY
+    nextObstacleTileMap.zPosition = NodeLayerPosition.obstacle
     worldNode.addChild(nextObstacleTileMap)
   }
   

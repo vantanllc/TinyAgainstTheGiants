@@ -1,0 +1,15 @@
+//
+//  NodeLayerPosition.swift
+//  TinyAgainstTheGiants
+//
+//  Created by Thinh Luong on 1/3/17.
+//  Copyright © 2017 Vantan LLC. All rights reserved.
+//
+
+import SpriteKit
+
+struct NodeLayerPosition {
+  static let background: CGFloat = 0
+  static let obstacle: CGFloat = 1
+  static let entity: CGFloat = 2
+}

@@ -14,6 +14,7 @@ class PlayerEntity: GKEntity {
     super.init()
     
     let renderComponent = RenderComponent()
+    renderComponent.node.zPosition = NodeLayerPosition.entity
     addComponent(renderComponent)
     
     let spriteComponent = SpriteComponent(node: node)
