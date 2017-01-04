@@ -201,19 +201,18 @@
 		8BC0E3FF1E177A1B0087C7E2 /* TinyAgainstTheGiants */ = {
 			isa = PBXGroup;
 			children = (
-				8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */,
-				8BC0E4061E177A1C0087C7E2 /* GameScene.swift */,
-				8BC0E4081E177A1C0087C7E2 /* GameViewController.swift */,
-				8B013D6E1E18B07000AC7D74 /* Support */,
 				8BC0E40D1E177A1C0087C7E2 /* Assets.xcassets */,
-				8B013D711E18B5F900AC7D74 /* PlayerEntity.swift */,
+				8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */,
+				8BFABF6A1E1CAD1900C613A0 /* Scenes */,
+				8BFABF691E1CAD1100C613A0 /* ViewControllers */,
+				8B013D6E1E18B07000AC7D74 /* Support */,
+				8BFABF681E1CAD0C00C613A0 /* Entities */,
 				8B013D7E1E18BFAA00AC7D74 /* Components */,
-				8B013D801E18CEFB00AC7D74 /* EntityManager.swift */,
+				8BFABF671E1CAD0600C613A0 /* Managers */,
 				8BEAD7F81E19C715007F68C5 /* Builders */,
 				8BEAD7FC1E19C9DF007F68C5 /* NoiseMaps */,
-				8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */,
-				8B0708961E1A2E5900A7310D /* Utilities.swift */,
-				8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */,
+				8BFABF651E1CACF600C613A0 /* TileSets */,
+				8BFABF661E1CACFE00C613A0 /* Common */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -222,10 +221,10 @@
 			isa = PBXGroup;
 			children = (
 				8BC0E41D1E177A1C0087C7E2 /* Info.plist */,
-				8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */,
-				8B013D6F1E18B15100AC7D74 /* GameSceneTests.swift */,
-				8B013D731E18B72E00AC7D74 /* PlayerEntityTests.swift */,
-				8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */,
+				8BFABF641E1CACE000C613A0 /* ViewControllerTests */,
+				8BFABF631E1CACDA00C613A0 /* SceneTests */,
+				8BFABF621E1CACD500C613A0 /* EntityTests */,
+				8BFABF611E1CACCD00C613A0 /* ManagerTests */,
 				8B013D7D1E18BF9900AC7D74 /* ComponentTests */,
 				8BEAD7F91E19C724007F68C5 /* BuilderTests */,
 			);
@@ -266,6 +265,87 @@
 				8BEAD7FA1E19C9CB007F68C5 /* NoiseMapBuilder.swift */,
 			);
 			name = NoiseMaps;
+			sourceTree = "<group>";
+		};
+		8BFABF611E1CACCD00C613A0 /* ManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B013D821E18CF5600AC7D74 /* EntityManagerTests.swift */,
+			);
+			name = ManagerTests;
+			sourceTree = "<group>";
+		};
+		8BFABF621E1CACD500C613A0 /* EntityTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B013D731E18B72E00AC7D74 /* PlayerEntityTests.swift */,
+			);
+			name = EntityTests;
+			sourceTree = "<group>";
+		};
+		8BFABF631E1CACDA00C613A0 /* SceneTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B013D6F1E18B15100AC7D74 /* GameSceneTests.swift */,
+			);
+			name = SceneTests;
+			sourceTree = "<group>";
+		};
+		8BFABF641E1CACE000C613A0 /* ViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */,
+			);
+			name = ViewControllerTests;
+			sourceTree = "<group>";
+		};
+		8BFABF651E1CACF600C613A0 /* TileSets */ = {
+			isa = PBXGroup;
+			children = (
+				8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */,
+			);
+			name = TileSets;
+			sourceTree = "<group>";
+		};
+		8BFABF661E1CACFE00C613A0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */,
+				8B0708961E1A2E5900A7310D /* Utilities.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		8BFABF671E1CAD0600C613A0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8B013D801E18CEFB00AC7D74 /* EntityManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		8BFABF681E1CAD0C00C613A0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8B013D711E18B5F900AC7D74 /* PlayerEntity.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		8BFABF691E1CAD1100C613A0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8BC0E4081E177A1C0087C7E2 /* GameViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8BFABF6A1E1CAD1900C613A0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8BC0E4061E177A1C0087C7E2 /* GameScene.swift */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
