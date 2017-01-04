@@ -22,10 +22,27 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("updateObstacleTileMaps") {
-        it("should set previousObstacleTileMap to currentObstacleTileMap") {
-          let currentTileMap = gameScene.currentObstacleTileMap
+        it("should add top edge with tilegroup for updated previousObstacleTileMap") {
           gameScene.updateObstacleTileMaps()
-          expect(gameScene.previousObstacleTileMap).to(be(currentTileMap))
+          let topRow = gameScene.previousObstacleTileMap.numberOfRows - 1
+          for column in 0..<gameScene.previousObstacleTileMap.numberOfColumns {
+            expect(gameScene.previousObstacleTileMap.tileGroup(atColumn: column, row: topRow)).toNot(beNil())
+          }
+        }
+        
+        it("should set previousObstacleTileMap to currentObstacleTileMap") {
+          let currentObstacleTileMap = gameScene.currentObstacleTileMap
+          gameScene.updateObstacleTileMaps()
+          expect(gameScene.previousObstacleTileMap).to(be(currentObstacleTileMap))
+        }
+        
+        it("should remove previousObstacleTileMap from worldNode") {
+          if let previousObstacleTileMap = gameScene.previousObstacleTileMap {
+            gameScene.updateObstacleTileMaps()
+            expect(gameScene.worldNode.children).toNot(contain(previousObstacleTileMap))
+          } else {
+            fail("Unexpectedly found nil")
+          }
         }
         
         it("should set currentObstacleTileMap to nextObstacleTileMap") {
@@ -49,6 +66,13 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("updateBackgroundTileMaps") {
+        it("should remove previousBackgroundTileMap from worldNode") {
+          if let previousBackgroundTileMap = gameScene.previousBackgroundTileMap {
+            gameScene.updateBackgroundTileMaps()
+            expect(gameScene.worldNode.children).toNot(contain(previousBackgroundTileMap))
+          }
+        }
+        
         it("should set previousBackgroundTileMap to currentBackgroundTileMap") {
           let currentTileMap = gameScene.currentBackgroundTileMap
           gameScene.updateBackgroundTileMaps()
@@ -83,38 +107,60 @@ class GameSceneSpec: QuickSpec {
         expect(gameScene.children).to(contain(gameScene.worldNode))
       }
       
-      it("should add currentBackgroundTileMap to worldNode") {
-        expect(gameScene.currentBackgroundTileMap.parent).to(be(gameScene.worldNode))
+      context("BackgroundTileMaps") {
+        it("should add previousBackgroundTileMap to worldNode") {
+          expect(gameScene.previousBackgroundTileMap.parent).to(be(gameScene.worldNode))
+        }
+        
+        it("should set previousBackgroundTileMap y position above currentBackgroundTileMap") {
+          let expectedYPosition = gameScene.previousBackgroundTileMap.mapSize.height + gameScene.currentBackgroundTileMap.frame.maxY
+          expect(gameScene.previousBackgroundTileMap.position.y).to(equal(expectedYPosition))
+        }
+        
+        it("should add currentBackgroundTileMap to worldNode") {
+          expect(gameScene.currentBackgroundTileMap.parent).to(be(gameScene.worldNode))
+        }
+        
+        it("should add nextBackgroundTileMap to worldNode") {
+          expect(gameScene.nextBackgroundTileMap.parent).to(be(gameScene.worldNode))
+        }
+        
+        it("should position nextBackgroundTileMap below currentBackgroundTileMap") {
+          let expectedPosition = CGPoint(x: gameScene.currentBackgroundTileMap.frame.minX, y: gameScene.currentBackgroundTileMap.frame.minY)
+          expect(gameScene.nextBackgroundTileMap.position).to(equal(expectedPosition))
+        }
       }
-      
-      it("should add nextBackgroundTileMap to worldNode") {
-        expect(gameScene.nextBackgroundTileMap.parent).to(be(gameScene.worldNode))
-      }
-      
-      it("should position nextBackgroundTileMap below currentBackgroundTileMap") {
-        let expectedPosition = CGPoint(x: gameScene.currentBackgroundTileMap.frame.minX, y: gameScene.currentBackgroundTileMap.frame.minY)
-        expect(gameScene.nextBackgroundTileMap.position).to(equal(expectedPosition))
-      }
-      
-      it("should add currentObstacleTileMap to worldNode") {
-        expect(gameScene.currentObstacleTileMap.parent).to(be(gameScene.worldNode))
-      }
-      
-      it("should add nextObstacleTileMap to worldNode") {
-        expect(gameScene.nextObstacleTileMap.parent).to(be(gameScene.worldNode))
-      }
-      
-      it("should position nextObstacleTileMap below currentBackgroundTileMap") {
-        let expectedPosition = CGPoint(x: gameScene.currentObstacleTileMap.frame.minX, y: gameScene.currentObstacleTileMap.frame.minY)
-        expect(gameScene.nextObstacleTileMap.position).to(equal(expectedPosition))
-      }
-      
-      it("should add nextObstacleTileMap with edged tilegroups") {
-        let lastColumn = gameScene.nextObstacleTileMap.numberOfColumns - 1
-        let lastRow = gameScene.nextObstacleTileMap.numberOfRows - 1
-        for column in [0, lastColumn] {
-          for row in 0...lastRow {
-            expect(gameScene.nextObstacleTileMap.tileGroup(atColumn: column, row: row)).toNot(beNil())
+
+      context("ObstacleTileMap") {
+        it("should add previousObstacleTileMap to worldNode") {
+          expect(gameScene.previousObstacleTileMap.parent).to(be(gameScene.worldNode))
+        }
+        
+        it("should set previousObstacleTileMap y position above currentObstacleTileMap") {
+          let expectedYPosition = gameScene.previousObstacleTileMap.mapSize.height + gameScene.previousObstacleTileMap.frame.minY
+          expect(gameScene.previousObstacleTileMap.position.y).to(equal(expectedYPosition))
+        }
+        
+        it("should add currentObstacleTileMap to worldNode") {
+          expect(gameScene.currentObstacleTileMap.parent).to(be(gameScene.worldNode))
+        }
+        
+        it("should add nextObstacleTileMap to worldNode") {
+          expect(gameScene.nextObstacleTileMap.parent).to(be(gameScene.worldNode))
+        }
+        
+        it("should position nextObstacleTileMap below currentBackgroundTileMap") {
+          let expectedPosition = CGPoint(x: gameScene.currentObstacleTileMap.frame.minX, y: gameScene.currentObstacleTileMap.frame.minY)
+          expect(gameScene.nextObstacleTileMap.position).to(equal(expectedPosition))
+        }
+        
+        it("should add nextObstacleTileMap with edged tilegroups") {
+          let lastColumn = gameScene.nextObstacleTileMap.numberOfColumns - 1
+          let lastRow = gameScene.nextObstacleTileMap.numberOfRows - 1
+          for column in [0, lastColumn] {
+            for row in 0...lastRow {
+              expect(gameScene.nextObstacleTileMap.tileGroup(atColumn: column, row: row)).toNot(beNil())
+            }
           }
         }
       }

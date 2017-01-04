@@ -90,8 +90,13 @@ extension GameScene {
     guard let tileSet = SKTileSet(named: "Sand") else {
       return
     }
+    
     currentBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
     worldNode.addChild(currentBackgroundTileMap)
+    previousBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
+    previousBackgroundTileMap.position.x = currentBackgroundTileMap.frame.minX
+    previousBackgroundTileMap.position.y = previousBackgroundTileMap.mapSize.height + currentBackgroundTileMap.frame.maxY
+    worldNode.addChild(previousBackgroundTileMap)
     addNextBackgroundTileMap()
   }
   
@@ -113,6 +118,10 @@ extension GameScene {
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
     currentObstacleTileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
     worldNode.addChild(currentObstacleTileMap)
+    previousObstacleTileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
+    previousObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
+    previousObstacleTileMap.position.y = previousObstacleTileMap.mapSize.height + currentObstacleTileMap.frame.maxY
+    worldNode.addChild(previousObstacleTileMap)
     addNextObstacleTileMap()
   }
   
@@ -143,6 +152,8 @@ extension GameScene {
     }
     
     previousObstacleTileMap = currentObstacleTileMap
+    TileMapBuilder.addTopEdgeToTileMap(previousObstacleTileMap)
+    
     currentObstacleTileMap = nextObstacleTileMap
     addNextObstacleTileMap()
   }

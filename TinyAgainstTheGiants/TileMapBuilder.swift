@@ -95,6 +95,17 @@ class TileMapBuilder {
     return tileMap
   }
   
+  static func addTopEdgeToTileMap(_ tileMap: SKTileMapNode) {
+    guard let tileGroup = tileMap.tileSet.tileGroups.first else {
+      return
+    }
+    
+    let topRow = tileMap.numberOfRows - 1
+    for column in 0..<tileMap.numberOfColumns {
+      tileMap.setTileGroup(tileGroup, forColumn: column, row: topRow)
+    }
+  }
+  
   // MARK: Properties
   static let anchorPoint = CGPoint(x: 0, y: 1)
 }

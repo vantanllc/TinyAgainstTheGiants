@@ -32,6 +32,41 @@ class TileMapBuilderSpec: QuickSpec {
         tileGroup = SKTileGroup(tileDefinition: tileDefinition)
       }
       
+      describe("addTopEdgeToTileMap") {
+        context("tileSet with TileGroup") {
+          it("should fill tilemap with tilegroup along the top edge") {
+            tileSet = SKTileSet(tileGroups: [tileGroup])
+            tileMap = SKTileMapNode(tileSet: tileSet, columns: expectedColumns, rows: expectedRows, tileSize: tileSet.defaultTileSize)
+            
+            TileMapBuilder.addTopEdgeToTileMap(tileMap)
+            
+            let topRow = expectedRows - 1
+            for column in 0..<expectedColumns {
+              expect(tileMap.tileGroup(atColumn: column, row: topRow)).to(equal(tileGroup))
+            }
+          }
+        }
+        
+        context("tileSet without TileGroup") {
+          it("should not fill tilemap with tilegroup along the top edge") {
+            tileSet = SKTileSet()
+            tileMap = SKTileMapNode(tileSet: tileSet, columns: expectedColumns, rows: expectedRows, tileSize: tileSet.defaultTileSize)
+            
+            TileMapBuilder.addTopEdgeToTileMap(tileMap)
+            
+            var tileGroups = [SKTileGroup]()
+            let topRow = expectedRows - 1
+            for column in 0..<expectedColumns {
+              if let tileGroup = tileMap.tileGroup(atColumn: column, row: topRow) {
+                tileGroups.append(tileGroup)
+              }
+            }
+            
+            expect(tileGroups.count).to(beLessThan(expectedColumns))
+          }
+        }
+      }
+      
       describe("createEdgedTileMapWithNoiseMap") {
         context("tileSet with TileGroup") {
           beforeEach {
