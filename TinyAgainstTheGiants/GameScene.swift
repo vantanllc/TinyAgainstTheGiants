@@ -110,20 +110,37 @@ extension GameScene {
     worldNode.addChild(nextBackgroundTileMap)
   }
   
+  func createCappedObstacleTileMapWithTileSet(_ tileSet: SKTileSet) -> SKTileMapNode? {
+    let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
+    let tileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
+    tileMap?.zPosition = NodeLayerPosition.obstacle
+    tileMap?.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: tileMap!))
+    tileMap?.physicsBody?.isDynamic = false
+    tileMap?.physicsBody?.affectedByGravity = false
+    return tileMap
+  }
+  
+  func createObstacleTileMapWithTileSet(_ tileSet: SKTileSet) -> SKTileMapNode? {
+    let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
+    let tileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
+    tileMap?.zPosition = NodeLayerPosition.obstacle
+    tileMap?.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: tileMap!))
+    tileMap?.physicsBody?.isDynamic = false
+    tileMap?.physicsBody?.affectedByGravity = false
+    return tileMap
+  }
+  
   func addObstacleTileMap() {
     guard let tileSet = SKTileSet(named: "Grass") else {
       return
     }
     
-    let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
-    currentObstacleTileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
-    currentObstacleTileMap.zPosition = NodeLayerPosition.obstacle
+    currentObstacleTileMap = createObstacleTileMapWithTileSet(tileSet)
     worldNode.addChild(currentObstacleTileMap)
     
-    previousObstacleTileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
+    previousObstacleTileMap = createCappedObstacleTileMapWithTileSet(tileSet)
     previousObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
     previousObstacleTileMap.position.y = previousObstacleTileMap.mapSize.height + currentObstacleTileMap.frame.maxY
-    previousObstacleTileMap.zPosition = NodeLayerPosition.obstacle
     worldNode.addChild(previousObstacleTileMap)
     addNextObstacleTileMap()
   }
@@ -132,11 +149,9 @@ extension GameScene {
     guard let tileSet = SKTileSet(named: "Grass") else {
       return
     }
-    let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
-    nextObstacleTileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
+    nextObstacleTileMap = createObstacleTileMapWithTileSet(tileSet)
     nextObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
     nextObstacleTileMap.position.y = currentObstacleTileMap.frame.minY
-    nextObstacleTileMap.zPosition = NodeLayerPosition.obstacle
     worldNode.addChild(nextObstacleTileMap)
   }
   

@@ -22,6 +22,7 @@
 		8B0708971E1A2E5900A7310D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0708961E1A2E5900A7310D /* Utilities.swift */; };
 		8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */; };
 		8B0EB1CB1E194AAE00128B41 /* EntityBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1CA1E194AAE00128B41 /* EntityBuilderTests.swift */; };
+		8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */; };
 		8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */; };
 		8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */; };
 		8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4061E177A1C0087C7E2 /* GameScene.swift */; };
@@ -36,6 +37,8 @@
 		8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */; };
 		8BEAD8021E19D044007F68C5 /* TileMapBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD8011E19D044007F68C5 /* TileMapBuilderTests.swift */; };
 		8BFABF601E1CA26600C613A0 /* NodeLayerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */; };
+		8BFABF6D1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */; };
+		8BFABF6F1E1CB22300C613A0 /* TileMapPhysicsBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderTests.swift */; };
 		C905AE553631015C9015B74C /* Pods_TinyAgainstTheGiants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CC81EC61ED0769CEEA02F9 /* Pods_TinyAgainstTheGiants.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +79,7 @@
 		8B0708961E1A2E5900A7310D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilder.swift; sourceTree = "<group>"; };
 		8B0EB1CA1E194AAE00128B41 /* EntityBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilderTests.swift; sourceTree = "<group>"; };
+		8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileDefinitionType.swift; sourceTree = "<group>"; };
 		8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
 		8BC0E3FD1E177A1B0087C7E2 /* TinyAgainstTheGiants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAgainstTheGiants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 		8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilder.swift; sourceTree = "<group>"; };
 		8BEAD8011E19D044007F68C5 /* TileMapBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilderTests.swift; sourceTree = "<group>"; };
 		8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeLayerPosition.swift; sourceTree = "<group>"; };
+		8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapPhysicsBuilder.swift; sourceTree = "<group>"; };
+		8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapPhysicsBuilderTests.swift; sourceTree = "<group>"; };
 		C899D8E53AB62DBECDADCEE0 /* Pods-TinyAgainstTheGiants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiants.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,7 +217,7 @@
 				8BFABF671E1CAD0600C613A0 /* Managers */,
 				8BEAD7F81E19C715007F68C5 /* Builders */,
 				8BEAD7FC1E19C9DF007F68C5 /* NoiseMaps */,
-				8BFABF651E1CACF600C613A0 /* TileSets */,
+				8BFABF651E1CACF600C613A0 /* TileSet */,
 				8BFABF661E1CACFE00C613A0 /* Common */,
 			);
 			path = TinyAgainstTheGiants;
@@ -245,6 +251,7 @@
 				8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */,
 				8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */,
 				8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */,
+				8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */,
 			);
 			name = Builders;
 			sourceTree = "<group>";
@@ -255,6 +262,7 @@
 				8BEAD8011E19D044007F68C5 /* TileMapBuilderTests.swift */,
 				8B0EB1CA1E194AAE00128B41 /* EntityBuilderTests.swift */,
 				8BEAD7F61E19B288007F68C5 /* CameraBuilderTests.swift */,
+				8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderTests.swift */,
 			);
 			name = BuilderTests;
 			sourceTree = "<group>";
@@ -299,12 +307,13 @@
 			name = ViewControllerTests;
 			sourceTree = "<group>";
 		};
-		8BFABF651E1CACF600C613A0 /* TileSets */ = {
+		8BFABF651E1CACF600C613A0 /* TileSet */ = {
 			isa = PBXGroup;
 			children = (
 				8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */,
+				8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */,
 			);
-			name = TileSets;
+			name = TileSet;
 			sourceTree = "<group>";
 		};
 		8BFABF661E1CACFE00C613A0 /* Common */ = {
@@ -609,7 +618,9 @@
 				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
 				8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */,
 				8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */,
+				8BFABF6D1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift in Sources */,
 				8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */,
+				8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
 				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,
 				8B013D721E18B5F900AC7D74 /* PlayerEntity.swift in Sources */,
@@ -628,6 +639,7 @@
 				8BEAD7F71E19B288007F68C5 /* CameraBuilderTests.swift in Sources */,
 				8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */,
 				8BEAD8021E19D044007F68C5 /* TileMapBuilderTests.swift in Sources */,
+				8BFABF6F1E1CB22300C613A0 /* TileMapPhysicsBuilderTests.swift in Sources */,
 				8B013D781E18B89C00AC7D74 /* RenderComponentTests.swift in Sources */,
 				8B0708951E1A2C6B00A7310D /* PhysicsComponentTests.swift in Sources */,
 			);
