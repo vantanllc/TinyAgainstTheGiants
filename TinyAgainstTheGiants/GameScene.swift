@@ -110,24 +110,32 @@ extension GameScene {
     worldNode.addChild(nextBackgroundTileMap)
   }
   
+  func configureTileMap(_ tileMap: SKTileMapNode) {
+    tileMap.zPosition = NodeLayerPosition.obstacle
+    tileMap.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: tileMap))
+    tileMap.physicsBody?.isDynamic = false
+    tileMap.physicsBody?.affectedByGravity = false
+  }
+  
   func createCappedObstacleTileMapWithTileSet(_ tileSet: SKTileSet) -> SKTileMapNode? {
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
-    let tileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
-    tileMap?.zPosition = NodeLayerPosition.obstacle
-    tileMap?.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: tileMap!))
-    tileMap?.physicsBody?.isDynamic = false
-    tileMap?.physicsBody?.affectedByGravity = false
-    return tileMap
+    
+    if let tileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows) {
+      configureTileMap(tileMap)
+      return tileMap
+    } else {
+      return nil
+    }
   }
   
   func createObstacleTileMapWithTileSet(_ tileSet: SKTileSet) -> SKTileMapNode? {
     let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
-    let tileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows)
-    tileMap?.zPosition = NodeLayerPosition.obstacle
-    tileMap?.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: tileMap!))
-    tileMap?.physicsBody?.isDynamic = false
-    tileMap?.physicsBody?.affectedByGravity = false
-    return tileMap
+    if let tileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows) {
+      configureTileMap(tileMap)
+      return tileMap
+    } else {
+      return nil
+    }
   }
   
   func addObstacleTileMap() {
@@ -135,7 +143,7 @@ extension GameScene {
       return
     }
     
-    currentObstacleTileMap = createObstacleTileMapWithTileSet(tileSet)
+    currentObstacleTileMap = createCappedObstacleTileMapWithTileSet(tileSet)
     worldNode.addChild(currentObstacleTileMap)
     
     previousObstacleTileMap = createCappedObstacleTileMapWithTileSet(tileSet)
@@ -172,6 +180,7 @@ extension GameScene {
     
     previousObstacleTileMap = currentObstacleTileMap
     TileMapBuilder.addTopEdgeToTileMap(previousObstacleTileMap)
+    previousObstacleTileMap.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: previousObstacleTileMap))
     
     currentObstacleTileMap = nextObstacleTileMap
     addNextObstacleTileMap()
