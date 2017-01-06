@@ -1,14 +1,14 @@
 //
-//  PlayerEntity.swift
+//  EnemyEntity.swift
 //  TinyAgainstTheGiants
 //
-//  Created by Thinh Luong on 12/31/16.
-//  Copyright © 2016 Vantan LLC. All rights reserved.
+//  Created by Thinh Luong on 1/5/17.
+//  Copyright © 2017 Vantan LLC. All rights reserved.
 //
 
 import GameplayKit
 
-class PlayerEntity: GKEntity {
+class EnemyEntity: GKEntity {
   // MARK: Lifcycle
   init(node: SKSpriteNode) {
     super.init()
@@ -19,10 +19,10 @@ class PlayerEntity: GKEntity {
     
     let spriteComponent = SpriteComponent(node: node)
     addComponent(spriteComponent)
-  
+    
     renderComponent.node.addChild(spriteComponent.node)
     
-    let teamComponent = TeamComponent(team: .One)
+    let teamComponent = TeamComponent(team: .Two)
     addComponent(teamComponent)
     
     let physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
