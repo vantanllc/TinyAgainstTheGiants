@@ -85,9 +85,9 @@ class TileMapPhysicsBuilder {
     }
     
     let tileSize = tileDefinition.size
-    
+    let scaleTransform = getScaleTransformForTileDefinitionType(tileDefinitionType)
+
     if TileDefinitionType.allCorners.contains(tileDefinitionType) {
-      let scaleTransform = getScaleTransformForTileDefinitionType(tileDefinitionType)
       let translationTransforms = getTranslationTransformsForTileDefinitionTypeCorner(tileDefinitionType, withTileSize: tileSize)
       
       let firstBody = SKPhysicsBody(rectangleOf: tileSize.applying(scaleTransform), center: center.applying(translationTransforms.firstTransform))
@@ -95,7 +95,6 @@ class TileMapPhysicsBuilder {
       
       tileDefinitionPhysicsBody = SKPhysicsBody(bodies: [firstBody, secondBody])
     } else {
-      let scaleTransform = getScaleTransformForTileDefinitionType(tileDefinitionType)
       let translationTransform = getTranslationTransformForTileDefinitionType(tileDefinitionType, withTileSize: tileSize)
       
       tileDefinitionPhysicsBody = SKPhysicsBody(rectangleOf: tileSize.applying(scaleTransform), center: center.applying(translationTransform))
