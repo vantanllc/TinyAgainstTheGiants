@@ -29,6 +29,8 @@
 		8B57740A1E1F4DC90050EC72 /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774091E1F4DC90050EC72 /* EnemyEntity.swift */; };
 		8B57740C1E1F52A00050EC72 /* MoveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B57740B1E1F52A00050EC72 /* MoveBehavior.swift */; };
 		8B57740F1E1F52D90050EC72 /* MoveBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B57740E1E1F52D90050EC72 /* MoveBehaviorTests.swift */; };
+		8B5774121E1F5AD90050EC72 /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774111E1F5AD90050EC72 /* MoveComponent.swift */; };
+		8B5774141E1F5B1A0050EC72 /* MoveComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774131E1F5B1A0050EC72 /* MoveComponentTests.swift */; };
 		8B78380F1E1813E700A55B42 /* GameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */; };
 		8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */; };
 		8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4061E177A1C0087C7E2 /* GameScene.swift */; };
@@ -92,6 +94,8 @@
 		8B5774091E1F4DC90050EC72 /* EnemyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
 		8B57740B1E1F52A00050EC72 /* MoveBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveBehavior.swift; sourceTree = "<group>"; };
 		8B57740E1E1F52D90050EC72 /* MoveBehaviorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveBehaviorTests.swift; sourceTree = "<group>"; };
+		8B5774111E1F5AD90050EC72 /* MoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
+		8B5774131E1F5B1A0050EC72 /* MoveComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveComponentTests.swift; sourceTree = "<group>"; };
 		8B78380E1E1813E700A55B42 /* GameViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
 		8BC0E3FD1E177A1B0087C7E2 /* TinyAgainstTheGiants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAgainstTheGiants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				8B013D7B1E18BEE700AC7D74 /* SpriteComponentTests.swift */,
 				8B0708941E1A2C6B00A7310D /* PhysicsComponentTests.swift */,
 				8B5774051E1F4B210050EC72 /* TeamComponentTests.swift */,
+				8B5774131E1F5B1A0050EC72 /* MoveComponentTests.swift */,
 			);
 			name = ComponentTests;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				8B013D791E18BED200AC7D74 /* SpriteComponent.swift */,
 				8B0708921E1A29F700A7310D /* PhysicsComponent.swift */,
 				8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */,
+				8B5774111E1F5AD90050EC72 /* MoveComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -658,6 +664,7 @@
 				8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */,
 				8B57740A1E1F4DC90050EC72 /* EnemyEntity.swift in Sources */,
 				8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */,
+				8B5774121E1F5AD90050EC72 /* MoveComponent.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
 				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,
 				8B013D721E18B5F900AC7D74 /* PlayerEntity.swift in Sources */,
@@ -674,6 +681,7 @@
 				8B0EB1CB1E194AAE00128B41 /* EntityBuilderTests.swift in Sources */,
 				8B5774081E1F4D960050EC72 /* EnemyEntityTests.swift in Sources */,
 				8B013D831E18CF5600AC7D74 /* EntityManagerTests.swift in Sources */,
+				8B5774141E1F5B1A0050EC72 /* MoveComponentTests.swift in Sources */,
 				8B013D7C1E18BEE700AC7D74 /* SpriteComponentTests.swift in Sources */,
 				8BEAD7F71E19B288007F68C5 /* CameraBuilderTests.swift in Sources */,
 				8B57740F1E1F52D90050EC72 /* MoveBehaviorTests.swift in Sources */,
