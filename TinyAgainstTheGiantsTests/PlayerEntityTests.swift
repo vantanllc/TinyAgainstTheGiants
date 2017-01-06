@@ -23,6 +23,11 @@ class PlayerEntitySpec: QuickSpec {
         player = PlayerEntity(node: spriteNode)
       }
       
+      it("should have a TeamComponent with Team.One") {
+        let team = player.component(ofType: TeamComponent.self)?.team
+        expect(team).to(equal(Team.One))
+      }
+      
       it("should have a PhysicsComponent") {
         let physicsComponent = player.component(ofType: PhysicsComponent.self)
         expect(physicsComponent).toNot(beNil())

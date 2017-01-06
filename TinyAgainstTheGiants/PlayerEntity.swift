@@ -22,6 +22,9 @@ class PlayerEntity: GKEntity {
   
     renderComponent.node.addChild(spriteComponent.node)
     
+    let teamComponent = TeamComponent(team: .One)
+    addComponent(teamComponent)
+    
     let physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
     physicsBody.allowsRotation = false
     physicsBody.affectedByGravity = false
