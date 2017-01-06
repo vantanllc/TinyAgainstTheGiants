@@ -10,6 +10,27 @@ import SpriteKit
 
 class TileMapPhysicsBuilder {
   
+  static func getTranslationTransformsForTileDefinitionTypeCorner(_ tileDefintionType: TileDefinitionType, withTileSize tileSize: CGSize) -> (firstTransform: CGAffineTransform, secondTransform: CGAffineTransform) {
+    let noTranslationTransform = CGAffineTransform(translationX: 0, y: 0)
+    let oneQuarterUpRightTranslationTransform = CGAffineTransform(translationX: 0.25 * tileSize.width, y: 0.25 * tileSize.height)
+    let oneQuarterDownRightTranslationTransform = CGAffineTransform(translationX: 0.25 * tileSize.width, y: -0.25 * tileSize.height)
+    let oneQuarterUpLeftTranslationTransform = CGAffineTransform(translationX: -0.25 * tileSize.width, y: 0.25 * tileSize.height)
+    let oneQuarterDownLeftTranslationTransform = CGAffineTransform(translationX: -0.25 * tileSize.width, y: -0.25 * tileSize.height)
+    
+    let tranforms: (CGAffineTransform, CGAffineTransform)
+    
+    switch tileDefintionType {
+    case .UpperLeftCorner, .LowerRightCorner:
+      tranforms = (oneQuarterUpRightTranslationTransform, oneQuarterDownLeftTranslationTransform)
+    case .UpperRightCorner, .LowerLeftCorner:
+      tranforms = (oneQuarterUpLeftTranslationTransform, oneQuarterDownRightTranslationTransform)
+    default:
+      tranforms = (noTranslationTransform, noTranslationTransform)
+    }
+    
+    return tranforms
+  }
+  
   static func getScaleTransformForTileDefinitionType(_ tileDefinitionType: TileDefinitionType) -> CGAffineTransform {
     let transform: CGAffineTransform
     
@@ -20,10 +41,8 @@ class TileMapPhysicsBuilder {
       transform = CGAffineTransform(scaleX: 1, y: 0.5)
     case .LeftEdge, .RightEdge:
       transform = CGAffineTransform(scaleX: 0.5, y: 1)
-    case .UpperLeftEdge, .UpperRightEdge, .LowerLeftEdge, .LowerRightEdge:
-      transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     default:
-      transform = CGAffineTransform(scaleX: 1, y: 1)
+      transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
     
     return transform
@@ -66,10 +85,21 @@ class TileMapPhysicsBuilder {
     }
     
     let tileSize = tileDefinition.size
-    let scaleTransform = getScaleTransformForTileDefinitionType(tileDefinitionType)
-    let translationTransform = getTranslationTransformForTileDefinitionType(tileDefinitionType, withTileSize: tileSize)
     
-    tileDefinitionPhysicsBody = SKPhysicsBody(rectangleOf: tileSize.applying(scaleTransform), center: center.applying(translationTransform))
+    if TileDefinitionType.allCorners.contains(tileDefinitionType) {
+      let scaleTransform = getScaleTransformForTileDefinitionType(tileDefinitionType)
+      let translationTransforms = getTranslationTransformsForTileDefinitionTypeCorner(tileDefinitionType, withTileSize: tileSize)
+      
+      let firstBody = SKPhysicsBody(rectangleOf: tileSize.applying(scaleTransform), center: center.applying(translationTransforms.firstTransform))
+      let secondBody = SKPhysicsBody(rectangleOf: tileSize.applying(scaleTransform), center: center.applying(translationTransforms.secondTransform))
+      
+      tileDefinitionPhysicsBody = SKPhysicsBody(bodies: [firstBody, secondBody])
+    } else {
+      let scaleTransform = getScaleTransformForTileDefinitionType(tileDefinitionType)
+      let translationTransform = getTranslationTransformForTileDefinitionType(tileDefinitionType, withTileSize: tileSize)
+      
+      tileDefinitionPhysicsBody = SKPhysicsBody(rectangleOf: tileSize.applying(scaleTransform), center: center.applying(translationTransform))
+    }
     
     return tileDefinitionPhysicsBody
   }

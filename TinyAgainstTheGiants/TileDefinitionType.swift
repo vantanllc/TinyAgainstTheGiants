@@ -14,4 +14,9 @@ enum TileDefinitionType: String {
   case LowerLeftEdge, DownEdge, LowerRightEdge
   case UpperLeftCorner, UpperRightCorner
   case LowerLeftCorner, LowerRightCorner
+  
+  static let allCorners = [
+    UpperLeftCorner, UpperRightCorner,
+    LowerLeftCorner, LowerRightCorner
+  ]
 }

@@ -69,6 +69,75 @@ class TileMapPhysicsBuilderSpec: QuickSpec {
           }
           expect(transforms).to(allPass(equal(halfYHalfXScaleTransform)))
         }
+        
+        it("should return expected scale transform for a Upper/Lower Left/Right Corner") {
+          tileDefinitionTypes = [.UpperLeftCorner, .UpperRightCorner, .LowerLeftCorner, .LowerRightCorner]
+          transforms = tileDefinitionTypes.flatMap { type in
+            return TileMapPhysicsBuilder.getScaleTransformForTileDefinitionType(type)
+          }
+          expect(transforms).to(allPass(equal(halfYHalfXScaleTransform)))
+        }
+      }
+      
+      describe("getTranslationTransformForTileDefinitionTypeCorner") {
+        var tileDefinitionType: TileDefinitionType!
+        var transforms: (firstTransform: CGAffineTransform, secondTransform: CGAffineTransform)!
+        let tileSize = CGSize(width: 100, height: 100)
+        let noTranslationTransform = CGAffineTransform(translationX: 0, y: 0)
+        let oneQuarterUpRightTranslationTransform = CGAffineTransform(translationX: 0.25 * tileSize.width, y: 0.25 * tileSize.height)
+        let oneQuarterDownRightTranslationTransform = CGAffineTransform(translationX: 0.25 * tileSize.width, y: -0.25 * tileSize.height)
+        let oneQuarterUpLeftTranslationTransform = CGAffineTransform(translationX: -0.25 * tileSize.width, y: 0.25 * tileSize.height)
+        let oneQuarterDownLeftTranslationTransform = CGAffineTransform(translationX: -0.25 * tileSize.width, y: -0.25 * tileSize.height)
+        
+        afterEach {
+          tileDefinitionType = nil
+          transforms = nil
+        }
+        
+        it("should return expected translation transforms for non-Corner type") {
+          let tileDefinitionTypes: [TileDefinitionType] = [
+            .UpperLeftEdge, .UpEdge, .UpperLeftEdge,
+            .LeftEdge, .Center, .RightEdge,
+            .LowerLeftEdge, .DownEdge, .LowerRightEdge
+          ]
+          
+          let transformTuples: [(firstTransform: CGAffineTransform, secondTransform: CGAffineTransform)] = tileDefinitionTypes.flatMap { type in
+            return TileMapPhysicsBuilder.getTranslationTransformsForTileDefinitionTypeCorner(type, withTileSize: tileSize)
+          }
+          
+          for transform in transformTuples {
+            expect(transform.firstTransform).to(equal(noTranslationTransform))
+            expect(transform.secondTransform).to(equal(noTranslationTransform))
+          }
+        }
+        
+        it("should return expected translation transforms for .UpperLeftCorner") {
+          tileDefinitionType = .UpperLeftCorner
+          transforms = TileMapPhysicsBuilder.getTranslationTransformsForTileDefinitionTypeCorner(tileDefinitionType, withTileSize: tileSize)
+          expect(transforms.firstTransform).to(equal(oneQuarterUpRightTranslationTransform))
+          expect(transforms.secondTransform).to(equal(oneQuarterDownLeftTranslationTransform))
+        }
+        
+        it("should return expected translation transforms for .UpperRightCorner") {
+          tileDefinitionType = .UpperRightCorner
+          transforms = TileMapPhysicsBuilder.getTranslationTransformsForTileDefinitionTypeCorner(tileDefinitionType, withTileSize: tileSize)
+          expect(transforms.firstTransform).to(equal(oneQuarterUpLeftTranslationTransform))
+          expect(transforms.secondTransform).to(equal(oneQuarterDownRightTranslationTransform))
+        }
+        
+        it("should return expected translation transforms for .LowerLeftCorner") {
+          tileDefinitionType = .LowerLeftCorner
+          transforms = TileMapPhysicsBuilder.getTranslationTransformsForTileDefinitionTypeCorner(tileDefinitionType, withTileSize: tileSize)
+          expect(transforms.firstTransform).to(equal(oneQuarterUpLeftTranslationTransform))
+          expect(transforms.secondTransform).to(equal(oneQuarterDownRightTranslationTransform))
+        }
+        
+        it("should return expected translation transforms for .LowerRightCorner") {
+          tileDefinitionType = .LowerRightCorner
+          transforms = TileMapPhysicsBuilder.getTranslationTransformsForTileDefinitionTypeCorner(tileDefinitionType, withTileSize: tileSize)
+          expect(transforms.firstTransform).to(equal(oneQuarterUpRightTranslationTransform))
+          expect(transforms.secondTransform).to(equal(oneQuarterDownLeftTranslationTransform))
+        }
       }
       
       describe("getTranslationTransformForTileDefinitionType") {
@@ -146,3 +215,5 @@ class TileMapPhysicsBuilderSpec: QuickSpec {
     }
   }
 }
+
+
