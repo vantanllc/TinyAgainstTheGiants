@@ -25,6 +25,13 @@ class EntityManager {
   var entitiesToRemove = Set<GKEntity>()
 }
 
+// MARK: Enemy Functions
+extension EntityManager {
+  func getEnemyEntities() -> [GKEntity]? {
+    return entities.filter { entity in return entity.isKind(of: EnemyEntity.self)}
+  }
+}
+
 // MARK: Player Functions
 extension EntityManager {
   func getPlayerSpriteNode() -> SKSpriteNode? {

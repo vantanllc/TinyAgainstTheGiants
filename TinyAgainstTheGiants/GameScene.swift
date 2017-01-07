@@ -44,12 +44,34 @@ class GameScene: SKScene {
   
   // MARK: Nodes
   var worldNode: SKNode!
+ 
+  // MARK: Timing
+  var lastUpdateTime: TimeInterval = 0
+  // MARK: Entities
+  let maxEnemyCount: Int = 10
+  var enemyCount: Int = 0
+  let enemySpawnCoolDown: TimeInterval = 5
+  var enemySpawnTime: TimeInterval = 5
 }
 
 // MARK: Update
 extension GameScene {
   override func update(_ currentTime: TimeInterval) {
     super.update(currentTime)
+    
+    if lastUpdateTime.isZero {
+      lastUpdateTime = currentTime
+    }
+    
+    let deltaTime = currentTime - lastUpdateTime
+    lastUpdateTime = currentTime
+    
+    enemySpawnTime -= deltaTime
+    
+    if enemyCount < maxEnemyCount, enemySpawnTime.isLessThanOrEqualTo(0) {
+      addEnemy()
+      enemySpawnTime = enemySpawnCoolDown
+    }
     
     if let camera = camera, !camera.contains(currentBackgroundTileMap), camera.position.y < currentBackgroundTileMap.frame.maxY {
       updateBackgroundTileMaps()
@@ -72,6 +94,14 @@ extension GameScene {
         playerNode.physicsBody?.applyForce(vector)
       }
     }
+  }
+}
+
+// MARK: Adding Entities
+extension GameScene {
+  func addEnemy() {
+    EntityBuilder.addEnemy(position: TileMapBuilder.getRandomPositionInTileMap(currentObstacleTileMap), toEntityManager: entityManager)
+    enemyCount += 1
   }
 }
 

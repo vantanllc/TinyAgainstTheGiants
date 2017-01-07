@@ -21,6 +21,80 @@ class GameSceneSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      describe("updateTime") {
+        context("when lastUpdateTime is zero") {
+          it("should set lastUpdateTime to currentTime") {
+            gameScene.lastUpdateTime = 0
+            let expectedCurrentTime: TimeInterval = 4
+            gameScene.update(expectedCurrentTime)
+            
+            expect(gameScene.lastUpdateTime).to(equal(expectedCurrentTime))
+          }
+        }
+        
+        context("when lastUpdateTime is non-zero") {
+          it("should set lastUpdateTime to currentTime") {
+            gameScene.lastUpdateTime = 1.2
+            let currentTime: TimeInterval = 3
+            gameScene.update(currentTime)
+            
+            expect(gameScene.lastUpdateTime).to(equal(currentTime))
+          }
+        }
+      }
+      
+      describe("spawn enemies") {
+        context("after reaching cooldown time") {
+          it("should increment enemyCount by one") {
+            let oldEnemyCount = gameScene.enemyCount
+            
+            gameScene.update(0.1)
+            gameScene.update(gameScene.enemySpawnCoolDown + 0.1)
+            
+            expect(gameScene.enemyCount).to(equal(oldEnemyCount + 1))
+          }
+          
+          it("should reset enemySpawnTime to enemySpawnCoolDown") {
+            gameScene.update(0.1)
+            gameScene.update(gameScene.enemySpawnCoolDown + 0.1)
+            
+            expect(gameScene.enemySpawnTime).to(equal(gameScene.enemySpawnCoolDown))
+          }
+          
+          it("should not exceed maxEnemyCount") {
+            let maxCount = gameScene.maxEnemyCount
+            
+            var currentTime: TimeInterval = 0
+            gameScene.update(0.1)
+            for _ in 0...maxCount {
+              currentTime += gameScene.enemySpawnCoolDown + 0.1
+              gameScene.update(currentTime)
+            }
+            
+            expect(gameScene.enemyCount).to(equal(maxCount))
+          }
+        }
+      }
+      
+      describe("adding Entity functions") {
+        context("addEnemy") {
+          it("should add EnemyEntity render node to worldNode") {
+            gameScene.addEnemy()
+            if let entity = gameScene.entityManager.getEnemyEntities()?.first, let node = entity.component(ofType: RenderComponent.self)?.node {
+              expect(gameScene.worldNode.children).to(contain(node))
+            } else {
+              fail("Unexpectedly found nil")
+            }
+          }
+          
+          it("should increment enemyCount") {
+            let expectedCount = 1
+            gameScene.addEnemy()
+            expect(gameScene.enemyCount).to(equal(expectedCount))
+          }
+        }
+      }
+      
       describe("updateObstacleTileMaps") {
         it("should add top edge with tilegroup for updated previousObstacleTileMap") {
           gameScene.updateObstacleTileMaps()

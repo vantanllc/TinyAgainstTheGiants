@@ -46,6 +46,29 @@ class EntityBuilderSpec: QuickSpec {
           }
         }
       }
+      describe("addEnemy") {
+        let position = CGPoint(x: 200, y: -20)
+
+        beforeEach {
+          EntityBuilder.addEnemy(position: position, toEntityManager: entityManager)
+        }
+        
+        it("should add EnemyEntity to entityManager") {
+          if let entities = entityManager.getEnemyEntities() {
+            expect(entities).toNot(beNil())
+          } else {
+            fail("Unexpectedly found nil")
+          }
+        }
+        
+        it("should set EnemyEntity RenderComponent position") {
+          if let entity = entityManager.getEnemyEntities()?.first, let node = entity.component(ofType: RenderComponent.self)?.node {
+            expect(node.position).to(equal(position))
+          } else {
+            fail("Unexpectedly found nil")
+          }
+        }
+      }
     }
   }
 }

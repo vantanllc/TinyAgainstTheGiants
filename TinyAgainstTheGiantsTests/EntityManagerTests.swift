@@ -27,6 +27,27 @@ class EntityManagerSpec: QuickSpec {
         expect(entityManager.scene).to(be(gameScene))
       }
       
+      describe("Enemy functions") {
+        var expectedNode: SKSpriteNode!
+        var expectedEnemyEntity: EnemyEntity!
+        var expectedEnemyEntities: [EnemyEntity]!
+    
+        beforeEach {
+          expectedNode = SKSpriteNode()
+          expectedEnemyEntity = EnemyEntity(node: expectedNode)
+          expectedEnemyEntities = []
+          expectedEnemyEntities.append(expectedEnemyEntity)
+          entityManager.entities.insert(expectedEnemyEntity)
+        }
+        
+        describe("getEnemyEntities") {
+          it("should return enemy entities") {
+            let entities = entityManager.getEnemyEntities()
+            expect(entities).to(equal(expectedEnemyEntities))
+          }
+        }
+      }
+      
       describe("Player function") {
         var expectedNode: SKSpriteNode!
         var expectedPlayerEntity: PlayerEntity!

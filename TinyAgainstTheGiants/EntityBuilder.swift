@@ -12,12 +12,23 @@ class EntityBuilder {
   // MARK: Functions
   static func addPlayer(position: CGPoint, toEntityManager entityManager: EntityManager) {
     let node = SKSpriteNode(color: .blue, size: CGSize(width: 40, height: 40))
-    let player = PlayerEntity(node: node)
+    let entity = PlayerEntity(node: node)
     
-    if let renderNode = player.component(ofType: RenderComponent.self)?.node {
+    if let renderNode = entity.component(ofType: RenderComponent.self)?.node {
       renderNode.position = position
     }
     
-    entityManager.add(entity: player)
+    entityManager.add(entity: entity)
   }
+  static func addEnemy(position: CGPoint, toEntityManager entityManager: EntityManager) {
+    let node = SKSpriteNode(color: .red, size: CGSize(width: 40, height: 40))
+    let entity = EnemyEntity(node: node)
+    
+    if let renderNode = entity.component(ofType: RenderComponent.self)?.node {
+      renderNode.position = position
+    }
+    
+    entityManager.add(entity: entity)
+  }
+  
 }
