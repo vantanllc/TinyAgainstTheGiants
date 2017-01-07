@@ -19,7 +19,7 @@ class PlayerEntitySpec: QuickSpec {
     
     describe("PlayerEntity") {
       beforeEach {
-        spriteNode = SKSpriteNode()
+        spriteNode = SKSpriteNode(color: .blue, size: CGSize(width: 10, height: 20))
         player = PlayerEntity(node: spriteNode)
       }
       
@@ -56,6 +56,39 @@ class PlayerEntitySpec: QuickSpec {
       it("should add SpriteComponent.node as a child of RenderComponent.node") {
         let renderComponent: RenderComponent! = player.component(ofType: RenderComponent.self)
         expect(renderComponent.node.children).to(contain(spriteNode))
+      }
+      
+      describe("MoveComponent") {
+        var moveComponent: MoveComponent!
+        
+        beforeEach {
+          moveComponent = player.component(ofType: MoveComponent.self)
+        }
+        
+        it("should have MoveComponent") {
+          expect(moveComponent).toNot(beNil())
+        }
+        
+        it("should set maxSpeed to entity defined maxSpeed") {
+          expect(moveComponent.maxSpeed).to(equal(player.maxSpeed))
+        }
+        
+        it("should set maxAcceleration to entity defined maxAcceleration") {
+          expect(moveComponent.maxAcceleration).to(equal(player.maxAcceleration))
+        }
+        
+        it("should set radius to half of spriteNode width") {
+          let expectedRadius = Float(spriteNode.size.width * 0.5)
+          expect(moveComponent.radius).to(equal(expectedRadius))
+        }
+        
+        it("should set mass to entity defined mass") {
+          expect(moveComponent.mass).to(equal(player.mass))
+        }
+        
+        it("should not have a reference to entityManager")   {
+          expect(moveComponent.entityManager).to(beNil())
+        }
       }
     }
   }

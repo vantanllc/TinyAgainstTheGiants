@@ -10,7 +10,7 @@ import GameplayKit
 
 class EnemyEntity: GKEntity {
   // MARK: Lifcycle
-  init(node: SKSpriteNode) {
+  init(node: SKSpriteNode, entityManager: EntityManager? = nil) {
     super.init()
     
     let renderComponent = RenderComponent()
@@ -32,9 +32,18 @@ class EnemyEntity: GKEntity {
     let physicsComponent = PhysicsComponent(physicsBody: physicsBody)
     renderComponent.node.physicsBody = physicsComponent.physicsBody
     addComponent(physicsComponent)
+    
+    let radius = Float(node.size.width * 0.5)
+    let moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass, entityManager: entityManager)
+    addComponent(moveComponent)
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  // MARK: Properties
+  let maxSpeed: Float = 200
+  let maxAcceleration: Float = 100
+  let mass: Float = 1
 }

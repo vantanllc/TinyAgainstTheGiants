@@ -22,28 +22,40 @@ class MoveComponentSpec: QuickSpec {
     let entityManager = EntityManager(scene: GameScene(size: CGSize.zero))
     
     describe("MoveComponent") {
-      beforeEach {
-        moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass, entityManager: entityManager)
+      describe("with entityManager") {
+        beforeEach {
+          moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass, entityManager: entityManager)
+        }
+        
+        it("should have an entityManager") {
+          expect(moveComponent.entityManager).to(be(entityManager))
+        }
+      
+        it("should set maxSpeed as specified") {
+          expect(moveComponent.maxSpeed).to(equal(maxSpeed))
+        }
+        
+        it("should set maxAcceleration as specified") {
+          expect(moveComponent.maxAcceleration).to(equal(maxAcceleration / mass))
+        }
+        
+        it("should set radius as specified") {
+          expect(moveComponent.radius).to(equal(radius))
+        }
+        
+        it("should set mass as specified") {
+          expect(moveComponent.mass).to(equal(mass))
+        }
       }
       
-      it("should have an entityManager") {
-        expect(moveComponent.entityManager).to(be(entityManager))
-      }
-    
-      it("should set maxSpeed as specified") {
-        expect(moveComponent.maxSpeed).to(equal(maxSpeed))
-      }
-      
-      it("should set maxAcceleration as specified") {
-        expect(moveComponent.maxAcceleration).to(equal(maxAcceleration / mass))
-      }
-      
-      it("should set radius as specified") {
-        expect(moveComponent.radius).to(equal(radius))
-      }
-      
-      it("should set mass as specified") {
-        expect(moveComponent.mass).to(equal(mass))
+      describe("without entityManager") {
+        beforeEach {
+          moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass)
+        }
+        
+        it("should not have entityManager") {
+          expect(moveComponent.entityManager).to(beNil())
+        }
       }
     }
   }

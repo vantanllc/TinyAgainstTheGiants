@@ -22,7 +22,7 @@ class EntityBuilder {
   }
   static func addEnemy(position: CGPoint, toEntityManager entityManager: EntityManager) {
     let node = SKSpriteNode(color: .red, size: CGSize(width: 40, height: 40))
-    let entity = EnemyEntity(node: node)
+    let entity = EnemyEntity(node: node, entityManager: entityManager)
     
     if let renderNode = entity.component(ofType: RenderComponent.self)?.node {
       renderNode.position = position

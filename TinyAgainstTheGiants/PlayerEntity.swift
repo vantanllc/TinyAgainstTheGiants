@@ -32,9 +32,18 @@ class PlayerEntity: GKEntity {
     let physicsComponent = PhysicsComponent(physicsBody: physicsBody)
     renderComponent.node.physicsBody = physicsComponent.physicsBody
     addComponent(physicsComponent)
+    
+    let radius = Float(node.size.width * 0.5)
+    let moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass)
+    addComponent(moveComponent) 
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  // MARK: Properties
+  let maxSpeed: Float = 0
+  let maxAcceleration: Float = 0
+  let mass: Float = 1
 }

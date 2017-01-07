@@ -68,6 +68,14 @@ class EntityBuilderSpec: QuickSpec {
             fail("Unexpectedly found nil")
           }
         }
+        
+        it("should set EnemyEntity MoveComponent entityManager to reference entityManager") {
+          if let entity = entityManager.getEnemyEntities()?.first, let move = entity.component(ofType: MoveComponent.self) {
+            expect(move.entityManager).to(be(entityManager))
+          } else {
+            fail("Unexpectedly found nil")
+          }
+        }
       }
     }
   }

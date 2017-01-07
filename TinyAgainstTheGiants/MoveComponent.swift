@@ -10,7 +10,7 @@ import GameplayKit
 
 class MoveComponent: GKAgent2D {
   // MARK: Lifecycle
-  init(maxSpeed: Float, maxAcceleration: Float, radius: Float, mass: Float, entityManager: EntityManager) {
+  init(maxSpeed: Float, maxAcceleration: Float, radius: Float, mass: Float, entityManager: EntityManager? = nil) {
     self.entityManager = entityManager
     super.init()
     
@@ -25,5 +25,5 @@ class MoveComponent: GKAgent2D {
   }
   
   // MARK: Properties
-  let entityManager: EntityManager
+  var entityManager: EntityManager?
 }
