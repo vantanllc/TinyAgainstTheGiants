@@ -30,7 +30,13 @@ class TileMapBuilder {
   static func getRandomPositionInTileMap(_ tileMap: SKTileMapNode) -> CGPoint {
     let column = GKRandomSource.sharedRandom().nextInt(upperBound: tileMap.numberOfColumns)
     let row = GKRandomSource.sharedRandom().nextInt(upperBound: tileMap.numberOfRows)
-    return tileMap.centerOfTile(atColumn: column, row: row)
+    let tilePosition = tileMap.centerOfTile(atColumn: column, row: row)
+    
+    if let scene = tileMap.scene {
+      return scene.convert(tilePosition, from: tileMap)
+    } else {
+      return tilePosition
+    }
   }
   
   static func createFilledTileMapWithTileSet(_ tileSet: SKTileSet, columns: Int, rows: Int) -> SKTileMapNode? {
