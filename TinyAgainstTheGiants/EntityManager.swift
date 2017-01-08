@@ -32,6 +32,27 @@ extension EntityManager {
   }
 }
 
+// MARK: Behavior Functions
+extension EntityManager {
+  func getEntitiesForTeam(_ team: Team) -> [GKEntity] {
+    let entitiesOfTeam = entities.filter { entity in
+      return entity.component(ofType: TeamComponent.self)?.team == team
+    }
+    
+    return entitiesOfTeam
+  }
+  
+  func getMoveComponentsForTeam(_ team: Team) -> [MoveComponent] {
+    let entitiesOfTeam = getEntitiesForTeam(team)
+    
+    let moveComponents = entitiesOfTeam.flatMap { entity in
+      return entity.component(ofType: MoveComponent.self)
+    }
+    
+    return moveComponents
+  }
+}
+
 // MARK: Player Functions
 extension EntityManager {
   func getPlayerSpriteNode() -> SKSpriteNode? {

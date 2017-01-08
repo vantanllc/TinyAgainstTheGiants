@@ -27,3 +27,19 @@ class MoveComponent: GKAgent2D {
   // MARK: Properties
   var entityManager: EntityManager?
 }
+
+extension MoveComponent {
+  func getClosestFromMoveComponents(_ moveComponents: [MoveComponent]) -> MoveComponent? {
+    var closestMoveComponent: MoveComponent?
+    var closestDistance = CGFloat(0)
+    for moveComponent in moveComponents {
+      let distance = (CGPoint(moveComponent.position) - CGPoint(position)).length()
+      if closestMoveComponent == nil || distance < closestDistance {
+        closestMoveComponent = moveComponent
+        closestDistance = distance
+      }
+    }
+    
+    return closestMoveComponent
+  }
+}

@@ -27,6 +27,34 @@ class EntityManagerSpec: QuickSpec {
         expect(entityManager.scene).to(be(gameScene))
       }
       
+      describe("Behavior functions") {
+        describe ("getEntitiesForTeam") {
+          it("should return expected entities of specified team") {
+            let entityFromTeamOne = PlayerEntity(node: SKSpriteNode())
+            let entityFromTeamTwo = EnemyEntity(node: SKSpriteNode())
+            entityManager.entities.insert(entityFromTeamOne)
+            entityManager.entities.insert(entityFromTeamTwo)
+            
+            let entities = entityManager.getEntitiesForTeam(.One)
+            expect(entities).to(equal([entityFromTeamOne]))
+          }
+        }
+        describe("getMoveComponentsForTeam") {
+          it("should return expected MoveComponents for entities of specified team") {
+            let entity = PlayerEntity(node: SKSpriteNode())
+            guard let expectedMoveComponent = entity.component(ofType: MoveComponent.self) else {
+              fail(unexpectedlyFoundNil)
+              return
+            }
+            
+            entityManager.entities.insert(entity)
+            let moveComponents = entityManager.getMoveComponentsForTeam(.One)
+            
+            expect(moveComponents).to(contain(expectedMoveComponent))
+          }
+        }
+      }
+      
       describe("Enemy functions") {
         var expectedNode: SKSpriteNode!
         var expectedEnemyEntity: EnemyEntity!

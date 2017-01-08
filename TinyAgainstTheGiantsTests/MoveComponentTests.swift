@@ -22,6 +22,21 @@ class MoveComponentSpec: QuickSpec {
     let entityManager = EntityManager(scene: GameScene(size: CGSize.zero))
     
     describe("MoveComponent") {
+      describe("getClosestFromMoveComponents") {
+        it("should return the closest MoveComponent") {
+          moveComponent = MoveComponent(maxSpeed: 1, maxAcceleration: 1, radius: 1, mass: 1)
+          let secondMoveComponent = MoveComponent(maxSpeed: 1, maxAcceleration: 1, radius: 1, mass: 1)
+          let thirdMoveComponent = MoveComponent(maxSpeed: 1, maxAcceleration: 1, radius: 1, mass: 1)
+          
+          moveComponent.position = float2(x: 0, y: 0)
+          secondMoveComponent.position = float2(x: 10, y: 10)
+          thirdMoveComponent.position = float2(x: 5, y: 5)
+          
+          let closestMoveComponent = moveComponent.getClosestFromMoveComponents([secondMoveComponent, thirdMoveComponent])
+          expect(closestMoveComponent).to(be(thirdMoveComponent))
+        }
+      }
+      
       describe("with entityManager") {
         beforeEach {
           moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass, entityManager: entityManager)
