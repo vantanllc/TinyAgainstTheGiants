@@ -22,6 +22,31 @@ class MoveComponentSpec: QuickSpec {
     let entityManager = EntityManager(scene: GameScene(size: CGSize.zero))
     
     describe("MoveComponent") {
+      describe("update") {
+        beforeEach {
+          let entity = EnemyEntity(node: SKSpriteNode(), entityManager: entityManager)
+          entityManager.entities.insert(entity)
+          moveComponent = entity.component(ofType: MoveComponent.self)
+        }
+        
+        afterEach {
+          entityManager.entities.removeAll()
+        }
+        
+        it("should set behavior") {
+          let opposingEntity = PlayerEntity(node: SKSpriteNode())
+          entityManager.entities.insert(opposingEntity)
+          
+          moveComponent.update(deltaTime: 1)
+          expect(moveComponent.behavior).toNot(beNil())
+        }
+        
+        it("should not set behavior") {
+          moveComponent.update(deltaTime: 1)
+          expect(moveComponent.behavior).to(beNil())
+        }
+      }
+      
       describe("getClosestFromMoveComponents") {
         it("should return the closest MoveComponent") {
           moveComponent = MoveComponent(maxSpeed: 1, maxAcceleration: 1, radius: 1, mass: 1)
