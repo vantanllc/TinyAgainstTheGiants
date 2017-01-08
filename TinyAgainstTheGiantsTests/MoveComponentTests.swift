@@ -22,6 +22,46 @@ class MoveComponentSpec: QuickSpec {
     let entityManager = EntityManager(scene: GameScene(size: CGSize.zero))
     
     describe("MoveComponent") {
+      describe("GKAgentDelegate") {
+        var entity: EnemyEntity!
+        
+        beforeEach {
+          entity = EnemyEntity(node: SKSpriteNode(), entityManager: entityManager)
+          entityManager.entities.insert(entity)
+          moveComponent = entity.component(ofType: MoveComponent.self)
+        }
+        
+        context("agentWillUpate") {
+          it("should set moveComponent.position to node.position") {
+            guard let renderNode = entity.component(ofType: RenderComponent.self)?.node else {
+              fail(unexpectedlyFoundNil)
+              return
+            }
+            renderNode.position = CGPoint(x: 20, y: 30)
+            moveComponent.position = float2(x: 40, y: 70)
+            
+            moveComponent.delegate?.agentWillUpdate!(GKAgent())
+            expect(moveComponent.position.x).to(equal(Float(renderNode.position.x)))
+            expect(moveComponent.position.y).to(equal(Float(renderNode.position.y)))
+          }
+        }
+        
+        context("agentDidUpate") {
+          it("should set node.position to moveComponent.position") {
+            guard let renderNode = entity.component(ofType: RenderComponent.self)?.node else {
+              fail(unexpectedlyFoundNil)
+              return
+            }
+            renderNode.position = CGPoint(x: 20, y: 30)
+            moveComponent.position = float2(x: 40, y: 70)
+            
+            moveComponent.delegate?.agentDidUpdate!(GKAgent())
+            expect(renderNode.position.x).to(equal(CGFloat(moveComponent.position.x)))
+            expect(renderNode.position.y).to(equal(CGFloat(moveComponent.position.y)))
+          }
+        }
+      }
+      
       describe("update") {
         beforeEach {
           let entity = EnemyEntity(node: SKSpriteNode(), entityManager: entityManager)

@@ -14,6 +14,8 @@ class MoveComponent: GKAgent2D {
     self.entityManager = entityManager
     super.init()
     
+    delegate = self
+    
     self.maxSpeed = maxSpeed
     self.maxAcceleration = maxAcceleration
     self.radius = radius
@@ -59,5 +61,23 @@ extension MoveComponent {
     }
     
     return closestMoveComponent
+  }
+}
+
+extension MoveComponent: GKAgentDelegate {
+  func agentWillUpdate(_ agent: GKAgent) {
+    guard let node = entity?.component(ofType: RenderComponent.self)?.node else {
+      return
+    }
+    
+    position = float2(node.position)
+  }
+  
+  func agentDidUpdate(_ agent: GKAgent) {
+    guard let node = entity?.component(ofType: RenderComponent.self)?.node else {
+      return
+    }
+    
+    node.position = CGPoint(position)
   }
 }
