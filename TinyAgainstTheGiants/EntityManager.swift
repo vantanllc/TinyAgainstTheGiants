@@ -17,6 +17,10 @@ class EntityManager {
       }
     }
     
+    for componentSystem in componentSystems {
+      componentSystem.update(deltaTime: deltaTime)
+    }
+    
     entitiesToRemove.removeAll()
   }
   

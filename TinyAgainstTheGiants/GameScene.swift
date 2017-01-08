@@ -66,6 +66,8 @@ extension GameScene {
     let deltaTime = currentTime - lastUpdateTime
     lastUpdateTime = currentTime
     
+    entityManager.update(deltaTime: deltaTime)
+    
     enemySpawnTime -= deltaTime
     
     if enemyCount < maxEnemyCount, enemySpawnTime.isLessThanOrEqualTo(0) {
