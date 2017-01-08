@@ -11,7 +11,7 @@ import GameplayKit
 class EntityBuilder {
   // MARK: Functions
   static func addPlayer(position: CGPoint, toEntityManager entityManager: EntityManager) {
-    let node = SKSpriteNode(color: .blue, size: CGSize(width: 40, height: 40))
+    let node = SKSpriteNode(color: .clear, size: CGSize(width: 40, height: 40))
     let entity = PlayerEntity(node: node)
     
     if let renderNode = entity.component(ofType: RenderComponent.self)?.node {
@@ -21,7 +21,7 @@ class EntityBuilder {
     entityManager.add(entity: entity)
   }
   static func addEnemy(position: CGPoint, toEntityManager entityManager: EntityManager) {
-    let node = SKSpriteNode(color: .red, size: CGSize(width: 40, height: 40))
+    let node = SKSpriteNode(color: .clear, size: CGSize(width: 40, height: 40))
     let entity = EnemyEntity(node: node, entityManager: entityManager)
     
     if let renderNode = entity.component(ofType: RenderComponent.self)?.node {

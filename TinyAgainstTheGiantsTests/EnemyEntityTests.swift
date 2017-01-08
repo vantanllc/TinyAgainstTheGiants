@@ -47,15 +47,39 @@ class EnemyEntitySpec: QuickSpec {
           expect(renderComponent.node.zPosition).to(equal(NodeLayerPosition.entity))
         }
       }
+    }
+    
+    describe("SpriteComponent") {
+      var spriteComponent: SpriteComponent!
+      
+      beforeEach {
+        spriteComponent = enemy.component(ofType: SpriteComponent.self)
+      }
       
       it("should have SpriteComponent") {
-        let spriteComponent = enemy.component(ofType: SpriteComponent.self)
         expect(spriteComponent).toNot(beNil())
       }
       
       it("should add SpriteComponent.node as a child of RenderComponent.node") {
         let renderComponent: RenderComponent! = enemy.component(ofType: RenderComponent.self)
         expect(renderComponent.node.children).to(contain(spriteNode))
+      }
+    }
+    
+    describe("ParticleComponent") {
+      var particleComponent: ParticleComponent!
+      
+      beforeEach {
+        particleComponent = enemy.component(ofType: ParticleComponent.self)
+      }
+      
+      it("should have ParticleComponent") {
+        expect(particleComponent).toNot(beNil())
+      }
+      
+      it("should add emitter node as a child of SpriteComponent.node") {
+        let emitterNode: SKEmitterNode! = enemy.component(ofType: ParticleComponent.self)?.particleEffect
+        expect(spriteNode.children).to(contain(emitterNode))
       }
     }
     

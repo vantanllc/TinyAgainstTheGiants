@@ -14,13 +14,20 @@ class EnemyEntity: GKEntity {
     super.init()
     
     let renderComponent = RenderComponent()
-    renderComponent.node.zPosition = NodeLayerPosition.entity
-    addComponent(renderComponent)
-    
     let spriteComponent = SpriteComponent(node: node)
-    addComponent(spriteComponent)
+    guard let emitterNode = SKEmitterNode(fileNamed: "FireParticle") else {
+      print("Could not find Particle file!")
+      return
+    }
+    let particleComponent = ParticleComponent(particleEffect: emitterNode)
     
+    renderComponent.node.zPosition = NodeLayerPosition.entity
     renderComponent.node.addChild(spriteComponent.node)
+    spriteComponent.node.addChild(particleComponent.particleEffect)
+    
+    addComponent(renderComponent)
+    addComponent(spriteComponent)
+    addComponent(particleComponent)
     
     let teamComponent = TeamComponent(team: .Two)
     addComponent(teamComponent)
