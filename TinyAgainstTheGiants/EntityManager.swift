@@ -11,6 +11,12 @@ import GameplayKit
 class EntityManager {
   // MARK Functions
   func update(deltaTime: TimeInterval) {
+    for entity in entitiesToRemove {
+      for componentSystem in componentSystems {
+        componentSystem.removeComponent(foundIn: entity)
+      }
+    }
+    
     entitiesToRemove.removeAll()
   }
   
@@ -23,6 +29,9 @@ class EntityManager {
   let scene: GameScene
   var entities = Set<GKEntity>()
   var entitiesToRemove = Set<GKEntity>()
+  var componentSystems: [GKComponentSystem<GKComponent>] = [
+    GKComponentSystem(componentClass: MoveComponent.self)
+  ]
 }
 
 // MARK: Enemy Functions
@@ -77,6 +86,10 @@ extension EntityManager {
     
     if let node = entity.component(ofType: RenderComponent.self)?.node {
       scene.worldNode.addChild(node)
+    }
+    
+    for componentSystem in componentSystems {
+      componentSystem.addComponent(foundIn: entity)
     }
   }
   

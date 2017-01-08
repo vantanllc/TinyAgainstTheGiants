@@ -23,6 +23,40 @@ class EntityManagerSpec: QuickSpec {
         entityManager = EntityManager(scene: gameScene)
       }
       
+      describe("update") {
+        it("should remove all entities in entitiesToRemove") {
+          entityManager.entitiesToRemove.insert(GKEntity())
+          entityManager.update(deltaTime: 1)
+          expect(entityManager.entitiesToRemove).to(haveCount(0))
+        }
+        
+        it("should clear componentSystems of entity components") {
+          let moveComponent = MoveComponent(maxSpeed: 1, maxAcceleration: 1, radius: 1, mass: 1)
+          let entity = GKEntity()
+          entity.addComponent(moveComponent)
+          entityManager.add(entity: entity)
+          entityManager.entitiesToRemove.insert(entity)
+          entityManager.update(deltaTime: 1)
+          
+          guard let moveSystem = entityManager.componentSystems.first else {
+            fail(unexpectedlyFoundNil)
+            return
+          }
+          
+          expect(moveSystem.components).toNot(contain(moveComponent))
+        }
+      }
+      
+      describe("componentSystems") {
+        it("should contain moveSystem") {
+          guard let moveSystem = entityManager.componentSystems.first else {
+            fail(unexpectedlyFoundNil)
+            return
+          }
+          expect(entityManager.componentSystems).to(contain(moveSystem))
+        }
+      }
+      
       it("should have reference to GameScene") {
         expect(entityManager.scene).to(be(gameScene))
       }
@@ -129,6 +163,21 @@ class EntityManagerSpec: QuickSpec {
               entityManager.add(entity: expectedEntity)
               
               expect(entityManager.scene.worldNode.children).to(contain(renderComponent.node))
+            }
+          }
+          
+          context("input entity has MoveComponent") {
+            it("should add to componentSystems") {
+              let moveComponent = MoveComponent(maxSpeed: 1, maxAcceleration: 1, radius: 1, mass: 1)
+              expectedEntity.addComponent(moveComponent)
+              entityManager.add(entity: expectedEntity)
+              guard let moveSystem = entityManager.componentSystems.first else {
+                fail(unexpectedlyFoundNil)
+                return
+              }
+              
+              expect(moveSystem.components).to(contain(moveComponent))
+              
             }
           }
         }
