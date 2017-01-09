@@ -43,6 +43,8 @@
 		8BD4BB9E1E229CC0006A6C38 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BD4BB9D1E229CC0006A6C38 /* MagicParticle.sks */; };
 		8BD4BBA11E229D2C006A6C38 /* ParticleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4BBA01E229D2C006A6C38 /* ParticleComponent.swift */; };
 		8BD4BBA31E229D93006A6C38 /* ParticleComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4BBA21E229D93006A6C38 /* ParticleComponentTests.swift */; };
+		8BD4BBA61E233893006A6C38 /* ChargeBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4BBA51E233893006A6C38 /* ChargeBarNode.swift */; };
+		8BD4BBA81E2339A3006A6C38 /* ChargeBarNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4BBA71E2339A3006A6C38 /* ChargeBarNodeTests.swift */; };
 		8BEAD7F51E19B1EC007F68C5 /* CameraBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */; };
 		8BEAD7F71E19B288007F68C5 /* CameraBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7F61E19B288007F68C5 /* CameraBuilderTests.swift */; };
 		8BEAD7FB1E19C9CB007F68C5 /* NoiseMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FA1E19C9CB007F68C5 /* NoiseMapBuilder.swift */; };
@@ -119,6 +121,8 @@
 		8BD4BB9D1E229CC0006A6C38 /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
 		8BD4BBA01E229D2C006A6C38 /* ParticleComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleComponent.swift; sourceTree = "<group>"; };
 		8BD4BBA21E229D93006A6C38 /* ParticleComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleComponentTests.swift; sourceTree = "<group>"; };
+		8BD4BBA51E233893006A6C38 /* ChargeBarNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeBarNode.swift; sourceTree = "<group>"; };
+		8BD4BBA71E2339A3006A6C38 /* ChargeBarNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeBarNodeTests.swift; sourceTree = "<group>"; };
 		8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBuilder.swift; sourceTree = "<group>"; };
 		8BEAD7F61E19B288007F68C5 /* CameraBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBuilderTests.swift; sourceTree = "<group>"; };
 		8BEAD7FA1E19C9CB007F68C5 /* NoiseMapBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseMapBuilder.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				8BFABF661E1CACFE00C613A0 /* Common */,
 				8B57740D1E1F52BC0050EC72 /* Behaviors */,
 				8BD4BB9F1E229D16006A6C38 /* Particles */,
+				8BD4BBA91E233FC5006A6C38 /* Nodes */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -284,7 +289,8 @@
 				8B013D7D1E18BF9900AC7D74 /* ComponentTests */,
 				8BEAD7F91E19C724007F68C5 /* BuilderTests */,
 				8B5774101E1F52DD0050EC72 /* Behaviors */,
-				8B777D621E21EED100E9016F /* Common.swift */,
+				8BD4BBA41E22B177006A6C38 /* Utilities */,
+				8BD4BBAA1E233FCB006A6C38 /* Nodes */,
 			);
 			path = TinyAgainstTheGiantsTests;
 			sourceTree = "<group>";
@@ -304,6 +310,30 @@
 				8BD4BB9D1E229CC0006A6C38 /* MagicParticle.sks */,
 			);
 			name = Particles;
+			sourceTree = "<group>";
+		};
+		8BD4BBA41E22B177006A6C38 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8B777D621E21EED100E9016F /* Common.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		8BD4BBA91E233FC5006A6C38 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				8BD4BBA51E233893006A6C38 /* ChargeBarNode.swift */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
+		8BD4BBAA1E233FCB006A6C38 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				8BD4BBA71E2339A3006A6C38 /* ChargeBarNodeTests.swift */,
+			);
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 		8BEAD7F81E19C715007F68C5 /* Builders */ = {
@@ -682,6 +712,7 @@
 				8B0708971E1A2E5900A7310D /* Utilities.swift in Sources */,
 				8B5774041E1F4AEF0050EC72 /* TeamComponent.swift in Sources */,
 				8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */,
+				8BD4BBA61E233893006A6C38 /* ChargeBarNode.swift in Sources */,
 				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
 				8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */,
 				8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */,
@@ -718,6 +749,7 @@
 				8BFABF6F1E1CB22300C613A0 /* TileMapPhysicsBuilderTests.swift in Sources */,
 				8B013D781E18B89C00AC7D74 /* RenderComponentTests.swift in Sources */,
 				8B0708951E1A2C6B00A7310D /* PhysicsComponentTests.swift in Sources */,
+				8BD4BBA81E2339A3006A6C38 /* ChargeBarNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
