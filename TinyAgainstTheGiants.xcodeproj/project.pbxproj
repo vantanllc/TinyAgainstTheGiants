@@ -39,6 +39,8 @@
 		8BC0E40C1E177A1C0087C7E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC0E40A1E177A1C0087C7E2 /* Main.storyboard */; };
 		8BC0E40E1E177A1C0087C7E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC0E40D1E177A1C0087C7E2 /* Assets.xcassets */; };
 		8BC0E4111E177A1C0087C7E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC0E40F1E177A1C0087C7E2 /* LaunchScreen.storyboard */; };
+		8BC73CF81E248B52005CB996 /* ChargeBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC73CF71E248B52005CB996 /* ChargeBarComponent.swift */; };
+		8BC73CFA1E248BBA005CB996 /* ChargeBarComponentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC73CF91E248BB9005CB996 /* ChargeBarComponentSpec.swift */; };
 		8BD4BB9C1E229C7D006A6C38 /* FireParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BD4BB9B1E229C7D006A6C38 /* FireParticle.sks */; };
 		8BD4BB9E1E229CC0006A6C38 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BD4BB9D1E229CC0006A6C38 /* MagicParticle.sks */; };
 		8BD4BBA11E229D2C006A6C38 /* ParticleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4BBA01E229D2C006A6C38 /* ParticleComponent.swift */; };
@@ -117,6 +119,8 @@
 		8BC0E41D1E177A1C0087C7E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC0E4221E177A1C0087C7E2 /* TinyAgainstTheGiantsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyAgainstTheGiantsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC0E4281E177A1C0087C7E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BC73CF71E248B52005CB996 /* ChargeBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeBarComponent.swift; sourceTree = "<group>"; };
+		8BC73CF91E248BB9005CB996 /* ChargeBarComponentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeBarComponentSpec.swift; sourceTree = "<group>"; };
 		8BD4BB9B1E229C7D006A6C38 /* FireParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticle.sks; sourceTree = "<group>"; };
 		8BD4BB9D1E229CC0006A6C38 /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
 		8BD4BBA01E229D2C006A6C38 /* ParticleComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleComponent.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */,
 				8B5774131E1F5B1A0050EC72 /* MoveComponentSpec.swift */,
 				8BD4BBA21E229D93006A6C38 /* ParticleComponentSpec.swift */,
+				8BC73CF91E248BB9005CB996 /* ChargeBarComponentSpec.swift */,
 			);
 			name = ComponentSpec;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */,
 				8B5774111E1F5AD90050EC72 /* MoveComponent.swift */,
 				8BD4BBA01E229D2C006A6C38 /* ParticleComponent.swift */,
+				8BC73CF71E248B52005CB996 /* ChargeBarComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -716,6 +722,7 @@
 				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
 				8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */,
 				8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */,
+				8BC73CF81E248B52005CB996 /* ChargeBarComponent.swift in Sources */,
 				8BFABF6D1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift in Sources */,
 				8B57740C1E1F52A00050EC72 /* MoveBehavior.swift in Sources */,
 				8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */,
@@ -740,6 +747,7 @@
 				8B0EB1CB1E194AAE00128B41 /* EntityBuilderSpec.swift in Sources */,
 				8B5774081E1F4D960050EC72 /* EnemyEntitySpec.swift in Sources */,
 				8B013D831E18CF5600AC7D74 /* EntityManagerSpec.swift in Sources */,
+				8BC73CFA1E248BBA005CB996 /* ChargeBarComponentSpec.swift in Sources */,
 				8B5774141E1F5B1A0050EC72 /* MoveComponentSpec.swift in Sources */,
 				8B013D7C1E18BEE700AC7D74 /* SpriteComponentSpec.swift in Sources */,
 				8BEAD7F71E19B288007F68C5 /* CameraBuilderSpec.swift in Sources */,
