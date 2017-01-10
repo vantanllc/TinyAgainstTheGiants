@@ -82,6 +82,28 @@ class PlayerEntitySpec: QuickSpec {
         }
       }
       
+      describe("ChargeBarComponent") {
+        var chargeBarComponent: ChargeBarComponent!
+        
+        beforeEach {
+          chargeBarComponent = player.component(ofType: ChargeBarComponent.self)
+        }
+        
+        it("should have ChargeBarComponent") {
+          expect(chargeBarComponent).toNot(beNil())
+        }
+        
+        it("RenderComponent.node should contain ChargeBarComponent.chargeBarNode") {
+          let renderNode = player.component(ofType: RenderComponent.self)?.node
+          let chargeBarNode = chargeBarComponent.chargeBarNode
+          expect(renderNode?.children).to(contain(chargeBarNode!))
+        }
+        
+        it("ChargeBarComponent.chargeBarNode should have distance constraint") {
+          expect(chargeBarComponent.chargeBarNode?.constraints).to(haveCount(1))
+        }
+      }
+      
       describe("MoveComponent") {
         var moveComponent: MoveComponent!
         

@@ -29,6 +29,16 @@ class PlayerEntity: GKEntity {
     addComponent(spriteComponent)
     addComponent(particleComponent)
     
+    let xRange = SKRange(constantValue: 0)
+    let yRange = SKRange(constantValue: 50)
+    let constraint = SKConstraint.positionX(xRange, y: yRange)
+    constraint.referenceNode = spriteComponent.node
+    
+    let chargeBarComponent = ChargeBarComponent(charge: 100, maxCharge: 100, displayChargeBar: true)
+    chargeBarComponent.chargeBarNode?.constraints = [constraint]
+    renderComponent.node.addChild(chargeBarComponent.chargeBarNode!)
+    addComponent(chargeBarComponent)
+  
     let teamComponent = TeamComponent(team: .One)
     addComponent(teamComponent)
     
