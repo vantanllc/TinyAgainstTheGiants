@@ -136,6 +136,22 @@ class PlayerEntitySpec: QuickSpec {
           expect(moveComponent.entityManager).to(beNil())
         }
       }
+      
+      describe("Contactifiable") {
+        it("should conform to protocol") {
+          expect(player.conforms(to: ContactNotifiable.self)).to(beTrue())
+        }
+        
+        context("contact with opposite team entity") {
+          it("should lose defined amount of damageCharge") {
+            let chargeBar = player.component(ofType: ChargeBarComponent.self)!
+            let expectedCharge = chargeBar.charge - player.damageCharge
+            let enemyEntity = EnemyEntity(node: SKSpriteNode())
+            player.contactWithEntityDidBegin(enemyEntity)
+            expect(chargeBar.charge).to(equal(expectedCharge))
+          }
+        }
+      }
     }
   }
 }

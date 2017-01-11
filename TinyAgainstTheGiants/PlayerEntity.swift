@@ -63,4 +63,17 @@ class PlayerEntity: GKEntity {
   let maxSpeed: Float = 0
   let maxAcceleration: Float = 0
   let mass: Float = 1
+  let damageCharge: Double = 5
+}
+
+extension PlayerEntity: ContactNotifiable {
+  func contactWithEntityDidBegin(_ entity: GKEntity) {
+    guard let playerTeam = component(ofType: TeamComponent.self)?.team, let entityTeam = entity.component(ofType: TeamComponent.self)?.team else {
+      return
+    }
+    
+    if playerTeam != entityTeam {
+      component(ofType: ChargeBarComponent.self)?.loseCharge(chargeToLose: damageCharge)
+    }
+  }
 }
