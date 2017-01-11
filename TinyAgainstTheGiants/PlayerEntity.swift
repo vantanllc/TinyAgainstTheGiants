@@ -29,30 +29,12 @@ class PlayerEntity: GKEntity {
     addComponent(spriteComponent)
     addComponent(particleComponent)
     
-    let xRange = SKRange(constantValue: 0)
-    let yRange = SKRange(constantValue: 50)
-    let constraint = SKConstraint.positionX(xRange, y: yRange)
-    constraint.referenceNode = spriteComponent.node
+    addChargeBarComponentWithCharge(100, maxCharge: 100, toNode: renderComponent.node, withReferenceNode: spriteComponent.node)
+    addTeamComponentWithTeam(.One)
     
-    let chargeBarComponent = ChargeBarComponent(charge: 100, maxCharge: 100, displayChargeBar: true)
-    chargeBarComponent.chargeBarNode?.constraints = [constraint]
-    renderComponent.node.addChild(chargeBarComponent.chargeBarNode!)
-    addComponent(chargeBarComponent)
-  
-    let teamComponent = TeamComponent(team: .One)
-    addComponent(teamComponent)
-    
-    let physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
-    physicsBody.allowsRotation = false
-    physicsBody.affectedByGravity = false
-    
-    let physicsComponent = PhysicsComponent(physicsBody: physicsBody)
-    renderComponent.node.physicsBody = physicsComponent.physicsBody
-    addComponent(physicsComponent)
-    
-    let radius = Float(node.size.width * 0.5)
-    let moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass)
-    addComponent(moveComponent) 
+    let radius = node.size.width / 2
+    addPhysicsComponentWithRadius(radius, toNode: renderComponent.node)
+    addMoveComponentWithRadius(Float(radius))
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -66,6 +48,42 @@ class PlayerEntity: GKEntity {
   let damageCharge: Double = 5
 }
 
+// MARK: Component Functions
+extension PlayerEntity {
+  func addTeamComponentWithTeam(_ team: Team) {
+    let teamComponent = TeamComponent(team: team)
+    addComponent(teamComponent)
+  }
+  
+  func addChargeBarComponentWithCharge(_ charge: Double, maxCharge: Double, toNode node: SKNode, withReferenceNode referenceNode: SKNode) {
+    let xRange = SKRange(constantValue: 0)
+    let yRange = SKRange(constantValue: 50)
+    let constraint = SKConstraint.positionX(xRange, y: yRange)
+    constraint.referenceNode = referenceNode
+    
+    let chargeBarComponent = ChargeBarComponent(charge: charge, maxCharge: maxCharge, displayChargeBar: true)
+    chargeBarComponent.chargeBarNode?.constraints = [constraint]
+    node.addChild(chargeBarComponent.chargeBarNode!)
+    addComponent(chargeBarComponent)
+  }
+  
+  func addMoveComponentWithRadius(_ radius: Float) {
+    let moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass)
+    addComponent(moveComponent)
+  }
+  
+  func addPhysicsComponentWithRadius(_ radius: CGFloat, toNode node: SKNode) {
+    let physicsBody = SKPhysicsBody(circleOfRadius: radius)
+    physicsBody.allowsRotation = false
+    physicsBody.affectedByGravity = false
+    
+    let physicsComponent = PhysicsComponent(physicsBody: physicsBody)
+    node.physicsBody = physicsComponent.physicsBody
+    addComponent(physicsComponent)
+  }
+}
+
+// MARK: ContactNotifiable
 extension PlayerEntity: ContactNotifiable {
   func contactWithEntityDidBegin(_ entity: GKEntity) {
     guard let playerTeam = component(ofType: TeamComponent.self)?.team, let entityTeam = entity.component(ofType: TeamComponent.self)?.team else {
