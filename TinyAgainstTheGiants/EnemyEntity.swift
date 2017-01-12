@@ -29,20 +29,10 @@ class EnemyEntity: GKEntity {
     addComponent(spriteComponent)
     addComponent(particleComponent)
     
-    let teamComponent = TeamComponent(team: .Two)
-    addComponent(teamComponent)
-    
-    let physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
-    physicsBody.allowsRotation = false
-    physicsBody.affectedByGravity = false
-    
-    let physicsComponent = PhysicsComponent(physicsBody: physicsBody)
-    renderComponent.node.physicsBody = physicsComponent.physicsBody
-    addComponent(physicsComponent)
-    
-    let radius = Float(node.size.width * 0.5)
-    let moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass, entityManager: entityManager)
-    addComponent(moveComponent)
+    addTeamComponentWithTeam(.Two)
+    let radius = node.size.width / 2
+    addPhysicsComponentWithRadius(radius, toNode: renderComponent.node)
+    addMoveComponentWithRadius(Float(radius), andEntityManager: entityManager)
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -53,4 +43,28 @@ class EnemyEntity: GKEntity {
   let maxSpeed: Float = 200
   let maxAcceleration: Float = 100
   let mass: Float = 1
+}
+
+// MARK: Component Functions
+private extension EnemyEntity {
+  func addTeamComponentWithTeam(_ team: Team) {
+    let teamComponent = TeamComponent(team: team)
+    addComponent(teamComponent)
+  }
+  
+  func addMoveComponentWithRadius(_ radius: Float, andEntityManager entityManager: EntityManager?) {
+    let moveComponent = MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius, mass: mass, entityManager: entityManager)
+    addComponent(moveComponent)
+  }
+  
+  func addPhysicsComponentWithRadius(_ radius: CGFloat, toNode node: SKNode) {
+    let physicsBody = SKPhysicsBody(circleOfRadius: radius)
+    physicsBody.allowsRotation = false
+    physicsBody.affectedByGravity = false
+    
+    let colliderType = ColliderType.Enemy
+    let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: colliderType)
+    node.physicsBody = physicsComponent.physicsBody
+    addComponent(physicsComponent)
+  }
 }

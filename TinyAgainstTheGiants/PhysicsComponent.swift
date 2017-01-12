@@ -10,9 +10,13 @@ import GameplayKit
 
 class PhysicsComponent: GKComponent {
   // MARK: Lifecycle
-  init(physicsBody: SKPhysicsBody) {
+  init(physicsBody: SKPhysicsBody, colliderType: ColliderType) {
     self.physicsBody = physicsBody
     super.init()
+    
+    physicsBody.categoryBitMask = colliderType.categoryMask
+    physicsBody.collisionBitMask = colliderType.collisionMask
+    physicsBody.contactTestBitMask = colliderType.contactMask
   }
   
   required init?(coder aDecoder: NSCoder) {

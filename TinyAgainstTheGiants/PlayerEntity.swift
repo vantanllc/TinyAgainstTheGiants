@@ -49,7 +49,7 @@ class PlayerEntity: GKEntity {
 }
 
 // MARK: Component Functions
-extension PlayerEntity {
+private extension PlayerEntity {
   func addTeamComponentWithTeam(_ team: Team) {
     let teamComponent = TeamComponent(team: team)
     addComponent(teamComponent)
@@ -77,7 +77,10 @@ extension PlayerEntity {
     physicsBody.allowsRotation = false
     physicsBody.affectedByGravity = false
     
-    let physicsComponent = PhysicsComponent(physicsBody: physicsBody)
+    let colliderType = ColliderType.Player
+    ColliderType.definedCollisions = [.Player: [.Player, .Obstacle, .Enemy]]
+    ColliderType.requestedContactNotifications = [.Player: [.Enemy]]
+    let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: colliderType)
     node.physicsBody = physicsComponent.physicsBody
     addComponent(physicsComponent)
   }

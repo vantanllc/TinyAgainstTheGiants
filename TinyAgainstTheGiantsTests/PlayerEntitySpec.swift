@@ -23,16 +23,32 @@ class PlayerEntitySpec: QuickSpec {
         player = PlayerEntity(node: spriteNode)
       }
       
+      afterEach {
+        ColliderType.definedCollisions.removeAll()
+        ColliderType.requestedContactNotifications.removeAll()
+      }
+      
       it("should have a TeamComponent with Team.One") {
         let team = player.component(ofType: TeamComponent.self)?.team
         expect(team).to(equal(Team.One))
       }
       
-      it("should have a PhysicsComponent") {
-        let physicsComponent = player.component(ofType: PhysicsComponent.self)
-        expect(physicsComponent).toNot(beNil())
+      describe("PhysicsComponent") {
+        it("should have a PhysicsComponent") {
+          let physicsComponent = player.component(ofType: PhysicsComponent.self)
+          expect(physicsComponent).toNot(beNil())
+        }
+        
+        it("should update ColliderType.definedCollisions") {
+          let expectedDefinedCollisions: [ColliderType: [ColliderType]] = [.Player: [.Player, .Obstacle, .Enemy]]
+          expect(ColliderType.definedCollisions[.Player]).to(equal(expectedDefinedCollisions[.Player]))
+        }
+        
+        it("should update ColliderType.requestedContactNotifications") {
+          let expectedContacts: [ColliderType: [ColliderType]] = [.Player: [.Enemy]]
+          expect(ColliderType.requestedContactNotifications[.Player]).to(equal(expectedContacts[.Player]))
+        }
       }
-      
       describe("RenderComponent") {
         var renderComponent: RenderComponent!
         beforeEach {

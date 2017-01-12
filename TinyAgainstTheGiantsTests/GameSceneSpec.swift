@@ -21,6 +21,12 @@ class GameSceneSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      describe("SKPhysicsDelegate") {
+        it("should have contactDelegate set to gameScene") {
+          expect(gameScene.physicsWorld.contactDelegate).to(be(gameScene))
+        }
+      }
+      
       describe("updateTime") {
         context("when lastUpdateTime is zero") {
           it("should set lastUpdateTime to currentTime") {
