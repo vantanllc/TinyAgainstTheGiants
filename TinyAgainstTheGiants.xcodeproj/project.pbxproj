@@ -56,6 +56,8 @@
 		8BEAD7FE1E19CAE2007F68C5 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */; };
 		8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */; };
 		8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */; };
+		8BF60E391E288B400093EA36 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF60E381E288B400093EA36 /* ButtonNode.swift */; };
+		8BF60E3B1E288C480093EA36 /* ButtonNodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF60E3A1E288C480093EA36 /* ButtonNodeSpec.swift */; };
 		8BFABF601E1CA26600C613A0 /* NodeLayerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */; };
 		8BFABF6D1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */; };
 		8BFABF6F1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift */; };
@@ -139,6 +141,8 @@
 		8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilder.swift; sourceTree = "<group>"; };
 		8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilderSpec.swift; sourceTree = "<group>"; };
+		8BF60E381E288B400093EA36 /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		8BF60E3A1E288C480093EA36 /* ButtonNodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNodeSpec.swift; sourceTree = "<group>"; };
 		8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeLayerPosition.swift; sourceTree = "<group>"; };
 		8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapPhysicsBuilder.swift; sourceTree = "<group>"; };
 		8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapPhysicsBuilderSpec.swift; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 				8BD4BB9F1E229D16006A6C38 /* Particles */,
 				8BD4BBA91E233FC5006A6C38 /* Nodes */,
 				8BA913F81E25EADA00D5962D /* ContactCollision */,
+				8BF60E381E288B400093EA36 /* ButtonNode.swift */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				8BD4BBA41E22B177006A6C38 /* Utilities */,
 				8BD4BBAA1E233FCB006A6C38 /* NodeSpec */,
 				8BC73CFD1E24A808005CB996 /* ColliderTypeSpec.swift */,
+				8BF60E3A1E288C480093EA36 /* ButtonNodeSpec.swift */,
 			);
 			path = TinyAgainstTheGiantsTests;
 			sourceTree = "<group>";
@@ -751,6 +757,7 @@
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
 				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,
 				8B013D721E18B5F900AC7D74 /* PlayerEntity.swift in Sources */,
+				8BF60E391E288B400093EA36 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,6 +766,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BC73CFE1E24A808005CB996 /* ColliderTypeSpec.swift in Sources */,
+				8BF60E3B1E288C480093EA36 /* ButtonNodeSpec.swift in Sources */,
 				8B777D631E21EED100E9016F /* Common.swift in Sources */,
 				8B5774061E1F4B210050EC72 /* TeamComponentSpec.swift in Sources */,
 				8B013D741E18B72E00AC7D74 /* PlayerEntitySpec.swift in Sources */,
