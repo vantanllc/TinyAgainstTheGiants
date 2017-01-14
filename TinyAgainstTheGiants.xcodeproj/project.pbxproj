@@ -22,6 +22,8 @@
 		8B0708971E1A2E5900A7310D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0708961E1A2E5900A7310D /* Utilities.swift */; };
 		8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */; };
 		8B0EB1CB1E194AAE00128B41 /* EntityBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */; };
+		8B331B9D1E29D73D00C7B298 /* GameSceneActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */; };
+		8B331B9F1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */; };
 		8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */; };
 		8B5774041E1F4AEF0050EC72 /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */; };
 		8B5774061E1F4B210050EC72 /* TeamComponentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */; };
@@ -101,6 +103,8 @@
 		8B0708961E1A2E5900A7310D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilder.swift; sourceTree = "<group>"; };
 		8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilderSpec.swift; sourceTree = "<group>"; };
+		8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveState.swift; sourceTree = "<group>"; };
+		8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveStateSpec.swift; sourceTree = "<group>"; };
 		8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileDefinitionType.swift; sourceTree = "<group>"; };
 		8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
 		8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamComponentSpec.swift; sourceTree = "<group>"; };
@@ -424,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				8B013D6F1E18B15100AC7D74 /* GameSceneSpec.swift */,
+				8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */,
 			);
 			name = SceneSpec;
 			sourceTree = "<group>";
@@ -483,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				8BC0E4061E177A1C0087C7E2 /* GameScene.swift */,
+				8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -764,6 +770,7 @@
 				8B5774121E1F5AD90050EC72 /* MoveComponent.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
 				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,
+				8B331B9D1E29D73D00C7B298 /* GameSceneActiveState.swift in Sources */,
 				8B013D721E18B5F900AC7D74 /* PlayerEntity.swift in Sources */,
 				8BF60E391E288B400093EA36 /* ButtonNode.swift in Sources */,
 			);
@@ -780,6 +787,7 @@
 				8B013D741E18B72E00AC7D74 /* PlayerEntitySpec.swift in Sources */,
 				8B013D701E18B15100AC7D74 /* GameSceneSpec.swift in Sources */,
 				8BD4BBA31E229D93006A6C38 /* ParticleComponentSpec.swift in Sources */,
+				8B331B9F1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift in Sources */,
 				8B0EB1CB1E194AAE00128B41 /* EntityBuilderSpec.swift in Sources */,
 				8B5774081E1F4D960050EC72 /* EnemyEntitySpec.swift in Sources */,
 				8B013D831E18CF5600AC7D74 /* EntityManagerSpec.swift in Sources */,
