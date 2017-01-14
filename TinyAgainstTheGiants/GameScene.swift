@@ -29,10 +29,13 @@ class GameScene: SKScene {
   
   override func didMove(to view: SKView) {
     CameraBuilder.constraintCamera(camera!, toTileMapEdges: currentBackgroundTileMap, inScene: self)
+    addTimerNodeToCamera(camera!)
   }
   
   // MARK: Properties
   var entityManager: EntityManager!
+  
+  // MARK: TileMaps
   var previousBackgroundTileMap: SKTileMapNode!
   var currentBackgroundTileMap: SKTileMapNode!
   var nextBackgroundTileMap: SKTileMapNode!
@@ -46,6 +49,7 @@ class GameScene: SKScene {
   
   // MARK: Nodes
   var worldNode: SKNode!
+  var timerNode: SKLabelNode!
  
   // MARK: Timing
   var lastUpdateTime: TimeInterval = 0
@@ -101,6 +105,18 @@ extension GameScene {
   }
 }
 
+// MARK: Displays
+extension GameScene {
+  func addTimerNodeToCamera(_ camera: SKCameraNode) {
+    timerNode = SKLabelNode()
+    timerNode.horizontalAlignmentMode = .center
+    timerNode.verticalAlignmentMode = .top
+    timerNode.fontSize = 50
+    timerNode.position.y = size.height / 2 - timerNode.frame.size.height / 2
+    camera.addChild(timerNode)
+  }
+}
+
 // MARK: Game Flow
 extension GameScene {
   func pause() {
@@ -111,7 +127,6 @@ extension GameScene {
   func resume() {
     worldNode.isPaused = false
     physicsWorld.speed = 1.0
-    
   }
 }
 

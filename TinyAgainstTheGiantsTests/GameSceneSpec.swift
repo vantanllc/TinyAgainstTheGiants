@@ -21,6 +21,35 @@ class GameSceneSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      describe("Displays") {
+        context("timerNode") {
+          beforeEach {
+            gameScene.didMove(to: SKView())
+          }
+          
+          it("should be a child of camera node") {
+            expect(gameScene.camera?.children).to(contain(gameScene.timerNode))
+          }
+          
+          it("should be center align") {
+            expect(gameScene.timerNode.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
+          }
+          
+          it("should be top align") {
+            expect(gameScene.timerNode.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
+          }
+          
+          it("should have fontSize 50") {
+            expect(gameScene.timerNode.fontSize).to(equal(50))
+          }
+          
+          it("should have expected position") {
+            let yPosition = gameScene.size.height / 2 - gameScene.timerNode.frame.size.height / 2
+            expect(gameScene.timerNode.position.y).to(equal(yPosition))
+          }
+        }
+      }
+      
       describe("Game Flow") {
         context("pause") {
           beforeEach {
