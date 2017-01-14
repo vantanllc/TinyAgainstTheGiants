@@ -101,6 +101,21 @@ extension GameScene {
   }
 }
 
+// MARK: Game Flow
+extension GameScene {
+  func pause() {
+    worldNode.isPaused = true
+    physicsWorld.speed = 0
+  }
+  
+  func resume() {
+    worldNode.isPaused = false
+    physicsWorld.speed = 1.0
+    
+  }
+}
+
+// MARK: Physics Contact
 extension GameScene: SKPhysicsContactDelegate {
   func didBegin(_ contact: SKPhysicsContact) {
     handleContact(contact: contact) {contactNotifiable, otherEntity in

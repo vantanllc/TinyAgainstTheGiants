@@ -21,6 +21,41 @@ class GameSceneSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      describe("Game Flow") {
+        context("pause") {
+          beforeEach {
+            gameScene.worldNode.isPaused = false
+            gameScene.physicsWorld.speed = 1.0
+            gameScene.pause()
+          }
+          
+          it("should pause the worldNode") {
+            expect(gameScene.worldNode.isPaused).to(beTrue())
+          }
+          
+          it("should set the physicsWorld speed to zero") {
+            expect(gameScene.physicsWorld.speed.isZero).to(beTrue())
+          }
+        }
+        
+        context("resume") {
+          beforeEach {
+            gameScene.worldNode.isPaused = true
+            gameScene.physicsWorld.speed = 0
+            gameScene.resume()
+          }
+          
+          it("should resume the worldNode") {
+            expect(gameScene.worldNode.isPaused).to(beFalse())
+          }
+          
+          it("should set the physicsWorld speed to 1.0") {
+            expect(gameScene.physicsWorld.speed).to(equal(1.0))
+          }
+        }
+        
+        
+      }
       describe("SKPhysicsDelegate") {
         it("should have contactDelegate set to gameScene") {
           expect(gameScene.physicsWorld.contactDelegate).to(be(gameScene))

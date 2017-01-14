@@ -234,6 +234,14 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		8B331B9B1E29A10600C7B298 /* ContactCollision */ = {
+			isa = PBXGroup;
+			children = (
+				8BC73CFD1E24A808005CB996 /* ColliderTypeSpec.swift */,
+			);
+			name = ContactCollision;
+			sourceTree = "<group>";
+		};
 		8B57740D1E1F52BC0050EC72 /* Behaviors */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,7 +308,6 @@
 				8BD4BB9F1E229D16006A6C38 /* Particles */,
 				8BD4BBA91E233FC5006A6C38 /* Nodes */,
 				8BA913F81E25EADA00D5962D /* ContactCollision */,
-				8BF60E381E288B400093EA36 /* ButtonNode.swift */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -318,8 +325,7 @@
 				8B5774101E1F52DD0050EC72 /* BehaviorSpec */,
 				8BD4BBA41E22B177006A6C38 /* Utilities */,
 				8BD4BBAA1E233FCB006A6C38 /* NodeSpec */,
-				8BC73CFD1E24A808005CB996 /* ColliderTypeSpec.swift */,
-				8BF60E3A1E288C480093EA36 /* ButtonNodeSpec.swift */,
+				8B331B9B1E29A10600C7B298 /* ContactCollision */,
 			);
 			path = TinyAgainstTheGiantsTests;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 		8BD4BBA91E233FC5006A6C38 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				8BF60E381E288B400093EA36 /* ButtonNode.swift */,
 				8BD4BBA51E233893006A6C38 /* ChargeBarNode.swift */,
 			);
 			name = Nodes;
@@ -360,6 +367,7 @@
 		8BD4BBAA1E233FCB006A6C38 /* NodeSpec */ = {
 			isa = PBXGroup;
 			children = (
+				8BF60E3A1E288C480093EA36 /* ButtonNodeSpec.swift */,
 				8BD4BBA71E2339A3006A6C38 /* ChargeBarNodeSpec.swift */,
 			);
 			name = NodeSpec;
