@@ -14,6 +14,8 @@ class GameScene: SKScene {
   override func sceneDidLoad() {
     super.sceneDidLoad()
     
+    initializeGameStateMachine()
+    
     physicsWorld.contactDelegate = self
     
     worldNode = SKNode()
@@ -34,6 +36,7 @@ class GameScene: SKScene {
   
   // MARK: Properties
   var entityManager: EntityManager!
+  var stateMachine: GKStateMachine!
   
   // MARK: TileMaps
   var previousBackgroundTileMap: SKTileMapNode!
@@ -53,6 +56,7 @@ class GameScene: SKScene {
  
   // MARK: Timing
   var lastUpdateTime: TimeInterval = 0
+  
   // MARK: Entities
   let maxEnemyCount: Int = 10
   var enemyCount: Int = 0
@@ -73,6 +77,7 @@ extension GameScene {
     lastUpdateTime = currentTime
     
     entityManager.update(deltaTime: deltaTime)
+    stateMachine.update(deltaTime: deltaTime)
     
     enemySpawnTime -= deltaTime
     
@@ -119,6 +124,14 @@ extension GameScene {
 
 // MARK: Game Flow
 extension GameScene {
+  func initializeGameStateMachine() {
+    let states: [GKState] = [
+      GameSceneActiveState(gameScene: self)
+    ]
+    stateMachine = GKStateMachine(states: states)
+    stateMachine.enter(GameSceneActiveState.self)
+  }
+  
   func pause() {
     worldNode.isPaused = true
     physicsWorld.speed = 0

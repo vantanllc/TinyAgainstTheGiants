@@ -21,6 +21,31 @@ class GameSceneSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      describe("StateMachine") {
+        beforeEach {
+          gameScene.timerNode = SKLabelNode()
+        }
+        
+        it("should define stateMachine") {
+          expect(gameScene.stateMachine).toNot(beNil())
+        }
+        
+        it("should default to GameSceneActiveState") {
+          expect(gameScene.stateMachine.currentState).to(beAKindOf(GameSceneActiveState.self))
+        }
+        
+        context("ActiveState") {
+          it("should update timerNode text after update loop") {
+            var seconds: TimeInterval = 1
+            gameScene.update(seconds)
+            let oldTime = gameScene.timerNode.text
+            seconds += 1
+            gameScene.update(seconds)
+            expect(gameScene.timerNode.text).toNot(equal(oldTime))
+          }
+        }
+      }
+      
       describe("Displays") {
         context("timerNode") {
           beforeEach {
@@ -92,6 +117,10 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("updateTime") {
+        beforeEach {
+          gameScene.timerNode = SKLabelNode()
+        }
+        
         context("when lastUpdateTime is zero") {
           it("should set lastUpdateTime to currentTime") {
             gameScene.lastUpdateTime = 0
@@ -114,6 +143,10 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("spawn enemies") {
+        beforeEach {
+          gameScene.timerNode = SKLabelNode()
+        }
+        
         context("after reaching cooldown time") {
           it("should increment enemyCount by one") {
             let oldEnemyCount = gameScene.enemyCount
