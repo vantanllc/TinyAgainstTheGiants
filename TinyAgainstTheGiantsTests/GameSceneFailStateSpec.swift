@@ -39,6 +39,16 @@ class GameSceneFailStateSpec: QuickSpec {
           gameSceneFailState.didEnter(from: nil)
         }
         
+        it("should add retry button to gameScene") {
+          expect(gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)).toNot(beNil())
+        }
+        
+        it("should set retry button position above the player entity render node") {
+          let renderNodeYPosition = gameScene.entityManager.getPlayerRenderNode()?.position.y
+          let retryButtonYPosition = gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)!.position.y - 100
+          expect(retryButtonYPosition).to(equal(renderNodeYPosition))
+        }
+        
         it("should set playerEntity physicsbody to static") {
           let body = gameScene.entityManager.getPlayerEntity()?.component(ofType: PhysicsComponent.self)?.physicsBody
           expect(body?.isDynamic).to(beFalse())

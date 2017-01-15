@@ -23,6 +23,12 @@ extension GameSceneFailState {
   override func didEnter(from previousState: GKState?) {
     let body = gameScene.entityManager.getPlayerEntity()?.component(ofType: PhysicsComponent.self)?.physicsBody
     body?.isDynamic = false
+    
+    if let renderNode = gameScene.entityManager.getPlayerRenderNode() {
+      let retryButton = ButtonBuilder.getRetryButton()
+      retryButton.position.y = renderNode.position.y + 100
+      gameScene.addChild(retryButton)
+    }
   }
   
   override func isValidNextState(_ stateClass: AnyClass) -> Bool {
