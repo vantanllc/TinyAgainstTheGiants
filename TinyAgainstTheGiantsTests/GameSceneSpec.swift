@@ -72,6 +72,10 @@ class GameSceneSpec: QuickSpec {
             let yPosition = gameScene.size.height / 2 - gameScene.timerNode.frame.size.height / 2
             expect(gameScene.timerNode.position.y).to(equal(yPosition))
           }
+          
+          it("should have zPosition of NodeLayerPosition.label") {
+            expect(gameScene.timerNode.zPosition).to(equal(NodeLayerPosition.label))
+          }
         }
       }
       

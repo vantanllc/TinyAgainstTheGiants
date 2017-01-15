@@ -114,6 +114,7 @@ extension GameScene {
 extension GameScene {
   func addTimerNodeToCamera(_ camera: SKCameraNode) {
     timerNode = SKLabelNode()
+    timerNode.zPosition = NodeLayerPosition.label
     timerNode.horizontalAlignmentMode = .center
     timerNode.verticalAlignmentMode = .top
     timerNode.fontSize = 50

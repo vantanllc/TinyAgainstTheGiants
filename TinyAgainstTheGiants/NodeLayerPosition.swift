@@ -12,4 +12,5 @@ struct NodeLayerPosition {
   static let background: CGFloat = 0
   static let obstacle: CGFloat = 1
   static let entity: CGFloat = 2
+  static let label: CGFloat = 3
 }
