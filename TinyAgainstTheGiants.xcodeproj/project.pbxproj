@@ -38,6 +38,8 @@
 		8B777D631E21EED100E9016F /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B777D621E21EED100E9016F /* Common.swift */; };
 		8B78380F1E1813E700A55B42 /* GameViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78380E1E1813E700A55B42 /* GameViewControllerSpec.swift */; };
 		8BA913F71E25E9AE00D5962D /* ContactNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA913F61E25E9AE00D5962D /* ContactNotifiable.swift */; };
+		8BAF4E261E2C1F8100E447A5 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */; };
+		8BAF4E281E2C1FF700E447A5 /* ButtonBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */; };
 		8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */; };
 		8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4061E177A1C0087C7E2 /* GameScene.swift */; };
 		8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4081E177A1C0087C7E2 /* GameViewController.swift */; };
@@ -121,6 +123,8 @@
 		8B777D621E21EED100E9016F /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		8B78380E1E1813E700A55B42 /* GameViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerSpec.swift; sourceTree = "<group>"; };
 		8BA913F61E25E9AE00D5962D /* ContactNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactNotifiable.swift; sourceTree = "<group>"; };
+		8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
+		8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilderSpec.swift; sourceTree = "<group>"; };
 		8BC0E3FD1E177A1B0087C7E2 /* TinyAgainstTheGiants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAgainstTheGiants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC0E4061E177A1C0087C7E2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -388,6 +392,7 @@
 				8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */,
 				8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */,
 				8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */,
+				8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */,
 			);
 			name = Builders;
 			sourceTree = "<group>";
@@ -399,6 +404,7 @@
 				8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */,
 				8BEAD7F61E19B288007F68C5 /* CameraBuilderSpec.swift */,
 				8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift */,
+				8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */,
 			);
 			name = BuilderSpec;
 			sourceTree = "<group>";
@@ -764,6 +770,7 @@
 				8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */,
 				8BD4BBA61E233893006A6C38 /* ChargeBarNode.swift in Sources */,
 				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
+				8BAF4E261E2C1F8100E447A5 /* ButtonBuilder.swift in Sources */,
 				8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */,
 				8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */,
 				8BC73CFC1E24A715005CB996 /* ColliderType.swift in Sources */,
@@ -795,6 +802,7 @@
 				8B013D701E18B15100AC7D74 /* GameSceneSpec.swift in Sources */,
 				8BD4BBA31E229D93006A6C38 /* ParticleComponentSpec.swift in Sources */,
 				8B331B9F1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift in Sources */,
+				8BAF4E281E2C1FF700E447A5 /* ButtonBuilderSpec.swift in Sources */,
 				8B0EB1CB1E194AAE00128B41 /* EntityBuilderSpec.swift in Sources */,
 				8B5774081E1F4D960050EC72 /* EnemyEntitySpec.swift in Sources */,
 				8B013D831E18CF5600AC7D74 /* EntityManagerSpec.swift in Sources */,

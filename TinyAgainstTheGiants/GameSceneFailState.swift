@@ -24,6 +24,7 @@ extension GameSceneFailState {
     let body = gameScene.entityManager.getPlayerEntity()?.component(ofType: PhysicsComponent.self)?.physicsBody
     body?.isDynamic = false
   }
+  
   override func isValidNextState(_ stateClass: AnyClass) -> Bool {
     return stateClass is GameSceneActiveState.Type
   }
