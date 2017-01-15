@@ -20,6 +20,8 @@
 		8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0708921E1A29F700A7310D /* PhysicsComponent.swift */; };
 		8B0708951E1A2C6B00A7310D /* PhysicsComponentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0708941E1A2C6B00A7310D /* PhysicsComponentSpec.swift */; };
 		8B0708971E1A2E5900A7310D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0708961E1A2E5900A7310D /* Utilities.swift */; };
+		8B0943A91E2B4B6E00F08D69 /* GameSceneFailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0943A81E2B4B6E00F08D69 /* GameSceneFailState.swift */; };
+		8B0943AB1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0943AA1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift */; };
 		8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */; };
 		8B0EB1CB1E194AAE00128B41 /* EntityBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */; };
 		8B331B9D1E29D73D00C7B298 /* GameSceneActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */; };
@@ -101,6 +103,8 @@
 		8B0708921E1A29F700A7310D /* PhysicsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		8B0708941E1A2C6B00A7310D /* PhysicsComponentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponentSpec.swift; sourceTree = "<group>"; };
 		8B0708961E1A2E5900A7310D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		8B0943A81E2B4B6E00F08D69 /* GameSceneFailState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneFailState.swift; sourceTree = "<group>"; };
+		8B0943AA1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneFailStateSpec.swift; sourceTree = "<group>"; };
 		8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilder.swift; sourceTree = "<group>"; };
 		8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilderSpec.swift; sourceTree = "<group>"; };
 		8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveState.swift; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 			children = (
 				8B013D6F1E18B15100AC7D74 /* GameSceneSpec.swift */,
 				8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */,
+				8B0943AA1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift */,
 			);
 			name = SceneSpec;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 			children = (
 				8BC0E4061E177A1C0087C7E2 /* GameScene.swift */,
 				8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */,
+				8B0943A81E2B4B6E00F08D69 /* GameSceneFailState.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -766,6 +772,7 @@
 				8B57740C1E1F52A00050EC72 /* MoveBehavior.swift in Sources */,
 				8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */,
 				8B57740A1E1F4DC90050EC72 /* EnemyEntity.swift in Sources */,
+				8B0943A91E2B4B6E00F08D69 /* GameSceneFailState.swift in Sources */,
 				8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */,
 				8B5774121E1F5AD90050EC72 /* MoveComponent.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
@@ -795,6 +802,7 @@
 				8B5774141E1F5B1A0050EC72 /* MoveComponentSpec.swift in Sources */,
 				8B013D7C1E18BEE700AC7D74 /* SpriteComponentSpec.swift in Sources */,
 				8BEAD7F71E19B288007F68C5 /* CameraBuilderSpec.swift in Sources */,
+				8B0943AB1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift in Sources */,
 				8B57740F1E1F52D90050EC72 /* MoveBehaviorSpec.swift in Sources */,
 				8B78380F1E1813E700A55B42 /* GameViewControllerSpec.swift in Sources */,
 				8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */,
