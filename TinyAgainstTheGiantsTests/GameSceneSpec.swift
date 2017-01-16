@@ -161,12 +161,14 @@ class GameSceneSpec: QuickSpec {
         
         context("after reaching cooldown time") {
           it("should increment enemyCount by one") {
-            let oldEnemyCount = gameScene.enemyCount
+            gameScene.addEnemy()
+            let oldEnemyCount = gameScene.entityManager.getEnemyEntities()!.count
             
             gameScene.update(0.1)
             gameScene.update(gameScene.enemySpawnCoolDown + 0.1)
             
-            expect(gameScene.enemyCount).to(equal(oldEnemyCount + 1))
+            let newEnemyCount = gameScene.entityManager.getEnemyEntities()?.count
+            expect(newEnemyCount).to(equal(oldEnemyCount + 1))
           }
           
           it("should reset enemySpawnTime to enemySpawnCoolDown") {
@@ -186,7 +188,7 @@ class GameSceneSpec: QuickSpec {
               gameScene.update(currentTime)
             }
             
-            expect(gameScene.enemyCount).to(equal(maxCount))
+            expect(gameScene.entityManager.getEnemyEntities()!.count).to(equal(maxCount))
           }
         }
       }
@@ -205,7 +207,7 @@ class GameSceneSpec: QuickSpec {
           it("should increment enemyCount") {
             let expectedCount = 1
             gameScene.addEnemy()
-            expect(gameScene.enemyCount).to(equal(expectedCount))
+            expect(gameScene.entityManager.getEnemyEntities()!.count).to(equal(expectedCount))
           }
         }
       }

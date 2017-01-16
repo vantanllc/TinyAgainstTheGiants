@@ -58,7 +58,6 @@ class GameScene: SKScene {
   
   // MARK: Entities
   let maxEnemyCount: Int = 10
-  var enemyCount: Int = 0
   let enemySpawnCoolDown: TimeInterval = 5
   var enemySpawnTime: TimeInterval = 5
 }
@@ -80,7 +79,7 @@ extension GameScene {
     
     enemySpawnTime -= deltaTime
     
-    if enemyCount < maxEnemyCount, enemySpawnTime.isLessThanOrEqualTo(0) {
+    if let enemies = entityManager.getEnemyEntities(), enemies.count < maxEnemyCount, enemySpawnTime.isLessThanOrEqualTo(0) {
       addEnemy()
       enemySpawnTime = enemySpawnCoolDown
     }
@@ -163,7 +162,6 @@ extension GameScene: SKPhysicsContactDelegate {
 extension GameScene {
   func addEnemy() {
     EntityBuilder.addEnemy(position: TileMapBuilder.getRandomPositionInTileMap(currentObstacleTileMap), toEntityManager: entityManager)
-    enemyCount += 1
   }
 }
 
