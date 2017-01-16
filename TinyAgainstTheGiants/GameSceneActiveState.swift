@@ -15,6 +15,10 @@ class GameSceneActiveState: GKState {
     
     time += seconds
     gameScene.timerNode.text = timeString
+    
+    if let percentage = gameScene.entityManager.getPlayerEntity()?.component(ofType: ChargeBarComponent.self)?.percentage, percentage.isZero {
+      stateMachine?.enter(GameSceneFailState.self)
+    }
   }
   
   // MARK: Lifecycle

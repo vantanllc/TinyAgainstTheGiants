@@ -31,6 +31,10 @@ extension GameSceneFailState {
     }
   }
   
+  override func willExit(to nextState: GKState) {
+    gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)?.removeFromParent()
+  }
+  
   override func isValidNextState(_ stateClass: AnyClass) -> Bool {
     return stateClass is GameSceneActiveState.Type
   }

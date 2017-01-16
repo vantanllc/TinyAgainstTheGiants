@@ -39,6 +39,16 @@ class GameSceneActiveStateSpec: QuickSpec {
         }
       }
       
+      context("check player's charge percentage") {
+        it("should transition to FailState if equal zero") {
+          gameScene.timerNode = SKLabelNode()
+          gameScene.entityManager.getPlayerEntity()?.component(ofType: ChargeBarComponent.self)?.charge = 0
+          gameScene.update(1)
+          
+          expect(gameScene.stateMachine.currentState).to(beAKindOf(GameSceneFailState.self))
+        }
+      }
+      
       context("update gameScene timerNode") {
         var deltaTime: TimeInterval!
         beforeEach {

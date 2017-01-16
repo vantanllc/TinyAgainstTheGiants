@@ -54,6 +54,17 @@ class GameSceneFailStateSpec: QuickSpec {
           expect(body?.isDynamic).to(beFalse())
         }
       }
+      
+      context("willExit") {
+        beforeEach {
+          gameScene.addChild(ButtonBuilder.getRetryButton())
+          gameSceneFailState.willExit(to: GKState())
+        }
+        
+        it("should remove retry button") {
+          expect(gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)).to(beNil())
+        }
+      }
     }
   }
 }
