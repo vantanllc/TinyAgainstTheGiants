@@ -26,7 +26,7 @@ extension GameSceneFailState {
     
     if let renderNode = gameScene.entityManager.getPlayerRenderNode() {
       let retryButton = ButtonBuilder.getRetryButton()
-      retryButton.position.y = renderNode.position.y + 100
+      retryButton.position = renderNode.position.applying(CGAffineTransform(translationX: 0, y: 100))
       gameScene.addChild(retryButton)
     }
   }

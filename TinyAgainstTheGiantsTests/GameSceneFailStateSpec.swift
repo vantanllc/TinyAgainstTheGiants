@@ -43,10 +43,17 @@ class GameSceneFailStateSpec: QuickSpec {
           expect(gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)).toNot(beNil())
         }
         
-        it("should set retry button position above the player entity render node") {
+        it("should set retry button y position above the player entity render node") {
           let renderNodeYPosition = gameScene.entityManager.getPlayerRenderNode()?.position.y
           let retryButtonYPosition = gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)!.position.y - 100
           expect(retryButtonYPosition).to(equal(renderNodeYPosition))
+        }
+        
+        it("should set retry button x position the same as the player entity render node") {
+          let renderNodeXPosition = gameScene.entityManager.getPlayerRenderNode()?.position.x
+          let retryButtonXPosition = gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)!.position.x
+          expect(retryButtonXPosition).to(equal(renderNodeXPosition))
+          
         }
         
         it("should set playerEntity physicsbody to static") {

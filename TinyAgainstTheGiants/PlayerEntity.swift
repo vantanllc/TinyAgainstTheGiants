@@ -78,7 +78,7 @@ private extension PlayerEntity {
     physicsBody.affectedByGravity = false
     
     let colliderType = ColliderType.Player
-    ColliderType.definedCollisions = [.Player: [.Player, .Obstacle, .Enemy]]
+    ColliderType.definedCollisions[.Player] = [.Player, .Obstacle, .Enemy]
     ColliderType.requestedContactNotifications = [.Player: [.Enemy]]
     let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: colliderType)
     node.physicsBody = physicsComponent.physicsBody

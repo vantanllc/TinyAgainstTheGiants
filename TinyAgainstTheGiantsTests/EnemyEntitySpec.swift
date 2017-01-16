@@ -28,9 +28,16 @@ class EnemyEntitySpec: QuickSpec {
         expect(team).to(equal(Team.Two))
       }
       
-      it("should have a PhysicsComponent") {
-        let physicsComponent = enemy.component(ofType: PhysicsComponent.self)
-        expect(physicsComponent).toNot(beNil())
+      describe("PhysicsComponent") {
+        it("should have a PhysicsComponent") {
+          let physicsComponent = enemy.component(ofType: PhysicsComponent.self)
+          expect(physicsComponent).toNot(beNil())
+        }
+          
+        it("should update ColliderType.definedCollisions") {
+          let expectedDefinedCollisions: [ColliderType: [ColliderType]] = [.Enemy: [.Player, .Enemy]]
+          expect(ColliderType.definedCollisions[.Enemy]).to(equal(expectedDefinedCollisions[.Enemy]))
+        }
       }
       
       describe("RenderComponent") {
