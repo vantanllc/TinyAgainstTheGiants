@@ -218,7 +218,7 @@ class GameSceneSpec: QuickSpec {
         expect(gameScene.children).to(contain(gameScene.worldNode))
       }
       
-      context("Player") {        
+      context("Player") {
         it("should add player's RenderComponent node to worldNode") {
           if let expectedPlayerRenderNode = gameScene.entityManager.getPlayerRenderNode() {
             expect(gameScene.worldNode.children).to(contain(expectedPlayerRenderNode))

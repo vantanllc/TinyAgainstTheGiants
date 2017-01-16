@@ -207,6 +207,7 @@ extension GameScene {
   func configureTileMap(_ tileMap: SKTileMapNode) {
     tileMap.zPosition = NodeLayerPosition.obstacle
     tileMap.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: tileMap))
+    tileMap.physicsBody?.categoryBitMask = ColliderType.Obstacle.categoryMask
     tileMap.physicsBody?.isDynamic = false
     tileMap.physicsBody?.affectedByGravity = false
   }

@@ -21,6 +21,31 @@ class GameSceneTileMapSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      describe("configureTileMap") {
+        var tileMap: SKTileMapNode!
+        
+        beforeEach {
+          tileMap = SKTileMapNode()
+          gameScene.configureTileMap(tileMap)
+        }
+        
+        it("should set zPosition to obstacle") {
+          expect(tileMap.zPosition).to(equal(NodeLayerPosition.obstacle))
+        }
+        
+        it("should be not dynamic") {
+          expect(tileMap.physicsBody?.isDynamic).to(beFalse())
+        }
+        
+        it("should not be affected by Gravity") {
+          expect(tileMap.physicsBody?.affectedByGravity).to(beFalse())
+        }
+        
+        it("should have obstacle category mask") {
+          expect(tileMap.physicsBody?.categoryBitMask).to(equal(ColliderType.Obstacle.categoryMask))
+        }
+      }
+      
       describe("updateObstacleTileMaps") {
         it("should add top edge with tilegroup for updated previousObstacleTileMap") {
           gameScene.updateObstacleTileMaps()
