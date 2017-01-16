@@ -21,6 +21,7 @@ class GameSceneFailState: GKState {
 
 extension GameSceneFailState {
   override func didEnter(from previousState: GKState?) {
+    super.didEnter(from: previousState)
     let body = gameScene.entityManager.getPlayerEntity()?.component(ofType: PhysicsComponent.self)?.physicsBody
     body?.isDynamic = false
     
@@ -32,6 +33,7 @@ extension GameSceneFailState {
   }
   
   override func willExit(to nextState: GKState) {
+    super.willExit(to: nextState)
     gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)?.removeFromParent()
   }
   

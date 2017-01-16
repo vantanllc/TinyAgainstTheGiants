@@ -47,3 +47,12 @@ class GameSceneActiveState: GKState {
     return timeFormatter.string(from: components as DateComponents)!
   }
 }
+
+extension GameSceneActiveState {
+  override func didEnter(from previousState: GKState?) {
+    super.didEnter(from: previousState)
+    if previousState is GameSceneFailState {
+      time = 0
+    }
+  }
+}

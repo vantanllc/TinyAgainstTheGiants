@@ -65,6 +65,16 @@ class GameSceneActiveStateSpec: QuickSpec {
           expect(gameScene.timerNode.text).to(equal(gameSceneActiveState.timeString))
         }
       }
+      
+      context("didEnter") {
+        context("from FailState") {
+          it("should reset time to zero") {
+            gameSceneActiveState.time = 304
+            gameSceneActiveState.didEnter(from: GameSceneFailState(gameScene: GameScene()))
+            expect(gameSceneActiveState.time.isZero).to(beTrue())
+          }
+        }
+      }
     }
   }
 }

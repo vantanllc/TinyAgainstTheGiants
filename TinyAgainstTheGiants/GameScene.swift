@@ -26,7 +26,6 @@ class GameScene: SKScene {
     addBackgroundTileMap()
     addObstacleTileMap()
     startNewGame()
-    CameraBuilder.constraintCamera(camera!, toSpriteNode: entityManager.getPlayerSpriteNode()!)
   }
   
   override func didMove(to view: SKView) {
@@ -131,7 +130,6 @@ extension GameScene {
       GameSceneFailState(gameScene: self)
     ]
     stateMachine = GKStateMachine(states: states)
-    stateMachine.enter(GameSceneActiveState.self)
   }
   
   func pause() {
@@ -173,6 +171,8 @@ extension GameScene {
 extension GameScene {
   func startNewGame() {
     EntityBuilder.addPlayer(position: TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(currentObstacleTileMap), toEntityManager: entityManager)
+    CameraBuilder.constraintCamera(camera!, toSpriteNode: entityManager.getPlayerSpriteNode()!)
+    stateMachine.enter(GameSceneActiveState.self)
   }
   
   func startCamera() {
