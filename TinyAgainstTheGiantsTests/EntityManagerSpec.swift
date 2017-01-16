@@ -207,6 +207,31 @@ class EntityManagerSpec: QuickSpec {
             }
           }
         }
+        
+        describe("removeAll") {
+          it("should remove all entities") {
+            for _ in 1...10 {
+              entityManager.entities.insert(GKEntity())
+            }
+            
+            entityManager.removeAll()
+            
+            expect(entityManager.entities).to(beEmpty())
+          }
+          
+          it("should move all entities in entities to entitiesToRemove") {
+            let entityA = GKEntity()
+            let entityB = GKEntity()
+            let entitySet: Set<GKEntity> = [entityA, entityB]
+            
+            entityManager.entities.insert(entityA)
+            entityManager.entities.insert(entityB)
+            
+            entityManager.removeAll()
+            
+            expect(entityManager.entitiesToRemove).to(equal(entitySet))
+          }
+        }
       }
     }
   }

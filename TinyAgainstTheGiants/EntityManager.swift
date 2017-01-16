@@ -105,4 +105,10 @@ extension EntityManager {
       node.removeFromParent()
     }
   }
+  
+  func removeAll() {
+    for entity in entities {
+      remove(entity: entity)
+    }
+  }
 }
