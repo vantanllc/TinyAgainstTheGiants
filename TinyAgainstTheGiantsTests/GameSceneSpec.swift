@@ -55,6 +55,20 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("Displays") {
+        context("didChangeSize") {
+          beforeEach {
+            gameScene.timerNode = SKLabelNode(text: "testing")
+            gameScene.timerNode.fontSize = 50
+            gameScene.timerNode.position = CGPoint(x: 0, y: 200)
+          }
+          
+          it("") {
+            gameScene.size = CGSize(width: 400, height: 400)
+            let yPosition = gameScene.size.height / 2 - gameScene.timerNode.frame.size.height / 2
+            expect(gameScene.timerNode.position.y).to(equal(yPosition))
+          }
+        }
+        
         context("timerNode") {
           beforeEach {
             gameScene.didMove(to: SKView())

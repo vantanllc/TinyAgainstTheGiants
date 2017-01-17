@@ -32,6 +32,13 @@ class GameScene: SKScene {
     CameraBuilder.constraintCamera(camera!, toTileMapEdges: currentBackgroundTileMap, inScene: self)
     addTimerNodeToCamera(camera!)
   }
+        
+  override func didChangeSize(_ oldSize: CGSize) {
+    super.didChangeSize(oldSize)
+    if let timerNode = timerNode {
+      timerNode.position = getPositionForTimerNode(timerNode)
+    }
+  }
   
   // MARK: Properties
   var entityManager: EntityManager!
@@ -116,8 +123,14 @@ extension GameScene {
     timerNode.horizontalAlignmentMode = .center
     timerNode.verticalAlignmentMode = .top
     timerNode.fontSize = 50
-    timerNode.position.y = size.height / 2 - timerNode.frame.size.height / 2
+    timerNode.position = getPositionForTimerNode(timerNode)
     camera.addChild(timerNode)
+  }
+  
+  func getPositionForTimerNode(_ timerNode: SKLabelNode) -> CGPoint {
+    var position = timerNode.position
+    position.y = size.height / 2 - timerNode.frame.size.height / 2
+    return position
   }
 }
 
