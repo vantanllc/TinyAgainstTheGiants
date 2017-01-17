@@ -62,6 +62,8 @@
 		8BEAD7FE1E19CAE2007F68C5 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */; };
 		8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */; };
 		8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */; };
+		8BF10C7A1E2DBF8500492EBB /* GameScenePauseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF10C791E2DBF8500492EBB /* GameScenePauseState.swift */; };
+		8BF10C7C1E2DBFB700492EBB /* GameScenePauseStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF10C7B1E2DBFB700492EBB /* GameScenePauseStateSpec.swift */; };
 		8BF60E391E288B400093EA36 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF60E381E288B400093EA36 /* ButtonNode.swift */; };
 		8BF60E3B1E288C480093EA36 /* ButtonNodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF60E3A1E288C480093EA36 /* ButtonNodeSpec.swift */; };
 		8BF9FD831E2C702000E9B53C /* GameSceneTileMapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9FD821E2C702000E9B53C /* GameSceneTileMapSpec.swift */; };
@@ -156,6 +158,8 @@
 		8BEAD7FD1E19CAE2007F68C5 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		8BEAD7FF1E19CD05007F68C5 /* TileMapBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilder.swift; sourceTree = "<group>"; };
 		8BEAD8011E19D044007F68C5 /* TileMapBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapBuilderSpec.swift; sourceTree = "<group>"; };
+		8BF10C791E2DBF8500492EBB /* GameScenePauseState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScenePauseState.swift; sourceTree = "<group>"; };
+		8BF10C7B1E2DBFB700492EBB /* GameScenePauseStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScenePauseStateSpec.swift; sourceTree = "<group>"; };
 		8BF60E381E288B400093EA36 /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		8BF60E3A1E288C480093EA36 /* ButtonNodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNodeSpec.swift; sourceTree = "<group>"; };
 		8BF9FD821E2C702000E9B53C /* GameSceneTileMapSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneTileMapSpec.swift; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 				8B0943AA1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift */,
 				8BF9FD821E2C702000E9B53C /* GameSceneTileMapSpec.swift */,
 				8BF9FD861E2C785E00E9B53C /* GameScene+ButtonRespondableSpec.swift */,
+				8BF10C7B1E2DBFB700492EBB /* GameScenePauseStateSpec.swift */,
 			);
 			name = SceneSpec;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */,
 				8B0943A81E2B4B6E00F08D69 /* GameSceneFailState.swift */,
 				8BF9FD841E2C781E00E9B53C /* GameScene+ButtonNode.swift */,
+				8BF10C791E2DBF8500492EBB /* GameScenePauseState.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -768,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BEAD7F51E19B1EC007F68C5 /* CameraBuilder.swift in Sources */,
+				8BF10C7A1E2DBF8500492EBB /* GameScenePauseState.swift in Sources */,
 				8BEAD7FB1E19C9CB007F68C5 /* NoiseMapBuilder.swift in Sources */,
 				8BFABF601E1CA26600C613A0 /* NodeLayerPosition.swift in Sources */,
 				8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */,
@@ -827,6 +834,7 @@
 				8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */,
 				8BF9FD871E2C785E00E9B53C /* GameScene+ButtonRespondableSpec.swift in Sources */,
 				8BFABF6F1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift in Sources */,
+				8BF10C7C1E2DBFB700492EBB /* GameScenePauseStateSpec.swift in Sources */,
 				8B013D781E18B89C00AC7D74 /* RenderComponentSpec.swift in Sources */,
 				8B0708951E1A2C6B00A7310D /* PhysicsComponentSpec.swift in Sources */,
 				8BD4BBA81E2339A3006A6C38 /* ChargeBarNodeSpec.swift in Sources */,
