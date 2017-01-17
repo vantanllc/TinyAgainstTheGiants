@@ -22,6 +22,35 @@ class GameSceneButtonRespondableSpec: QuickSpec {
       }
       
       describe("buttonTrigger") {
+        context("pause") {
+          var button: ButtonNode!
+          
+          beforeEach {
+            button = ButtonNode()
+            button.name = ButtonIdentifier.pause.rawValue
+            gameScene.buttonTriggered(button: button)
+          }
+          
+          it("should enter PauseState") {
+            expect(gameScene.stateMachine.currentState).to(beAKindOf(GameScenePauseState.self))
+          }
+        }
+        
+        context("resume") {
+          var button: ButtonNode!
+          
+          beforeEach {
+            button = ButtonNode()
+            button.name = ButtonIdentifier.resume.rawValue
+            gameScene.stateMachine.enter(GameSceneFailState.self)
+            gameScene.buttonTriggered(button: button)
+          }
+          
+          it("should enter ActiveState") {
+            expect(gameScene.stateMachine.currentState).to(beAKindOf(GameSceneActiveState.self))
+          }
+        }
+        
         context("retry") {
           var button: ButtonNode!
           

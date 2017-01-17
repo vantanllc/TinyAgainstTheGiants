@@ -156,7 +156,8 @@ extension GameScene {
   func initializeGameStateMachine() {
     let states: [GKState] = [
       GameSceneActiveState(gameScene: self),
-      GameSceneFailState(gameScene: self)
+      GameSceneFailState(gameScene: self),
+      GameScenePauseState(gameScene: self)
     ]
     stateMachine = GKStateMachine(states: states)
   }

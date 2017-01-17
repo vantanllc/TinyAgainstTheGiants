@@ -18,8 +18,10 @@ extension GameScene: ButtonRespondable {
     case .retry:
       entityManager.removeAll()
       startNewGame()
-    default:
-      break
+    case .pause:
+      stateMachine.enter(GameScenePauseState.self)
+    case .resume:
+      stateMachine.enter(GameSceneActiveState.self)
     }
   }
 }

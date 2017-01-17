@@ -42,6 +42,10 @@ class GameSceneSpec: QuickSpec {
           expect(gameScene.stateMachine.state(forClass: GameSceneFailState.self)).toNot(beNil())
         }
         
+        it("should contain PauseState") {
+          expect(gameScene.stateMachine.state(forClass: GameScenePauseState.self)).toNot(beNil())
+        }
+        
         context("ActiveState") {
           it("should update timerNode text after update loop") {
             var seconds: TimeInterval = 1

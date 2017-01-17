@@ -427,6 +427,16 @@
 			name = NoiseMaps;
 			sourceTree = "<group>";
 		};
+		8BF10C7D1E2DC50200492EBB /* GameSceneStates */ = {
+			isa = PBXGroup;
+			children = (
+				8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */,
+				8B0943A81E2B4B6E00F08D69 /* GameSceneFailState.swift */,
+				8BF10C791E2DBF8500492EBB /* GameScenePauseState.swift */,
+			);
+			name = GameSceneStates;
+			sourceTree = "<group>";
+		};
 		8BFABF611E1CACCD00C613A0 /* ManagerSpec */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,10 +522,8 @@
 			isa = PBXGroup;
 			children = (
 				8BC0E4061E177A1C0087C7E2 /* GameScene.swift */,
-				8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */,
-				8B0943A81E2B4B6E00F08D69 /* GameSceneFailState.swift */,
 				8BF9FD841E2C781E00E9B53C /* GameScene+ButtonNode.swift */,
-				8BF10C791E2DBF8500492EBB /* GameScenePauseState.swift */,
+				8BF10C7D1E2DC50200492EBB /* GameSceneStates */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
