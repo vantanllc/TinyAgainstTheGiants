@@ -31,12 +31,16 @@ class GameScene: SKScene {
   override func didMove(to view: SKView) {
     CameraBuilder.constraintCamera(camera!, toTileMapEdges: currentBackgroundTileMap, inScene: self)
     addTimerNodeToCamera(camera!)
+    addPauseButtonToCamera(camera!)
   }
         
   override func didChangeSize(_ oldSize: CGSize) {
     super.didChangeSize(oldSize)
     if let timerNode = timerNode {
       timerNode.position = getPositionForTimerNode(timerNode)
+    }
+    if let button = pauseButton {
+      button.position = getPositionForPauseButton()
     }
   }
   
@@ -59,6 +63,7 @@ class GameScene: SKScene {
   // MARK: Nodes
   var worldNode: SKNode!
   var timerNode: SKLabelNode!
+  var pauseButton: ButtonNode!
  
   // MARK: Timing
   var lastUpdateTime: TimeInterval = 0
@@ -125,6 +130,18 @@ extension GameScene {
     timerNode.fontSize = 50
     timerNode.position = getPositionForTimerNode(timerNode)
     camera.addChild(timerNode)
+  }
+  
+  func addPauseButtonToCamera(_ camera: SKCameraNode) {
+    pauseButton = ButtonBuilder.getPauseButton()
+    pauseButton.zPosition = NodeLayerPosition.button
+    pauseButton.anchorPoint = CGPoint(x: 1, y: 0)
+    pauseButton.position = getPositionForPauseButton()
+    camera.addChild(pauseButton)  
+  }
+  
+  func getPositionForPauseButton() -> CGPoint {
+    return CGPoint(x: size.width * 0.5, y: -size.height * 0.5)
   }
   
   func getPositionForTimerNode(_ timerNode: SKLabelNode) -> CGPoint {
