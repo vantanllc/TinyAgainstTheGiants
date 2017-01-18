@@ -50,6 +50,7 @@
 		8BC73CFA1E248BBA005CB996 /* ChargeBarComponentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC73CF91E248BB9005CB996 /* ChargeBarComponentSpec.swift */; };
 		8BC73CFC1E24A715005CB996 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC73CFB1E24A715005CB996 /* ColliderType.swift */; };
 		8BC73CFE1E24A808005CB996 /* ColliderTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC73CFD1E24A808005CB996 /* ColliderTypeSpec.swift */; };
+		8BC9C26D1E2F1E1700453C22 /* GameScene+TileMapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9C26C1E2F1E1700453C22 /* GameScene+TileMapNode.swift */; };
 		8BD4BB9C1E229C7D006A6C38 /* FireParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BD4BB9B1E229C7D006A6C38 /* FireParticle.sks */; };
 		8BD4BB9E1E229CC0006A6C38 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BD4BB9D1E229CC0006A6C38 /* MagicParticle.sks */; };
 		8BD4BBA11E229D2C006A6C38 /* ParticleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4BBA01E229D2C006A6C38 /* ParticleComponent.swift */; };
@@ -146,6 +147,7 @@
 		8BC73CF91E248BB9005CB996 /* ChargeBarComponentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeBarComponentSpec.swift; sourceTree = "<group>"; };
 		8BC73CFB1E24A715005CB996 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColliderType.swift; sourceTree = "<group>"; };
 		8BC73CFD1E24A808005CB996 /* ColliderTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColliderTypeSpec.swift; sourceTree = "<group>"; };
+		8BC9C26C1E2F1E1700453C22 /* GameScene+TileMapNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+TileMapNode.swift"; sourceTree = "<group>"; };
 		8BD4BB9B1E229C7D006A6C38 /* FireParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticle.sks; sourceTree = "<group>"; };
 		8BD4BB9D1E229CC0006A6C38 /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
 		8BD4BBA01E229D2C006A6C38 /* ParticleComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleComponent.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 			children = (
 				8BC0E4061E177A1C0087C7E2 /* GameScene.swift */,
 				8BF9FD841E2C781E00E9B53C /* GameScene+ButtonNode.swift */,
+				8BC9C26C1E2F1E1700453C22 /* GameScene+TileMapNode.swift */,
 				8BF10C7D1E2DC50200492EBB /* GameSceneStates */,
 			);
 			name = Scenes;
@@ -808,6 +811,7 @@
 				8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */,
 				8B5774121E1F5AD90050EC72 /* MoveComponent.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
+				8BC9C26D1E2F1E1700453C22 /* GameScene+TileMapNode.swift in Sources */,
 				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,
 				8B331B9D1E29D73D00C7B298 /* GameSceneActiveState.swift in Sources */,
 				8B013D721E18B5F900AC7D74 /* PlayerEntity.swift in Sources */,

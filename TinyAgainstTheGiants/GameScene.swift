@@ -14,7 +14,7 @@ class GameScene: SKScene {
   override func sceneDidLoad() {
     super.sceneDidLoad()
     
-    initializeGameStateMachine()
+    loadStateMachine()
     
     physicsWorld.contactDelegate = self
     
@@ -144,7 +144,7 @@ extension GameScene {
 
 // MARK: Game Flow
 extension GameScene {
-  func initializeGameStateMachine() {
+  func loadStateMachine() {
     let states: [GKState] = [
       GameSceneActiveState(gameScene: self),
       GameSceneFailState(gameScene: self),
@@ -162,6 +162,19 @@ extension GameScene {
     worldNode.isPaused = false
     physicsWorld.speed = 1.0
   }
+  
+  func startNewGame() {
+    addPlayer()
+    camera?.constraints = nil
+    CameraBuilder.constraintCamera(camera!, toSpriteNode: entityManager.getPlayerSpriteNode()!)
+    CameraBuilder.constraintCamera(camera!, toTileMapEdges: previousBackgroundTileMap, inScene: self)
+    stateMachine.enter(GameSceneActiveState.self)
+  }
+  
+  func startCamera() {
+    let camera = SKCameraNode()
+    CameraBuilder.addCamera(camera, toScene: self)
+  }
 }
 
 // MARK: Physics Contact
@@ -177,7 +190,6 @@ extension GameScene: SKPhysicsContactDelegate {
       contactNotifiable.contactWithEntityDidEnd?(otherEntity)
     }
   }
-  
 }
 
 // MARK: Adding Entities
@@ -185,121 +197,8 @@ extension GameScene {
   func addEnemy() {
     EntityBuilder.addEnemy(position: TileMapBuilder.getRandomPositionInTileMap(currentObstacleTileMap), toEntityManager: entityManager)
   }
-}
-
-// MARK: Game Setup Function
-extension GameScene {
-  func startNewGame() {
+  
+  func addPlayer() {
     EntityBuilder.addPlayer(position: TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(currentObstacleTileMap), toEntityManager: entityManager)
-    camera?.constraints = nil
-    CameraBuilder.constraintCamera(camera!, toSpriteNode: entityManager.getPlayerSpriteNode()!)
-    CameraBuilder.constraintCamera(camera!, toTileMapEdges: previousBackgroundTileMap, inScene: self)
-    stateMachine.enter(GameSceneActiveState.self)
-  }
-  
-  func startCamera() {
-    let camera = SKCameraNode()
-    CameraBuilder.addCamera(camera, toScene: self)
-  }
-  
-  func addBackgroundTileMap() {
-    guard let tileSet = SKTileSet(named: "Sand") else {
-      return
-    }
-    
-    currentBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
-    worldNode.addChild(currentBackgroundTileMap)
-    previousBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
-    previousBackgroundTileMap.position.x = currentBackgroundTileMap.frame.minX
-    previousBackgroundTileMap.position.y = previousBackgroundTileMap.mapSize.height + currentBackgroundTileMap.frame.maxY
-    worldNode.addChild(previousBackgroundTileMap)
-    addNextBackgroundTileMap()
-  }
-  
-  func addNextBackgroundTileMap() {
-    guard let tileSet = SKTileSet(named: "Sand") else {
-      return
-    }
-    nextBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
-    nextBackgroundTileMap.position.x = currentBackgroundTileMap.frame.minX
-    nextBackgroundTileMap.position.y = currentBackgroundTileMap.frame.minY
-    worldNode.addChild(nextBackgroundTileMap)
-  }
-  
-  func configureTileMap(_ tileMap: SKTileMapNode) {
-    tileMap.zPosition = NodeLayerPosition.obstacle
-    tileMap.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: tileMap))
-    tileMap.physicsBody?.categoryBitMask = ColliderType.Obstacle.categoryMask
-    tileMap.physicsBody?.isDynamic = false
-    tileMap.physicsBody?.affectedByGravity = false
-  }
-  
-  func createCappedObstacleTileMapWithTileSet(_ tileSet: SKTileSet) -> SKTileMapNode? {
-    let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
-    
-    if let tileMap = TileMapBuilder.createCappedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows) {
-      configureTileMap(tileMap)
-      return tileMap
-    } else {
-      return nil
-    }
-  }
-  
-  func createObstacleTileMapWithTileSet(_ tileSet: SKTileSet) -> SKTileMapNode? {
-    let noiseMap = NoiseMapBuilder.getPerlinNoiseMap(frequency: 10)
-    if let tileMap = TileMapBuilder.createEdgedTileMapWithNoiseMap(noiseMap, withTileSet: tileSet, columns: tileMapColumns, rows: tileMapRows) {
-      configureTileMap(tileMap)
-      return tileMap
-    } else {
-      return nil
-    }
-  }
-  
-  func addObstacleTileMap() {
-    guard let tileSet = SKTileSet(named: "Grass") else {
-      return
-    }
-    
-    currentObstacleTileMap = createCappedObstacleTileMapWithTileSet(tileSet)
-    worldNode.addChild(currentObstacleTileMap)
-    
-    previousObstacleTileMap = createCappedObstacleTileMapWithTileSet(tileSet)
-    previousObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
-    previousObstacleTileMap.position.y = previousObstacleTileMap.mapSize.height + currentObstacleTileMap.frame.maxY
-    worldNode.addChild(previousObstacleTileMap)
-    addNextObstacleTileMap()
-  }
-  
-  func addNextObstacleTileMap() {
-    guard let tileSet = SKTileSet(named: "Grass") else {
-      return
-    }
-    nextObstacleTileMap = createObstacleTileMapWithTileSet(tileSet)
-    nextObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
-    nextObstacleTileMap.position.y = currentObstacleTileMap.frame.minY
-    worldNode.addChild(nextObstacleTileMap)
-  }
-  
-  func updateBackgroundTileMaps() {
-    if let tileMap = previousBackgroundTileMap, tileMap.parent != nil {
-      tileMap.removeFromParent()
-    }
-    
-    previousBackgroundTileMap = currentBackgroundTileMap
-    currentBackgroundTileMap = nextBackgroundTileMap
-    addNextBackgroundTileMap()
-  }
-  
-  func updateObstacleTileMaps() {
-    if let tileMap = previousObstacleTileMap, tileMap.parent != nil {
-      tileMap.removeFromParent()
-    }
-    
-    previousObstacleTileMap = currentObstacleTileMap
-    TileMapBuilder.addTopEdgeToTileMap(previousObstacleTileMap)
-    previousObstacleTileMap.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: previousObstacleTileMap))
-    
-    currentObstacleTileMap = nextObstacleTileMap
-    addNextObstacleTileMap()
   }
 }
