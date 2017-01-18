@@ -67,6 +67,32 @@ class GameSceneActiveStateSpec: QuickSpec {
         }
       }
       
+      context("update entityManager") {
+        var mockEntityManager: MockEntityManager!
+        
+        beforeEach {
+          mockEntityManager = MockEntityManager()
+          gameScene.entityManager = mockEntityManager
+        }
+        
+        it("should call entityManager.update") {
+          gameSceneActiveState.update(deltaTime: 1)
+          expect(mockEntityManager.didCallUpdate).to(beTrue())
+        }
+        
+        class MockEntityManager: EntityManager {
+          init() {
+            super.init(scene: GameScene())
+          }
+          
+          override func update(deltaTime: TimeInterval) {
+            didCallUpdate = true
+          }
+          
+          var didCallUpdate = false
+        }
+      }
+      
       context("didEnter") {
         context("from FailState") {
           it("should reset time to zero") {

@@ -12,6 +12,7 @@ class GameSceneActiveState: GKState {
   // MARK: States
   override func update(deltaTime seconds: TimeInterval) {
     super.update(deltaTime: seconds)
+    gameScene.entityManager.update(deltaTime: seconds)
     
     time += seconds
     gameScene.timerNode.text = timeString

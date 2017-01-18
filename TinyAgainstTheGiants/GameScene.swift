@@ -85,7 +85,6 @@ extension GameScene {
     let deltaTime = currentTime - lastUpdateTime
     lastUpdateTime = currentTime
     
-    entityManager.update(deltaTime: deltaTime)
     stateMachine.update(deltaTime: deltaTime)
     
     enemySpawnTime -= deltaTime
