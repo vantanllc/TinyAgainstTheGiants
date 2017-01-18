@@ -25,11 +25,10 @@ class GameScene: SKScene {
     startCamera()
     addBackgroundTileMap()
     addObstacleTileMap()
-    startNewGame()
   }
   
   override func didMove(to view: SKView) {
-    CameraBuilder.constraintCamera(camera!, toTileMapEdges: currentBackgroundTileMap, inScene: self)
+    startNewGame()
     addTimerNodeToCamera(camera!)
     addPauseButtonToCamera(camera!)
   }
@@ -200,7 +199,9 @@ extension GameScene {
 extension GameScene {
   func startNewGame() {
     EntityBuilder.addPlayer(position: TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(currentObstacleTileMap), toEntityManager: entityManager)
+    camera?.constraints = nil
     CameraBuilder.constraintCamera(camera!, toSpriteNode: entityManager.getPlayerSpriteNode()!)
+    CameraBuilder.constraintCamera(camera!, toTileMapEdges: previousBackgroundTileMap, inScene: self)
     stateMachine.enter(GameSceneActiveState.self)
   }
   

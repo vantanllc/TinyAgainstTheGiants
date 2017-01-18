@@ -20,7 +20,7 @@ class CameraBuilder {
     let xUpperLimit = tileMap.mapSize.width - scaledSize.width / 2 + inset
     let xRange = SKRange(lowerLimit: xLowerLimit, upperLimit: xUpperLimit)
     
-    let yUpperLimit = -scaledSize.height / 2 + inset
+    let yUpperLimit = (tileMap.position.y - scaledSize.height / 2) + inset
     let yRange = SKRange(upperLimit: yUpperLimit)
     let edgeContraint = SKConstraint.positionX(xRange, y: yRange)
     

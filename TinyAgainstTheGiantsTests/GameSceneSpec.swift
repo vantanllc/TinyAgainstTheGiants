@@ -24,6 +24,7 @@ class GameSceneSpec: QuickSpec {
       describe("StateMachine") {
         beforeEach {
           gameScene.timerNode = SKLabelNode()
+          gameScene.didMove(to: SKView())
         }
         
         it("should define stateMachine") {
@@ -276,6 +277,7 @@ class GameSceneSpec: QuickSpec {
       
       context("Player") {
         it("should add player's RenderComponent node to worldNode") {
+          gameScene.didMove(to: SKView())
           if let expectedPlayerRenderNode = gameScene.entityManager.getPlayerRenderNode() {
             expect(gameScene.worldNode.children).to(contain(expectedPlayerRenderNode))
           } else {
