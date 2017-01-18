@@ -87,13 +87,6 @@ extension GameScene {
     
     stateMachine.update(deltaTime: deltaTime)
     
-    enemySpawnTime -= deltaTime
-    
-    if let enemies = entityManager.getEnemyEntities(), enemies.count < maxEnemyCount, enemySpawnTime.isLessThanOrEqualTo(0) {
-      addEnemy()
-      enemySpawnTime = enemySpawnCoolDown
-    }
-    
     if let camera = camera, !camera.contains(currentBackgroundTileMap), camera.position.y < currentBackgroundTileMap.frame.maxY {
       updateBackgroundTileMaps()
       updateObstacleTileMaps()

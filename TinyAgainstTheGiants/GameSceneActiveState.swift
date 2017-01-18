@@ -14,6 +14,13 @@ class GameSceneActiveState: GKState {
     super.update(deltaTime: seconds)
     gameScene.entityManager.update(deltaTime: seconds)
     
+    gameScene.enemySpawnTime -= seconds
+    
+    if let enemies = gameScene.entityManager.getEnemyEntities(), enemies.count < gameScene.maxEnemyCount, gameScene.enemySpawnTime.isLessThanOrEqualTo(0) {
+      gameScene.addEnemy()
+      gameScene.enemySpawnTime = gameScene.enemySpawnCoolDown
+    }
+    
     time += seconds
     gameScene.timerNode.text = timeString
     

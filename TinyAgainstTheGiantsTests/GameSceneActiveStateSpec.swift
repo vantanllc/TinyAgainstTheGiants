@@ -50,6 +50,39 @@ class GameSceneActiveStateSpec: QuickSpec {
         }
       }
       
+      context("update spawn enemy") {
+        beforeEach {
+          gameScene.didMove(to: SKView())
+        }
+        
+        context("after reaching cooldown time") {
+          it("should increment enemyCount by one") {
+            gameScene.addEnemy()
+            let oldEnemyCount = gameScene.entityManager.getEnemyEntities()!.count
+            
+            gameSceneActiveState.update(deltaTime: gameScene.enemySpawnCoolDown)
+            
+            let newEnemyCount = gameScene.entityManager.getEnemyEntities()?.count
+            expect(newEnemyCount).to(equal(oldEnemyCount + 1))
+          }
+          
+          it("should reset enemySpawnTime to enemySpawnCoolDown") {
+            gameSceneActiveState.update(deltaTime: gameScene.enemySpawnCoolDown + 0.1)
+            
+            expect(gameScene.enemySpawnTime).to(equal(gameScene.enemySpawnCoolDown))
+          }
+          
+          it("should not exceed maxEnemyCount") {
+            let maxCount = gameScene.maxEnemyCount
+            for _ in 0...maxCount {
+              gameSceneActiveState.update(deltaTime: gameScene.enemySpawnCoolDown)
+            }
+            
+            expect(gameScene.entityManager.getEnemyEntities()!.count).to(equal(maxCount))
+          }
+        }
+      }
+      
       context("update gameScene timerNode") {
         var deltaTime: TimeInterval!
         beforeEach {

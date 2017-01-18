@@ -209,44 +209,6 @@ class GameSceneSpec: QuickSpec {
         }
       }
       
-      describe("spawn enemies") {
-        beforeEach {
-          gameScene.timerNode = SKLabelNode()
-        }
-        
-        context("after reaching cooldown time") {
-          it("should increment enemyCount by one") {
-            gameScene.addEnemy()
-            let oldEnemyCount = gameScene.entityManager.getEnemyEntities()!.count
-            
-            gameScene.update(0.1)
-            gameScene.update(gameScene.enemySpawnCoolDown + 0.1)
-            
-            let newEnemyCount = gameScene.entityManager.getEnemyEntities()?.count
-            expect(newEnemyCount).to(equal(oldEnemyCount + 1))
-          }
-          
-          it("should reset enemySpawnTime to enemySpawnCoolDown") {
-            gameScene.update(0.1)
-            gameScene.update(gameScene.enemySpawnCoolDown + 0.1)
-            
-            expect(gameScene.enemySpawnTime).to(equal(gameScene.enemySpawnCoolDown))
-          }
-          
-          it("should not exceed maxEnemyCount") {
-            let maxCount = gameScene.maxEnemyCount
-            
-            var currentTime: TimeInterval = 0
-            gameScene.update(0.1)
-            for _ in 0...maxCount {
-              currentTime += gameScene.enemySpawnCoolDown + 0.1
-              gameScene.update(currentTime)
-            }
-            
-            expect(gameScene.entityManager.getEnemyEntities()!.count).to(equal(maxCount))
-          }
-        }
-      }
       
       describe("adding Entity functions") {
         context("addEnemy") {
