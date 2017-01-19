@@ -37,6 +37,8 @@
 		8B5774141E1F5B1A0050EC72 /* MoveComponentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774131E1F5B1A0050EC72 /* MoveComponentSpec.swift */; };
 		8B777D631E21EED100E9016F /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B777D621E21EED100E9016F /* Common.swift */; };
 		8B78380F1E1813E700A55B42 /* GameViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78380E1E1813E700A55B42 /* GameViewControllerSpec.swift */; };
+		8B93C3331E306F66002ADC17 /* AdMob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93C3321E306F66002ADC17 /* AdMob.swift */; };
+		8B93C3351E307007002ADC17 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93C3341E307007002ADC17 /* AppDelegateSpec.swift */; };
 		8BA913F71E25E9AE00D5962D /* ContactNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA913F61E25E9AE00D5962D /* ContactNotifiable.swift */; };
 		8BAF4E261E2C1F8100E447A5 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */; };
 		8BAF4E281E2C1FF700E447A5 /* ButtonBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */; };
@@ -128,6 +130,8 @@
 		8B5774131E1F5B1A0050EC72 /* MoveComponentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveComponentSpec.swift; sourceTree = "<group>"; };
 		8B777D621E21EED100E9016F /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		8B78380E1E1813E700A55B42 /* GameViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerSpec.swift; sourceTree = "<group>"; };
+		8B93C3321E306F66002ADC17 /* AdMob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMob.swift; sourceTree = "<group>"; };
+		8B93C3341E307007002ADC17 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
 		8BA913F61E25E9AE00D5962D /* ContactNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactNotifiable.swift; sourceTree = "<group>"; };
 		8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilderSpec.swift; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 				8BD4BB9F1E229D16006A6C38 /* Particles */,
 				8BD4BBA91E233FC5006A6C38 /* Nodes */,
 				8BA913F81E25EADA00D5962D /* ContactCollision */,
+				8B93C3321E306F66002ADC17 /* AdMob.swift */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				8BD4BBA41E22B177006A6C38 /* Utilities */,
 				8BD4BBAA1E233FCB006A6C38 /* NodeSpec */,
 				8B331B9B1E29A10600C7B298 /* ContactCollision */,
+				8B93C3341E307007002ADC17 /* AppDelegateSpec.swift */,
 			);
 			path = TinyAgainstTheGiantsTests;
 			sourceTree = "<group>";
@@ -791,6 +797,7 @@
 				8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */,
 				8BA913F71E25E9AE00D5962D /* ContactNotifiable.swift in Sources */,
 				8B013D811E18CEFB00AC7D74 /* EntityManager.swift in Sources */,
+				8B93C3331E306F66002ADC17 /* AdMob.swift in Sources */,
 				8BD4BBA11E229D2C006A6C38 /* ParticleComponent.swift in Sources */,
 				8B0708971E1A2E5900A7310D /* Utilities.swift in Sources */,
 				8B5774041E1F4AEF0050EC72 /* TeamComponent.swift in Sources */,
@@ -838,6 +845,7 @@
 				8B013D831E18CF5600AC7D74 /* EntityManagerSpec.swift in Sources */,
 				8BC73CFA1E248BBA005CB996 /* ChargeBarComponentSpec.swift in Sources */,
 				8B5774141E1F5B1A0050EC72 /* MoveComponentSpec.swift in Sources */,
+				8B93C3351E307007002ADC17 /* AppDelegateSpec.swift in Sources */,
 				8B013D7C1E18BEE700AC7D74 /* SpriteComponentSpec.swift in Sources */,
 				8BEAD7F71E19B288007F68C5 /* CameraBuilderSpec.swift in Sources */,
 				8B0943AB1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift in Sources */,
