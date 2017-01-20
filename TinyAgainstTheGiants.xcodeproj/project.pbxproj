@@ -27,6 +27,9 @@
 		8B331B9D1E29D73D00C7B298 /* GameSceneActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */; };
 		8B331B9F1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */; };
 		8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */; };
+		8B4DE65A1E31B002004CD39E /* AdBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE6591E31B002004CD39E /* AdBuilder.swift */; };
+		8B4DE65C1E31B06D004CD39E /* AdBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE65B1E31B06D004CD39E /* AdBuilderSpec.swift */; };
+		8B4DE65E1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE65D1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift */; };
 		8B5774041E1F4AEF0050EC72 /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */; };
 		8B5774061E1F4B210050EC72 /* TeamComponentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */; };
 		8B5774081E1F4D960050EC72 /* EnemyEntitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774071E1F4D960050EC72 /* EnemyEntitySpec.swift */; };
@@ -120,6 +123,9 @@
 		8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveState.swift; sourceTree = "<group>"; };
 		8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveStateSpec.swift; sourceTree = "<group>"; };
 		8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileDefinitionType.swift; sourceTree = "<group>"; };
+		8B4DE6591E31B002004CD39E /* AdBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdBuilder.swift; sourceTree = "<group>"; };
+		8B4DE65B1E31B06D004CD39E /* AdBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdBuilderSpec.swift; sourceTree = "<group>"; };
+		8B4DE65D1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+GADInterstitialDelegate.swift"; sourceTree = "<group>"; };
 		8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
 		8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamComponentSpec.swift; sourceTree = "<group>"; };
 		8B5774071E1F4D960050EC72 /* EnemyEntitySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEntitySpec.swift; sourceTree = "<group>"; };
@@ -411,6 +417,7 @@
 				8BEAD7F41E19B1EC007F68C5 /* CameraBuilder.swift */,
 				8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */,
 				8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */,
+				8B4DE6591E31B002004CD39E /* AdBuilder.swift */,
 			);
 			name = Builders;
 			sourceTree = "<group>";
@@ -423,6 +430,7 @@
 				8BEAD7F61E19B288007F68C5 /* CameraBuilderSpec.swift */,
 				8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift */,
 				8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */,
+				8B4DE65B1E31B06D004CD39E /* AdBuilderSpec.swift */,
 			);
 			name = BuilderSpec;
 			sourceTree = "<group>";
@@ -522,6 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				8BC0E4081E177A1C0087C7E2 /* GameViewController.swift */,
+				8B4DE65D1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -815,8 +824,10 @@
 				8BC0E4091E177A1C0087C7E2 /* GameViewController.swift in Sources */,
 				8B57740A1E1F4DC90050EC72 /* EnemyEntity.swift in Sources */,
 				8B0943A91E2B4B6E00F08D69 /* GameSceneFailState.swift in Sources */,
+				8B4DE65A1E31B002004CD39E /* AdBuilder.swift in Sources */,
 				8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */,
 				8B5774121E1F5AD90050EC72 /* MoveComponent.swift in Sources */,
+				8B4DE65E1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
 				8BC9C26D1E2F1E1700453C22 /* GameScene+TileMapNode.swift in Sources */,
 				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,
@@ -845,6 +856,7 @@
 				8B013D831E18CF5600AC7D74 /* EntityManagerSpec.swift in Sources */,
 				8BC73CFA1E248BBA005CB996 /* ChargeBarComponentSpec.swift in Sources */,
 				8B5774141E1F5B1A0050EC72 /* MoveComponentSpec.swift in Sources */,
+				8B4DE65C1E31B06D004CD39E /* AdBuilderSpec.swift in Sources */,
 				8B93C3351E307007002ADC17 /* AppDelegateSpec.swift in Sources */,
 				8B013D7C1E18BEE700AC7D74 /* SpriteComponentSpec.swift in Sources */,
 				8BEAD7F71E19B288007F68C5 /* CameraBuilderSpec.swift in Sources */,
