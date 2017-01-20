@@ -9,12 +9,15 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import GoogleMobileAds
 
 class GameViewController: UIViewController {
   
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    interstitial = AdBuilder.getInterstitial(withDelegate: self)
     
     let size = CGSize(width: 1366, height: 1024)
     gameScene = createGameScene(size: size)
@@ -44,6 +47,7 @@ class GameViewController: UIViewController {
   
   // MARK: Properties
   var gameScene: GameScene!
+  var interstitial: GADInterstitial!
 }
 
 // MARK: GameScene

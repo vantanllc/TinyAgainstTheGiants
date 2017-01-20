@@ -9,5 +9,7 @@
 import GoogleMobileAds
 
 extension GameViewController: GADInterstitialDelegate {
-  
+  func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+    interstitial = AdBuilder.getInterstitial(withDelegate: self)
+  }
 }
