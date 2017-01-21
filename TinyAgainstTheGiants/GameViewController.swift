@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
     interstitial = AdBuilder.getInterstitial(withDelegate: self)
     
     let size = CGSize(width: 1366, height: 1024)
-    gameScene = createGameScene(size: size)
+    gameScene = createGameScene(size: size, withDelegate: self)
     if let skView = view as? SKView {
       presentGameSceneInDevMode(gameScene: gameScene, intoSKView: skView)
     }
@@ -52,9 +52,10 @@ class GameViewController: UIViewController {
 
 // MARK: GameScene
 extension GameViewController {
-  func createGameScene(size: CGSize, scaleMode: SKSceneScaleMode = .resizeFill) -> GameScene {
+  func createGameScene(size: CGSize, withDelegate delegate: GameSceneDelegate? = nil, scaleMode: SKSceneScaleMode = .resizeFill) -> GameScene {
     let gameScene = GameScene(size: size)
     gameScene.scaleMode = scaleMode
+    gameScene.gameSceneDelegate = delegate
     return gameScene
   }
   

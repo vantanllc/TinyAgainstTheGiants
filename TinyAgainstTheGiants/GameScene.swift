@@ -46,6 +46,7 @@ class GameScene: SKScene {
   // MARK: Properties
   var entityManager: EntityManager!
   var stateMachine: GKStateMachine!
+  weak var gameSceneDelegate: GameSceneDelegate?
   
   // MARK: TileMaps
   var previousBackgroundTileMap: SKTileMapNode!

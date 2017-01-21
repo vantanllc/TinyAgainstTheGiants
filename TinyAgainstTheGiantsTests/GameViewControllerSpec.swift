@@ -78,6 +78,13 @@ class GameViewControllerSpec: QuickSpec {
           let gameScene = gameVC.createGameScene(size: expectedSize, scaleMode: expectedScaleMode)
           expect(gameScene.scaleMode).to(equal(expectedScaleMode))
         }
+        
+        context("with delegate") {
+          it("should set gameScene delegate to self") {
+            let gameScene = gameVC.createGameScene(size: expectedSize, withDelegate: gameVC)
+            expect(gameScene.gameSceneDelegate).to(be(gameVC))
+          }
+        }
       }
       
       describe("presentGameSceneInDevMode") {

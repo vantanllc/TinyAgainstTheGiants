@@ -57,20 +57,33 @@ class GameSceneFailStateSpec: QuickSpec {
           
         }
         
-        it("should set playerEntity physicsbody to static") {
-          let body = gameScene.entityManager.getPlayerEntity()?.component(ofType: PhysicsComponent.self)?.physicsBody
-          expect(body?.isDynamic).to(beFalse())
+        it("should pause the worldNode") {
+          expect(gameScene.worldNode.isPaused).to(beTrue())
+        }
+        
+        it("should set physicsworld speed to zero") {
+          expect(gameScene.physicsWorld.speed.isZero).to(beTrue())
         }
       }
       
       context("willExit") {
         beforeEach {
+          gameScene.worldNode.isPaused = true
+          gameScene.physicsWorld.speed = 0
           gameScene.addChild(ButtonBuilder.getRetryButton())
           gameSceneFailState.willExit(to: GKState())
         }
         
         it("should remove retry button") {
           expect(gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)).to(beNil())
+        }
+        
+        it("should unpause the worldNode") {
+          expect(gameScene.worldNode.isPaused).to(beFalse())
+        }
+        
+        it("should set physics world speed back to one") {
+          expect(gameScene.physicsWorld.speed).to(equal(1))
         }
       }
     }
