@@ -30,9 +30,7 @@
 		8B4DE65A1E31B002004CD39E /* AdBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE6591E31B002004CD39E /* AdBuilder.swift */; };
 		8B4DE65C1E31B06D004CD39E /* AdBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE65B1E31B06D004CD39E /* AdBuilderSpec.swift */; };
 		8B4DE65E1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE65D1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift */; };
-		8B4DE6601E31C4C7004CD39E /* GameViewController+GADInterstitialSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE65F1E31C4C7004CD39E /* GameViewController+GADInterstitialSpec.swift */; };
 		8B4DE6621E31CA0F004CD39E /* GameSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE6611E31CA0F004CD39E /* GameSceneDelegate.swift */; };
-		8B4DE6641E31CA65004CD39E /* GameViewController+GameSceneDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE6631E31CA65004CD39E /* GameViewController+GameSceneDelegateSpec.swift */; };
 		8B4DE6661E31CB84004CD39E /* GameViewController+GameSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE6651E31CB84004CD39E /* GameViewController+GameSceneDelegate.swift */; };
 		8B5774041E1F4AEF0050EC72 /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */; };
 		8B5774061E1F4B210050EC72 /* TeamComponentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */; };
@@ -127,9 +125,7 @@
 		8B4DE6591E31B002004CD39E /* AdBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdBuilder.swift; sourceTree = "<group>"; };
 		8B4DE65B1E31B06D004CD39E /* AdBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdBuilderSpec.swift; sourceTree = "<group>"; };
 		8B4DE65D1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+GADInterstitialDelegate.swift"; sourceTree = "<group>"; };
-		8B4DE65F1E31C4C7004CD39E /* GameViewController+GADInterstitialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+GADInterstitialSpec.swift"; sourceTree = "<group>"; };
 		8B4DE6611E31CA0F004CD39E /* GameSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneDelegate.swift; sourceTree = "<group>"; };
-		8B4DE6631E31CA65004CD39E /* GameViewController+GameSceneDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+GameSceneDelegateSpec.swift"; sourceTree = "<group>"; };
 		8B4DE6651E31CB84004CD39E /* GameViewController+GameSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+GameSceneDelegate.swift"; sourceTree = "<group>"; };
 		8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
 		8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamComponentSpec.swift; sourceTree = "<group>"; };
@@ -495,8 +491,6 @@
 			isa = PBXGroup;
 			children = (
 				8B78380E1E1813E700A55B42 /* GameViewControllerSpec.swift */,
-				8B4DE65F1E31C4C7004CD39E /* GameViewController+GADInterstitialSpec.swift */,
-				8B4DE6631E31CA65004CD39E /* GameViewController+GameSceneDelegateSpec.swift */,
 			);
 			name = ViewControllerSpec;
 			sourceTree = "<group>";
@@ -855,7 +849,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B4DE6641E31CA65004CD39E /* GameViewController+GameSceneDelegateSpec.swift in Sources */,
 				8BC73CFE1E24A808005CB996 /* ColliderTypeSpec.swift in Sources */,
 				8BF60E3B1E288C480093EA36 /* ButtonNodeSpec.swift in Sources */,
 				8BF9FD831E2C702000E9B53C /* GameSceneTileMapSpec.swift in Sources */,
@@ -881,7 +874,6 @@
 				8BEAD8021E19D044007F68C5 /* TileMapBuilderSpec.swift in Sources */,
 				8BF9FD871E2C785E00E9B53C /* GameScene+ButtonRespondableSpec.swift in Sources */,
 				8BFABF6F1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift in Sources */,
-				8B4DE6601E31C4C7004CD39E /* GameViewController+GADInterstitialSpec.swift in Sources */,
 				8BF10C7C1E2DBFB700492EBB /* GameScenePauseStateSpec.swift in Sources */,
 				8B013D781E18B89C00AC7D74 /* RenderComponentSpec.swift in Sources */,
 				8B0708951E1A2C6B00A7310D /* PhysicsComponentSpec.swift in Sources */,
