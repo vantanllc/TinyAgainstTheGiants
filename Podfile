@@ -6,6 +6,7 @@ use_frameworks!
 def testing_pods
 pod 'Quick'
 pod 'Nimble'
+pod 'Google-Mobile-Ads-SDK'
 end
 
 target 'TinyAgainstTheGiants' do
@@ -14,7 +15,6 @@ pod 'Google-Mobile-Ads-SDK'
 target 'TinyAgainstTheGiantsTests' do
 inherit! :search_paths
 testing_pods
-pod 'Google-Mobile-Ads-SDK'
 end
 end
 
