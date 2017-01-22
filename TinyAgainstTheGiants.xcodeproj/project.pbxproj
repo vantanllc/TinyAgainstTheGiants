@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68030AEA230C07139D165FEA /* Pods_TinyAgainstTheGiantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C738641DB752DF92D9A1AB94 /* Pods_TinyAgainstTheGiantsTests.framework */; };
+		1760777898768EAA3AC49324 /* Pods_TinyAgainstTheGiants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1211D5D63FBC6EF2735935B /* Pods_TinyAgainstTheGiants.framework */; };
 		8B013D701E18B15100AC7D74 /* GameSceneSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D6F1E18B15100AC7D74 /* GameSceneSpec.swift */; };
 		8B013D721E18B5F900AC7D74 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D711E18B5F900AC7D74 /* PlayerEntity.swift */; };
 		8B013D741E18B72E00AC7D74 /* PlayerEntitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B013D731E18B72E00AC7D74 /* PlayerEntitySpec.swift */; };
@@ -82,7 +82,7 @@
 		8BFABF601E1CA26600C613A0 /* NodeLayerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */; };
 		8BFABF6D1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */; };
 		8BFABF6F1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift */; };
-		E060E468DC5BD94414216EB1 /* Pods_TinyAgainstTheGiants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303560BE9FBF295AEF4D85A8 /* Pods_TinyAgainstTheGiants.framework */; };
+		EC75BDFEE92EBB4BCC2C8ECD /* Pods_TinyAgainstTheGiantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A88E98FDF211E7EA8CFE473 /* Pods_TinyAgainstTheGiantsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,10 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1201D4FE536F32AD3B9F6444 /* Pods-TinyAgainstTheGiantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiantsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		22586CE6FD063998840493B6 /* Pods-TinyAgainstTheGiants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiants.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants.debug.xcconfig"; sourceTree = "<group>"; };
-		303560BE9FBF295AEF4D85A8 /* Pods_TinyAgainstTheGiants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinyAgainstTheGiants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DE99BB71551D36ED967B5F0 /* Pods-TinyAgainstTheGiantsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiantsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests.release.xcconfig"; sourceTree = "<group>"; };
+		40B1B19EBEAAA10AE68FEB9F /* Pods-TinyAgainstTheGiantsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiantsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests.release.xcconfig"; sourceTree = "<group>"; };
+		838211FCFF7D31750C560DA2 /* Pods-TinyAgainstTheGiants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiants.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants.debug.xcconfig"; sourceTree = "<group>"; };
 		8B013D6F1E18B15100AC7D74 /* GameSceneSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneSpec.swift; sourceTree = "<group>"; };
 		8B013D711E18B5F900AC7D74 /* PlayerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		8B013D731E18B72E00AC7D74 /* PlayerEntitySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEntitySpec.swift; sourceTree = "<group>"; };
@@ -187,8 +185,10 @@
 		8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeLayerPosition.swift; sourceTree = "<group>"; };
 		8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapPhysicsBuilder.swift; sourceTree = "<group>"; };
 		8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapPhysicsBuilderSpec.swift; sourceTree = "<group>"; };
-		B80BB03DD82D76EDB8D29A80 /* Pods-TinyAgainstTheGiants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiants.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants.release.xcconfig"; sourceTree = "<group>"; };
-		C738641DB752DF92D9A1AB94 /* Pods_TinyAgainstTheGiantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinyAgainstTheGiantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A88E98FDF211E7EA8CFE473 /* Pods_TinyAgainstTheGiantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinyAgainstTheGiantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1211D5D63FBC6EF2735935B /* Pods_TinyAgainstTheGiants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinyAgainstTheGiants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C75DE3C57C1EDF02F6D1B21D /* Pods-TinyAgainstTheGiantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiantsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC63E9BA92DC5AA3A2077E18 /* Pods-TinyAgainstTheGiants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiants.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E060E468DC5BD94414216EB1 /* Pods_TinyAgainstTheGiants.framework in Frameworks */,
+				1760777898768EAA3AC49324 /* Pods_TinyAgainstTheGiants.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68030AEA230C07139D165FEA /* Pods_TinyAgainstTheGiantsTests.framework in Frameworks */,
+				EC75BDFEE92EBB4BCC2C8ECD /* Pods_TinyAgainstTheGiantsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,15 +218,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		25CBFF906EE2D4CC922C5E56 /* Pods */ = {
+		6CD41FCFDF7283DA9EF1AE29 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				22586CE6FD063998840493B6 /* Pods-TinyAgainstTheGiants.debug.xcconfig */,
-				B80BB03DD82D76EDB8D29A80 /* Pods-TinyAgainstTheGiants.release.xcconfig */,
-				1201D4FE536F32AD3B9F6444 /* Pods-TinyAgainstTheGiantsTests.debug.xcconfig */,
-				4DE99BB71551D36ED967B5F0 /* Pods-TinyAgainstTheGiantsTests.release.xcconfig */,
+				838211FCFF7D31750C560DA2 /* Pods-TinyAgainstTheGiants.debug.xcconfig */,
+				EC63E9BA92DC5AA3A2077E18 /* Pods-TinyAgainstTheGiants.release.xcconfig */,
+				C75DE3C57C1EDF02F6D1B21D /* Pods-TinyAgainstTheGiantsTests.debug.xcconfig */,
+				40B1B19EBEAAA10AE68FEB9F /* Pods-TinyAgainstTheGiantsTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6ED2CB3B245F9BB5B15FC10A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1211D5D63FBC6EF2735935B /* Pods_TinyAgainstTheGiants.framework */,
+				9A88E98FDF211E7EA8CFE473 /* Pods_TinyAgainstTheGiantsTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8B013D6E1E18B07000AC7D74 /* Support */ = {
@@ -307,8 +316,8 @@
 				8BC0E41A1E177A1C0087C7E2 /* TinyAgainstTheGiantsTests */,
 				8BC0E4251E177A1C0087C7E2 /* TinyAgainstTheGiantsUITests */,
 				8BC0E3FE1E177A1B0087C7E2 /* Products */,
-				25CBFF906EE2D4CC922C5E56 /* Pods */,
-				F2C5E0BD89B1DC6FF9A118BE /* Frameworks */,
+				6CD41FCFDF7283DA9EF1AE29 /* Pods */,
+				6ED2CB3B245F9BB5B15FC10A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -549,15 +558,6 @@
 			name = Scenes;
 			sourceTree = "<group>";
 		};
-		F2C5E0BD89B1DC6FF9A118BE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				303560BE9FBF295AEF4D85A8 /* Pods_TinyAgainstTheGiants.framework */,
-				C738641DB752DF92D9A1AB94 /* Pods_TinyAgainstTheGiantsTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -565,13 +565,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC0E42B1E177A1C0087C7E2 /* Build configuration list for PBXNativeTarget "TinyAgainstTheGiants" */;
 			buildPhases = (
-				6E1BD34864849C9FDCB1E518 /* [CP] Check Pods Manifest.lock */,
+				506D218528852BFD0A931DE3 /* [CP] Check Pods Manifest.lock */,
 				8BC0E3F91E177A1B0087C7E2 /* Sources */,
 				8BC0E3FA1E177A1B0087C7E2 /* Frameworks */,
 				8BC0E3FB1E177A1B0087C7E2 /* Resources */,
 				8B013D7F1E18C74200AC7D74 /* ShellScript */,
-				93338718F288DE8D39A136E1 /* [CP] Embed Pods Frameworks */,
-				5EE8D0A030233C500EBEB3C9 /* [CP] Copy Pods Resources */,
+				1D18D278DD3061A37CAA157B /* [CP] Embed Pods Frameworks */,
+				135FB7D6756EA457D8BEFF06 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -586,12 +586,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC0E42E1E177A1C0087C7E2 /* Build configuration list for PBXNativeTarget "TinyAgainstTheGiantsTests" */;
 			buildPhases = (
-				F96C778417F153F6838375D7 /* [CP] Check Pods Manifest.lock */,
+				A7D8D1C0712E5C0AA34F32FB /* [CP] Check Pods Manifest.lock */,
 				8BC0E4131E177A1C0087C7E2 /* Sources */,
 				8BC0E4141E177A1C0087C7E2 /* Frameworks */,
 				8BC0E4151E177A1C0087C7E2 /* Resources */,
-				6BEECBDE7891CC0976037075 /* [CP] Embed Pods Frameworks */,
-				7A61597918AAE506CD854645 /* [CP] Copy Pods Resources */,
+				F081054041B1A37E3DEA180F /* [CP] Embed Pods Frameworks */,
+				49C0C4CBC37EDE04A12F2913 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -701,7 +701,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5EE8D0A030233C500EBEB3C9 /* [CP] Copy Pods Resources */ = {
+		135FB7D6756EA457D8BEFF06 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -716,7 +716,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6BEECBDE7891CC0976037075 /* [CP] Embed Pods Frameworks */ = {
+		1D18D278DD3061A37CAA157B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -728,25 +728,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E1BD34864849C9FDCB1E518 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7A61597918AAE506CD854645 /* [CP] Copy Pods Resources */ = {
+		49C0C4CBC37EDE04A12F2913 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -759,6 +744,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		506D218528852BFD0A931DE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8B013D7F1E18C74200AC7D74 /* ShellScript */ = {
@@ -774,22 +774,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		93338718F288DE8D39A136E1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TinyAgainstTheGiants/Pods-TinyAgainstTheGiants-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F96C778417F153F6838375D7 /* [CP] Check Pods Manifest.lock */ = {
+		A7D8D1C0712E5C0AA34F32FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -802,6 +787,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F081054041B1A37E3DEA180F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1026,7 +1026,7 @@
 		};
 		8BC0E42C1E177A1C0087C7E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22586CE6FD063998840493B6 /* Pods-TinyAgainstTheGiants.debug.xcconfig */;
+			baseConfigurationReference = 838211FCFF7D31750C560DA2 /* Pods-TinyAgainstTheGiants.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 38CJ7RTF4Q;
@@ -1042,7 +1042,7 @@
 		};
 		8BC0E42D1E177A1C0087C7E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B80BB03DD82D76EDB8D29A80 /* Pods-TinyAgainstTheGiants.release.xcconfig */;
+			baseConfigurationReference = EC63E9BA92DC5AA3A2077E18 /* Pods-TinyAgainstTheGiants.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 38CJ7RTF4Q;
@@ -1058,7 +1058,7 @@
 		};
 		8BC0E42F1E177A1C0087C7E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1201D4FE536F32AD3B9F6444 /* Pods-TinyAgainstTheGiantsTests.debug.xcconfig */;
+			baseConfigurationReference = C75DE3C57C1EDF02F6D1B21D /* Pods-TinyAgainstTheGiantsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1074,7 +1074,7 @@
 		};
 		8BC0E4301E177A1C0087C7E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DE99BB71551D36ED967B5F0 /* Pods-TinyAgainstTheGiantsTests.release.xcconfig */;
+			baseConfigurationReference = 40B1B19EBEAAA10AE68FEB9F /* Pods-TinyAgainstTheGiantsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
