@@ -6,7 +6,6 @@ use_frameworks!
 def testing_pods
 pod 'Quick'
 pod 'Nimble'
-pod 'Google-Mobile-Ads-SDK'
 end
 
 target 'TinyAgainstTheGiants' do
