@@ -11,7 +11,7 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.9.0"
+fastlane_version "2.14.2"
 
 default_platform :ios
 
@@ -27,6 +27,20 @@ platform :ios do
       sdk: "iphonesimulator10.2",
       devices: ["iPhone 5s", "iPhone 6s", "iPad Air 2"]
     )
+  end
+
+  desc "Creating a code signing certificate and provisioning profile"
+  lane :provision do
+    produce(
+      app_name: "TinyAgainstTheGiants",
+      language: "English",
+      app_version: "1.0",
+      sku: "com.vantanllc.TinyAgainstTheGiants"
+      )
+
+    cert
+
+    sigh(force: true)
   end
 
   desc "Calculate test code coverage score. Need to run test beforehand."
