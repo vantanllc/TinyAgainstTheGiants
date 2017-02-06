@@ -39,6 +39,16 @@ Runs all the tests
 fastlane ios provision
 ```
 Creating a code signing certificate and provisioning profile
+### ios build
+```
+fastlane ios build
+```
+Create ipa
+### ios upload
+```
+fastlane ios upload
+```
+Upload to App Store
 ### ios report_test_coverage
 ```
 fastlane ios report_test_coverage
