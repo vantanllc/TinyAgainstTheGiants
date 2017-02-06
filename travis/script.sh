@@ -7,4 +7,5 @@ else
   #fastlane ios test
   #fastlane ios report_test_coverage
   fastlane ios provision
+  fastlane ios build
 fi
