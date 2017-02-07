@@ -6,6 +6,6 @@ else
   #open -b com.apple.iphonesimulator
   #fastlane ios test
   #fastlane ios report_test_coverage
-  fastlane ios provision
+  #fastlane ios provision
   fastlane ios build
 fi
