@@ -50,11 +50,9 @@ platform :ios do
       keychain_name: ENV["SIGNING_KEYCHAIN"]
     )
 
-    security set-key-partition-list -S apple-tool:,apple: -s -k ENV["SIGNING_KEYCHAIN_PASSWORD"] ENV["SIGNING_KEYCHAIN"]
+    sh("security set-key-partition-list -S apple-tool:,apple: -s -k ENV["SIGNING_KEYCHAIN_PASSWORD"] ENV["SIGNING_KEYCHAIN"]")
 
-    sigh(
-      adhoc: false
-    )
+    sigh
 
     increment_build_number
 
@@ -64,7 +62,6 @@ platform :ios do
       clean: true,
       include_bitcode: false,
       include_symbols: true,
-      use_legacy_build_api: true
     )
 
     delete_keychain(name: ENV["SIGNING_KEYCHAIN"])
