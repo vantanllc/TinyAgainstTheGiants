@@ -50,7 +50,7 @@ platform :ios do
       keychain_name: ENV["SIGNING_KEYCHAIN"]
     )
 
-    sh("security set-key-partition-list -S apple-tool:,apple: -s -k ENV["SIGNING_KEYCHAIN_PASSWORD"] ENV["SIGNING_KEYCHAIN"]")
+    sh("security set-key-partition-list -S apple-tool:,apple: -s -k $SIGNING_KEYCHAIN_PASSWORD $SIGNING_KEYCHAIN")
 
     sigh
 
