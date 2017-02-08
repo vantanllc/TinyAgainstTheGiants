@@ -50,13 +50,19 @@ platform :ios do
       keychain_name: ENV["SIGNING_KEYCHAIN"]
     )
 
-    sigh(force: true)
+    sigh(
+      adhoc: false
+    )
 
     increment_build_number
 
     gym(
       scheme: "TinyAgainstTheGiants",
-      workspace: "TinyAgainstTheGiants.xcworkspace"
+      workspace: "TinyAgainstTheGiants.xcworkspace",
+      clean: true,
+      include_bitcode: false,
+      include_symbols: true,
+      use_legacy_build_api: true
     )
 
     delete_keychain(name: ENV["SIGNING_KEYCHAIN"])
