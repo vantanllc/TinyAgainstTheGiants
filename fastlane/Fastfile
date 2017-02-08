@@ -40,7 +40,7 @@ platform :ios do
       unlock: true,
       timeout: 3600,
       lock_when_sleeps: true,
-      password: SecureRandom.base64,
+      password: ENV["SIGNING_KEYCHAIN_PASSWORD"],
       add_to_search_list: true
     )
     
@@ -49,6 +49,8 @@ platform :ios do
       certificate_password: ENV["DISTRIBUTION_CERTIFICATE_PASSWORD"],
       keychain_name: ENV["SIGNING_KEYCHAIN"]
     )
+
+    security set-key-partition-list -S apple-tool:,apple: -s -k ENV["SIGNING_KEYCHAIN_PASSWORD"] ENV["SIGNING_KEYCHAIN"]
 
     sigh(
       adhoc: false
