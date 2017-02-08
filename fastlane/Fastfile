@@ -55,7 +55,7 @@ platform :ios do
     increment_build_number
 
     gym(
-      scheme: "TinyAgaintsTheGiants",
+      scheme: "TinyAgainstTheGiants",
       workspace: "TinyAgainstTheGiants.xcworkspace"
     )
 
