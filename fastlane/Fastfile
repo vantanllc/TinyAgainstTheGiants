@@ -52,7 +52,9 @@ platform :ios do
 
     sigh
 
-    increment_build_number
+    increment_build_number(
+      build_number: "#{number_of_commits}"
+    )
 
     gym(
       clean: true,
@@ -64,8 +66,10 @@ platform :ios do
   end
 
   desc "Upload to App Store"
-  lane :deliver do
-    deliver
+  lane :upload_metadata do
+    deliver(
+      force: true,
+    )
   end
 
   desc "Deploy to Testflight"
