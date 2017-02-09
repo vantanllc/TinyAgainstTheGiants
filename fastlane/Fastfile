@@ -64,7 +64,7 @@ platform :ios do
   end
 
   desc "Upload to App Store"
-  lane :upload do
+  lane :deliver do
     deliver
   end
 
