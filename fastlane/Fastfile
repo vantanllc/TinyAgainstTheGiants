@@ -69,6 +69,7 @@ platform :ios do
   lane :upload_metadata do
     deliver(
       force: true,
+      skip_binary_upload: true
     )
   end
 
