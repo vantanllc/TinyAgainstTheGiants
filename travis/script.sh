@@ -8,4 +8,6 @@ else
   #fastlane ios report_test_coverage
   #fastlane ios provision
   fastlane ios build
+  fastlane ios deliver
+  fastlane ios beta
 fi
