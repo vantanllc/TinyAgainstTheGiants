@@ -627,12 +627,12 @@
 				TargetAttributes = {
 					8BC0E3FC1E177A1B0087C7E2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 38CJ7RTF4Q;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = SNXMW75MBJ;
+						ProvisioningStyle = Manual;
 					};
 					8BC0E4161E177A1C0087C7E2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 38CJ7RTF4Q;
+						DevelopmentTeam = SNXMW75MBJ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8BC0E3FC1E177A1B0087C7E2;
 					};
@@ -944,9 +944,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = SNXMW75MBJ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -994,9 +996,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = SNXMW75MBJ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1021,14 +1025,20 @@
 			baseConfigurationReference = 838211FCFF7D31750C560DA2 /* Pods-TinyAgainstTheGiants.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 38CJ7RTF4Q;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = SNXMW75MBJ;
 				INFOPLIST_FILE = TinyAgainstTheGiants/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vantan.LLC.TinyAgainstTheGiants;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vantanllc.TinyAgainstTheGiants;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6feeedcd-5095-4c8b-9c0e-caa82497a5aa";
+				PROVISIONING_PROFILE_SPECIFIER = "com.vantanllc.TinyAgainstTheGiants AppStore";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1037,14 +1047,20 @@
 			baseConfigurationReference = EC63E9BA92DC5AA3A2077E18 /* Pods-TinyAgainstTheGiants.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 38CJ7RTF4Q;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = SNXMW75MBJ;
 				INFOPLIST_FILE = TinyAgainstTheGiants/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vantan.LLC.TinyAgainstTheGiants;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vantanllc.TinyAgainstTheGiants;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6feeedcd-5095-4c8b-9c0e-caa82497a5aa";
+				PROVISIONING_PROFILE_SPECIFIER = "com.vantanllc.TinyAgainstTheGiants AppStore";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1054,7 +1070,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 38CJ7RTF4Q;
+				DEVELOPMENT_TEAM = SNXMW75MBJ;
 				INFOPLIST_FILE = TinyAgainstTheGiantsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vantan.LLC.TinyAgainstTheGiantsTests;
@@ -1070,7 +1086,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 38CJ7RTF4Q;
+				DEVELOPMENT_TEAM = SNXMW75MBJ;
 				INFOPLIST_FILE = TinyAgainstTheGiantsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vantan.LLC.TinyAgainstTheGiantsTests;
