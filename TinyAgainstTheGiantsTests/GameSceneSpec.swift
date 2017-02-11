@@ -74,39 +74,12 @@ class GameSceneSpec: QuickSpec {
           }
           
           it("should re-position pauseButton") {
-            gameScene.pauseButton = ButtonNode()
-            gameScene.pauseButton.position = CGPoint(x: 600, y: 300)
+            let pauseButton = ButtonBuilder.getPauseButton()
+            pauseButton.position = CGPoint(x: 600, y: 300)
+            gameScene.camera?.addChild(pauseButton)
             gameScene.size = CGSize(width: 400, height: 400)
-            let position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
-            expect(gameScene.pauseButton.position).to(equal(position))
-          }
-        }
-        
-        context("pauseButton") {
-          beforeEach {
-            gameScene.didMove(to: SKView())
-          }
-          
-          it("should be a child of camera node") {
-            expect(gameScene.camera?.children).to(contain(gameScene.pauseButton))
-          }
-          
-          it("should be a pauseButton") {
-            expect(gameScene.pauseButton.buttonIdentifier).to(equal(ButtonIdentifier.pause))
-          }
-          
-          it("should have zPosition set to button") {
-            expect(gameScene.pauseButton.zPosition).to(equal(NodeLayerPosition.button))
-          }
-          
-          it("should have expected anchorPoint") {
-            let anchorPoint = CGPoint(x: 1, y: 0)
-            expect(gameScene.pauseButton.anchorPoint).to(equal(anchorPoint))
-          }
-          
-          it("should have position in the lower right corner") {
-            let position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
-            expect(gameScene.pauseButton.position).to(equal(position))
+            let expectPosition = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+            expect(pauseButton.position).to(equal(expectPosition))
           }
         }
         

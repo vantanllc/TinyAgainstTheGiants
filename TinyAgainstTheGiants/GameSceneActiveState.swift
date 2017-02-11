@@ -62,5 +62,18 @@ extension GameSceneActiveState {
     if previousState is GameSceneFailState {
       time = 0
     }
+    gameScene.camera?.addChild(createPauseButton())
+  }
+  
+  override func willExit(to nextState: GKState) {
+    gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)?.removeFromParent()
+  }
+  
+  func createPauseButton() -> ButtonNode {
+    let pauseButton = ButtonBuilder.getPauseButton()
+    pauseButton.zPosition = NodeLayerPosition.button
+    pauseButton.anchorPoint = CGPoint(x: 1, y: 0)
+    pauseButton.position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+    return pauseButton
   }
 }

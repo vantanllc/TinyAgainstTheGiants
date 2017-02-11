@@ -126,13 +126,48 @@ class GameSceneActiveStateSpec: QuickSpec {
         }
       }
       
+      context("createPauseButton") {
+        var pauseButton: ButtonNode!
+        
+        beforeEach {
+          pauseButton = gameSceneActiveState.createPauseButton()
+        }
+        
+        it("should have zPosition set to button") {
+          expect(pauseButton.zPosition).to(equal(NodeLayerPosition.button))
+        }
+        
+        it("should have expected anchorPoint") {
+          let anchorPoint = CGPoint(x: 1, y: 0)
+          expect(pauseButton.anchorPoint).to(equal(anchorPoint))
+        }
+        
+        it("should have position in the lower right corner") {
+          let position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+          expect(pauseButton.position).to(equal(position))
+        }
+      }
+      
       context("didEnter") {
+        it("should add pause ButtonNode to gameScene.camera") {
+            gameSceneActiveState.didEnter(from: nil)
+          expect(gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)).toNot(beNil())
+        }
+        
         context("from FailState") {
           it("should reset time to zero") {
             gameSceneActiveState.time = 304
             gameSceneActiveState.didEnter(from: GameSceneFailState(gameScene: GameScene()))
             expect(gameSceneActiveState.time.isZero).to(beTrue())
           }
+        }
+      }
+      
+      context("willExit") {
+        it("should remove pause ButtonNode from gameScene.camera") {
+          gameScene.camera?.addChild(ButtonNode())
+          gameSceneActiveState.willExit(to: GKState())
+          expect(gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)).to(beNil())
         }
       }
     }
