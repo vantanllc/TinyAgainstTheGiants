@@ -19,4 +19,8 @@ enum TileDefinitionType: String {
     UpperLeftCorner, UpperRightCorner,
     LowerLeftCorner, LowerRightCorner
   ]
+  
+  enum userData: String {
+    case type
+  }
 }
