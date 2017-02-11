@@ -18,7 +18,7 @@ class TileMapPhysicsBuilderSpec: QuickSpec {
       var tileDefinition: SKTileDefinition!
       beforeEach {
         tileDefinition = SKTileDefinition(texture: SKTexture(), size: CGSize(width: 32, height: 32))
-        tileDefinition.userData = ["tileDefinitionType": "Center"]
+        tileDefinition.userData = ["type": "Center"]
       }
       it("should have body") {
         let body = TileMapPhysicsBuilder.getPhysicsBodyFromTileDefinition(tileDefinition: tileDefinition, center: CGPoint.zero)

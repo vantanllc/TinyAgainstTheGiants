@@ -63,7 +63,7 @@ extension GameScene {
   }
   
   func addObstacleTileMap() {
-    guard let tileSet = SKTileSet(named: "Grass") else {
+    guard let tileSet = SKTileSet(named: "Obstacles") else {
       return
     }
     
@@ -78,7 +78,7 @@ extension GameScene {
   }
   
   func addNextObstacleTileMap() {
-    guard let tileSet = SKTileSet(named: "Grass") else {
+    guard let tileSet = SKTileSet(named: "Obstacles") else {
       return
     }
     nextObstacleTileMap = createObstacleTileMapWithTileSet(tileSet)
