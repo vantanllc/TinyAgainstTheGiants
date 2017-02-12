@@ -28,9 +28,18 @@ class TitleScreenStateSpec: QuickSpec {
       }
       
       context("didEnter") {
-        it("should add start button to camera") {
+        beforeEach {
+          gameScene.addBackgroundTileMap()
           titleScreenState.didEnter(from: nil)
+        }
+        
+        it("should add start button to camera") {
           expect(gameScene.camera?.childNode(withName: ButtonIdentifier.start.rawValue)).toNot(beNil())
+        }
+        
+        it("should move camera to position inside background tilemap") {
+          let expectedPosition = CGPoint(x: gameScene.currentBackgroundTileMap.frame.midX, y: gameScene.currentBackgroundTileMap.frame.maxY)
+          expect(gameScene.camera?.position).to(equal(expectedPosition))
         }
       }
       
@@ -42,7 +51,6 @@ class TitleScreenStateSpec: QuickSpec {
           expect(gameScene.camera?.childNode(withName: ButtonIdentifier.start.rawValue)).to(beNil())
         }
       }
-      
     }
   }
 }

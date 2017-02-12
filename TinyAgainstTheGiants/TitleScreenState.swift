@@ -22,6 +22,7 @@ class TitleScreenState: GKState {
 extension TitleScreenState {
   override func didEnter(from previousState: GKState?) {
     super.didEnter(from: previousState)
+    gameScene.camera?.position = CGPoint(x: gameScene.currentBackgroundTileMap.frame.midX, y: gameScene.currentBackgroundTileMap.frame.maxY)
     let startButton = ButtonBuilder.getStartButton()
     gameScene.camera?.addChild(startButton)
   }
