@@ -9,5 +9,7 @@
 import SpriteKit
 
 enum LabelIdentifier: String {
-  case timer
+  case timer, title
+  
+  static let all: [LabelIdentifier] = [.timer, .title]
 }

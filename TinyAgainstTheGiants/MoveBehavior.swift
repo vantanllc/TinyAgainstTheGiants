@@ -17,7 +17,7 @@ class MoveBehavior: GKBehavior {
     super.init()
     
     setWeight(0.1, for: goalToReachTargetSpeed)
-    setWeight(0.5, for: goalToSeekAgent)
+    setWeight(0.8, for: goalToSeekAgent)
     setWeight(0.3, for: goalToAvoidAgents)
     
   }

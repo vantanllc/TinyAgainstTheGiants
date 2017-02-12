@@ -18,7 +18,7 @@ class MoveBehaviorSpec: QuickSpec {
       var behavior: MoveBehavior!
       let expectedGoalCount = 3
       let weightToReachTargetSpeed: Float = 0.1
-      let weightToSeekAgent: Float = 0.5
+      let weightToSeekAgent: Float = 0.8
       let weightToAvoidAgents: Float = 0.3
       
       let targetSpeed: Float = 200

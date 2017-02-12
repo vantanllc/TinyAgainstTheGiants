@@ -33,8 +33,10 @@ class GameScene: SKScene {
         
   override func didChangeSize(_ oldSize: CGSize) {
     super.didChangeSize(oldSize)
-    if let timer = camera?.childNode(withName: LabelIdentifier.timer.rawValue) as? SKLabelNode {
-      timer.position = GameSceneActiveState.getPosition(forTimerNode: timer, inScene: self)
+    let _ = LabelIdentifier.all.map { identifier in
+      if let label = camera?.childNode(withName: identifier.rawValue) as? SKLabelNode {
+        label.position = GameSceneActiveState.getPosition(forTimerNode: label, inScene: self)
+      }
     }
     camera?.childNode(withName: ButtonIdentifier.pause.rawValue)?.position = CGPoint(x: size.width * 0.5, y: -size.height * 0.5)
   }
