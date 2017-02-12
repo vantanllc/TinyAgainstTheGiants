@@ -13,9 +13,9 @@ protocol ButtonRespondable {
 }
 
 enum ButtonIdentifier: String {
-  case retry, pause, resume
+  case retry, pause, resume, start
   
-  static let all: [ButtonIdentifier] = [.retry, .pause, .resume]
+  static let all: [ButtonIdentifier] = [.retry, .pause, .resume, .start]
 }
 
 class ButtonNode: SKSpriteNode {

@@ -32,4 +32,12 @@ class ButtonBuilder {
     button.isUserInteractionEnabled = true
     return button
   }
+  
+  static func getStartButton() -> ButtonNode {
+    let button = ButtonNode(imageNamed: "Start")
+    button.zPosition = NodeLayerPosition.button
+    button.name = ButtonIdentifier.start.rawValue
+    button.isUserInteractionEnabled = true
+    return button
+  }
 }

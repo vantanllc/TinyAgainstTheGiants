@@ -22,6 +22,8 @@ extension GameScene: ButtonRespondable {
       stateMachine.enter(GameScenePauseState.self)
     case .resume:
       stateMachine.enter(GameSceneActiveState.self)
+    case .start:
+      startNewGame()
     }
   }
 }

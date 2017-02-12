@@ -28,7 +28,7 @@ class GameScene: SKScene {
   }
   
   override func didMove(to view: SKView) {
-    startNewGame()
+    stateMachine.enter(TitleScreenState.self)
   }
         
   override func didChangeSize(_ oldSize: CGSize) {
@@ -110,6 +110,7 @@ extension GameScene {
 extension GameScene {
   func loadStateMachine() {
     let states: [GKState] = [
+      TitleScreenState(gameScene: self),
       GameSceneActiveState(gameScene: self),
       GameSceneFailState(gameScene: self),
       GameScenePauseState(gameScene: self)

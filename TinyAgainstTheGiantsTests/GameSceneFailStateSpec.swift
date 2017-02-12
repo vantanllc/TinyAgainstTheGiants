@@ -20,8 +20,8 @@ class GameSceneFailStateSpec: QuickSpec {
       
       beforeEach {
         gameScene = GameScene()
-        gameScene.didMove(to: SKView())
         gameSceneFailState = GameSceneFailState(gameScene: gameScene)
+        gameScene.startNewGame()
       }
       
       it("should have gameScene") {

@@ -20,8 +20,8 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       beforeEach {
         gameScene = GameScene()
-        gameScene.didMove(to: SKView())
         gameSceneActiveState = GameSceneActiveState(gameScene: gameScene)
+        gameScene.startNewGame()
       }
       
       it("should have gameScene") {

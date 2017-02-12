@@ -20,8 +20,8 @@ class GameScenePauseStateSpec: QuickSpec {
       
       beforeEach {
         gameScene = GameScene()
-        gameScene.didMove(to: SKView())
         pauseState = GameScenePauseState(gameScene: gameScene)
+        gameScene.startNewGame()
       }
     
       it("should have gameScene") {

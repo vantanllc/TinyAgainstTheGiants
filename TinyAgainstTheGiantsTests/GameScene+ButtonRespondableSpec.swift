@@ -36,6 +36,20 @@ class GameSceneButtonRespondableSpec: QuickSpec {
           }
         }
         
+        context("start") {
+          var button: ButtonNode!
+          
+          beforeEach {
+            button = ButtonNode()
+            button.name = ButtonIdentifier.start.rawValue
+            gameScene.buttonTriggered(button: button)
+          }
+          
+          it("should enter ActiveState") {
+            expect(gameScene.stateMachine.currentState).to(beAKindOf(GameSceneActiveState.self))
+          }
+        }
+        
         context("resume") {
           var button: ButtonNode!
           

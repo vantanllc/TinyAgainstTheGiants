@@ -31,7 +31,11 @@ class GameSceneSpec: QuickSpec {
         }
         
         it("should default to GameSceneActiveState") {
-          expect(gameScene.stateMachine.currentState).to(beAKindOf(GameSceneActiveState.self))
+          expect(gameScene.stateMachine.currentState).to(beAKindOf(TitleScreenState.self))
+        }
+        
+        it("should contain TitleScreenState") {
+          expect(gameScene.stateMachine.state(forClass: TitleScreenState.self)).toNot(beNil())
         }
         
         it("should contain ActiveState") {
@@ -165,7 +169,7 @@ class GameSceneSpec: QuickSpec {
       
       context("Player") {
         it("should add player's RenderComponent node to worldNode") {
-          gameScene.didMove(to: SKView())
+          gameScene.startNewGame()
           if let expectedPlayerRenderNode = gameScene.entityManager.getPlayerRenderNode() {
             expect(gameScene.worldNode.children).to(contain(expectedPlayerRenderNode))
           } else {
