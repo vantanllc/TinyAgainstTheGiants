@@ -29,15 +29,13 @@ class GameScene: SKScene {
   
   override func didMove(to view: SKView) {
     startNewGame()
-    addTimerNodeToCamera(camera!)
   }
         
   override func didChangeSize(_ oldSize: CGSize) {
     super.didChangeSize(oldSize)
-    if let timerNode = timerNode {
-      timerNode.position = getPositionForTimerNode(timerNode)
+    if let timer = camera?.childNode(withName: LabelIdentifier.timer.rawValue) as? SKLabelNode {
+      timer.position = GameSceneActiveState.getPosition(forTimerNode: timer, inScene: self)
     }
-    
     camera?.childNode(withName: ButtonIdentifier.pause.rawValue)?.position = CGPoint(x: size.width * 0.5, y: -size.height * 0.5)
   }
   
@@ -60,7 +58,6 @@ class GameScene: SKScene {
   
   // MARK: Nodes
   var worldNode: SKNode!
-  var timerNode: SKLabelNode!
  
   // MARK: Timing
   var lastUpdateTime: TimeInterval = 0
@@ -106,25 +103,6 @@ extension GameScene {
         playerNode.physicsBody?.applyForce(vector)
       }
     }
-  }
-}
-
-// MARK: Displays
-extension GameScene {
-  func addTimerNodeToCamera(_ camera: SKCameraNode) {
-    timerNode = SKLabelNode()
-    timerNode.zPosition = NodeLayerPosition.label
-    timerNode.horizontalAlignmentMode = .center
-    timerNode.verticalAlignmentMode = .top
-    timerNode.fontSize = 50
-    timerNode.position = getPositionForTimerNode(timerNode)
-    camera.addChild(timerNode)
-  }
-  
-  func getPositionForTimerNode(_ timerNode: SKLabelNode) -> CGPoint {
-    var position = timerNode.position
-    position.y = size.height / 2 - timerNode.frame.size.height / 2
-    return position
   }
 }
 

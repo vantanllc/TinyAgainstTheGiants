@@ -45,6 +45,7 @@
 		8B93C3331E306F66002ADC17 /* AdMob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93C3321E306F66002ADC17 /* AdMob.swift */; };
 		8B93C3351E307007002ADC17 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93C3341E307007002ADC17 /* AppDelegateSpec.swift */; };
 		8BA913F71E25E9AE00D5962D /* ContactNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA913F61E25E9AE00D5962D /* ContactNotifiable.swift */; };
+		8BA918961E501ADF00D4EEC1 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA918951E501ADF00D4EEC1 /* LabelNode.swift */; };
 		8BAF4E261E2C1F8100E447A5 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */; };
 		8BAF4E281E2C1FF700E447A5 /* ButtonBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */; };
 		8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */; };
@@ -140,6 +141,7 @@
 		8B93C3321E306F66002ADC17 /* AdMob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMob.swift; sourceTree = "<group>"; };
 		8B93C3341E307007002ADC17 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
 		8BA913F61E25E9AE00D5962D /* ContactNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactNotifiable.swift; sourceTree = "<group>"; };
+		8BA918951E501ADF00D4EEC1 /* LabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilderSpec.swift; sourceTree = "<group>"; };
 		8BC0E3FD1E177A1B0087C7E2 /* TinyAgainstTheGiants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAgainstTheGiants.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -400,6 +402,7 @@
 			children = (
 				8BF60E381E288B400093EA36 /* ButtonNode.swift */,
 				8BD4BBA51E233893006A6C38 /* ChargeBarNode.swift */,
+				8BA918951E501ADF00D4EEC1 /* LabelNode.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				8BD4BBA61E233893006A6C38 /* ChargeBarNode.swift in Sources */,
 				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
 				8BAF4E261E2C1F8100E447A5 /* ButtonBuilder.swift in Sources */,
+				8BA918961E501ADF00D4EEC1 /* LabelNode.swift in Sources */,
 				8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */,
 				8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */,
 				8BC73CFC1E24A715005CB996 /* ColliderType.swift in Sources */,

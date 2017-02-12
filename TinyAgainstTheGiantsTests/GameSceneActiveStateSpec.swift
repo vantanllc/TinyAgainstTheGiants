@@ -42,7 +42,6 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       context("check player's charge percentage") {
         it("should transition to FailState if equal zero") {
-          gameScene.timerNode = SKLabelNode()
           gameScene.entityManager.getPlayerEntity()?.component(ofType: ChargeBarComponent.self)?.charge = 0
           gameScene.update(1)
           
@@ -85,9 +84,9 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       context("update gameScene timerNode") {
         var deltaTime: TimeInterval!
+        
         beforeEach {
           deltaTime = 3
-          gameScene.timerNode = SKLabelNode()
           gameSceneActiveState.update(deltaTime: deltaTime)
           
         }
@@ -96,7 +95,8 @@ class GameSceneActiveStateSpec: QuickSpec {
         }
         
         it("should update timerNode text to timeString") {
-          expect(gameScene.timerNode.text).to(equal(gameSceneActiveState.timeString))
+          let timer = gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) as! SKLabelNode
+          expect(timer.text).to(equal(gameSceneActiveState.timeString))
         }
       }
       
@@ -123,6 +123,30 @@ class GameSceneActiveStateSpec: QuickSpec {
           }
           
           var didCallUpdate = false
+        }
+      }
+    
+      context("createTimerNode") {
+        var timer: SKLabelNode!
+        
+        beforeEach {
+          timer = gameSceneActiveState.createTimerNode()
+        }
+        
+        it("should be center align") {
+          expect(timer.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
+        }
+        
+        it("should be top align") {
+          expect(timer.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
+        }
+        
+        it("should have fontSize 50") {
+          expect(timer.fontSize).to(equal(50))
+        }
+        
+        it("should have zPosition of NodeLayerPosition.label") {
+          expect(timer.zPosition).to(equal(NodeLayerPosition.label))
         }
       }
       
@@ -152,6 +176,11 @@ class GameSceneActiveStateSpec: QuickSpec {
         it("should add pause ButtonNode to gameScene.camera") {
             gameSceneActiveState.didEnter(from: nil)
           expect(gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)).toNot(beNil())
+        }
+        
+        it("should add timer to gameScene.camera") {
+            gameSceneActiveState.didEnter(from: nil)
+          expect(gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue)).toNot(beNil())
         }
         
         context("from FailState") {

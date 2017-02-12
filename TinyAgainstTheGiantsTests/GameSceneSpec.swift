@@ -23,7 +23,6 @@ class GameSceneSpec: QuickSpec {
       
       describe("StateMachine") {
         beforeEach {
-          gameScene.timerNode = SKLabelNode()
           gameScene.didMove(to: SKView())
         }
         
@@ -46,31 +45,19 @@ class GameSceneSpec: QuickSpec {
         it("should contain PauseState") {
           expect(gameScene.stateMachine.state(forClass: GameScenePauseState.self)).toNot(beNil())
         }
-        
-        context("ActiveState") {
-          it("should update timerNode text after update loop") {
-            var seconds: TimeInterval = 1
-            gameScene.update(seconds)
-            let oldTime = gameScene.timerNode.text
-            seconds += 1
-            gameScene.update(seconds)
-            expect(gameScene.timerNode.text).toNot(equal(oldTime))
-          }
-        }
       }
       
       describe("Displays") {
         context("didChangeSize") {
-          beforeEach {
-            gameScene.timerNode = SKLabelNode(text: "testing")
-            gameScene.timerNode.fontSize = 50
-            gameScene.timerNode.position = CGPoint(x: 0, y: 200)
-          }
-          
           it("should re-position timerNode") {
+            let timer = SKLabelNode(text: "testing")
+            timer.name = LabelIdentifier.timer.rawValue
+            timer.fontSize = 50
+            timer.position = CGPoint(x: 0, y: 200)
+            gameScene.camera?.addChild(timer)
             gameScene.size = CGSize(width: 400, height: 400)
-            let yPosition = gameScene.size.height / 2 - gameScene.timerNode.frame.size.height / 2
-            expect(gameScene.timerNode.position.y).to(equal(yPosition))
+            let yPosition = gameScene.size.height / 2 - timer.frame.size.height / 2
+            expect(timer.position.y).to(equal(yPosition))
           }
           
           it("should re-position pauseButton") {
@@ -83,36 +70,6 @@ class GameSceneSpec: QuickSpec {
           }
         }
         
-        context("timerNode") {
-          beforeEach {
-            gameScene.didMove(to: SKView())
-          }
-          
-          it("should be a child of camera node") {
-            expect(gameScene.camera?.children).to(contain(gameScene.timerNode))
-          }
-          
-          it("should be center align") {
-            expect(gameScene.timerNode.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
-          }
-          
-          it("should be top align") {
-            expect(gameScene.timerNode.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
-          }
-          
-          it("should have fontSize 50") {
-            expect(gameScene.timerNode.fontSize).to(equal(50))
-          }
-          
-          it("should have expected position") {
-            let yPosition = gameScene.size.height / 2 - gameScene.timerNode.frame.size.height / 2
-            expect(gameScene.timerNode.position.y).to(equal(yPosition))
-          }
-          
-          it("should have zPosition of NodeLayerPosition.label") {
-            expect(gameScene.timerNode.zPosition).to(equal(NodeLayerPosition.label))
-          }
-        }
       }
       
       describe("Game Flow") {
@@ -157,10 +114,6 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("updateTime") {
-        beforeEach {
-          gameScene.timerNode = SKLabelNode()
-        }
-        
         context("when lastUpdateTime is zero") {
           it("should set lastUpdateTime to currentTime") {
             gameScene.lastUpdateTime = 0
