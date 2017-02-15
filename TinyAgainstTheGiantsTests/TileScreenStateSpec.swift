@@ -27,12 +27,12 @@ class TitleScreenStateSpec: QuickSpec {
         expect(titleScreenState.gameScene).to(be(gameScene))
       }
       
-      context("createTitle") {
+      context("createLabel") {
         var title: SKLabelNode!
         let expectedText = "I am expected"
         
         beforeEach {
-          title = titleScreenState.createTitle(withText: expectedText)
+          title = titleScreenState.createLabel(withText: expectedText)
         }
         
         it("should have zPosition set to label") {
@@ -51,7 +51,7 @@ class TitleScreenStateSpec: QuickSpec {
           expect(title.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
         }
         
-        it("shoudl be center aligned") {
+        it("should be center aligned") {
           expect(title.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
         }
       }
@@ -85,7 +85,7 @@ class TitleScreenStateSpec: QuickSpec {
         }
         
         it("should remove title from camera") {
-          let title = SKLabelNode()
+          let title = SKSpriteNode()
           titleScreenState.title = title
           gameScene.camera?.addChild(title)
           titleScreenState.willExit(to: GKState())

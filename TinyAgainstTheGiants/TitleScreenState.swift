@@ -17,7 +17,7 @@ class TitleScreenState: GKState {
 
   // MARK: Properties
   unowned let gameScene: GameScene
-  var title: SKLabelNode!
+  var title: SKSpriteNode!
 }
 
 extension TitleScreenState {
@@ -27,8 +27,7 @@ extension TitleScreenState {
     let startButton = ButtonBuilder.getStartButton()
     gameScene.camera?.addChild(startButton)
     
-    title = createTitle(withText: "Tiny Giants")
-    title.position = GameSceneActiveState.getPosition(forTimerNode: title, inScene: gameScene)
+    title = createTitle()
     gameScene.camera?.addChild(title)
   }
   
@@ -38,10 +37,21 @@ extension TitleScreenState {
     gameScene.camera?.childNode(withName: ButtonIdentifier.start.rawValue)?.removeFromParent()
   }
   
-  func createTitle(withText title: String) -> SKLabelNode {
+  func createTitle() -> SKSpriteNode {
+    let title = SKSpriteNode(imageNamed: "TinyGiantsTitle")
+    title.name = LabelIdentifier.title.rawValue
+    title.zPosition = NodeLayerPosition.label
+    title.anchorPoint = CGPoint(x: 0.5, y: 1)
+    title.position = CGPoint(x: 0, y: gameScene.size.height / 2)
+    return title
+  }
+  
+  func createLabel(withText title: String) -> SKLabelNode {
     let title = SKLabelNode(text: title)
+    title.fontName = "Verdana-Bold"
     title.fontSize = 50
     title.color = .blue
+    title.colorBlendFactor = 1
     title.verticalAlignmentMode = .top
     title.horizontalAlignmentMode = .center
     title.name = LabelIdentifier.title.rawValue
