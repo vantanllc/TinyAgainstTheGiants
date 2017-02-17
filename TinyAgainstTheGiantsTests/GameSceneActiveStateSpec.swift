@@ -149,6 +149,10 @@ class GameSceneActiveStateSpec: QuickSpec {
         it("should have zPosition of NodeLayerPosition.label") {
           expect(timer.zPosition).to(equal(NodeLayerPosition.label))
         }
+        
+        it("should have expected font") {
+          expect(timer.fontName).to(equal(GameSceneActiveState.Configuration.timerLabelFont))
+        }
       }
       
       context("createPauseButton") {

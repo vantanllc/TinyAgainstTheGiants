@@ -87,6 +87,7 @@ extension GameSceneActiveState {
   
   func createTimerNode() -> SKLabelNode {
     let timerNode = SKLabelNode()
+    timerNode.fontName = GameSceneActiveState.Configuration.timerLabelFont
     timerNode.name = LabelIdentifier.timer.rawValue
     timerNode.zPosition = NodeLayerPosition.label
     timerNode.horizontalAlignmentMode = .center
@@ -99,5 +100,11 @@ extension GameSceneActiveState {
     var position = timerNode.position
     position.y = scene.size.height / 2 - timerNode.frame.size.height / 2
     return position
+  }
+}
+
+extension GameSceneActiveState {
+  struct Configuration {
+    static let timerLabelFont = "AmericanTypewriter-Bold"
   }
 }
