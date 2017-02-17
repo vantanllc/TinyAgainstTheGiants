@@ -135,7 +135,6 @@ extension GameScene {
     camera?.constraints = nil
     CameraBuilder.constraintCamera(camera!, toSpriteNode: entityManager.getPlayerSpriteNode()!)
     CameraBuilder.constraintCamera(camera!, toTileMapEdges: previousBackgroundTileMap, inScene: self)
-    stateMachine.enter(GameSceneActiveState.self)
   }
   
   func startCamera() {

@@ -75,7 +75,7 @@ private extension PlayerEntity {
   func addPhysicsComponentWithRadius(_ radius: CGFloat, toNode node: SKNode) {
     let physicsBody = SKPhysicsBody(circleOfRadius: radius)
     physicsBody.allowsRotation = false
-    physicsBody.affectedByGravity = false
+    physicsBody.affectedByGravity = true
     
     let colliderType = ColliderType.Player
     ColliderType.definedCollisions[.Player] = [.Player, .Obstacle, .Enemy]

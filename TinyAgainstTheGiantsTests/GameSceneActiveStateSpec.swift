@@ -22,6 +22,7 @@ class GameSceneActiveStateSpec: QuickSpec {
         gameScene = GameScene()
         gameSceneActiveState = GameSceneActiveState(gameScene: gameScene)
         gameScene.startNewGame()
+        gameScene.stateMachine.enter(GameSceneActiveState.self)
       }
       
       it("should have gameScene") {

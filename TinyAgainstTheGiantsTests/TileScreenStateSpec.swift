@@ -69,11 +69,6 @@ class TitleScreenStateSpec: QuickSpec {
         it("should add title to camera") {
           expect(titleScreenState.title.parent).to(be(gameScene.camera))
         }
-        
-        it("should move camera to position inside background tilemap") {
-          let expectedPosition = CGPoint(x: gameScene.currentBackgroundTileMap.frame.midX, y: gameScene.currentBackgroundTileMap.frame.maxY)
-          expect(gameScene.camera?.position).to(equal(expectedPosition))
-        }
       }
       
       context("willExit") {
