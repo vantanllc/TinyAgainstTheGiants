@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithDunes.png",
+      "filename" : "SandCenterTile.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithDunes@2x.png",
+      "filename" : "SandCenterTile@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithDunes@3x.png",
+      "filename" : "SandCenterTile@3x.png",
       "scale" : "3x"
     }
   ],

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithFootsteps.png",
+      "filename" : "SandCenterTileWithSkull.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithFootsteps@2x.png",
+      "filename" : "SandCenterTileWithSkull@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithFootsteps@3x.png",
+      "filename" : "SandCenterTileWithSkull@3x.png",
       "scale" : "3x"
     }
   ],

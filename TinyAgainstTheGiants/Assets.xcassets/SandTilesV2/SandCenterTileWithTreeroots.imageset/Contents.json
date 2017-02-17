@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithCircleDune.png",
+      "filename" : "SandCenterTileWithTreeroots.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithCircleDune@2x.png",
+      "filename" : "SandCenterTileWithTreeroots@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SandTileWithCircleDune@3x.png",
+      "filename" : "SandCenterTileWithTreeroots@3x.png",
       "scale" : "3x"
     }
   ],
