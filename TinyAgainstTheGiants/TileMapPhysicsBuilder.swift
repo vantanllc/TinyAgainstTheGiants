@@ -80,7 +80,7 @@ class TileMapPhysicsBuilder {
   static func getPhysicsBodyFromTileDefinition(tileDefinition: SKTileDefinition, center: CGPoint) -> SKPhysicsBody? {
     var tileDefinitionPhysicsBody: SKPhysicsBody?
     
-    guard let tileDefinitionData = tileDefinition.userData?["tileDefinitionType"] as? String, let tileDefinitionType = TileDefinitionType(rawValue: tileDefinitionData) else {
+    guard let tileDefinitionData = tileDefinition.userData?[TileDefinitionType.userData.type.rawValue] as? String, let tileDefinitionType = TileDefinitionType(rawValue: tileDefinitionData) else {
       return nil
     }
     

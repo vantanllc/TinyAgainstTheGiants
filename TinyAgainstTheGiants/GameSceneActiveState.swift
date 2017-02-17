@@ -22,7 +22,9 @@ class GameSceneActiveState: GKState {
     }
     
     time += seconds
-    gameScene.timerNode.text = timeString
+    if let timerNode = gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) as? SKLabelNode {
+      timerNode.text = timeString
+    }
     
     if let percentage = gameScene.entityManager.getPlayerEntity()?.component(ofType: ChargeBarComponent.self)?.percentage, percentage.isZero {
       stateMachine?.enter(GameSceneFailState.self)
@@ -62,5 +64,47 @@ extension GameSceneActiveState {
     if previousState is GameSceneFailState {
       time = 0
     }
+    gameScene.camera?.addChild(createPauseButton())
+    
+    if gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) == nil {
+      let timerNode = createTimerNode()
+      timerNode.position = GameSceneActiveState.getPosition(forTimerNode: timerNode, inScene: gameScene)
+      gameScene.camera?.addChild(timerNode)
+    }
+  }
+  
+  override func willExit(to nextState: GKState) {
+    gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)?.removeFromParent()
+  }
+  
+  func createPauseButton() -> ButtonNode {
+    let pauseButton = ButtonBuilder.getPauseButton()
+    pauseButton.zPosition = NodeLayerPosition.button
+    pauseButton.anchorPoint = CGPoint(x: 1, y: 0)
+    pauseButton.position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+    return pauseButton
+  }
+  
+  func createTimerNode() -> SKLabelNode {
+    let timerNode = SKLabelNode()
+    timerNode.fontName = GameSceneActiveState.Configuration.timerLabelFont
+    timerNode.name = LabelIdentifier.timer.rawValue
+    timerNode.zPosition = NodeLayerPosition.label
+    timerNode.horizontalAlignmentMode = .center
+    timerNode.verticalAlignmentMode = .top
+    timerNode.fontSize = 50
+    return timerNode
+  }
+  
+  static func getPosition(forTimerNode timerNode: SKLabelNode, inScene scene: SKScene) -> CGPoint {
+    var position = timerNode.position
+    position.y = scene.size.height / 2 - timerNode.frame.size.height / 2
+    return position
+  }
+}
+
+extension GameSceneActiveState {
+  struct Configuration {
+    static let timerLabelFont = "AmericanTypewriter-Bold"
   }
 }

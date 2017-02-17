@@ -23,7 +23,6 @@ class GameSceneSpec: QuickSpec {
       
       describe("StateMachine") {
         beforeEach {
-          gameScene.timerNode = SKLabelNode()
           gameScene.didMove(to: SKView())
         }
         
@@ -32,7 +31,11 @@ class GameSceneSpec: QuickSpec {
         }
         
         it("should default to GameSceneActiveState") {
-          expect(gameScene.stateMachine.currentState).to(beAKindOf(GameSceneActiveState.self))
+          expect(gameScene.stateMachine.currentState).to(beAKindOf(TitleScreenState.self))
+        }
+        
+        it("should contain TitleScreenState") {
+          expect(gameScene.stateMachine.state(forClass: TitleScreenState.self)).toNot(beNil())
         }
         
         it("should contain ActiveState") {
@@ -46,100 +49,31 @@ class GameSceneSpec: QuickSpec {
         it("should contain PauseState") {
           expect(gameScene.stateMachine.state(forClass: GameScenePauseState.self)).toNot(beNil())
         }
-        
-        context("ActiveState") {
-          it("should update timerNode text after update loop") {
-            var seconds: TimeInterval = 1
-            gameScene.update(seconds)
-            let oldTime = gameScene.timerNode.text
-            seconds += 1
-            gameScene.update(seconds)
-            expect(gameScene.timerNode.text).toNot(equal(oldTime))
-          }
-        }
       }
       
       describe("Displays") {
         context("didChangeSize") {
-          beforeEach {
-            gameScene.timerNode = SKLabelNode(text: "testing")
-            gameScene.timerNode.fontSize = 50
-            gameScene.timerNode.position = CGPoint(x: 0, y: 200)
-          }
-          
           it("should re-position timerNode") {
+            let timer = SKLabelNode(text: "testing")
+            timer.name = LabelIdentifier.timer.rawValue
+            timer.fontSize = 50
+            timer.position = CGPoint(x: 0, y: 200)
+            gameScene.camera?.addChild(timer)
             gameScene.size = CGSize(width: 400, height: 400)
-            let yPosition = gameScene.size.height / 2 - gameScene.timerNode.frame.size.height / 2
-            expect(gameScene.timerNode.position.y).to(equal(yPosition))
+            let yPosition = gameScene.size.height / 2 - timer.frame.size.height / 2
+            expect(timer.position.y).to(equal(yPosition))
           }
           
           it("should re-position pauseButton") {
-            gameScene.pauseButton = ButtonNode()
-            gameScene.pauseButton.position = CGPoint(x: 600, y: 300)
+            let pauseButton = ButtonBuilder.getPauseButton()
+            pauseButton.position = CGPoint(x: 600, y: 300)
+            gameScene.camera?.addChild(pauseButton)
             gameScene.size = CGSize(width: 400, height: 400)
-            let position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
-            expect(gameScene.pauseButton.position).to(equal(position))
+            let expectPosition = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+            expect(pauseButton.position).to(equal(expectPosition))
           }
         }
         
-        context("pauseButton") {
-          beforeEach {
-            gameScene.didMove(to: SKView())
-          }
-          
-          it("should be a child of camera node") {
-            expect(gameScene.camera?.children).to(contain(gameScene.pauseButton))
-          }
-          
-          it("should be a pauseButton") {
-            expect(gameScene.pauseButton.buttonIdentifier).to(equal(ButtonIdentifier.pause))
-          }
-          
-          it("should have zPosition set to button") {
-            expect(gameScene.pauseButton.zPosition).to(equal(NodeLayerPosition.button))
-          }
-          
-          it("should have expected anchorPoint") {
-            let anchorPoint = CGPoint(x: 1, y: 0)
-            expect(gameScene.pauseButton.anchorPoint).to(equal(anchorPoint))
-          }
-          
-          it("should have position in the lower right corner") {
-            let position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
-            expect(gameScene.pauseButton.position).to(equal(position))
-          }
-        }
-        
-        context("timerNode") {
-          beforeEach {
-            gameScene.didMove(to: SKView())
-          }
-          
-          it("should be a child of camera node") {
-            expect(gameScene.camera?.children).to(contain(gameScene.timerNode))
-          }
-          
-          it("should be center align") {
-            expect(gameScene.timerNode.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
-          }
-          
-          it("should be top align") {
-            expect(gameScene.timerNode.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
-          }
-          
-          it("should have fontSize 50") {
-            expect(gameScene.timerNode.fontSize).to(equal(50))
-          }
-          
-          it("should have expected position") {
-            let yPosition = gameScene.size.height / 2 - gameScene.timerNode.frame.size.height / 2
-            expect(gameScene.timerNode.position.y).to(equal(yPosition))
-          }
-          
-          it("should have zPosition of NodeLayerPosition.label") {
-            expect(gameScene.timerNode.zPosition).to(equal(NodeLayerPosition.label))
-          }
-        }
       }
       
       describe("Game Flow") {
@@ -184,10 +118,6 @@ class GameSceneSpec: QuickSpec {
       }
       
       describe("updateTime") {
-        beforeEach {
-          gameScene.timerNode = SKLabelNode()
-        }
-        
         context("when lastUpdateTime is zero") {
           it("should set lastUpdateTime to currentTime") {
             gameScene.lastUpdateTime = 0
@@ -239,7 +169,7 @@ class GameSceneSpec: QuickSpec {
       
       context("Player") {
         it("should add player's RenderComponent node to worldNode") {
-          gameScene.didMove(to: SKView())
+          gameScene.startNewGame()
           if let expectedPlayerRenderNode = gameScene.entityManager.getPlayerRenderNode() {
             expect(gameScene.worldNode.children).to(contain(expectedPlayerRenderNode))
           } else {

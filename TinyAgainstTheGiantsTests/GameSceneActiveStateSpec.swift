@@ -20,8 +20,9 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       beforeEach {
         gameScene = GameScene()
-        gameScene.didMove(to: SKView())
         gameSceneActiveState = GameSceneActiveState(gameScene: gameScene)
+        gameScene.startNewGame()
+        gameScene.stateMachine.enter(GameSceneActiveState.self)
       }
       
       it("should have gameScene") {
@@ -42,7 +43,6 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       context("check player's charge percentage") {
         it("should transition to FailState if equal zero") {
-          gameScene.timerNode = SKLabelNode()
           gameScene.entityManager.getPlayerEntity()?.component(ofType: ChargeBarComponent.self)?.charge = 0
           gameScene.update(1)
           
@@ -85,9 +85,9 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       context("update gameScene timerNode") {
         var deltaTime: TimeInterval!
+        
         beforeEach {
           deltaTime = 3
-          gameScene.timerNode = SKLabelNode()
           gameSceneActiveState.update(deltaTime: deltaTime)
           
         }
@@ -96,7 +96,8 @@ class GameSceneActiveStateSpec: QuickSpec {
         }
         
         it("should update timerNode text to timeString") {
-          expect(gameScene.timerNode.text).to(equal(gameSceneActiveState.timeString))
+          let timer = gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) as! SKLabelNode
+          expect(timer.text).to(equal(gameSceneActiveState.timeString))
         }
       }
       
@@ -125,14 +126,82 @@ class GameSceneActiveStateSpec: QuickSpec {
           var didCallUpdate = false
         }
       }
+    
+      context("createTimerNode") {
+        var timer: SKLabelNode!
+        
+        beforeEach {
+          timer = gameSceneActiveState.createTimerNode()
+        }
+        
+        it("should be center align") {
+          expect(timer.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
+        }
+        
+        it("should be top align") {
+          expect(timer.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
+        }
+        
+        it("should have fontSize 50") {
+          expect(timer.fontSize).to(equal(50))
+        }
+        
+        it("should have zPosition of NodeLayerPosition.label") {
+          expect(timer.zPosition).to(equal(NodeLayerPosition.label))
+        }
+        
+        it("should have expected font") {
+          expect(timer.fontName).to(equal(GameSceneActiveState.Configuration.timerLabelFont))
+        }
+      }
+      
+      context("createPauseButton") {
+        var pauseButton: ButtonNode!
+        
+        beforeEach {
+          pauseButton = gameSceneActiveState.createPauseButton()
+        }
+        
+        it("should have zPosition set to button") {
+          expect(pauseButton.zPosition).to(equal(NodeLayerPosition.button))
+        }
+        
+        it("should have expected anchorPoint") {
+          let anchorPoint = CGPoint(x: 1, y: 0)
+          expect(pauseButton.anchorPoint).to(equal(anchorPoint))
+        }
+        
+        it("should have position in the lower right corner") {
+          let position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+          expect(pauseButton.position).to(equal(position))
+        }
+      }
       
       context("didEnter") {
+        it("should add pause ButtonNode to gameScene.camera") {
+            gameSceneActiveState.didEnter(from: nil)
+          expect(gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)).toNot(beNil())
+        }
+        
+        it("should add timer to gameScene.camera") {
+            gameSceneActiveState.didEnter(from: nil)
+          expect(gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue)).toNot(beNil())
+        }
+        
         context("from FailState") {
           it("should reset time to zero") {
             gameSceneActiveState.time = 304
             gameSceneActiveState.didEnter(from: GameSceneFailState(gameScene: GameScene()))
             expect(gameSceneActiveState.time.isZero).to(beTrue())
           }
+        }
+      }
+      
+      context("willExit") {
+        it("should remove pause ButtonNode from gameScene.camera") {
+          gameScene.camera?.addChild(ButtonNode())
+          gameSceneActiveState.willExit(to: GKState())
+          expect(gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)).to(beNil())
         }
       }
     }

@@ -39,6 +39,11 @@ class PlayerEntitySpec: QuickSpec {
           expect(physicsComponent).toNot(beNil())
         }
         
+        it("should be affected by gravity") {
+          let physics = player.component(ofType: PhysicsComponent.self)?.physicsBody
+          expect(physics?.affectedByGravity).to(beTrue())
+        }
+        
         it("should update ColliderType.definedCollisions") {
           let expectedDefinedCollisions: [ColliderType: [ColliderType]] = [.Player: [.Player, .Obstacle, .Enemy]]
           expect(ColliderType.definedCollisions[.Player]).to(equal(expectedDefinedCollisions[.Player]))
