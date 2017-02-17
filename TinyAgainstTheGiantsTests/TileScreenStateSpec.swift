@@ -69,6 +69,18 @@ class TitleScreenStateSpec: QuickSpec {
         it("should add title to camera") {
           expect(titleScreenState.title.parent).to(be(gameScene.camera))
         }
+        
+        it("should add player to gameScene") {
+          expect(gameScene.entityManager.getPlayerEntity()).toNot(beNil())
+        }
+        
+        it("should add camera constraints to follow player") {
+          expect(gameScene.camera?.constraints).toNot(beNil())
+        }
+        
+        it("should set expected gravity for gameScene") {
+          expect(gameScene.physicsWorld.gravity).to(equal(GameScene.Configuration.gravity))
+        }
       }
       
       context("willExit") {

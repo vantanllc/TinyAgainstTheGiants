@@ -31,7 +31,7 @@ extension TitleScreenState {
     gameScene.camera?.addChild(title)
     
     gameScene.startNewGame()
-    gameScene.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
+    gameScene.physicsWorld.gravity = GameScene.Configuration.gravity
   }
   
   override func willExit(to nextState: GKState) {

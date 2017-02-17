@@ -24,8 +24,6 @@ extension GameScene: ButtonRespondable {
     case .resume:
       stateMachine.enter(GameSceneActiveState.self)
     case .start:
-      entityManager.removeAll()
-      startNewGame()
       stateMachine.enter(GameSceneActiveState.self)
     }
   }

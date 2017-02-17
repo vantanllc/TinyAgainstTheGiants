@@ -168,3 +168,10 @@ extension GameScene {
     EntityBuilder.addPlayer(position: TileMapBuilder.getRandomPositionNotOnTileGroupInTileMap(currentObstacleTileMap), toEntityManager: entityManager)
   }
 }
+
+// MARK: Configuration
+extension GameScene {
+  struct Configuration {
+    static let gravity = CGVector(dx: 0, dy: -1)
+  }
+}
