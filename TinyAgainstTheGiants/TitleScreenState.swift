@@ -32,6 +32,12 @@ extension TitleScreenState {
     
     gameScene.startNewGame()
     gameScene.physicsWorld.gravity = GameScene.Configuration.gravity
+    
+    let backgroundMusic = SKAudioNode(fileNamed: "TinyAgainstTheGiantsBackground.caf")
+    backgroundMusic.autoplayLooped = true
+    backgroundMusic.isPositional = false
+    gameScene.addChild(backgroundMusic)
+    backgroundMusic.run(SKAction.play())
   }
   
   override func willExit(to nextState: GKState) {
