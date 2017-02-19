@@ -10,6 +10,7 @@ end
 
 target 'TinyAgainstTheGiants' do
   pod 'Google-Mobile-Ads-SDK'
+  pod 'SCLAlertView'
 
   target 'TinyAgainstTheGiantsTests' do
     inherit! :search_paths

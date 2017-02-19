@@ -2,17 +2,20 @@ PODS:
   - Google-Mobile-Ads-SDK (7.16.0)
   - Nimble (5.1.1)
   - Quick (1.0.0)
+  - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Nimble
   - Quick
+  - SCLAlertView
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 2130c29f1cea923a0e74c259ebf2fb25673d7712
+PODFILE CHECKSUM: f007bc9c188b85f1aef0d1acf990fbc0ee803ea3
 
 COCOAPODS: 1.1.1

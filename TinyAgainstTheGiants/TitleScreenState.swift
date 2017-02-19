@@ -27,11 +27,21 @@ extension TitleScreenState {
     startButton.position = startButton.position.applying(CGAffineTransform(translationX: 0, y: 100))
     gameScene.camera?.addChild(startButton)
     
+    let creditsButton = ButtonBuilder.getCreditsButton()
+    creditsButton.position.y = -100
+    gameScene.camera?.addChild(creditsButton)
+    
     title = createTitle()
     gameScene.camera?.addChild(title)
     
     gameScene.startNewGame()
     gameScene.physicsWorld.gravity = GameScene.Configuration.gravity
+    
+    let backgroundMusic = SKAudioNode(fileNamed: "TinyAgainstTheGiantsBackground.caf")
+    backgroundMusic.autoplayLooped = true
+    backgroundMusic.isPositional = false
+    gameScene.addChild(backgroundMusic)
+    backgroundMusic.run(SKAction.play())
   }
   
   override func willExit(to nextState: GKState) {

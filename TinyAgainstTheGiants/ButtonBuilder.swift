@@ -9,6 +9,14 @@
 import SpriteKit
 
 class ButtonBuilder {
+  static func createButton(withIdentifier identifier: ButtonIdentifier) -> ButtonNode {
+    let button = ButtonNode(imageNamed: "PlayAgain")
+    button.zPosition = NodeLayerPosition.button
+    button.name = identifier.rawValue
+    button.isUserInteractionEnabled = true
+    return button
+  }
+  
   static func getRetryButton() -> ButtonNode {
     let button = ButtonNode(imageNamed: "PlayAgain")
     button.zPosition = NodeLayerPosition.button
@@ -37,6 +45,14 @@ class ButtonBuilder {
     let button = ButtonNode(imageNamed: "Start")
     button.zPosition = NodeLayerPosition.button
     button.name = ButtonIdentifier.start.rawValue
+    button.isUserInteractionEnabled = true
+    return button
+  }
+  
+  static func getCreditsButton() -> ButtonNode {
+    let button = ButtonNode(texture: nil, color: .blue, size: CGSize(width: 40, height: 40))
+    button.zPosition = NodeLayerPosition.button
+    button.name = ButtonIdentifier.credits.rawValue
     button.isUserInteractionEnabled = true
     return button
   }
