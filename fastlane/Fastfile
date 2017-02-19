@@ -61,6 +61,7 @@ platform :ios do
     )
 
     gym(
+      scheme: "TinyAgainstTheGiants",
       clean: true,
       include_bitcode: false,
       include_symbols: true,

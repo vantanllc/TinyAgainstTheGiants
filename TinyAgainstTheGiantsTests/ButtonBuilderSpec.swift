@@ -15,11 +15,13 @@ import Nimble
 class ButtonBuilderSpec: QuickSpec {
   override func spec() {
     describe("ButtonBuilder") {
-      context("buildRetryButton") {
+      context("createButton") {
         var button: ButtonNode!
+        var identifier: ButtonIdentifier!
         
         beforeEach {
-          button = ButtonBuilder.getRetryButton()
+          identifier = .retry
+          button = ButtonBuilder.createButton(withIdentifier: identifier)
         }
         
         it("should return ButtonNode") {
@@ -31,7 +33,7 @@ class ButtonBuilderSpec: QuickSpec {
         }
         
         it("should be named with ButtonIdentifier.retry") {
-          expect(button.name).to(equal(ButtonIdentifier.retry.rawValue))
+          expect(button.name).to(equal(identifier.rawValue))
         }
         
         it("should have zPosition of .button") {
@@ -45,7 +47,6 @@ class ButtonBuilderSpec: QuickSpec {
         beforeEach {
           button = ButtonBuilder.getPauseButton()
         }
-        
         it("should return ButtonNode") {
           expect(button).toNot(beNil())
         }
