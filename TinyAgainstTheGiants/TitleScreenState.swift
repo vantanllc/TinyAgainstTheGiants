@@ -27,6 +27,10 @@ extension TitleScreenState {
     startButton.position = startButton.position.applying(CGAffineTransform(translationX: 0, y: 100))
     gameScene.camera?.addChild(startButton)
     
+    let creditsButton = ButtonBuilder.getCreditsButton()
+    creditsButton.position.y = -100
+    gameScene.camera?.addChild(creditsButton)
+    
     title = createTitle()
     gameScene.camera?.addChild(title)
     

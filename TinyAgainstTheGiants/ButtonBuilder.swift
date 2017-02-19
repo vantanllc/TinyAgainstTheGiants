@@ -40,4 +40,12 @@ class ButtonBuilder {
     button.isUserInteractionEnabled = true
     return button
   }
+  
+  static func getCreditsButton() -> ButtonNode {
+    let button = ButtonNode(texture: nil, color: .blue, size: CGSize(width: 40, height: 40))
+    button.zPosition = NodeLayerPosition.button
+    button.name = ButtonIdentifier.credits.rawValue
+    button.isUserInteractionEnabled = true
+    return button
+  }
 }
