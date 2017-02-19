@@ -3,6 +3,10 @@ fastlane_version "2.14.2"
 default_platform :ios
 
 platform :ios do
+  before_all do
+    cocoapods
+  end
+
   desc "Runs all the tests"
   lane :test do
     scan(
