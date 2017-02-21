@@ -40,19 +40,19 @@ class GameSceneFailStateSpec: QuickSpec {
           gameSceneFailState.didEnter(from: nil)
         }
         
-        it("should add retry button to gameScene") {
-          expect(gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)).toNot(beNil())
+        it("should add retry button to gameScene.camera") {
+          expect(gameSceneFailState.retryButton.parent).to(be(gameScene))
         }
         
         it("should set retry button y position above the player entity render node") {
           let renderNodeYPosition = gameScene.entityManager.getPlayerRenderNode()?.position.y
-          let retryButtonYPosition = gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)!.position.y - 100
+          let retryButtonYPosition = gameSceneFailState.retryButton.position.y - 100
           expect(retryButtonYPosition).to(equal(renderNodeYPosition))
         }
         
         it("should set retry button x position the same as the player entity render node") {
           let renderNodeXPosition = gameScene.entityManager.getPlayerRenderNode()?.position.x
-          let retryButtonXPosition = gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)!.position.x
+          let retryButtonXPosition = gameSceneFailState.retryButton.position.x
           expect(retryButtonXPosition).to(equal(renderNodeXPosition))
           
         }
@@ -70,12 +70,14 @@ class GameSceneFailStateSpec: QuickSpec {
         beforeEach {
           gameScene.worldNode.isPaused = true
           gameScene.physicsWorld.speed = 0
-          gameScene.addChild(ButtonBuilder.getRetryButton())
+          let retryButton = ButtonBuilder.createButton(withIdentifier: .retry)
+          gameSceneFailState.retryButton = retryButton
+          gameScene.addChild(retryButton)
           gameSceneFailState.willExit(to: GKState())
         }
         
         it("should remove retry button") {
-          expect(gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)).to(beNil())
+          expect(gameSceneFailState.retryButton.parent).to(beNil())
         }
         
         it("should unpause the worldNode") {

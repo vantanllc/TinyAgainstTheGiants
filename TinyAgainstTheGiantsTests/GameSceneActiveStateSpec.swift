@@ -179,12 +179,12 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       context("didEnter") {
         it("should add pause ButtonNode to gameScene.camera") {
-            gameSceneActiveState.didEnter(from: nil)
-          expect(gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)).toNot(beNil())
+          gameSceneActiveState.didEnter(from: nil)
+          expect(gameSceneActiveState.pauseButton.parent).to(be(gameScene.camera))
         }
         
         it("should add timer to gameScene.camera") {
-            gameSceneActiveState.didEnter(from: nil)
+          gameSceneActiveState.didEnter(from: nil)
           expect(gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue)).toNot(beNil())
         }
         
@@ -199,9 +199,11 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       context("willExit") {
         it("should remove pause ButtonNode from gameScene.camera") {
-          gameScene.camera?.addChild(ButtonNode())
+          let pauseButton = gameSceneActiveState.createPauseButton()
+          gameSceneActiveState.pauseButton = pauseButton
+          gameScene.camera?.addChild(pauseButton)
           gameSceneActiveState.willExit(to: GKState())
-          expect(gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)).to(beNil())
+          expect(pauseButton.parent).to(beNil())
         }
       }
     }

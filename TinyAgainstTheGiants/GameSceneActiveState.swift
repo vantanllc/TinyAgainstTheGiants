@@ -41,6 +41,7 @@ class GameSceneActiveState: GKState {
   unowned let gameScene: GameScene
   let startTime: TimeInterval = 0
   var time: TimeInterval = 0
+  var pauseButton: ButtonNode!
   
   let timeFormatter: DateComponentsFormatter = {
     let formatter = DateComponentsFormatter()
@@ -64,7 +65,9 @@ extension GameSceneActiveState {
     if previousState is GameSceneFailState {
       time = 0
     }
-    gameScene.camera?.addChild(createPauseButton())
+    
+    pauseButton = createPauseButton()
+    gameScene.camera?.addChild(pauseButton)
     
     if gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) == nil {
       let timerNode = createTimerNode()
@@ -74,11 +77,11 @@ extension GameSceneActiveState {
   }
   
   override func willExit(to nextState: GKState) {
-    gameScene.camera?.childNode(withName: ButtonIdentifier.pause.rawValue)?.removeFromParent()
+    pauseButton?.removeFromParent()
   }
   
   func createPauseButton() -> ButtonNode {
-    let pauseButton = ButtonBuilder.getPauseButton()
+    let pauseButton = ButtonBuilder.createButton(withIdentifier: .pause)
     pauseButton.zPosition = NodeLayerPosition.button
     pauseButton.anchorPoint = CGPoint(x: 1, y: 0)
     pauseButton.position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)

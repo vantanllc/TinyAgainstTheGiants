@@ -304,6 +304,14 @@
 			name = BehaviorSpec;
 			sourceTree = "<group>";
 		};
+		8B8639781E5BF1E200EEEAE9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8B006D3C1E579A5900A70F4C /* TinyAgainstTheGiantsBackground.caf */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		8BA913F81E25EADA00D5962D /* ContactCollision */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,7 +346,7 @@
 		8BC0E3FF1E177A1B0087C7E2 /* TinyAgainstTheGiants */ = {
 			isa = PBXGroup;
 			children = (
-				8B006D3C1E579A5900A70F4C /* TinyAgainstTheGiantsBackground.caf */,
+				8B8639781E5BF1E200EEEAE9 /* Sounds */,
 				8BC0E40D1E177A1C0087C7E2 /* Assets.xcassets */,
 				8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */,
 				8BFABF6A1E1CAD1900C613A0 /* Scenes */,

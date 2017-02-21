@@ -17,13 +17,14 @@ class GameScenePauseState: GKState {
 
   // MARK: Properties
   unowned let gameScene: GameScene
+  var resumeButton: ButtonNode!
 }
 
 extension GameScenePauseState {
   override func didEnter(from previousState: GKState?) {
     super.didEnter(from: previousState)
     if let renderNode = gameScene.entityManager.getPlayerRenderNode() {
-      let resumeButton = ButtonBuilder.getResumeButton()
+      resumeButton = ButtonBuilder.createButton(withIdentifier: .resume)
       resumeButton.position = renderNode.position.applying(CGAffineTransform(translationX: 0, y: 100))
       gameScene.addChild(resumeButton)
     }
@@ -33,7 +34,7 @@ extension GameScenePauseState {
   
   override func willExit(to nextState: GKState) {
     super.willExit(to: nextState)
-    gameScene.childNode(withName: ButtonIdentifier.resume.rawValue)?.removeFromParent()
+    resumeButton?.removeFromParent()
     gameScene.resume()
   }
   

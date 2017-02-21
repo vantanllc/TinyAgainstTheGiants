@@ -17,6 +17,7 @@ class GameSceneFailState: GKState {
 
   // MARK: Properties
   unowned let gameScene: GameScene
+  var retryButton: ButtonNode!
 }
 
 extension GameSceneFailState {
@@ -24,7 +25,7 @@ extension GameSceneFailState {
     super.didEnter(from: previousState)
     
     if let renderNode = gameScene.entityManager.getPlayerRenderNode() {
-      let retryButton = ButtonBuilder.getRetryButton()
+      retryButton = ButtonBuilder.createButton(withIdentifier: .retry)
       retryButton.position = renderNode.position.applying(CGAffineTransform(translationX: 0, y: 100))
       gameScene.addChild(retryButton)
     }
@@ -34,7 +35,7 @@ extension GameSceneFailState {
   
   override func willExit(to nextState: GKState) {
     super.willExit(to: nextState)
-    gameScene.childNode(withName: ButtonIdentifier.retry.rawValue)?.removeFromParent()
+    retryButton?.removeFromParent()
     gameScene.resume()
   }
   

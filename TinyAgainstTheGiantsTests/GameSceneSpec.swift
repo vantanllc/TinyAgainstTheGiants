@@ -65,7 +65,7 @@ class GameSceneSpec: QuickSpec {
           }
           
           it("should re-position pauseButton") {
-            let pauseButton = ButtonBuilder.getPauseButton()
+            let pauseButton = ButtonBuilder.createButton(withIdentifier: .pause)
             pauseButton.position = CGPoint(x: 600, y: 300)
             gameScene.camera?.addChild(pauseButton)
             gameScene.size = CGSize(width: 400, height: 400)

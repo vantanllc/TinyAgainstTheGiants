@@ -40,53 +40,6 @@ class ButtonBuilderSpec: QuickSpec {
           expect(button.zPosition).to(equal(NodeLayerPosition.button))
         }
       }
-      
-      context("buildPauseButton") {
-        var button: ButtonNode!
-        
-        beforeEach {
-          button = ButtonBuilder.getPauseButton()
-        }
-        it("should return ButtonNode") {
-          expect(button).toNot(beNil())
-        }
-        
-        it("should be user enabled") {
-          expect(button.isUserInteractionEnabled).to(beTrue())
-        }
-        
-        it("should be named with ButtonIdentifier.pause") {
-          expect(button.name).to(equal(ButtonIdentifier.pause.rawValue))
-        }
-        
-        it("should have zPosition of .button") {
-          expect(button.zPosition).to(equal(NodeLayerPosition.button))
-        }
-      }
-      
-      context("buildResumeButton") {
-        var button: ButtonNode!
-        
-        beforeEach {
-          button = ButtonBuilder.getResumeButton()
-        }
-        
-        it("should return ButtonNode") {
-          expect(button).toNot(beNil())
-        }
-        
-        it("should be user enabled") {
-          expect(button.isUserInteractionEnabled).to(beTrue())
-        }
-        
-        it("should be named with ButtonIdentifier.resume") {
-          expect(button.name).to(equal(ButtonIdentifier.resume.rawValue))
-        }
-        
-        it("should have zPosition of .button") {
-          expect(button.zPosition).to(equal(NodeLayerPosition.button))
-        }
-      }
     }
   }
 }
