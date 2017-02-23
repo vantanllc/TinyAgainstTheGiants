@@ -25,6 +25,7 @@
 		8B0943AB1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0943AA1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift */; };
 		8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */; };
 		8B0EB1CB1E194AAE00128B41 /* EntityBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */; };
+		8B1A43911E5E929800B4589B /* GameScene+Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1A43901E5E929800B4589B /* GameScene+Credits.swift */; };
 		8B331B9D1E29D73D00C7B298 /* GameSceneActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */; };
 		8B331B9F1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */; };
 		8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */; };
@@ -124,6 +125,7 @@
 		8B0943AA1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneFailStateSpec.swift; sourceTree = "<group>"; };
 		8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilder.swift; sourceTree = "<group>"; };
 		8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilderSpec.swift; sourceTree = "<group>"; };
+		8B1A43901E5E929800B4589B /* GameScene+Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+Credits.swift"; sourceTree = "<group>"; };
 		8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveState.swift; sourceTree = "<group>"; };
 		8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveStateSpec.swift; sourceTree = "<group>"; };
 		8B340E751E1DFFEF00F71495 /* TileDefinitionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileDefinitionType.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				8BC9C26C1E2F1E1700453C22 /* GameScene+TileMapNode.swift */,
 				8BF10C7D1E2DC50200492EBB /* GameSceneStates */,
 				8B4DE6611E31CA0F004CD39E /* GameSceneDelegate.swift */,
+				8B1A43901E5E929800B4589B /* GameScene+Credits.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 				8BD4BBA61E233893006A6C38 /* ChargeBarNode.swift in Sources */,
 				8B013D761E18B85000AC7D74 /* RenderComponent.swift in Sources */,
 				8BAF4E261E2C1F8100E447A5 /* ButtonBuilder.swift in Sources */,
+				8B1A43911E5E929800B4589B /* GameScene+Credits.swift in Sources */,
 				8BA918961E501ADF00D4EEC1 /* LabelNode.swift in Sources */,
 				8BEAD8001E19CD05007F68C5 /* TileMapBuilder.swift in Sources */,
 				8B0708931E1A29F700A7310D /* PhysicsComponent.swift in Sources */,

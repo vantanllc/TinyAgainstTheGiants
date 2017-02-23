@@ -15,13 +15,35 @@ import Nimble
 class GameSceneButtonRespondableSpec: QuickSpec {
   override func spec() {
     describe("GameScene+ButtonRespondable") {
-      var gameScene: GameScene!
+      var gameScene: MockGameScene!
+      
+      class MockGameScene: GameScene {
+        override func showCredits() {
+          showCreditsWasCalled = true
+        }
+        
+        var showCreditsWasCalled = false
+      }
       
       beforeEach {
-        gameScene = GameScene()
+        gameScene = MockGameScene()
       }
       
       describe("buttonTrigger") {
+        context("credits") {
+          var button: ButtonNode!
+          
+          beforeEach {
+            button = ButtonNode()
+            button.name = ButtonIdentifier.credits.rawValue
+            gameScene.buttonTriggered(button: button)
+          }
+          
+          it("should show credits alertview") {
+            expect(gameScene.showCreditsWasCalled).to(beTrue())
+          }
+        }
+        
         context("pause") {
           var button: ButtonNode!
           
