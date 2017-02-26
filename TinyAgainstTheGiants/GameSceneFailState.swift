@@ -36,7 +36,7 @@ extension GameSceneFailState {
       bestTimeNode = LabelBuilder.createTimerLabel()
       bestTimeNode.text = bestTimeText
       bestTimeNode.fontSize = Configuration.bestTimeLabelFontSize
-      bestTimeNode.position = activeState.timerNode.position.applying(CGAffineTransform.init(translationX: 0, y: -activeState.timerNode.frame.size.height))
+      bestTimeNode.position = activeState.timerNode.position.applying(CGAffineTransform(translationX: 0, y: -activeState.timerNode.frame.size.height))
       gameScene.camera?.addChild(bestTimeNode)
     }
     

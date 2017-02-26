@@ -44,7 +44,18 @@ class GameSceneActiveStateSpec: QuickSpec {
       
       context("update spawn enemy") {
         beforeEach {
+          gameScene.previousBackgroundTileMap.position.y = 10000
           gameScene.didMove(to: SKView())
+        }
+        
+        it("remove enemy with position above previous background tilemap") {
+          gameScene.addEnemy()
+          let enemy = gameScene.entityManager.getEnemyEntities()!.first!
+          let enemyNode = enemy.component(ofType: RenderComponent.self)?.node
+          enemyNode?.position.y = gameScene.previousBackgroundTileMap.frame.maxY + 1
+          
+          gameSceneActiveState.update(deltaTime: 1)
+          expect(gameScene.entityManager.getEnemyEntities()!.count).to(equal(0))
         }
         
         context("after reaching cooldown time") {

@@ -16,9 +16,17 @@ class GameSceneActiveState: GKState {
     
     gameScene.enemySpawnTime -= seconds
     
-    if let enemies = gameScene.entityManager.getEnemyEntities(), enemies.count < gameScene.maxEnemyCount, gameScene.enemySpawnTime.isLessThanOrEqualTo(0) {
-      gameScene.addEnemy()
-      gameScene.enemySpawnTime = gameScene.enemySpawnCoolDown
+    if let enemies = gameScene.entityManager.getEnemyEntities() {
+      for enemy in enemies {
+        if let node = enemy.component(ofType: RenderComponent.self)?.node, node.position.y > gameScene.previousBackgroundTileMap.frame.maxY {
+          gameScene.entityManager.remove(entity: enemy)
+        }
+      }
+      
+      if enemies.count < gameScene.maxEnemyCount, gameScene.enemySpawnTime.isLessThanOrEqualTo(0) {
+        gameScene.addEnemy()
+        gameScene.enemySpawnTime = gameScene.enemySpawnCoolDown
+      }
     }
     
     time += seconds
