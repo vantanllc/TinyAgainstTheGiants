@@ -65,9 +65,9 @@ class GameScene: SKScene {
   var lastUpdateTime: TimeInterval = 0
   
   // MARK: Entities
-  let maxEnemyCount: Int = 10
-  let enemySpawnCoolDown: TimeInterval = 5
-  var enemySpawnTime: TimeInterval = 5
+  let maxEnemyCount: Int = 20
+  let enemySpawnCoolDown: TimeInterval = 2
+  var enemySpawnTime: TimeInterval = 2
 }
 
 // MARK: Update
