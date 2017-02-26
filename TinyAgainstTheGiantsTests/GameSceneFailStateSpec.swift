@@ -91,6 +91,61 @@ class GameSceneFailStateSpec: QuickSpec {
         }
       }
       
+      context("getBestTimeText") {
+        var mockUserDefaults: MockUserDefaults!
+        var time: TimeInterval!
+        
+        beforeEach {
+          mockUserDefaults = MockUserDefaults()
+        }
+        
+        it("should return expected string for time less than bestTime") {
+          time = 23
+          expect(gameSceneFailState.getBestTimeText(time: time, fromUserDefaults: mockUserDefaults)).to(equal("Best time \(DateFormatterHelper.getMinuteSecondStyleText(time: MockUserDefaults.bestTime))"))
+        }
+        
+        context("time greater than bestTime") {
+          beforeEach {
+            time = 48
+          }
+          
+          it("should return expected string") {
+            expect(gameSceneFailState.getBestTimeText(time: time, fromUserDefaults: mockUserDefaults)).to(equal("New best time \(DateFormatterHelper.getMinuteSecondStyleText(time: time))"))
+          }
+          
+          it("should update new bestTime to UserDefaults") {
+            let _ = gameSceneFailState.getBestTimeText(time: time, fromUserDefaults: mockUserDefaults)
+            expect(mockUserDefaults.updatedBestTimeWithCorrectKey).to(beTrue())
+            expect(mockUserDefaults.updatedWithSynchronize).to(beTrue())
+          }
+        }
+        
+        class MockUserDefaults: UserDefaults {
+          static let bestTime: TimeInterval = 34.9
+          var updatedBestTimeWithCorrectKey = false
+          var updatedWithSynchronize = false
+          
+          override func double(forKey defaultName: String) -> Double {
+            if defaultName == GameSceneFailState.Configuration.bestTimeKey {
+              return MockUserDefaults.bestTime
+            } else {
+              return 0
+            }
+          }
+          
+          override func set(_ value: Double, forKey defaultName: String) {
+            if defaultName == GameSceneFailState.Configuration.bestTimeKey {
+              updatedBestTimeWithCorrectKey = true
+            }
+          }
+          
+          override func synchronize() -> Bool {
+            updatedWithSynchronize = true
+            return true
+          }
+        }
+      }
+      
       context("willExit") {
         beforeEach {
           gameScene.worldNode.isPaused = true

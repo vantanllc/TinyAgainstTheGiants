@@ -59,7 +59,7 @@ extension GameSceneFailState {
 extension GameSceneFailState {
   func getBestTimeText(time: TimeInterval, fromUserDefaults userDefaults: UserDefaults) -> String {
     let previousBestTime = userDefaults.double(forKey: Configuration.bestTimeKey)
-    var text = "Best Time \(DateFormatterHelper.getMinuteSecondStyleText(time: previousBestTime))"
+    var text = "Best time \(DateFormatterHelper.getMinuteSecondStyleText(time: previousBestTime))"
   
     if time > previousBestTime {
       text = "New best time \(DateFormatterHelper.getMinuteSecondStyleText(time: time))"
