@@ -36,25 +36,50 @@ class GameSceneFailStateSpec: QuickSpec {
       }
       
       context("didEnter") {
+        var activeState: GameSceneActiveState!
+        
         beforeEach {
-          gameSceneFailState.didEnter(from: nil)
+          activeState = GameSceneActiveState(gameScene: gameScene)
+          activeState.timerNode = SKLabelNode(text: "Whatever")
+          activeState.timerNode.position = CGPoint(x: 100, y: 300)
+          gameSceneFailState.didEnter(from: activeState)
         }
         
-        it("should add retry button to gameScene.camera") {
-          expect(gameSceneFailState.retryButton.parent).to(be(gameScene))
-        }
-        
-        it("should set retry button y position above the player entity render node") {
-          let renderNodeYPosition = gameScene.entityManager.getPlayerRenderNode()?.position.y
-          let retryButtonYPosition = gameSceneFailState.retryButton.position.y - 100
-          expect(retryButtonYPosition).to(equal(renderNodeYPosition))
-        }
-        
-        it("should set retry button x position the same as the player entity render node") {
-          let renderNodeXPosition = gameScene.entityManager.getPlayerRenderNode()?.position.x
-          let retryButtonXPosition = gameSceneFailState.retryButton.position.x
-          expect(retryButtonXPosition).to(equal(renderNodeXPosition))
+        context("retry button") {
+          it("should add to gameScene") {
+            expect(gameSceneFailState.retryButton.parent).to(be(gameScene))
+          }
           
+          it("should set y position above the player entity render node") {
+            let renderNodeYPosition = gameScene.entityManager.getPlayerRenderNode()?.position.y
+            let retryButtonYPosition = gameSceneFailState.retryButton.position.y - 100
+            expect(retryButtonYPosition).to(equal(renderNodeYPosition))
+          }
+          
+          it("should set x position the same as the player entity render node") {
+            let renderNodeXPosition = gameScene.entityManager.getPlayerRenderNode()?.position.x
+            let retryButtonXPosition = gameSceneFailState.retryButton.position.x
+            expect(retryButtonXPosition).to(equal(renderNodeXPosition))
+          }
+        }
+        
+        context("bestTimeNode") {
+          it("should add bestTimeNode to gameScene.camera") {
+            expect(gameSceneFailState.bestTimeNode.parent).to(be(gameScene.camera))
+          }
+          
+          it("should set x position the same as the timerLabel") {
+            expect(gameSceneFailState.bestTimeNode.position.x).to(equal(activeState.timerNode.position.x))
+          }
+          
+          it("should set y position below the timerLabel") {
+            let expectedPosition = activeState.timerNode.position.applying(CGAffineTransform.init(translationX: 0, y: -activeState.timerNode.frame.size.height))
+            expect(gameSceneFailState.bestTimeNode.position.y).to(equal(expectedPosition.y))
+          }
+          
+          it("should set fontSize to expected") {
+            expect(gameSceneFailState.bestTimeNode.fontSize).to(equal(GameSceneFailState.Configuration.bestTimeLabelFontSize))
+          }
         }
         
         it("should pause the worldNode") {
@@ -70,10 +95,20 @@ class GameSceneFailStateSpec: QuickSpec {
         beforeEach {
           gameScene.worldNode.isPaused = true
           gameScene.physicsWorld.speed = 0
+          
           let retryButton = ButtonBuilder.createButton(withIdentifier: .retry)
           gameSceneFailState.retryButton = retryButton
           gameScene.addChild(retryButton)
+          
+          let bestTimeNode = LabelBuilder.createTimerLabel()
+          gameSceneFailState.bestTimeNode = bestTimeNode
+          gameScene.camera?.addChild(bestTimeNode)
+          
           gameSceneFailState.willExit(to: GKState())
+        }
+        
+        it("should remove bestTimeNode") {
+          expect(gameSceneFailState.bestTimeNode.parent).to(beNil())
         }
         
         it("should remove retry button") {

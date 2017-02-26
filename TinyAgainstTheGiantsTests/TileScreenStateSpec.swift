@@ -27,35 +27,6 @@ class TitleScreenStateSpec: QuickSpec {
         expect(titleScreenState.gameScene).to(be(gameScene))
       }
       
-      context("createLabel") {
-        var title: SKLabelNode!
-        let expectedText = "I am expected"
-        
-        beforeEach {
-          title = titleScreenState.createLabel(withText: expectedText)
-        }
-        
-        it("should have zPosition set to label") {
-          expect(title.zPosition).to(equal(NodeLayerPosition.label))
-        }
-        
-        it("should have title label identifier") {
-          expect(title.name).to(equal(LabelIdentifier.title.rawValue))
-        }
-        
-        it("should set text") {
-          expect(title.text).to(equal(expectedText))
-        }
-        
-        it("should be top aligned") {
-          expect(title.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
-        }
-        
-        it("should be center aligned") {
-          expect(title.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
-        }
-      }
-      
       context("didEnter") {
         beforeEach {
           gameScene.addBackgroundTileMap()

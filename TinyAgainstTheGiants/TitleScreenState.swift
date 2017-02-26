@@ -63,17 +63,4 @@ extension TitleScreenState {
     title.position = CGPoint(x: 0, y: gameScene.size.height / 2)
     return title
   }
-  
-  func createLabel(withText title: String) -> SKLabelNode {
-    let title = SKLabelNode(text: title)
-    title.fontName = "Verdana-Bold"
-    title.fontSize = 50
-    title.color = .blue
-    title.colorBlendFactor = 1
-    title.verticalAlignmentMode = .top
-    title.horizontalAlignmentMode = .center
-    title.name = LabelIdentifier.title.rawValue
-    title.zPosition = NodeLayerPosition.label
-    return title
-  }
 }

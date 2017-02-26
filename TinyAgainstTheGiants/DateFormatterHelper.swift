@@ -16,4 +16,10 @@ class DateFormatterHelper {
     
     return formatter
   }()
+  
+  static func getMinuteSecondStyleText(time: TimeInterval) -> String {
+      var components = DateComponents()
+      components.second = Int(max(0.0, time))
+      return DateFormatterHelper.minuteSecondFormat.string(from: components)!
+  }
 }

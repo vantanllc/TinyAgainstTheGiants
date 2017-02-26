@@ -32,20 +32,10 @@ extension GameSceneFailState {
     }
     
     if let activeState = previousState as? GameSceneActiveState {
-      let previousBestTime = UserDefaults.standard.double(forKey: Configuration.bestTimeKey)
-      var components = DateComponents()
-      components.second = Int(previousBestTime)
-      let previousBestTimeString = DateFormatterHelper.minuteSecondFormat.string(from: components)!
+      let bestTimeText = getBestTimeText(time: activeState.time, fromUserDefaults: UserDefaults.standard)
       bestTimeNode = LabelBuilder.createTimerLabel()
-      bestTimeNode.fontSize = 20
-      bestTimeNode.text = "Best Time \(previousBestTimeString)"
-      
-      if activeState.time > previousBestTime {
-        bestTimeNode.text = "New best time \(activeState.timeString)"
-        UserDefaults.standard.set(activeState.time, forKey: Configuration.bestTimeKey)
-        UserDefaults.standard.synchronize()
-      }
-      
+      bestTimeNode.text = bestTimeText
+      bestTimeNode.fontSize = Configuration.bestTimeLabelFontSize
       bestTimeNode.position = activeState.timerNode.position.applying(CGAffineTransform.init(translationX: 0, y: -activeState.timerNode.frame.size.height))
       gameScene.camera?.addChild(bestTimeNode)
     }
@@ -67,7 +57,23 @@ extension GameSceneFailState {
 }
 
 extension GameSceneFailState {
+  func getBestTimeText(time: TimeInterval, fromUserDefaults userDefaults: UserDefaults) -> String {
+    let previousBestTime = userDefaults.double(forKey: Configuration.bestTimeKey)
+    var text = "Best Time \(DateFormatterHelper.getMinuteSecondStyleText(time: previousBestTime))"
+  
+    if time > previousBestTime {
+      text = "New best time \(DateFormatterHelper.getMinuteSecondStyleText(time: time))"
+      userDefaults.set(time, forKey: Configuration.bestTimeKey)
+      userDefaults.synchronize()
+    }
+  
+    return text
+  }
+}
+
+extension GameSceneFailState {
   struct Configuration {
     static let bestTimeKey = "bestTime"
+    static let bestTimeLabelFontSize: CGFloat = 20
   }
 }

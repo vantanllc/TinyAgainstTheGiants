@@ -23,7 +23,7 @@ class GameSceneActiveState: GKState {
     
     time += seconds
     if let timerNode = gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) as? SKLabelNode {
-      timerNode.text = timeString
+      timerNode.text = DateFormatterHelper.getMinuteSecondStyleText(time: time)
     }
     
     if let percentage = gameScene.entityManager.getPlayerEntity()?.component(ofType: ChargeBarComponent.self)?.percentage, percentage.isZero {
@@ -43,13 +43,6 @@ class GameSceneActiveState: GKState {
   var time: TimeInterval = 0
   var pauseButton: ButtonNode!
   var timerNode: SKLabelNode!
-  
-  var timeString: String {
-    var components = DateComponents()
-    components.second = Int(max(0.0, time))
-    
-    return DateFormatterHelper.minuteSecondFormat.string(from: components)!
-  }
 }
 
 extension GameSceneActiveState {

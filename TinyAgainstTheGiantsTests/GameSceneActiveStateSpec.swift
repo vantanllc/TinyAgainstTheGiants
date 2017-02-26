@@ -33,14 +33,6 @@ class GameSceneActiveStateSpec: QuickSpec {
         expect(gameSceneActiveState.time).to(equal(gameSceneActiveState.startTime))
       }
       
-      context("timeString") {
-        it("should convert time to minute second string") {
-          gameSceneActiveState.time = 96
-          let expectedTimeString = "1:36"
-          expect(gameSceneActiveState.timeString).to(equal(expectedTimeString))
-        }
-      }
-      
       context("check player's charge percentage") {
         it("should transition to FailState if equal zero") {
           gameScene.entityManager.getPlayerEntity()?.component(ofType: ChargeBarComponent.self)?.charge = 0
@@ -93,11 +85,6 @@ class GameSceneActiveStateSpec: QuickSpec {
         }
         it("should increment time property by deltaTime") {
           expect(gameSceneActiveState.time).to(equal(deltaTime))
-        }
-        
-        it("should update timerNode text to timeString") {
-          let timer = gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) as! SKLabelNode
-          expect(timer.text).to(equal(gameSceneActiveState.timeString))
         }
       }
       
