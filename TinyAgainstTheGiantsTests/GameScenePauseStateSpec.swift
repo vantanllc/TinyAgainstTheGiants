@@ -41,7 +41,7 @@ class GameScenePauseStateSpec: QuickSpec {
         }
        
         it("should add resume button to gameScene") {
-          expect(gameScene.childNode(withName: ButtonIdentifier.resume.rawValue)).toNot(beNil())
+          expect(pauseState.resumeButton.parent).to(be(gameScene))
         }
         
         it("should pause the worldNode") {
@@ -57,12 +57,14 @@ class GameScenePauseStateSpec: QuickSpec {
         beforeEach {
           gameScene.worldNode.isPaused = true
           gameScene.physicsWorld.speed = 0
-          gameScene.addChild(ButtonBuilder.getPauseButton())
+          let resumeButton = ButtonBuilder.createButton(withIdentifier: .resume)
+          pauseState.resumeButton = resumeButton
+          gameScene.addChild(resumeButton)
           pauseState.willExit(to: GKState())
         }
         
         it("should remove resume button") {
-          expect(gameScene.childNode(withName: ButtonIdentifier.resume.rawValue)).to(beNil())
+          expect(pauseState.resumeButton.parent).to(beNil())
         }
         
         it("should unpause the worldNode") {

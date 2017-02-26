@@ -7,7 +7,6 @@
 //
 
 import SpriteKit
-import SCLAlertView
 
 extension GameScene: ButtonRespondable {
   func buttonTriggered(button: ButtonNode) {
@@ -27,7 +26,7 @@ extension GameScene: ButtonRespondable {
     case .start:
       stateMachine.enter(GameSceneActiveState.self)
     case .credits:
-      SCLAlertView().showInfo("Credits", subTitle: "Blah Blah Blah")
+      showCredits()
     }
   }
 }

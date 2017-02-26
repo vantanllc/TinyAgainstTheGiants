@@ -40,8 +40,8 @@ class EnemyEntity: GKEntity {
   }
   
   // MARK: Properties
-  let maxSpeed: Float = 200
-  let maxAcceleration: Float = 100
+  let maxSpeed: Float = 500
+  let maxAcceleration: Float = 250
   let mass: Float = 1
 }
 

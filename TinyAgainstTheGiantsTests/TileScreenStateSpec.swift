@@ -27,43 +27,18 @@ class TitleScreenStateSpec: QuickSpec {
         expect(titleScreenState.gameScene).to(be(gameScene))
       }
       
-      context("createLabel") {
-        var title: SKLabelNode!
-        let expectedText = "I am expected"
-        
-        beforeEach {
-          title = titleScreenState.createLabel(withText: expectedText)
-        }
-        
-        it("should have zPosition set to label") {
-          expect(title.zPosition).to(equal(NodeLayerPosition.label))
-        }
-        
-        it("should have title label identifier") {
-          expect(title.name).to(equal(LabelIdentifier.title.rawValue))
-        }
-        
-        it("should set text") {
-          expect(title.text).to(equal(expectedText))
-        }
-        
-        it("should be top aligned") {
-          expect(title.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
-        }
-        
-        it("should be center aligned") {
-          expect(title.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
-        }
-      }
-      
       context("didEnter") {
         beforeEach {
           gameScene.addBackgroundTileMap()
           titleScreenState.didEnter(from: nil)
         }
         
+        it("should add credits button to camera") {
+          expect(titleScreenState.creditsButton.parent).to(be(gameScene.camera))
+        }
+        
         it("should add start button to camera") {
-          expect(gameScene.camera?.childNode(withName: ButtonIdentifier.start.rawValue)).toNot(beNil())
+          expect(titleScreenState.startButton.parent).to(be(gameScene.camera))
         }
         
         it("should add title to camera") {
@@ -85,10 +60,19 @@ class TitleScreenStateSpec: QuickSpec {
       
       context("willExit") {
         it("should remove start button from camera") {
-          let startButton = ButtonBuilder.getStartButton()
+          let startButton = ButtonBuilder.createButton(withIdentifier: .start)
+          titleScreenState.startButton = startButton
           gameScene.camera?.addChild(startButton)
           titleScreenState.willExit(to: GKState())
-          expect(gameScene.camera?.childNode(withName: ButtonIdentifier.start.rawValue)).to(beNil())
+          expect(startButton.parent).to(beNil())
+        }
+        
+        it("should remove credits button from camera") {
+          let creditsButton = ButtonBuilder.createButton(withIdentifier: .credits)
+          titleScreenState.creditsButton = creditsButton 
+          gameScene.camera?.addChild(creditsButton)
+          titleScreenState.willExit(to: GKState())
+          expect(creditsButton.parent).to(beNil())
         }
         
         it("should remove title from camera") {
