@@ -54,6 +54,7 @@
 		8BA9189A1E502EA400D4EEC1 /* TileScreenStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA918991E502EA400D4EEC1 /* TileScreenStateSpec.swift */; };
 		8BAF4E261E2C1F8100E447A5 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */; };
 		8BAF4E281E2C1FF700E447A5 /* ButtonBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */; };
+		8BB7EF6E1E637CB3007E1D77 /* DateFormatterHelperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB7EF6D1E637CB3007E1D77 /* DateFormatterHelperSpec.swift */; };
 		8BC0CC6B1E629380004F1EA3 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0CC6A1E629380004F1EA3 /* DateFormatterHelper.swift */; };
 		8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */; };
 		8BC0E4071E177A1C0087C7E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E4061E177A1C0087C7E2 /* GameScene.swift */; };
@@ -157,6 +158,7 @@
 		8BA918991E502EA400D4EEC1 /* TileScreenStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileScreenStateSpec.swift; sourceTree = "<group>"; };
 		8BAF4E251E2C1F8100E447A5 /* ButtonBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		8BAF4E271E2C1FF700E447A5 /* ButtonBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilderSpec.swift; sourceTree = "<group>"; };
+		8BB7EF6D1E637CB3007E1D77 /* DateFormatterHelperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelperSpec.swift; sourceTree = "<group>"; };
 		8BC0CC6A1E629380004F1EA3 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		8BC0E3FD1E177A1B0087C7E2 /* TinyAgainstTheGiants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAgainstTheGiants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC0E4001E177A1B0087C7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -372,7 +374,6 @@
 				8BD4BBA91E233FC5006A6C38 /* Nodes */,
 				8BA913F81E25EADA00D5962D /* ContactCollision */,
 				8B93C3321E306F66002ADC17 /* AdMob.swift */,
-				8BC0CC6A1E629380004F1EA3 /* DateFormatterHelper.swift */,
 			);
 			path = TinyAgainstTheGiants;
 			sourceTree = "<group>";
@@ -392,6 +393,7 @@
 				8BD4BBAA1E233FCB006A6C38 /* NodeSpec */,
 				8B331B9B1E29A10600C7B298 /* ContactCollision */,
 				8B93C3341E307007002ADC17 /* AppDelegateSpec.swift */,
+				8BB7EF6D1E637CB3007E1D77 /* DateFormatterHelperSpec.swift */,
 			);
 			path = TinyAgainstTheGiantsTests;
 			sourceTree = "<group>";
@@ -538,6 +540,7 @@
 		8BFABF661E1CACFE00C613A0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8BC0CC6A1E629380004F1EA3 /* DateFormatterHelper.swift */,
 				8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */,
 				8B0708961E1A2E5900A7310D /* Utilities.swift */,
 			);
@@ -908,6 +911,7 @@
 				8B93C3351E307007002ADC17 /* AppDelegateSpec.swift in Sources */,
 				8B013D7C1E18BEE700AC7D74 /* SpriteComponentSpec.swift in Sources */,
 				8BEAD7F71E19B288007F68C5 /* CameraBuilderSpec.swift in Sources */,
+				8BB7EF6E1E637CB3007E1D77 /* DateFormatterHelperSpec.swift in Sources */,
 				8B0943AB1E2B4BE000F08D69 /* GameSceneFailStateSpec.swift in Sources */,
 				8B57740F1E1F52D90050EC72 /* MoveBehaviorSpec.swift in Sources */,
 				8B78380F1E1813E700A55B42 /* GameViewControllerSpec.swift in Sources */,
