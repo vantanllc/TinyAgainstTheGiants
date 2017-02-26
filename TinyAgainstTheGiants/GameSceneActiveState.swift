@@ -42,20 +42,13 @@ class GameSceneActiveState: GKState {
   let startTime: TimeInterval = 0
   var time: TimeInterval = 0
   var pauseButton: ButtonNode!
-  
-  let timeFormatter: DateComponentsFormatter = {
-    let formatter = DateComponentsFormatter()
-    formatter.zeroFormattingBehavior = .pad
-    formatter.allowedUnits = [.minute, .second]
-    
-    return formatter
-  }()
+  var timerNode: SKLabelNode!
   
   var timeString: String {
-    let components = NSDateComponents()
+    var components = DateComponents()
     components.second = Int(max(0.0, time))
     
-    return timeFormatter.string(from: components as DateComponents)!
+    return DateFormatterHelper.minuteSecondFormat.string(from: components)!
   }
 }
 
@@ -70,7 +63,7 @@ extension GameSceneActiveState {
     gameScene.camera?.addChild(pauseButton)
     
     if gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) == nil {
-      let timerNode = createTimerNode()
+       timerNode = LabelBuilder.createTimerLabel()
       timerNode.position = GameSceneActiveState.getPosition(forTimerNode: timerNode, inScene: gameScene)
       gameScene.camera?.addChild(timerNode)
     }
@@ -88,26 +81,9 @@ extension GameSceneActiveState {
     return pauseButton
   }
   
-  func createTimerNode() -> SKLabelNode {
-    let timerNode = SKLabelNode()
-    timerNode.fontName = GameSceneActiveState.Configuration.timerLabelFont
-    timerNode.name = LabelIdentifier.timer.rawValue
-    timerNode.zPosition = NodeLayerPosition.label
-    timerNode.horizontalAlignmentMode = .center
-    timerNode.verticalAlignmentMode = .top
-    timerNode.fontSize = 50
-    return timerNode
-  }
-  
   static func getPosition(forTimerNode timerNode: SKLabelNode, inScene scene: SKScene) -> CGPoint {
     var position = timerNode.position
     position.y = scene.size.height / 2 - timerNode.frame.size.height / 2
     return position
-  }
-}
-
-extension GameSceneActiveState {
-  struct Configuration {
-    static let timerLabelFont = "AmericanTypewriter-Bold"
   }
 }

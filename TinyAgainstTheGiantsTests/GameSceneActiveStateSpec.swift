@@ -127,33 +127,6 @@ class GameSceneActiveStateSpec: QuickSpec {
         }
       }
     
-      context("createTimerNode") {
-        var timer: SKLabelNode!
-        
-        beforeEach {
-          timer = gameSceneActiveState.createTimerNode()
-        }
-        
-        it("should be center align") {
-          expect(timer.horizontalAlignmentMode).to(equal(SKLabelHorizontalAlignmentMode.center))
-        }
-        
-        it("should be top align") {
-          expect(timer.verticalAlignmentMode).to(equal(SKLabelVerticalAlignmentMode.top))
-        }
-        
-        it("should have fontSize 50") {
-          expect(timer.fontSize).to(equal(50))
-        }
-        
-        it("should have zPosition of NodeLayerPosition.label") {
-          expect(timer.zPosition).to(equal(NodeLayerPosition.label))
-        }
-        
-        it("should have expected font") {
-          expect(timer.fontName).to(equal(GameSceneActiveState.Configuration.timerLabelFont))
-        }
-      }
       
       context("createPauseButton") {
         var pauseButton: ButtonNode!
