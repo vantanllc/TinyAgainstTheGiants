@@ -38,7 +38,20 @@ class GameScene: SKScene {
         label.position = GameSceneActiveState.getPosition(forTimerNode: label, inScene: self)
       }
     }
-    camera?.childNode(withName: ButtonIdentifier.pause.rawValue)?.position = CGPoint(x: size.width * 0.5, y: -size.height * 0.5)
+    
+    for button in [ButtonIdentifier.pause, ButtonIdentifier.credits] {
+      camera?.childNode(withName: button.rawValue)?.position = CGPoint(x: size.width * 0.5, y: -size.height * 0.5)
+    }
+    
+    if let title = camera?.childNode(withName: LabelIdentifier.title.rawValue) as? SKSpriteNode {
+      if UIDevice.current.orientation == .portrait {
+        title.anchorPoint = CGPoint(x: 0.5, y: 1)
+        title.position = CGPoint(x: 0, y: size.height * 0.5)
+      } else {
+        title.anchorPoint = CGPoint(x: 0, y: 1)
+        title.position = CGPoint(x: -size.width * 0.5, y: size.height * 0.5)
+      }
+    }
   }
   
   // MARK: Properties
