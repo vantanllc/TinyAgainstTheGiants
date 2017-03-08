@@ -72,6 +72,39 @@ class GameSceneSpec: QuickSpec {
             let expectPosition = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
             expect(pauseButton.position).to(equal(expectPosition))
           }
+          
+          it("should re-position creditsButton") {
+            let creditsButton = ButtonBuilder.createButton(withIdentifier: .credits)
+            creditsButton.position = CGPoint(x: 600, y: 300)
+            gameScene.camera?.addChild(creditsButton)
+            gameScene.size = CGSize(width: 400, height: 500)
+            let expectPosition = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+            expect(creditsButton.position).to(equal(expectPosition))
+          }
+          
+          context("titleNode") {
+            var title: SKSpriteNode!
+            
+            beforeEach {
+              title = SKSpriteNode()
+              title.name = LabelIdentifier.title.rawValue
+              gameScene.camera?.addChild(title)
+            }
+            
+            it("should update position") {
+              title.position = CGPoint(x: 555, y: 444)
+              gameScene.size = CGSize(width: 400, height: 500)
+              let expectedPosition = CGPoint(x: 0, y: gameScene.size.height * 0.5)
+              expect(title.position).to(equal(expectedPosition))
+            }
+            
+            it("should update anchorPoint") {
+              title.anchorPoint = CGPoint(x: 1, y: 0)
+              gameScene.size = CGSize(width: 400, height: 500)
+              let expectedAnchorPoint = CGPoint(x: 0.5, y: 1)
+              expect(title.anchorPoint).to(equal(expectedAnchorPoint))
+            }
+          }
         }
         
       }

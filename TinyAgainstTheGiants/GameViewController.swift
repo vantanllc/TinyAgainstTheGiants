@@ -62,8 +62,8 @@ extension GameViewController {
   func presentGameSceneInDevMode(gameScene: GameScene, intoSKView skView: SKView) {
     skView.presentScene(gameScene)
     skView.ignoresSiblingOrder = true
-    skView.showsFPS = true
-    skView.showsNodeCount = true
-    skView.showsPhysics = true
+    skView.showsFPS = false
+    skView.showsNodeCount = false
+    skView.showsPhysics = false
   }
 }
