@@ -97,7 +97,7 @@ extension GameScene {
     
     stateMachine.update(deltaTime: deltaTime)
     
-    if let camera = camera, !camera.contains(currentBackgroundTileMap), camera.position.y < currentBackgroundTileMap.frame.maxY {
+    if let camera = camera, camera.position.y < currentBackgroundTileMap.frame.midY {
       updateBackgroundTileMaps()
       updateObstacleTileMaps()
     }

@@ -96,10 +96,15 @@ class GameViewControllerSpec: QuickSpec {
           skView = SKView()
         }
         
+        it("should ignore sibling order") {
+          gameVC.presentGameSceneInDevMode(gameScene: gameScene, intoSKView: skView)
+          expect(skView.ignoresSiblingOrder).to(beTrue())
+        }
+        
         it("should turn on SKView visual debug flags") {
           gameVC.presentGameSceneInDevMode(gameScene: gameScene, intoSKView: skView)
-          let debugFlags = [skView.ignoresSiblingOrder, skView.showsFPS, skView.showsNodeCount, skView.showsPhysics]
-          expect(debugFlags).to(allPass(beTrue()))
+          let debugFlags = [skView.showsFPS, skView.showsNodeCount, skView.showsPhysics]
+          expect(debugFlags).to(allPass(beFalse()))
         }
         
         it("should present GameScene in SkView") {
