@@ -36,6 +36,7 @@
 		8B4DE65E1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE65D1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift */; };
 		8B4DE6621E31CA0F004CD39E /* GameSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE6611E31CA0F004CD39E /* GameSceneDelegate.swift */; };
 		8B4DE6661E31CB84004CD39E /* GameViewController+GameSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DE6651E31CB84004CD39E /* GameViewController+GameSceneDelegate.swift */; };
+		8B54F8A51E72593800E4ED39 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54F8A41E72593800E4ED39 /* Sound.swift */; };
 		8B5774041E1F4AEF0050EC72 /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */; };
 		8B5774061E1F4B210050EC72 /* TeamComponentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */; };
 		8B5774081E1F4D960050EC72 /* EnemyEntitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5774071E1F4D960050EC72 /* EnemyEntitySpec.swift */; };
@@ -140,6 +141,7 @@
 		8B4DE65D1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+GADInterstitialDelegate.swift"; sourceTree = "<group>"; };
 		8B4DE6611E31CA0F004CD39E /* GameSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneDelegate.swift; sourceTree = "<group>"; };
 		8B4DE6651E31CB84004CD39E /* GameViewController+GameSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+GameSceneDelegate.swift"; sourceTree = "<group>"; };
+		8B54F8A41E72593800E4ED39 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		8B5774031E1F4AEF0050EC72 /* TeamComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
 		8B5774051E1F4B210050EC72 /* TeamComponentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamComponentSpec.swift; sourceTree = "<group>"; };
 		8B5774071E1F4D960050EC72 /* EnemyEntitySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEntitySpec.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				8B006D3C1E579A5900A70F4C /* TinyAgainstTheGiantsBackground.caf */,
+				8B54F8A41E72593800E4ED39 /* Sound.swift */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */,
 				8B5774121E1F5AD90050EC72 /* MoveComponent.swift in Sources */,
 				8B4DE65E1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift in Sources */,
+				8B54F8A51E72593800E4ED39 /* Sound.swift in Sources */,
 				8BC0E4011E177A1B0087C7E2 /* AppDelegate.swift in Sources */,
 				8BC9C26D1E2F1E1700453C22 /* GameScene+TileMapNode.swift in Sources */,
 				8B013D7A1E18BED200AC7D74 /* SpriteComponent.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameScene: SKScene {
   // MARK: Lifecycle
@@ -25,6 +26,8 @@ class GameScene: SKScene {
     startCamera()
     addBackgroundTileMap()
     addObstacleTileMap()
+    backgroundAudio = Sound.getBackgroundAudioPlayer()
+    backgroundAudio?.play()
   }
   
   override func didMove(to view: SKView) {
@@ -67,6 +70,8 @@ class GameScene: SKScene {
   var previousObstacleTileMap: SKTileMapNode!
   var currentObstacleTileMap: SKTileMapNode!
   var nextObstacleTileMap: SKTileMapNode!
+  
+  var backgroundAudio: AVAudioPlayer!
   
   let tileMapColumns = 42
   let tileMapRows = 32
