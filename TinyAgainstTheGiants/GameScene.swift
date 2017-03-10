@@ -26,12 +26,12 @@ class GameScene: SKScene {
     startCamera()
     addBackgroundTileMap()
     addObstacleTileMap()
-    backgroundAudio = Sound.getBackgroundAudioPlayer()
-    backgroundAudio?.play()
   }
   
   override func didMove(to view: SKView) {
     stateMachine.enter(TitleScreenState.self)
+    backgroundAudio = Sound.getBackgroundAudioPlayer()
+    backgroundAudio.play()
   }
         
   override func didChangeSize(_ oldSize: CGSize) {

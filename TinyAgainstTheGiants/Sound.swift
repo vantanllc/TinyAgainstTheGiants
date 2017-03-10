@@ -10,7 +10,7 @@ import AVFoundation
 
 class Sound {
   static func getBackgroundAudioPlayer() -> AVAudioPlayer? {
-    let path = Bundle.main.path(forResource: "TinyAgainstTheGiantsBackground", ofType: "caf")!
+    let path = Bundle.main.path(forResource: AudioFile.background, ofType: FileType.caf)!
     let url = URL(fileURLWithPath: path)
     
     do {
@@ -21,5 +21,15 @@ class Sound {
       print("Unable to load audio file")
       return nil
     }
+  }
+}
+
+extension Sound {
+  struct FileType {
+    static let caf = "caf"
+  }
+  
+  struct AudioFile {
+    static let background = "TinyAgainstTheGiantsBackground"
   }
 }
