@@ -13,9 +13,10 @@ extension GameScene {
   struct Credits {
     static let title = "Credits"
     static let subTitle = "TinyGiants give thanks to the following!"
-    static let ludicArt = "Original artwork from Ludicarts"
-    static let openClipArt = "Modified artwork from OpenClipArt"
-    static let completeAttributions = [ludicArt, openClipArt]
+    static let ludicArt = "Original background artwork from LudicArts.com"
+    static let openClipArt = "Modified artwork from OpenClipArt.org"
+    static let backgroundAudio = "Modified background audio from Freesound.org by burning-mir"
+    static let completeAttributions = [ludicArt, openClipArt, backgroundAudio]
   }
   
   func showCredits() {
