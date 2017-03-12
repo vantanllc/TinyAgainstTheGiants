@@ -14,6 +14,14 @@ import AVFoundation
 class SoundSpec: QuickSpec {
   override func spec() {
     describe("Sound") {
+      
+      context("current static instance") {
+        it("should have isEnabled default to true") {
+          let sound = Sound.current
+          expect(sound.isEnabled).to(beTrue())
+        }
+      }
+      
       context("getBackgroundAudioPlayer") {
         var player: AVAudioPlayer!
         

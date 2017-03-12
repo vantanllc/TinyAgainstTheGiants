@@ -9,6 +9,8 @@
 import AVFoundation
 
 class Sound {
+  static let current = Sound()
+  
   static func getBackgroundAudioPlayer() -> AVAudioPlayer? {
     let path = Bundle.main.path(forResource: AudioFile.background, ofType: FileType.caf)!
     let url = URL(fileURLWithPath: path)
@@ -22,6 +24,9 @@ class Sound {
       return nil
     }
   }
+  
+  // MARK: Properties
+  var isEnabled = true
 }
 
 extension Sound {

@@ -36,23 +36,37 @@ class GameScenePauseStateSpec: QuickSpec {
       }
       
       context("didEnter") {
-        beforeEach {
-          pauseState.didEnter(from: nil)
-        }
-       
         it("should add resume button to gameScene") {
+          pauseState.didEnter(from: nil)
           expect(pauseState.resumeButton.parent).to(be(gameScene))
         }
         
-        it("should add music button to gameScene") {
-          expect(pauseState.musicButton.parent).to(be(gameScene.camera))
+        context("musicButton") {
+          it("should be added to camera") {
+            pauseState.didEnter(from: nil)
+            expect(pauseState.musicButton.parent).to(be(gameScene.camera))
+          }
+          
+          it("should be musicOn identifier if sound is enabled") {
+            Sound.current.isEnabled = true
+            pauseState.didEnter(from: nil)
+            expect(pauseState.musicButton.buttonIdentifier).to(equal(ButtonIdentifier.musicOn))
+          }
+          
+          it("should be musicOff identifier if sound is not enabled") {
+            Sound.current.isEnabled = false
+            pauseState.didEnter(from: nil)
+            expect(pauseState.musicButton.buttonIdentifier).to(equal(ButtonIdentifier.musicOff))
+          }
         }
         
         it("should pause the worldNode") {
+          pauseState.didEnter(from: nil)
           expect(gameScene.worldNode.isPaused).to(beTrue())
         }
         
         it("should set physicsworld speed to zero") {
+          pauseState.didEnter(from: nil)
           expect(gameScene.physicsWorld.speed.isZero).to(beTrue())
         }
       }
