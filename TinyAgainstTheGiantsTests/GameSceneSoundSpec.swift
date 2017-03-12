@@ -21,6 +21,16 @@ class GameSceneSoundSpec: QuickSpec {
         gameScene = GameScene()
       }
       
+      context("button audio") {
+        beforeEach {
+          gameScene.didMove(to: SKView())
+        }
+        
+        it("should be init") {
+          expect(gameScene.buttonAudio).toNot(beNil())
+        }
+      }
+      
       context("background audio") {
         beforeEach {
           gameScene.didMove(to: SKView())

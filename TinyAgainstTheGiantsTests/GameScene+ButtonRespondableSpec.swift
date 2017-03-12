@@ -32,6 +32,10 @@ class GameSceneButtonRespondableSpec: QuickSpec {
       }
       
       describe("buttonTrigger") {
+        beforeEach {
+          gameScene.buttonAudio = Sound.getAudioPlayer(forResource: Sound.AudioFile.button, ofType: Sound.FileType.caf)
+        }
+        
         context("credits") {
           it("should show credits alertview") {
             button.name = ButtonIdentifier.credits.rawValue
@@ -118,6 +122,28 @@ class GameSceneButtonRespondableSpec: QuickSpec {
               gameScene.buttonTriggered(button: button)
               expect(button.buttonIdentifier).to(equal(ButtonIdentifier.musicOn))
             }
+          }
+        }
+        
+        context("any button") {
+          beforeEach {
+            button.name = ButtonIdentifier.credits.rawValue
+          }
+          
+          afterEach {
+            Sound.current.isEnabled = true
+          }
+          
+          it("should play buttonAudio if sound is enabled") {
+            Sound.current.isEnabled = true
+            gameScene.buttonTriggered(button: button)
+            expect(gameScene.buttonAudio.isPlaying).to(beTrue())
+          }
+          
+          it("should not play buttonAudio if sound is disabled") {
+            Sound.current.isEnabled = false
+            gameScene.buttonTriggered(button: button)
+            expect(gameScene.buttonAudio.isPlaying).to(beFalse())
           }
         }
         

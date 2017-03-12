@@ -9,20 +9,28 @@
 import AVFoundation
 
 class Sound {
+  // MARK: Singleton, shared instance
   static let current = Sound()
   
+  // MARK: Builder Functions
   static func getBackgroundAudioPlayer() -> AVAudioPlayer? {
-    let path = Bundle.main.path(forResource: AudioFile.background, ofType: FileType.caf)!
+    let player = Sound.getAudioPlayer(forResource: AudioFile.background, ofType: FileType.caf)
+    player?.numberOfLoops = -1
+    return player
+  }
+  
+  static func getAudioPlayer(forResource resource: String, ofType type: String) -> AVAudioPlayer? {
+    let path = Bundle.main.path(forResource: resource, ofType: type)!
     let url = URL(fileURLWithPath: path)
     
     do {
       let player = try AVAudioPlayer(contentsOf: url)
-      player.numberOfLoops = -1
       return player
     } catch {
       print("Unable to load audio file")
       return nil
     }
+    
   }
   
   // MARK: Properties
@@ -36,5 +44,6 @@ extension Sound {
   
   struct AudioFile {
     static let background = "TinyAgainstTheGiantsBackground"
+    static let button = "TinyAgainstTheGiantsBackground"
   }
 }

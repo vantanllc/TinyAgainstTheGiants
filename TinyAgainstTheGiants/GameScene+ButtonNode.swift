@@ -36,6 +36,10 @@ extension GameScene: ButtonRespondable {
       backgroundAudio.play()
       updateButton(button, withIdentifier: .musicOn)
     }
+    
+    if Sound.current.isEnabled {
+      buttonAudio.play()
+    }
   }
   
   func updateButton(_ button: ButtonNode, withIdentifier identifier: ButtonIdentifier) {
