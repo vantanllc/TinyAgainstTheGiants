@@ -44,6 +44,10 @@ class GameScenePauseStateSpec: QuickSpec {
           expect(pauseState.resumeButton.parent).to(be(gameScene))
         }
         
+        it("should add music button to gameScene") {
+          expect(pauseState.musicButton.parent).to(be(gameScene.camera))
+        }
+        
         it("should pause the worldNode") {
           expect(gameScene.worldNode.isPaused).to(beTrue())
         }
@@ -54,24 +58,31 @@ class GameScenePauseStateSpec: QuickSpec {
       }
       
       context("willExit") {
-        beforeEach {
-          gameScene.worldNode.isPaused = true
-          gameScene.physicsWorld.speed = 0
+        it("should remove resume button") {
           let resumeButton = ButtonBuilder.createButton(withIdentifier: .resume)
           pauseState.resumeButton = resumeButton
-          gameScene.addChild(resumeButton)
+          gameScene.camera?.addChild(resumeButton)
           pauseState.willExit(to: GKState())
-        }
-        
-        it("should remove resume button") {
           expect(pauseState.resumeButton.parent).to(beNil())
         }
         
+        it("should remove music button") {
+          let musicButton = ButtonBuilder.createButton(withIdentifier: .musicOn)
+          pauseState.musicButton = musicButton
+          gameScene.camera?.addChild(musicButton)
+          pauseState.willExit(to: GKState())
+          expect(pauseState.musicButton.parent).to(beNil())
+        }
+        
         it("should unpause the worldNode") {
+          gameScene.worldNode.isPaused = true
+          pauseState.willExit(to: GKState())
           expect(gameScene.worldNode.isPaused).to(beFalse())
         }
         
         it("should set physics world speed back to one") {
+          gameScene.physicsWorld.speed = 0
+          pauseState.willExit(to: GKState())
           expect(gameScene.physicsWorld.speed).to(equal(1))
         }
       }

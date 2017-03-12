@@ -27,6 +27,10 @@ extension GameScene: ButtonRespondable {
       stateMachine.enter(GameSceneActiveState.self)
     case .credits:
       showCredits()
+    case .musicOn:
+      break
+    case .musicOff:
+      break
     }
   }
 }
