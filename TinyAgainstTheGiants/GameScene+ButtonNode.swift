@@ -29,8 +29,18 @@ extension GameScene: ButtonRespondable {
       showCredits()
     case .musicOn:
       Sound.current.isEnabled = false
+      backgroundAudio.pause()
+      updateButton(button, withIdentifier: .musicOff)
     case .musicOff:
       Sound.current.isEnabled = true
+      backgroundAudio.play()
+      updateButton(button, withIdentifier: .musicOn)
     }
+  }
+  
+  func updateButton(_ button: ButtonNode, withIdentifier identifier: ButtonIdentifier) {
+    let texture = SKTexture(imageNamed: identifier.rawValue.capitalizingFirstLetter())
+    button.texture = texture
+    button.name = identifier.rawValue
   }
 }

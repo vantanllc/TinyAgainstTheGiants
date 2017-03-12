@@ -65,21 +65,59 @@ class GameSceneButtonRespondableSpec: QuickSpec {
           }
         }
         
-        context("musicOn") {
-          it("should disable sound") {
-            Sound.current.isEnabled = true
-            button.name = ButtonIdentifier.musicOn.rawValue
-            gameScene.buttonTriggered(button: button)
-            expect(Sound.current.isEnabled).to(beFalse())
+        context("musicButton") {
+          beforeEach {
+            gameScene.backgroundAudio = Sound.getBackgroundAudioPlayer()
           }
-        }
-        
-        context("musicOff") {
-          it("should enable sound") {
-            Sound.current.isEnabled = false
-            button.name = ButtonIdentifier.musicOff.rawValue
-            gameScene.buttonTriggered(button: button)
-            expect(Sound.current.isEnabled).to(beTrue())
+          
+          afterEach {
+            Sound.current.isEnabled = true
+          }
+          
+          context("musicOn") {
+            beforeEach {
+              button.name = ButtonIdentifier.musicOn.rawValue
+            }
+            
+            it("should disable sound") {
+              Sound.current.isEnabled = true
+              gameScene.buttonTriggered(button: button)
+              expect(Sound.current.isEnabled).to(beFalse())
+            }
+            
+            it("should pause backgroundAudio") {
+              gameScene.backgroundAudio.play()
+              gameScene.buttonTriggered(button: button)
+              expect(gameScene.backgroundAudio.isPlaying).to(beFalse())
+            }
+            
+            it("should update button identifier to musicOff") {
+              gameScene.buttonTriggered(button: button)
+              expect(button.buttonIdentifier).to(equal(ButtonIdentifier.musicOff))
+            }
+          }
+          
+          context("musicOff") {
+            beforeEach {
+              button.name = ButtonIdentifier.musicOff.rawValue
+            }
+            
+            it("should enable sound") {
+              Sound.current.isEnabled = false
+              gameScene.buttonTriggered(button: button)
+              expect(Sound.current.isEnabled).to(beTrue())
+            }
+            
+            it("should resume backgroundAudio") {
+              gameScene.backgroundAudio.pause()
+              gameScene.buttonTriggered(button: button)
+              expect(gameScene.backgroundAudio.isPlaying).to(beTrue())
+            }
+            
+            it("should update button identifier to musicOn") {
+              gameScene.buttonTriggered(button: button)
+              expect(button.buttonIdentifier).to(equal(ButtonIdentifier.musicOn))
+            }
           }
         }
         

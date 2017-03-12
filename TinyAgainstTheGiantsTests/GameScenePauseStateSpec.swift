@@ -36,6 +36,10 @@ class GameScenePauseStateSpec: QuickSpec {
       }
       
       context("didEnter") {
+        afterEach {
+          Sound.current.isEnabled = true
+        }
+        
         it("should add resume button to gameScene") {
           pauseState.didEnter(from: nil)
           expect(pauseState.resumeButton.parent).to(be(gameScene))
