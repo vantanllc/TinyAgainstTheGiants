@@ -28,9 +28,9 @@ extension GameScene: ButtonRespondable {
     case .credits:
       showCredits()
     case .musicOn:
-      break
+      Sound.current.isEnabled = false
     case .musicOff:
-      break
+      Sound.current.isEnabled = true
     }
   }
 }

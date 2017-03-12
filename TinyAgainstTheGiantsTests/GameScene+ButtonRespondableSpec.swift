@@ -65,6 +65,24 @@ class GameSceneButtonRespondableSpec: QuickSpec {
           }
         }
         
+        context("musicOn") {
+          it("should disable sound") {
+            Sound.current.isEnabled = true
+            button.name = ButtonIdentifier.musicOn.rawValue
+            gameScene.buttonTriggered(button: button)
+            expect(Sound.current.isEnabled).to(beFalse())
+          }
+        }
+        
+        context("musicOff") {
+          it("should enable sound") {
+            Sound.current.isEnabled = false
+            button.name = ButtonIdentifier.musicOff.rawValue
+            gameScene.buttonTriggered(button: button)
+            expect(Sound.current.isEnabled).to(beTrue())
+          }
+        }
+        
         context("retry") {
           beforeEach {
             for _ in 1...10 {
