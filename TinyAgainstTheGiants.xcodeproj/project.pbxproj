@@ -54,6 +54,7 @@
 		8B78380F1E1813E700A55B42 /* GameViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78380E1E1813E700A55B42 /* GameViewControllerSpec.swift */; };
 		8B93C3331E306F66002ADC17 /* AdMob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93C3321E306F66002ADC17 /* AdMob.swift */; };
 		8B93C3351E307007002ADC17 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93C3341E307007002ADC17 /* AppDelegateSpec.swift */; };
+		8B9A8D061E773A9100DA0515 /* AudioComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A8D051E773A9100DA0515 /* AudioComponent.swift */; };
 		8BA913F71E25E9AE00D5962D /* ContactNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA913F61E25E9AE00D5962D /* ContactNotifiable.swift */; };
 		8BA918961E501ADF00D4EEC1 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA918951E501ADF00D4EEC1 /* LabelNode.swift */; };
 		8BA918981E5028A200D4EEC1 /* TitleScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA918971E5028A200D4EEC1 /* TitleScreenState.swift */; };
@@ -164,6 +165,7 @@
 		8B78380E1E1813E700A55B42 /* GameViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerSpec.swift; sourceTree = "<group>"; };
 		8B93C3321E306F66002ADC17 /* AdMob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMob.swift; sourceTree = "<group>"; };
 		8B93C3341E307007002ADC17 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
+		8B9A8D051E773A9100DA0515 /* AudioComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioComponent.swift; sourceTree = "<group>"; };
 		8BA913F61E25E9AE00D5962D /* ContactNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactNotifiable.swift; sourceTree = "<group>"; };
 		8BA918951E501ADF00D4EEC1 /* LabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		8BA918971E5028A200D4EEC1 /* TitleScreenState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScreenState.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				8B5774111E1F5AD90050EC72 /* MoveComponent.swift */,
 				8BD4BBA01E229D2C006A6C38 /* ParticleComponent.swift */,
 				8BC73CF71E248B52005CB996 /* ChargeBarComponent.swift */,
+				8B9A8D051E773A9100DA0515 /* AudioComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -895,6 +898,7 @@
 				8B0943A91E2B4B6E00F08D69 /* GameSceneFailState.swift in Sources */,
 				8B4DE65A1E31B002004CD39E /* AdBuilder.swift in Sources */,
 				8B340E761E1DFFEF00F71495 /* TileDefinitionType.swift in Sources */,
+				8B9A8D061E773A9100DA0515 /* AudioComponent.swift in Sources */,
 				8B5774121E1F5AD90050EC72 /* MoveComponent.swift in Sources */,
 				8B4DE65E1E31C2F0004CD39E /* GameViewController+GADInterstitialDelegate.swift in Sources */,
 				8B09D7FE1E7503610025520D /* String+Helper.swift in Sources */,

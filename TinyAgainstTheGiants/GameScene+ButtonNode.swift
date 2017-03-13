@@ -31,10 +31,20 @@ extension GameScene: ButtonRespondable {
       Sound.current.isEnabled = false
       backgroundAudio.pause()
       updateButton(button, withIdentifier: .musicOff)
+      for enemy in entityManager.getEnemyEntities()! {
+        if let enemy = enemy as? EnemyEntity {
+          enemy.removeAudioNode()
+        }
+      }
     case .musicOff:
       Sound.current.isEnabled = true
       backgroundAudio.play()
       updateButton(button, withIdentifier: .musicOn)
+      for enemy in entityManager.getEnemyEntities()! {
+        if let enemy = enemy as? EnemyEntity {
+          enemy.addAudioNode()
+        }
+      }
     }
     
     if Sound.current.isEnabled {

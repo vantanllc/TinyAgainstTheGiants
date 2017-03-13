@@ -28,6 +28,10 @@ class EntityBuilder {
       renderNode.position = position
     }
     
+    if Sound.current.isEnabled {
+      entity.addAudioNode()
+    }
+    
     entityManager.add(entity: entity)
   }
   
