@@ -16,6 +16,7 @@ class Sound {
   static func getBackgroundAudioPlayer() -> AVAudioPlayer? {
     let player = Sound.getAudioPlayer(forResource: AudioFile.background, ofType: FileType.caf)
     player?.numberOfLoops = -1
+    player?.volume = 0.5
     return player
   }
   
@@ -45,5 +46,6 @@ extension Sound {
   struct AudioFile {
     static let background = "TinyAgainstTheGiantsBackground"
     static let button = "TinyAgainstTheGiantsButtonSound"
+    static let enemyChirp = "TinyAgainstTheGiantsEnemyChirp"
   }
 }

@@ -53,6 +53,30 @@ class EnemyEntitySpec: QuickSpec {
         it("should set node zPosition to NodeLayerPosition.entity") {
           expect(renderComponent.node.zPosition).to(equal(NodeLayerPosition.entity))
         }
+        
+        context("audioNode") {
+          var audioNode: SKAudioNode!
+          
+          beforeEach {
+            audioNode = renderComponent.node.childNode(withName: EnemyEntity.AudioNode.name) as? SKAudioNode
+          }
+          
+          it("should have audioNode") {
+            expect(audioNode).toNot(beNil())
+          }
+          
+          it("should enable positional sound") {
+            expect(audioNode.isPositional).to(beTrue())
+          }
+          
+          it("should enable autoloop") {
+            expect(audioNode.autoplayLooped).to(beTrue())
+          }
+          
+          it("should have expected name") {
+            expect(audioNode.name).to(equal(EnemyEntity.AudioNode.name))
+          }
+        }
       }
     }
     

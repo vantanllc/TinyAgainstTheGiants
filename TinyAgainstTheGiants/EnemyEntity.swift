@@ -25,6 +25,10 @@ class EnemyEntity: GKEntity {
     renderComponent.node.addChild(spriteComponent.node)
     spriteComponent.node.addChild(particleComponent.particleEffect)
     
+    let audioNode = SKAudioNode(fileNamed: AudioNode.fileName)
+    audioNode.name = AudioNode.name
+    renderComponent.node.addChild(audioNode)
+    
     addComponent(renderComponent)
     addComponent(spriteComponent)
     addComponent(particleComponent)
@@ -43,6 +47,13 @@ class EnemyEntity: GKEntity {
   let maxSpeed: Float = 500
   let maxAcceleration: Float = 250
   let mass: Float = 1
+}
+
+extension EnemyEntity {
+  struct AudioNode {
+    static let name = "enemyEntityAudioNode"
+    static let fileName = "TinyAgainstTheGiantsEnemyChirp.caf"
+  }
 }
 
 // MARK: Component Functions
