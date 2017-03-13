@@ -28,6 +28,7 @@
 		8B09D7FE1E7503610025520D /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09D7FD1E7503610025520D /* String+Helper.swift */; };
 		8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */; };
 		8B0EB1CB1E194AAE00128B41 /* EntityBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */; };
+		8B13E05E1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8B13E05D1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf */; };
 		8B1A43911E5E929800B4589B /* GameScene+Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1A43901E5E929800B4589B /* GameScene+Credits.swift */; };
 		8B331B9D1E29D73D00C7B298 /* GameSceneActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */; };
 		8B331B9F1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */; };
@@ -136,6 +137,7 @@
 		8B09D7FD1E7503610025520D /* String+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilder.swift; sourceTree = "<group>"; };
 		8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilderSpec.swift; sourceTree = "<group>"; };
+		8B13E05D1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TinyAgainstTheGiantsButtonSound.caf; sourceTree = "<group>"; };
 		8B1A43901E5E929800B4589B /* GameScene+Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+Credits.swift"; sourceTree = "<group>"; };
 		8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveState.swift; sourceTree = "<group>"; };
 		8B331B9E1E29D78E00C7B298 /* GameSceneActiveStateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveStateSpec.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 		8B8639781E5BF1E200EEEAE9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				8B13E05D1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf */,
 				8B006D3C1E579A5900A70F4C /* TinyAgainstTheGiantsBackground.caf */,
 				8B54F8A41E72593800E4ED39 /* Sound.swift */,
 			);
@@ -718,6 +721,7 @@
 			files = (
 				8BEAD7FE1E19CAE2007F68C5 /* TileSet.sks in Resources */,
 				8BD4BB9E1E229CC0006A6C38 /* MagicParticle.sks in Resources */,
+				8B13E05E1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf in Resources */,
 				8BC0E40C1E177A1C0087C7E2 /* Main.storyboard in Resources */,
 				8BD4BB9C1E229C7D006A6C38 /* FireParticle.sks in Resources */,
 				8BC0E40E1E177A1C0087C7E2 /* Assets.xcassets in Resources */,

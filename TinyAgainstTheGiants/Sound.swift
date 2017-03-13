@@ -44,6 +44,6 @@ extension Sound {
   
   struct AudioFile {
     static let background = "TinyAgainstTheGiantsBackground"
-    static let button = "TinyAgainstTheGiantsBackground"
+    static let button = "TinyAgainstTheGiantsButtonSound"
   }
 }
