@@ -41,7 +41,10 @@ extension GameSceneFailState {
     }
     
     gameScene.pause()
-    gameScene.gameSceneDelegate?.didEnteredFailState()
+    
+    if GKRandomSource.sharedRandom().nextInt(upperBound: 5) == 0 {
+      gameScene.gameSceneDelegate?.didEnteredFailState()
+    }
   }
   
   override func willExit(to nextState: GKState) {
