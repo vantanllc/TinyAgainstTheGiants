@@ -53,7 +53,14 @@ class EnemyEntity: GKEntity {
   
   // MARK: Properties
   let maxSpeed: Float = 500
-  let maxAcceleration: Float = 250
+  var maxAcceleration: Float {
+    switch UIDevice.current.model {
+      case "iPad":
+        return 400
+      default:
+        return 250
+    }
+  }
   let mass: Float = 1
 }
 
