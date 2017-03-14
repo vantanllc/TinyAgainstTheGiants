@@ -28,7 +28,6 @@
 		8B09D7FE1E7503610025520D /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09D7FD1E7503610025520D /* String+Helper.swift */; };
 		8B0EB1C91E194A9000128B41 /* EntityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */; };
 		8B0EB1CB1E194AAE00128B41 /* EntityBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */; };
-		8B13E05E1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8B13E05D1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf */; };
 		8B13E0601E76465F00D56100 /* TinyAgainstTheGiantsEnemyChirp.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8B13E05F1E76465F00D56100 /* TinyAgainstTheGiantsEnemyChirp.caf */; };
 		8B1A43911E5E929800B4589B /* GameScene+Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1A43901E5E929800B4589B /* GameScene+Credits.swift */; };
 		8B331B9D1E29D73D00C7B298 /* GameSceneActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */; };
@@ -96,6 +95,7 @@
 		8BFABF601E1CA26600C613A0 /* NodeLayerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */; };
 		8BFABF6D1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */; };
 		8BFABF6F1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift */; };
+		8BFCA70A1E7861AC00D8A834 /* TinyAgainstTheGiantsButtonSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCA7091E7861AC00D8A834 /* TinyAgainstTheGiantsButtonSound.caf */; };
 		EC75BDFEE92EBB4BCC2C8ECD /* Pods_TinyAgainstTheGiantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A88E98FDF211E7EA8CFE473 /* Pods_TinyAgainstTheGiantsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,7 +139,6 @@
 		8B09D7FD1E7503610025520D /* String+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		8B0EB1C81E194A9000128B41 /* EntityBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilder.swift; sourceTree = "<group>"; };
 		8B0EB1CA1E194AAE00128B41 /* EntityBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityBuilderSpec.swift; sourceTree = "<group>"; };
-		8B13E05D1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TinyAgainstTheGiantsButtonSound.caf; sourceTree = "<group>"; };
 		8B13E05F1E76465F00D56100 /* TinyAgainstTheGiantsEnemyChirp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TinyAgainstTheGiantsEnemyChirp.caf; sourceTree = "<group>"; };
 		8B1A43901E5E929800B4589B /* GameScene+Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+Credits.swift"; sourceTree = "<group>"; };
 		8B331B9C1E29D73D00C7B298 /* GameSceneActiveState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneActiveState.swift; sourceTree = "<group>"; };
@@ -213,6 +212,7 @@
 		8BFABF5F1E1CA26600C613A0 /* NodeLayerPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeLayerPosition.swift; sourceTree = "<group>"; };
 		8BFABF6C1E1CB12B00C613A0 /* TileMapPhysicsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapPhysicsBuilder.swift; sourceTree = "<group>"; };
 		8BFABF6E1E1CB22300C613A0 /* TileMapPhysicsBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapPhysicsBuilderSpec.swift; sourceTree = "<group>"; };
+		8BFCA7091E7861AC00D8A834 /* TinyAgainstTheGiantsButtonSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TinyAgainstTheGiantsButtonSound.caf; sourceTree = "<group>"; };
 		9A88E98FDF211E7EA8CFE473 /* Pods_TinyAgainstTheGiantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinyAgainstTheGiantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1211D5D63FBC6EF2735935B /* Pods_TinyAgainstTheGiants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinyAgainstTheGiants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75DE3C57C1EDF02F6D1B21D /* Pods-TinyAgainstTheGiantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyAgainstTheGiantsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TinyAgainstTheGiantsTests/Pods-TinyAgainstTheGiantsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -333,7 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				8B13E05F1E76465F00D56100 /* TinyAgainstTheGiantsEnemyChirp.caf */,
-				8B13E05D1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf */,
+				8BFCA7091E7861AC00D8A834 /* TinyAgainstTheGiantsButtonSound.caf */,
 				8B006D3C1E579A5900A70F4C /* TinyAgainstTheGiantsBackground.caf */,
 				8B54F8A41E72593800E4ED39 /* Sound.swift */,
 			);
@@ -727,12 +727,12 @@
 			files = (
 				8BEAD7FE1E19CAE2007F68C5 /* TileSet.sks in Resources */,
 				8BD4BB9E1E229CC0006A6C38 /* MagicParticle.sks in Resources */,
-				8B13E05E1E76431C00D56100 /* TinyAgainstTheGiantsButtonSound.caf in Resources */,
 				8BC0E40C1E177A1C0087C7E2 /* Main.storyboard in Resources */,
 				8BD4BB9C1E229C7D006A6C38 /* FireParticle.sks in Resources */,
 				8BC0E40E1E177A1C0087C7E2 /* Assets.xcassets in Resources */,
 				8B13E0601E76465F00D56100 /* TinyAgainstTheGiantsEnemyChirp.caf in Resources */,
 				8BC0E4111E177A1C0087C7E2 /* LaunchScreen.storyboard in Resources */,
+				8BFCA70A1E7861AC00D8A834 /* TinyAgainstTheGiantsButtonSound.caf in Resources */,
 				8B006D3D1E579A5900A70F4C /* TinyAgainstTheGiantsBackground.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
