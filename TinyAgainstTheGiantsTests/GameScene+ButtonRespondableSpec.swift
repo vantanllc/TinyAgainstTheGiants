@@ -16,6 +16,7 @@ class GameSceneButtonRespondableSpec: QuickSpec {
   override func spec() {
     describe("GameScene+ButtonRespondable") {
       var gameScene: MockGameScene!
+      var button: ButtonNode!
       
       class MockGameScene: GameScene {
         override func showCredits() {
@@ -26,82 +27,141 @@ class GameSceneButtonRespondableSpec: QuickSpec {
       }
       
       beforeEach {
+        button = ButtonNode()
         gameScene = MockGameScene()
       }
       
       describe("buttonTrigger") {
+        beforeEach {
+          gameScene.buttonAudio = Sound.getAudioPlayer(forResource: Sound.AudioFile.button, ofType: Sound.FileType.caf)
+        }
+        
         context("credits") {
-          var button: ButtonNode!
-          
-          beforeEach {
-            button = ButtonNode()
+          it("should show credits alertview") {
             button.name = ButtonIdentifier.credits.rawValue
             gameScene.buttonTriggered(button: button)
-          }
-          
-          it("should show credits alertview") {
             expect(gameScene.showCreditsWasCalled).to(beTrue())
           }
         }
         
         context("pause") {
-          var button: ButtonNode!
-          
-          beforeEach {
-            button = ButtonNode()
+          it("should enter PauseState") {
             button.name = ButtonIdentifier.pause.rawValue
             gameScene.buttonTriggered(button: button)
-          }
-          
-          it("should enter PauseState") {
             expect(gameScene.stateMachine.currentState).to(beAKindOf(GameScenePauseState.self))
           }
         }
         
         context("start") {
-          var button: ButtonNode!
-          
-          beforeEach {
-            button = ButtonNode()
+          it("should enter ActiveState") {
             button.name = ButtonIdentifier.start.rawValue
             gameScene.buttonTriggered(button: button)
-          }
-          
-          it("should enter ActiveState") {
             expect(gameScene.stateMachine.currentState).to(beAKindOf(GameSceneActiveState.self))
           }
         }
         
         context("resume") {
-          var button: ButtonNode!
-          
-          beforeEach {
-            button = ButtonNode()
+          it("should enter ActiveState") {
             button.name = ButtonIdentifier.resume.rawValue
             gameScene.stateMachine.enter(GameSceneFailState.self)
             gameScene.buttonTriggered(button: button)
-          }
-          
-          it("should enter ActiveState") {
             expect(gameScene.stateMachine.currentState).to(beAKindOf(GameSceneActiveState.self))
           }
         }
         
-        context("retry") {
-          var button: ButtonNode!
+        context("musicButton") {
+          beforeEach {
+            gameScene.backgroundAudio = Sound.getBackgroundAudioPlayer()
+          }
           
+          afterEach {
+            Sound.current.isEnabled = true
+          }
+          
+          context("musicOn") {
+            beforeEach {
+              button.name = ButtonIdentifier.musicOn.rawValue
+            }
+            
+            it("should disable sound") {
+              Sound.current.isEnabled = true
+              gameScene.buttonTriggered(button: button)
+              expect(Sound.current.isEnabled).to(beFalse())
+            }
+            
+            it("should pause backgroundAudio") {
+              gameScene.backgroundAudio.play()
+              gameScene.buttonTriggered(button: button)
+              expect(gameScene.backgroundAudio.isPlaying).to(beFalse())
+            }
+            
+            it("should update button identifier to musicOff") {
+              gameScene.buttonTriggered(button: button)
+              expect(button.buttonIdentifier).to(equal(ButtonIdentifier.musicOff))
+            }
+          }
+          
+          context("musicOff") {
+            beforeEach {
+              button.name = ButtonIdentifier.musicOff.rawValue
+            }
+            
+            it("should enable sound") {
+              Sound.current.isEnabled = false
+              gameScene.buttonTriggered(button: button)
+              expect(Sound.current.isEnabled).to(beTrue())
+            }
+            
+            it("should resume backgroundAudio") {
+              gameScene.backgroundAudio.pause()
+              gameScene.buttonTriggered(button: button)
+              expect(gameScene.backgroundAudio.isPlaying).to(beTrue())
+            }
+            
+            it("should update button identifier to musicOn") {
+              gameScene.buttonTriggered(button: button)
+              expect(button.buttonIdentifier).to(equal(ButtonIdentifier.musicOn))
+            }
+          }
+        }
+        
+        context("any button") {
+          beforeEach {
+            button.name = ButtonIdentifier.credits.rawValue
+          }
+          
+          afterEach {
+            Sound.current.isEnabled = true
+          }
+          
+          it("should play buttonAudio if sound is enabled") {
+            Sound.current.isEnabled = true
+            gameScene.buttonTriggered(button: button)
+            expect(gameScene.buttonAudio.isPlaying).to(beTrue())
+          }
+          
+          it("should not play buttonAudio if sound is disabled") {
+            Sound.current.isEnabled = false
+            gameScene.buttonTriggered(button: button)
+            expect(gameScene.buttonAudio.isPlaying).to(beFalse())
+          }
+        }
+        
+        context("retry") {
           beforeEach {
             for _ in 1...10 {
               gameScene.entityManager.add(entity: GKEntity())
             }
-            button = ButtonNode()
             button.name = ButtonIdentifier.retry.rawValue
             gameScene.stateMachine.enter(GameSceneFailState.self)
             gameScene.buttonTriggered(button: button)
           }
           
-          it("should remove all entities and add only the player entity") {
+          it("should remove all entities except for player") {
             expect(gameScene.entityManager.entities).to(haveCount(1))
+          }
+          
+          it("should add only the player entity") {
             expect(gameScene.entityManager.getPlayerEntity()).toNot(beNil())
           }
           

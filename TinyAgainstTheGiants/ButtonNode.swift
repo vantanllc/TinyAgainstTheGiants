@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 protocol ButtonRespondable {
   func buttonTriggered(button: ButtonNode)
@@ -15,8 +16,9 @@ protocol ButtonRespondable {
 enum ButtonIdentifier: String {
   case retry, pause, resume, start
   case credits
+  case musicOn, musicOff
   static let all: [ButtonIdentifier] = [
-    .retry, .pause, .resume, .start, .credits
+    .retry, .pause, .resume, .start, .credits, musicOn, musicOff
   ]
 }
 

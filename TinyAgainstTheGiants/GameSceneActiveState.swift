@@ -68,15 +68,17 @@ extension GameSceneActiveState {
       timerNode.position = GameSceneActiveState.getPosition(forTimerNode: timerNode, inScene: gameScene)
       gameScene.camera?.addChild(timerNode)
     }
+    
+    gameScene.listener = gameScene.entityManager.getPlayerRenderNode()
   }
   
   override func willExit(to nextState: GKState) {
     pauseButton?.removeFromParent()
+    gameScene.listener = nil
   }
   
   func createPauseButton() -> ButtonNode {
     let pauseButton = ButtonBuilder.createButton(withIdentifier: .pause)
-    pauseButton.zPosition = NodeLayerPosition.button
     pauseButton.anchorPoint = CGPoint(x: 1, y: 0)
     pauseButton.position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
     return pauseButton

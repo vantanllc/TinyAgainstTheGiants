@@ -27,6 +27,34 @@ extension GameScene: ButtonRespondable {
       stateMachine.enter(GameSceneActiveState.self)
     case .credits:
       showCredits()
+    case .musicOn:
+      Sound.current.isEnabled = false
+      backgroundAudio.pause()
+      updateButton(button, withIdentifier: .musicOff)
+      for enemy in entityManager.getEnemyEntities()! {
+        if let enemy = enemy as? EnemyEntity {
+          enemy.removeAudioNode()
+        }
+      }
+    case .musicOff:
+      Sound.current.isEnabled = true
+      backgroundAudio.play()
+      updateButton(button, withIdentifier: .musicOn)
+      for enemy in entityManager.getEnemyEntities()! {
+        if let enemy = enemy as? EnemyEntity {
+          enemy.addAudioNode()
+        }
+      }
     }
+    
+    if Sound.current.isEnabled {
+      buttonAudio.play()
+    }
+  }
+  
+  func updateButton(_ button: ButtonNode, withIdentifier identifier: ButtonIdentifier) {
+    let texture = SKTexture(imageNamed: identifier.rawValue.capitalizingFirstLetter())
+    button.texture = texture
+    button.name = identifier.rawValue
   }
 }

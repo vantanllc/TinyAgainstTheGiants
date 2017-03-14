@@ -18,6 +18,7 @@ class GameScenePauseState: GKState {
   // MARK: Properties
   unowned let gameScene: GameScene
   var resumeButton: ButtonNode!
+  var musicButton: ButtonNode!
 }
 
 extension GameScenePauseState {
@@ -29,16 +30,29 @@ extension GameScenePauseState {
       gameScene.addChild(resumeButton)
     }
     
+    musicButton = Sound.current.isEnabled ? createMusicButton(withIdentifier: .musicOn) : createMusicButton(withIdentifier: .musicOff)
+    gameScene.camera?.addChild(musicButton)
+    
     gameScene.pause()
   }
   
   override func willExit(to nextState: GKState) {
     super.willExit(to: nextState)
     resumeButton?.removeFromParent()
+    musicButton?.removeFromParent()
     gameScene.resume()
   }
   
   override func isValidNextState(_ stateClass: AnyClass) -> Bool {
     return stateClass is GameSceneActiveState.Type
+  }
+}
+
+extension GameScenePauseState {
+  public func createMusicButton(withIdentifier identifier: ButtonIdentifier) -> ButtonNode {
+    let button = ButtonBuilder.createButton(withIdentifier: identifier)
+    button.anchorPoint = CGPoint(x: 1, y: 0)
+    button.position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+    return button
   }
 }

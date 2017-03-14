@@ -166,6 +166,12 @@ class GameSceneActiveStateSpec: QuickSpec {
             expect(gameSceneActiveState.time.isZero).to(beTrue())
           }
         }
+        
+        it("should set the gameScene listener to the player's renderNode") {
+          gameSceneActiveState.didEnter(from: nil)
+          let playerNode = gameScene.entityManager.getPlayerRenderNode()
+          expect(gameScene.listener).to(be(playerNode))
+        }
       }
       
       context("willExit") {
@@ -175,6 +181,14 @@ class GameSceneActiveStateSpec: QuickSpec {
           gameScene.camera?.addChild(pauseButton)
           gameSceneActiveState.willExit(to: GKState())
           expect(pauseButton.parent).to(beNil())
+        }
+        
+        it("should set the gameScene listener to nil") {
+          let node = SKNode()
+          gameScene.addChild(node)
+          gameScene.listener = node
+          gameSceneActiveState.willExit(to: GKState())
+          expect(gameScene.listener).to(beNil())
         }
       }
     }

@@ -9,6 +9,15 @@
 import GameplayKit
 
 class EnemyEntity: GKEntity {
+  func removeAudioNode() {
+    component(ofType: AudioComponent.self)?.node.removeFromParent()
+  }
+  
+  func addAudioNode() {
+    if let audioNode = component(ofType: AudioComponent.self)?.node, let renderNode = component(ofType: RenderComponent.self)?.node {
+      renderNode.addChild(audioNode)
+    }
+  }
   // MARK: Lifcycle
   init(node: SKSpriteNode, entityManager: EntityManager? = nil) {
     super.init()
@@ -25,9 +34,12 @@ class EnemyEntity: GKEntity {
     renderComponent.node.addChild(spriteComponent.node)
     spriteComponent.node.addChild(particleComponent.particleEffect)
     
+    let audioComponent = AudioComponent(node: SKAudioNode(fileNamed: AudioNode.fileName))
+    
     addComponent(renderComponent)
     addComponent(spriteComponent)
     addComponent(particleComponent)
+    addComponent(audioComponent)
     
     addTeamComponentWithTeam(.Two)
     let radius = node.size.width / 2
@@ -43,6 +55,12 @@ class EnemyEntity: GKEntity {
   let maxSpeed: Float = 500
   let maxAcceleration: Float = 250
   let mass: Float = 1
+}
+
+extension EnemyEntity {
+  struct AudioNode {
+    static let fileName = "TinyAgainstTheGiantsEnemyChirp.caf"
+  }
 }
 
 // MARK: Component Functions
