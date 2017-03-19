@@ -27,11 +27,15 @@ extension GameScenePauseState {
     if let renderNode = gameScene.entityManager.getPlayerRenderNode() {
       resumeButton = ButtonBuilder.createButton(withIdentifier: .resume)
       resumeButton.position = renderNode.position.applying(CGAffineTransform(translationX: 0, y: 100))
+      resumeButton.alpha = 0
       gameScene.addChild(resumeButton)
+      resumeButton.fadeIn()
     }
     
     musicButton = Sound.current.isEnabled ? createMusicButton(withIdentifier: .musicOn) : createMusicButton(withIdentifier: .musicOff)
+    musicButton.alpha = 0
     gameScene.camera?.addChild(musicButton)
+    musicButton.fadeIn()
     
     gameScene.pause()
   }

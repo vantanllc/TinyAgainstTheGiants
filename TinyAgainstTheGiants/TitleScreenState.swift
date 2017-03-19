@@ -27,9 +27,7 @@ extension TitleScreenState {
     super.didEnter(from: previousState)
     addStartButton()
     addCreditsButton()
-    
-    title = createTitle()
-    gameScene.camera?.addChild(title)
+    addTitle()
     
     gameScene.startNewGame()
     gameScene.physicsWorld.gravity = GameScene.Configuration.gravity
@@ -46,13 +44,17 @@ extension TitleScreenState {
     creditsButton = ButtonBuilder.createButton(withIdentifier: .credits)
     creditsButton.anchorPoint = CGPoint(x: 1, y: 0)
     creditsButton.position = CGPoint(x: gameScene.size.width * 0.5, y: -gameScene.size.height * 0.5)
+    creditsButton.alpha = 0
     gameScene.camera?.addChild(creditsButton)
+    creditsButton.fadeIn()
   }
   
   func addStartButton() {
     startButton = ButtonBuilder.createButton(withIdentifier: .start)
     startButton.position = startButton.position.applying(CGAffineTransform(translationX: 0, y: 100))
+    startButton.alpha = 0
     gameScene.camera?.addChild(startButton)
+    startButton.fadeIn()
   }
   
   func createTitle() -> SKSpriteNode {
@@ -62,5 +64,14 @@ extension TitleScreenState {
     title.anchorPoint = CGPoint(x: 0.5, y: 1)
     title.position = CGPoint(x: 0, y: gameScene.size.height / 2)
     return title
+  }
+  
+  func addTitle() {
+    title = createTitle()
+    title.alpha = 0
+    gameScene.camera?.addChild(title)
+    let fadeIn = SKAction.fadeIn(withDuration: 0.3)
+    fadeIn.timingMode = .easeInEaseOut
+    title.run(fadeIn)
   }
 }

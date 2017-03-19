@@ -47,6 +47,20 @@ extension ButtonNode {
       responder?.buttonTriggered(button: self)
     }
   }
+  
+  func fadeIn() {
+    let fadeIn = SKAction.fadeIn(withDuration: Configuration.fadeInDuration)
+    fadeIn.timingMode = .easeIn
+    run(fadeIn)
+  }
+}
+
+// MARK: Config
+extension ButtonNode {
+  struct Configuration {
+    static let fadeOutDuration: TimeInterval = 0.3
+    static let fadeInDuration: TimeInterval = 0.3
+  }
 }
 
 // MARK: Touch handling

@@ -61,7 +61,9 @@ extension GameSceneActiveState {
     }
     
     pauseButton = createPauseButton()
+    pauseButton.alpha = 0
     gameScene.camera?.addChild(pauseButton)
+    pauseButton.fadeIn()
     
     if gameScene.camera?.childNode(withName: LabelIdentifier.timer.rawValue) == nil {
        timerNode = LabelBuilder.createTimerLabel()
