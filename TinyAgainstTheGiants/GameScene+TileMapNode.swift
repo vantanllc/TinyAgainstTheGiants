@@ -9,8 +9,12 @@
 import GameplayKit
 
 extension GameScene {
+  struct TileSet {
+    static let background = "Sand"
+    static let obstacle = "Obstacles"
+  }
   func addBackgroundTileMap() {
-    guard let tileSet = SKTileSet(named: "Sand") else {
+    guard let tileSet = SKTileSet(named: TileSet.background) else {
       return
     }
     
@@ -24,7 +28,7 @@ extension GameScene {
   }
   
   func addNextBackgroundTileMap() {
-    guard let tileSet = SKTileSet(named: "Sand") else {
+    guard let tileSet = SKTileSet(named: TileSet.background) else {
       return
     }
     nextBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
@@ -63,7 +67,7 @@ extension GameScene {
   }
   
   func addObstacleTileMap() {
-    guard let tileSet = SKTileSet(named: "Obstacles") else {
+    guard let tileSet = SKTileSet(named: TileSet.obstacle) else {
       return
     }
     
@@ -78,7 +82,7 @@ extension GameScene {
   }
   
   func addNextObstacleTileMap() {
-    guard let tileSet = SKTileSet(named: "Obstacles") else {
+    guard let tileSet = SKTileSet(named: TileSet.obstacle) else {
       return
     }
     nextObstacleTileMap = createObstacleTileMapWithTileSet(tileSet)
