@@ -31,10 +31,17 @@ extension GameScene {
     guard let tileSet = SKTileSet(named: TileSet.background) else {
       return
     }
-    nextBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
-    nextBackgroundTileMap.position.x = currentBackgroundTileMap.frame.minX
-    nextBackgroundTileMap.position.y = currentBackgroundTileMap.frame.minY
-    worldNode.addChild(nextBackgroundTileMap)
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+      if let tileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: self.tileMapColumns, rows: self.tileMapRows) {
+        DispatchQueue.main.async {
+          tileMap.position.x = self.currentBackgroundTileMap.frame.minX
+          tileMap.position.y = self.currentBackgroundTileMap.frame.minY
+          self.nextBackgroundTileMap = tileMap
+          self.worldNode.addChild(self.nextBackgroundTileMap)
+        }
+      }
+    }
   }
   
   func configureTileMap(_ tileMap: SKTileMapNode) {
