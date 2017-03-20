@@ -92,27 +92,36 @@ extension GameScene {
     guard let tileSet = SKTileSet(named: TileSet.obstacle) else {
       return
     }
-    nextObstacleTileMap = createObstacleTileMapWithTileSet(tileSet)
-    nextObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
-    nextObstacleTileMap.position.y = currentObstacleTileMap.frame.minY
-    worldNode.addChild(nextObstacleTileMap)
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+      if let tileMap = self.createObstacleTileMapWithTileSet(tileSet) {
+        DispatchQueue.main.async {
+          tileMap.position.x = self.currentObstacleTileMap.frame.minX
+          tileMap.position.y = self.currentObstacleTileMap.frame.minY
+          self.nextObstacleTileMap = tileMap
+          self.worldNode.addChild(self.nextObstacleTileMap)
+        }
+      }
+    }
   }
   
   func updateBackgroundTileMaps() {
-    if let tileMap = previousBackgroundTileMap, tileMap.parent != nil {
-      tileMap.removeFromParent()
+    guard let nextBackgroundTileMap = nextBackgroundTileMap else {
+      return
     }
     
+    previousBackgroundTileMap.removeFromParent()
     previousBackgroundTileMap = currentBackgroundTileMap
     currentBackgroundTileMap = nextBackgroundTileMap
     addNextBackgroundTileMap()
   }
   
   func updateObstacleTileMaps() {
-    if let tileMap = previousObstacleTileMap, tileMap.parent != nil {
-      tileMap.removeFromParent()
+    guard let nextObstacleTileMap = nextObstacleTileMap else {
+      return
     }
     
+    previousObstacleTileMap.removeFromParent()
     previousObstacleTileMap = currentObstacleTileMap
     TileMapBuilder.addTopEdgeToTileMap(previousObstacleTileMap)
     previousObstacleTileMap.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: previousObstacleTileMap))
