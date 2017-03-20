@@ -28,23 +28,9 @@ extension GameScene: ButtonRespondable {
     case .credits:
       showCredits()
     case .musicOn:
-      Sound.current.isEnabled = false
-      backgroundAudio.pause()
-      updateButton(button, withIdentifier: .musicOff)
-      for enemy in entityManager.getEnemyEntities()! {
-        if let enemy = enemy as? EnemyEntity {
-          enemy.removeAudioNode()
-        }
-      }
+      handleMusicOnPress(forButton: button)
     case .musicOff:
-      Sound.current.isEnabled = true
-      backgroundAudio.play()
-      updateButton(button, withIdentifier: .musicOn)
-      for enemy in entityManager.getEnemyEntities()! {
-        if let enemy = enemy as? EnemyEntity {
-          enemy.addAudioNode()
-        }
-      }
+      handleMusicOffPress(forButton: button)
     }
     
     if Sound.current.isEnabled {
@@ -56,5 +42,27 @@ extension GameScene: ButtonRespondable {
     let texture = SKTexture(imageNamed: identifier.rawValue.capitalizingFirstLetter())
     button.texture = texture
     button.name = identifier.rawValue
+  }
+  
+  fileprivate func handleMusicOnPress(forButton button: ButtonNode) {
+    Sound.current.isEnabled = false
+    backgroundAudio.pause()
+    updateButton(button, withIdentifier: .musicOff)
+    for enemy in entityManager.getEnemyEntities()! {
+      if let enemy = enemy as? EnemyEntity {
+        enemy.removeAudioNode()
+      }
+    }
+  }
+  
+  fileprivate func handleMusicOffPress(forButton button: ButtonNode) {
+    Sound.current.isEnabled = true
+    backgroundAudio.play()
+    updateButton(button, withIdentifier: .musicOn)
+    for enemy in entityManager.getEnemyEntities()! {
+      if let enemy = enemy as? EnemyEntity {
+        enemy.addAudioNode()
+      }
+    }
   }
 }

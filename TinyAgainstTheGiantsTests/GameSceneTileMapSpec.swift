@@ -16,7 +16,7 @@ class GameSceneTileMapSpec: QuickSpec {
   override func spec() {
     var gameScene: GameScene!
     
-    describe("GameScene") {
+    xdescribe("GameScene") {
       beforeEach {
         gameScene = GameScene()
       }

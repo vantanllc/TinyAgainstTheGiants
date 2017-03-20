@@ -27,8 +27,10 @@ extension GameSceneFailState {
     
     if let renderNode = gameScene.entityManager.getPlayerRenderNode() {
       retryButton = ButtonBuilder.createButton(withIdentifier: .retry)
+      retryButton.alpha = 0
       retryButton.position = renderNode.position.applying(CGAffineTransform(translationX: 0, y: 100))
       gameScene.addChild(retryButton)
+      retryButton.fadeIn()
     }
     
     if let activeState = previousState as? GameSceneActiveState {
@@ -37,7 +39,9 @@ extension GameSceneFailState {
       bestTimeNode.text = bestTimeText
       bestTimeNode.fontSize = Configuration.bestTimeLabelFontSize
       bestTimeNode.position = activeState.timerNode.position.applying(CGAffineTransform(translationX: 0, y: -activeState.timerNode.frame.size.height))
+      bestTimeNode.alpha = 0
       gameScene.camera?.addChild(bestTimeNode)
+      bestTimeNode.run(SKAction.fadeIn(withDuration: 0.3))
     }
     
     gameScene.pause()

@@ -9,8 +9,12 @@
 import GameplayKit
 
 extension GameScene {
+  struct TileSet {
+    static let background = "Sand"
+    static let obstacle = "Obstacles"
+  }
   func addBackgroundTileMap() {
-    guard let tileSet = SKTileSet(named: "Sand") else {
+    guard let tileSet = SKTileSet(named: TileSet.background) else {
       return
     }
     
@@ -24,13 +28,20 @@ extension GameScene {
   }
   
   func addNextBackgroundTileMap() {
-    guard let tileSet = SKTileSet(named: "Sand") else {
+    guard let tileSet = SKTileSet(named: TileSet.background) else {
       return
     }
-    nextBackgroundTileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: tileMapColumns, rows: tileMapRows)
-    nextBackgroundTileMap.position.x = currentBackgroundTileMap.frame.minX
-    nextBackgroundTileMap.position.y = currentBackgroundTileMap.frame.minY
-    worldNode.addChild(nextBackgroundTileMap)
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+      if let tileMap = TileMapBuilder.createFilledTileMapWithTileSet(tileSet, columns: self.tileMapColumns, rows: self.tileMapRows) {
+        DispatchQueue.main.async {
+          tileMap.position.x = self.currentBackgroundTileMap.frame.minX
+          tileMap.position.y = self.currentBackgroundTileMap.frame.minY
+          self.nextBackgroundTileMap = tileMap
+          self.worldNode.addChild(self.nextBackgroundTileMap)
+        }
+      }
+    }
   }
   
   func configureTileMap(_ tileMap: SKTileMapNode) {
@@ -63,7 +74,7 @@ extension GameScene {
   }
   
   func addObstacleTileMap() {
-    guard let tileSet = SKTileSet(named: "Obstacles") else {
+    guard let tileSet = SKTileSet(named: TileSet.obstacle) else {
       return
     }
     
@@ -78,30 +89,39 @@ extension GameScene {
   }
   
   func addNextObstacleTileMap() {
-    guard let tileSet = SKTileSet(named: "Obstacles") else {
+    guard let tileSet = SKTileSet(named: TileSet.obstacle) else {
       return
     }
-    nextObstacleTileMap = createObstacleTileMapWithTileSet(tileSet)
-    nextObstacleTileMap.position.x = currentObstacleTileMap.frame.minX
-    nextObstacleTileMap.position.y = currentObstacleTileMap.frame.minY
-    worldNode.addChild(nextObstacleTileMap)
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+      if let tileMap = self.createObstacleTileMapWithTileSet(tileSet) {
+        DispatchQueue.main.async {
+          tileMap.position.x = self.currentObstacleTileMap.frame.minX
+          tileMap.position.y = self.currentObstacleTileMap.frame.minY
+          self.nextObstacleTileMap = tileMap
+          self.worldNode.addChild(self.nextObstacleTileMap)
+        }
+      }
+    }
   }
   
   func updateBackgroundTileMaps() {
-    if let tileMap = previousBackgroundTileMap, tileMap.parent != nil {
-      tileMap.removeFromParent()
+    guard let nextBackgroundTileMap = nextBackgroundTileMap else {
+      return
     }
     
+    previousBackgroundTileMap.removeFromParent()
     previousBackgroundTileMap = currentBackgroundTileMap
     currentBackgroundTileMap = nextBackgroundTileMap
     addNextBackgroundTileMap()
   }
   
   func updateObstacleTileMaps() {
-    if let tileMap = previousObstacleTileMap, tileMap.parent != nil {
-      tileMap.removeFromParent()
+    guard let nextObstacleTileMap = nextObstacleTileMap else {
+      return
     }
     
+    previousObstacleTileMap.removeFromParent()
     previousObstacleTileMap = currentObstacleTileMap
     TileMapBuilder.addTopEdgeToTileMap(previousObstacleTileMap)
     previousObstacleTileMap.physicsBody = SKPhysicsBody(bodies: TileMapPhysicsBuilder.getPhysicsBodiesFromTileMapNode(tileMapNode: previousObstacleTileMap))
